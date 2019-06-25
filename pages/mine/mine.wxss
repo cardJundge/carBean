@@ -1,0 +1,219 @@
+/* 我的 */
+
+.container {
+  width: 100%;
+}
+
+/* 用户基本信息 */
+
+.pesonal-info {
+  width: 100%;
+  height: 196rpx;
+  margin: 0 auto;
+  padding: 2rpx 24rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.personal-info-left {
+  display: flex;
+  align-items: center;
+}
+
+.personal-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 26rpx;
+}
+
+.personal-avatar image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+}
+
+.personal-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-name text:first-child {
+  font-size: 50rpx;
+  font-family: PingFangSC-Medium;
+  color: #222227;
+}
+
+.personal-name text:last-child {
+  color: #6e6e6e;
+}
+
+.personal-info-right {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.personal-info-right image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* 个人中心主要内容 */
+
+.content {
+  width: 702rpx;
+  margin: 0 auto;
+}
+
+/* 账户 */
+
+.account {
+  width: 100%;
+  height: 80rpx;
+  margin: 24rpx 0;
+  box-shadow: 0 0 4rpx 2rpx rgba(212, 212, 212, 0.50);
+  border-radius: 10rpx;
+  padding: 0 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-left {
+  display: flex;
+  align-items: center;
+}
+
+.account-img {
+  width: 58rpx;
+  height: 58rpx;
+  margin-right: 12rpx;
+}
+
+.account-img image {
+  width: 58rpx;
+  height: 58rpx;
+}
+
+.account-text {
+  font-size: 36rpx;
+}
+
+.account-right {
+  display: inline-flex;
+  align-items: center;
+}
+
+.account-right text {
+  font-size: 24rpx;
+  margin-right: 12rpx;
+}
+.account-right image {
+  width: 18rpx;
+  height: 32rpx;
+}
+
+/* 会员入口 */
+
+.member-entry {
+  width: 100%;
+  height: 160rpx;
+}
+
+.member-entry image {
+  width: 100%;
+  height: 160rpx;
+}
+
+/* 基本功能 */
+
+.basic-function {
+  width: 100%;
+  height: 422rpx;
+  margin: 24rpx 0;
+  box-shadow: 0 0 4rpx 2rpx rgba(186, 186, 186, 0.50);
+  border-radius: 20rpx;
+  padding: 0 60rpx;
+}
+
+.basic-function>view {
+  width: 100%;
+  height: 211rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.basic-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.basic-img {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 10rpx;
+}
+
+.basic-img image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/* 设置 */
+
+.setting {
+  width: 100%;
+}
+
+.setting text {
+  font-family: PingFangSC-Medium;
+}
+
+.setting ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.setting ul li {
+  width: 100%;
+  height: 80rpx;
+  box-shadow: 0 0 4rpx 2rpx rgba(212, 212, 212, 0.50);
+  border-radius: 10rpx;
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: center;
+}
+
+.setting ul li:first-child {
+  margin-top: 12rpx;
+}
+
+.setting-img {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin: 0 12rpx 0 24rpx;
+}
+
+.setting-img image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.no-user-info {
+  display: flex;
+  justify-content: center;
+  padding: 80rpx 0 160rpx;
+  background-color: #4f93fd;
+}
+
+.no-user-info button {
+  display: inline-block;
+  padding: 8rpx 16rpx;
+  color: #fff;
+  background: #4f93fd;
+  font-size: 30rpx;
+}

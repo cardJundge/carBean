@@ -1,0 +1,4 @@
+<!--兑换成功-->
+<view class="container">
+  <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/order_success.png'}}" text01="您的礼品正在火速赶来…" text02="兑换成功" width="268" height="346" btnHidden="true" />
+</view>

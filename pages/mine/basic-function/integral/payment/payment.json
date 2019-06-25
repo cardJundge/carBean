@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "pay-modal": "/components/pay-modal/pay"
+  },
+  "navigationBarTitleText": "确认订单"
+}

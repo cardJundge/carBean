@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-location-modal": "/components/location/location",
+    "my-tab-modal": "/components/community-title/community-title"
+  }
+}

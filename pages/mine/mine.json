@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "my-login-modal": "/components/login/login",
+    "my-logout-modal": "/components/logout/logout"
+  },
+  "navigationBarTitleText": "我的",
+  "navigationBarBackgroundColor": "#fff"
+}

@@ -1,0 +1,19 @@
+<!--pages/services/completeinformation/completeinformation.wxml-->
+<view class='container'>
+  <view class='basic'>基本信息</view>
+  <view class='input-basic'>输入您的基本信息</view>
+
+  <form bindsubmit="formSubmit">
+    <view class='input'>
+      <text>手机号:</text>
+      <input placeholder="请输入您的手机号" name="usertel" bindinput="obtaintel"></input>
+    </view> 
+    <view class='input'>
+      <text>验证码:</text>
+      <input placeholder="请输入您的验证码" name="code"></input>
+      <view class='code' bindtap='obtaincode'>{{codetext}}</view>
+    </view>  
+
+    <button form-type="submit" class='button'>完成</button>
+  </form>
+</view>

@@ -1,0 +1,50 @@
+/* 页面为空 */
+.container {
+  width: 100vw;
+}
+.null {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1044rpx;
+}
+
+.null-img {
+  /* width: 366rpx;
+  height: 192rpx; */
+  margin-top: 60rpx;
+}
+
+/* .null-img image {
+  width: 366rpx;
+  height: 192rpx;
+} */
+
+.null-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70rpx 0 60rpx;
+}
+
+.null-text text:first-child {
+  font-size: 36rpx;
+  margin-bottom: 12rpx;
+}
+
+.null-text text:last-child {
+  font-size: 24rpx;
+  color: #bbb;
+}
+
+.null-btn {
+  width: 420rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background: #4F93FD;
+  border-radius: 40rpx;
+  font-size: 36rpx;
+}

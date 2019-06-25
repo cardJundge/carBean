@@ -1,0 +1,47 @@
+
+<view class='{{container}}'>
+  <view class='loading_img_cell' wx:if='{{loaded}}'>
+  </view>
+  <view class='main_content' wx:if='{{!loaded}}'>
+    <form bindsubmit='submitPublic'>
+      <view class='ratings_cell'>
+        <view class='rating_content'>
+          <view class='input_cell1'>
+            <view style='position:relative'>
+            <!-- value='{{rating_contents}}' -->
+              <textarea maxlength='200' placeholder='给大家分享一下附近的有趣故事吧'  value='{{rating_contents}}' name='content' bindfocus="sharecontent" show-confirm-bar="{{false}}">
+              </textarea>
+              <text class='circle'></text>
+              <text class='circleB'></text>
+              <text class='length'>{{mess}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='video_cell' wx:if='{{mediaSrc}}'>
+        <view class='each_video'>
+           <video id="myVideo" src="{{mediaSrc}}"></video>
+        </view>
+        <view class='address'>{{address}}</view>
+      </view>
+      <view class='image_cell' wx:else>
+        <view class='each_image' bindtap='addVideo' style='text-align:center;'>
+          <view style='width:90px;background:#fff;padding:23px 0px;'>
+            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_camera@2x.png' style='width:50px;height:40px'></image>
+          </view>
+        </view>
+      </view>
+
+      <view style='margin:5% 5%'>
+        <my-fabutype-modal type="{{type}}" bind:onchecktype="onchecktype"/>
+      </view>
+
+      <view style='margin:0px 12px'>
+        <button form-type='submit' class='button_active' wx:if='{{!isOver}}'>发布</button>
+        <!-- <button class='button_active' wx:if='{{isOver}}'>正在发布...</button> -->
+        <button class='button_active1' wx:if='{{isOver}}'>发布</button>
+         <!-- <button class='button_active' wx:if='{{!isOver&&hascon}}'>发布</button> -->
+      </view>
+    </form>
+  </view>
+</view>

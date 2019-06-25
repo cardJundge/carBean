@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "my-orderlist-modal": "/components/orderlist/orderlist",
+    "my-orderlistitem-modal": "/components/orderlistitem/orderlistitem"
+  },
+
+  "navigationBarBackgroundColor":"#ffffff",
+  "navigationBarTitleText":"我的订单"
+}

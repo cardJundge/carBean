@@ -1,0 +1,33 @@
+/* 开通会员 */
+
+.container {
+}
+
+.success-img {
+  margin: 154rpx 0 48rpx;
+  text-align: center;
+}
+
+.success-img image {
+  width: 264rpx;
+  height: 189rpx;
+}
+
+.success-text {
+  text-align: center;
+  font-size: 36rpx;
+  color: #1a1a1a;
+  margin-bottom: 80rpx;
+}
+
+.success-btn {
+  width: 384rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 80rpx;
+  background: #1A84FF;
+}

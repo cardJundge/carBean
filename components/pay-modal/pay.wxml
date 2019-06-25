@@ -1,0 +1,19 @@
+<!--支付豆子-->
+<view class="container" wx:if="{{show}}">
+  <view class="bottom-modal">
+    <view class="title" bind:tap="">
+      <text>确认兑换</text>
+      <view bind:tap="hideModal" class="del-icon">
+        <image src="/images/icon/del_icon.png" />
+      </view>
+    </view>
+    <view class="content">
+      <text>1000豆子</text>
+      <text>剩余豆子:2000</text>
+      <view class="btn-toolbar">
+        <view>取消兑换</view>
+        <view bind:tap="toConfirm">确认兑换</view>
+      </view>
+    </view>
+  </view>
+</view>

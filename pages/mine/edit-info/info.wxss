@@ -1,0 +1,38 @@
+/* 基本信息修改 */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cell {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12rpx 24rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.avatar image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.confirm-btn {
+  width: 702rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #4f93fd;
+  border-radius: 40rpx;
+  margin-top: 20rpx;
+}

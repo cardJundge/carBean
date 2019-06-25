@@ -1,0 +1,88 @@
+<!--pages/services/servicesdetails/servicesdetails.wxml-->
+
+<view class='container'>
+
+  <view>
+    <image src='https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/allImage/moren.jpg'  class='headerimg'></image>
+  </view>
+
+  <view class='bodycontent'>
+    <view class='nav'>
+      <view class='title'>
+        
+        <view class='shopname'>{{shopname}}</view>
+        <view class='shoptype' wx:if='{{type==2}}'>4s店</view>
+        <view class='shoptype' wx:if='{{type==3}}'>维修店</view>
+        <view class='shoptype' wx:if='{{type==4}}'>改装店</view>
+        <view class='shoptype' wx:if='{{type==5}}'>快修店</view>
+        <view class='shoptype' wx:if='{{type==6}}'>洗车美容</view>
+        <view class='shoptype' wx:if='{{type==7}}'>轮胎</view>
+        <view class='shoptype' wx:if='{{type==8}}'>道路救援</view>
+        <view class='shoptype' wx:if='{{type==9}}'>二手车</view>
+        <view class='shoptype' wx:if='{{type==10}}'>其他</view>
+    
+      </view>
+
+      <view class='evaluate'>
+        <image src='/images/icon/icon_Order.png' class='orderimg'></image>
+        <view class='evaluate-num'>{{order}}</view>
+        <image src='/images/icon/icon_score.png' class='orderimg'></image>
+        <view class='evaluate-num'>{{comment}}</view>
+      </view>
+
+      <text>营业时间: 8:00-22:00</text>
+
+      <view class='distance'>{{distance}}km</view>
+
+      <view class='navigation' bindtap='openMap' data-name='{{shopname}}' id='{{address}}'>
+        <image src='/images/icon/position.png' class='positionimg'></image>
+        <view>导航</view>
+      </view>
+      
+    </view>
+
+    <view class='technicians' bindtap='toTechnician'>
+      <view class='technician_text'>门店技工</view>
+      <view class='technicians_num'>
+        <text>共{{task_count}}人</text>
+        <image src='/images/icon/right_arrow.png' class='arrowimg'></image>
+      </view>
+    </view>
+
+    <view class='section'>
+      <view class="service_text">门店服务</view>
+      <my-serviceitem-modal serviceitem="{{serviceitem}}" bind:oncheck='onCheck'/>
+    </view>  
+  </view>
+
+  <view class='bottom'>
+    <view class='bottom-left'>
+      <view>
+        <text class='serviceprice'>¥{{serviceitemprice}}</text>
+        <text class='serviceinvalid'>{{market_price}}</text>
+      </view>
+      <view>代为送检(年审,不含上线)</view>
+    </view>
+    <view class='bottom-right'>
+      <view class='customer' bindtap='callphone'>
+        <image src="/images/icon/button_consult.png" class='consult'></image>
+        <view class='customer_text'>客服咨询</view>
+      </view>
+      <view class='pay' bindtap='pay'>
+        <image src="/images/icon/button_account.png" class='consult'></image>
+        <button class='customer_text' hover-class="btn" >去结算</button>
+        <!-- <button class='customer_text' hover-class="btn" open-type='us'>去结算</button> -->
+      </view>
+    </view>
+  </view>
+
+  <my-usertel-modal  show='{{usertelshow}}' bind:confirm="onConfirm"/>
+  <my-phone-modal  show='{{phoneshow}}'/>
+  <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>
+
+</view>
+
+
+
+
+

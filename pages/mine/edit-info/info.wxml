@@ -1,0 +1,14 @@
+<!--修改资料-->
+<view class="container">
+  <view class="cell">
+    <text>头像</text>
+    <view class="avatar">
+      <image src="{{avatar}}"/>
+    </view>
+  </view>
+  <view class="cell">
+    <text>昵称</text>
+    <text>{{name}}</text>
+  </view>
+  <view class="confirm-btn">确定</view>
+</view>

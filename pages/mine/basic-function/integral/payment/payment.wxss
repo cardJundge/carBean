@@ -1,0 +1,165 @@
+/* 积分兑换支付页面 */
+
+.container {
+  padding: 24rpx;
+}
+
+.address-cell {
+  width: 100%;
+  height: 132rpx;
+  box-shadow: 0 0 6rpx 1rpx rgba(0, 0, 0, 0.10);
+  border-radius: 20rpx;
+  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx 0 32rpx;
+}
+
+.cell-icon {
+  margin-right: 24rpx;
+}
+
+.cell-icon image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.cell-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-name {
+  display: flex;
+  align-items: flex-end;
+}
+
+.info-name text:first-child {
+  margin-right: 24rpx;
+}
+
+.info-name text:last-child {
+  font-size: 24rpx;
+  color: #9a9a9a;
+}
+
+.info-add {
+  width: 562rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8rpx;
+}
+
+.info-add text {
+  font-size: 24rpx;
+}
+
+.info-next {
+  width: 14rpx;
+  height: 24rpx;
+}
+
+.info-next image {
+  width: 14rpx;
+  height: 24rpx;
+}
+
+.pro-cell {
+  width: 100%;
+  height: 260rpx;
+  box-shadow: 0 0 6rpx 1rpx rgba(0, 0, 0, 0.10);
+  border-radius: 20rpx;
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pro-detail {
+  display: flex;
+  align-items: center;
+}
+
+.pro-img {
+  width: 130rpx;
+  height: 130rpx;
+  background-color: #eee;
+  border-radius: 50%;
+  margin-right: 24rpx;
+}
+
+.pro-img image {
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.pro-content {
+}
+
+.pro-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500rpx;
+}
+
+.pro-title text:first-child {
+}
+
+.pro-title text:last-child {
+  font-size: 24rpx;
+  color: #969696;
+}
+
+.pro-msg {
+  font-size: 24rpx;
+  color: #969696;
+}
+
+.pro-price {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 24rpx;
+}
+
+.pro-price text:first-child {
+  color: #969696;
+}
+
+.pro-price text:last-child {
+  color: #4f93fd;
+}
+
+.pay-btn {
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx 0 60rpx;
+}
+.pay-msg {
+   display: flex;
+  align-items: center;
+}
+
+.pay-msg text:first-child {
+  color: #969696;
+}
+
+.pay-msg text:last-child {
+  color: #4f93fd;
+}
+
+.btn {
+  width: 230rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #4f93fd;
+}

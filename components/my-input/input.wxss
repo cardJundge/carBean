@@ -1,0 +1,22 @@
+/* 底部弹出来的键盘上方的input框 */
+
+.input-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  background-color: #eee;
+}
+
+.input-box textarea {
+  height: 150rpx;
+  border: 1px solid #afafaf;
+}
+
+.input-box view {
+  color: #afafaf;
+}

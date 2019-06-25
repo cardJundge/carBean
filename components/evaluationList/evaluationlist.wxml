@@ -1,0 +1,52 @@
+<import src="../replytemplate/replytemplate.wxml" />
+<template name="evaluationlist">
+  <view wx:for="{{evaluationArr}}" wx:item="{{item}}" wx:index="{{index}}" wx:key='key'>
+    
+    <view class="{{index == evaluationArr.length-1 ?'evaluationArr1':'evaluationArr'}}" >
+
+
+    <view style='display:inline-block'>
+      <image src='{{item.user_info.face}}' class='face'></image>
+    </view>
+    <!-- 等级 -->
+    <view style='display:inline-block' wx:if='{{item.grade}}'>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_bronze@2x.png' class='user_level' wx:if='{{item.grade==1}}' class='level'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_silver@2x.png' class='user_level' wx:elif='{{item.grade==2}}' class='level'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_gold@2x.png' class='user_level' wx:elif='{{item.grade==3}}' class='level'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_Platinum@2x.png' class='user_level' wx:elif='{{item.grade==4}}' class='level'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_Diamonds@2x.png' class='user_level' wx:elif='{{item.grade==5}}' class='level'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_Supreme@2x.png' class='user_level' wx:elif='{{item.grade==6}}' class='level'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_king@2x.png' class='user_level' wx:else='{{item.grade==7}}' class='level'></image>
+    </view>
+    <view style='display:inline-block' wx:else>
+    </view>
+
+    <view class='eva_message'>
+       <view class='username'>{{item.user_info.nickname}}</view>
+        
+        <view class='evacontent' catchtap='keyboard' 
+        data-nickname='{{item.user_info.nickname}}' data-fromid='{{item.from_uid}}' 
+        data-level='{{item.id}}' data-index='{{index}}'>{{item.content}}</view>
+        <view class='time-Reply'>
+          <view class='evatime'>{{item.post_date}}</view>
+          <!-- <view class='evareive' wx:if='{{item.reply.length==0}}' data-replyindex="{{index}}">回复</view>
+          <view class='evareive' wx:else  data-replyindex="{{index}}">
+          <text>{{item.length}}条回复</text> 
+          </view>-->
+        </view>  
+
+        <view wx:if='{{item.reply.length!=0}}'>
+          <view class='frame'>
+          <template is="replytemplate" data="{{reply:item.reply ,           Topcommentname:item.user_info.nickname , Arrindex:index , level:item.id ,moreShow:item.moreShow}}"/>
+          </view> 
+        </view>
+        
+        <!-- <view wx:if="{{index == evaluationArr.length-1}}">
+          <text class='replytext'>已显示全部评论</text>
+        </view> -->
+
+    </view>
+
+    </view>
+  </view>
+</template>

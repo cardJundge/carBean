@@ -1,0 +1,24 @@
+<!--车库-->
+<view class="container">
+  <view class='allCar'>
+    <view class='eachCar' wx:for="{{carList}}" wx:key="" wx:if="{{carList}}">
+      <view class='carContent' data-carId="{{item.id}}" bindlongpress="delCar">
+        <view class='car-logo'>
+          <image src="{{hostName}}/{{item.brand.logo}}" />
+           <view>{{item.model}}</view>
+        </view>
+        <view class='car-num'>
+          <view>{{item.car_no}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='eachCar' bindtap='toAddCar'>
+      <view class='carContent'>
+        <view class='car-logo'>
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/add_icon.png" />
+        </view>
+        <view class='car-num'>添加车辆</view>
+      </view>
+    </view>
+  </view>
+</view>

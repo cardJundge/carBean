@@ -1,0 +1,31 @@
+<template name="replytemplate">
+
+  <view wx:for="{{reply}}" wx:index="{{index}}" wx:item="{{item}}" wx:key="key">
+
+    <view wx:if="{{Topcommentname == item.to_user_info.nickname}}" class='row_reply'>
+
+      <view class='reply'  catchtap='keyboard' hidden="{{index >= 3 && !moreShow ?true:false}}"
+      data-nickname='{{item.from_user_info.nickname}}' data-fromid='{{item.from_uid}}' 
+        data-index='{{Arrindex}}' data-level='{{level}}'>
+        <view class='replyfromuser'>{{item.from_user_info.nickname}}:</view>
+        <!-- <view class='replycontent'>{{item.content}}</view> -->
+        <text class='replycontent'>{{item.content}}</text>
+      </view>
+
+    </view>
+
+    <view wx:else>
+      <view class='reply' hidden="{{index >= 3 && !moreShow?true:false}}"  catchtap='keyboard' data-nickname='{{item.from_user_info.nickname}}' data-fromid='{{item.from_uid}}' 
+        data-index='{{Arrindex}}' data-level='{{level}}'>
+        <view class='replyfromuser'>{{item.from_user_info.nickname}}</view>
+        <text class='huifu_text'>回复</text>
+        <view class='replytouser'>{{item.to_user_info.nickname}}:</view>
+        <!-- <view class='replycontent'>{{item.content}}</view> -->
+        <text class='replycontent'>{{item.content}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{index==2 && !moreShow && reply.length>3}}" class='more' catchtap='moreShow'  data-index='{{Arrindex}}'>查看更多</view>
+    
+  </view>
+</template>

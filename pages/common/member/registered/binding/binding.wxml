@@ -1,0 +1,18 @@
+<!--pages/common/member/registered/bing/bing.wxml-->
+<view class='container'>
+  <view class='basic'>绑定车辆</view>
+  <view class='input-basic'>绑定您的车辆</view>
+
+    <form bindsubmit="formSubmit">
+    <view class='input' bind:tap="toSelectBrand">
+      <text>车辆类型:</text>
+      <input placeholder="请选择您的车辆型号" name="carmode" value='{{carInfo.seriesName}}' disabled="true"></input>
+    </view> 
+    <view class='input'>
+      <text>车牌号:</text>
+      <input placeholder="请输入您的车牌号" name="carid"></input>
+    </view>  
+
+    <button form-type="submit" class='button'>确认</button>
+  </form>
+</view>

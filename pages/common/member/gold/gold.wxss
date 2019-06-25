@@ -1,0 +1,243 @@
+/* 金牌 */
+.container {
+  position: relative;
+  padding-bottom: 160rpx;
+}
+
+.container1 {
+  position: relative;
+  padding-bottom: 50rpx;
+}
+
+/* vip卡片 */
+
+.member-card {
+  width: 702rpx;
+  height: 354rpx;
+  margin: 24rpx 24rpx 0;
+}
+.member-card image {
+  width: 702rpx;
+  height: 354rpx;
+}
+
+.member-img {
+  width: 702rpx;
+  height: 2054rpx;
+  margin: 0 auto;
+}
+
+.member-img image {
+  width: 702rpx;
+  height: 2054rpx;
+}
+
+.member-btn {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40rpx;
+  width: 702rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #4F93FD;
+  border-radius: 40rpx;
+  color: #fff;
+}
+.member-card-vip {
+  width: 702rpx;
+  height: 354rpx;
+  margin: 24rpx 24rpx 0;
+  color: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/pic_jphy_bg.png?sign=c3363686ca7d57209e74ccba70fac1dd&t=1558075993') no-repeat;
+  background-size: 100% 100%; 
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+}
+
+.card-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 12rpx;
+}
+
+.card-avatar image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.card-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-name text:last-child {
+  font-size: 24rpx;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.card-bottom text {
+}
+
+.card-bottom view {
+  width: 212rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 35rpx;
+}
+
+/* vip专属特权 */
+
+.member-privilege {
+  width: 702rpx;
+  margin: 0 auto;
+}
+
+.privilege-title text:first-child {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+}
+
+.privilege-title text:last-child {
+  font-size: 24rpx;
+}
+
+
+.privilege-content {
+  margin: 24rpx 0 24rpx;
+}
+
+.privilege-item {
+  width: 100%;
+  height: 160rpx;
+  background: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.10);
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12rpx 0;
+}
+
+/* .privilege-item:nth-child(4n) {
+  margin-right: 0;
+} */
+
+.item-left {
+  display: flex;
+  align-items: center;
+}
+
+.item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-text text:first-child {
+  font-size: 32rpx;
+}
+
+.item-text text:last-child {
+  font-size: 26rpx;
+  color: #969696;
+}
+
+.item-img {
+  width: 110rpx;
+  height: 110rpx;
+  margin-bottom: 12rpx;
+}
+
+.item-img image {
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+  margin-right: 26rpx;
+}
+.item-right> text {
+  color: #488FFD;
+}
+
+.item-text-sum {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  font-size: 26rpx;
+
+}
+.item-text-sum text:first-child{
+  color: #488FFD;
+}
+
+.item-text-sum text:last-child{
+  color:#969696;
+}
+
+.next-icon {
+  width: 32rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  text-align: center;
+}
+
+.next-icon image {
+  width: 12rpx;
+  height: 22rpx
+}
+
+.privilegenum{
+  position: absolute;
+  right: 0rpx;
+  /* width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%; */
+  border-radius: 5px;
+  box-shadow: 0 0 4rpx 2rpx rgba(165, 165, 165, 0.5);
+  padding: 2rpx;
+  color: rgb(165, 165, 165);
+  font-size: 20rpx;
+  width: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+
+/* .upgrade-btn {
+  width: 702rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #488FFD;
+  border-radius: 40rpx;
+  margin: 0 auto;
+  font-size: 36rpx;
+  color: #fff;
+  position: absolute;
+  bottom: 68rpx;
+  left: 0;
+  right: 0;
+} */

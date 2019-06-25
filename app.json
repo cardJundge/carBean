@@ -1,0 +1,102 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/services/services",
+    "pages/community/community",
+    "pages/mine/balance/balance",
+    "pages/mine/setting/feedback/feedback",
+    "pages/mine/setting/use-help/help",
+    "pages/mine/setting/about-us/about",
+    "pages/mine/basic-function/integral/integral",
+    "pages/mine/basic-function/message/message",
+    "pages/common/member/member",
+    "pages/common/member/bronze/bronze",
+    "pages/logs/logs",
+    "pages/index/personal-data/personal",
+    "pages/services/search/search",
+    "pages/community/comment/comment",
+    "pages/community/listdetail/listdetail",
+    "pages/community/listdetail/publicText/publicText",
+    "pages/community/listdetail/publicVideo/publicVideo",
+    "pages/mine/basic-function/integral/address/address",
+    "pages/mine/basic-function/integral/add-address/add",
+    "pages/services/servicesdetails/servicesdetails",
+    "pages/mine/edit-info/info",
+    "pages/common/member/gold/gold",
+    "pages/common/member/silver/silver",
+    "pages/mine/basic-function/integral/exchange-detail/exchange",
+    "pages/mine/basic-function/integral/payment/payment",
+    "pages/services/itemdetails/itemdetails",
+    "pages/common/car/car",
+    "pages/common/car/add-car/add-car",
+    "pages/common/car/car-brand/car-brand",
+    "pages/mine/basic-function/integral/payment-success/success",
+    "pages/mine/basic-function/publish/publish",
+    "pages/common/bean-details/bean",
+    "pages/services/payment/payment",
+    "pages/services/paystyle/paystyle",
+    "pages/services/paycompleted/paycompleted",
+    "pages/services/orderlist/orderlist",
+    "pages/services/evaluate/evaluate",
+    "pages/services/servicestype/servicestype",
+    "pages/services/technician/technician",
+    "pages/index/gonglue/gonglue",
+    "pages/common/member/registered/registered",
+    "pages/common/member/registered/code/code",
+    "pages/common/member/registered/binding/binding",
+    "pages/member/member",
+    "pages/member/success/success",
+    "pages/services/completeinformation/completeinformation",
+    "pages/common/member/insurance/insurance",
+    "pages/community/mapcommunity/mapcommunity",
+    "pages/common/member/agent/agent",
+    "pages/common/member/agent/order/order"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "车豆v1.0",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#D0D0D0",
+    "selectedColor": "#1A84FF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "/images/tab/index@highlight.png",
+        "iconPath": "/images/tab/index.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/services/services",
+        "selectedIconPath": "/images/tab/service@highlight.png",
+        "iconPath": "/images/tab/service.png",
+        "text": "服务"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "selectedIconPath": "/images/tab/community@highlight.png",
+        "iconPath": "/images/tab/community.png",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "selectedIconPath": "/images/tab/my@highlight.png",
+        "iconPath": "/images/tab/my.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<!--账户明细-->
+<view class="container">
+  <view class="section" wx:if="{{!showMsgNull}}">
+    <view class="bean-cell">
+      <text>最近</text>
+      <view class="nodata" wx:if="{{nodata}}">暂无最新数据</view>
+      <block wx:for="{{beanList}}" wx:key="">
+        <view class="bean-item">
+          <view class="bean-left">
+            <view class="bean-img">
+              <view class='dot' wx:if='{{index==0}}'></view>
+              <image src="/images/mine/icon_xinshoujiangli.png" wx:if="{{item.title=='新手奖励'}}"/>
+              <image src="/images/mine/icon_qindao.png" wx:if="{{item.title=='签到'}}"/>
+              <image src="/images/mine/icon_canyuhuodong.png" wx:if="{{item.title=='参与活动'}}"/>
+              <image src="/images/mine/icon_fabudongtai.png" wx:if="{{item.title=='发布动态'}}"/>
+              <image src="/images/mine/icon_evaluate.png" wx:if="{{item.title=='评价回复'}}"/>
+              <view class="line"></view>
+            </view>
+            <view class="bean-content">
+              <text>{{item.title}}</text>
+              <text>{{item.time}}</text>
+            </view>
+          </view>
+          <view class="bean-right">{{item.bean}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="section" wx:if="{{showMsgNull}}">
+    <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/order_detail_null.png'}}" text02="暂无豆子明细" width="242" height="212" btnHidden="true"/>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+.container{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  font-size: 26rpx;
+}
+
+.dialogbox{
+  position: relative;
+  width: 500rpx;
+  background: white;
+  border-radius: 10px;
+}
+
+.title{
+  width: 100%;
+  text-align: center;
+  padding: 24rpx 0;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.cancelimg{
+  position: absolute;
+  right:20rpx;
+  top:24rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.tipscontent{
+  font-weight: 600;
+  text-align: center;
+  padding: 24rpx 34rpx;
+}
+
+.btn{
+  padding: 20rpx 0;
+  text-align: center;
+  width: 50%;
+  color: white;
+  display: inline-block;
+
+}
+
+.cancel{
+  background: #eee;
+  border-bottom-left-radius:10px;
+}
+
+.perfect{
+  background: #488FFD;
+  border-bottom-right-radius: 10px;
+}
+

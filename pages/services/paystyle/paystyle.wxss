@@ -1,0 +1,144 @@
+/* pages/services/paystyle/paystyle.wxss */
+
+.container{
+  width: 100%;
+  background: #eee;
+  font-size: 26rpx;
+  height: 100vh;
+}
+
+.pay-price{
+  padding: 3% 5%;
+  display: flex;
+  justify-content:space-between;
+  width: 100%;
+  color: rgb(85, 157, 240);
+  align-items: flex-end;
+}
+
+.price-text{
+  display: flex;
+  align-items: center;
+}
+
+.align{
+  align-items: flex-end;
+}
+
+.circular{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.color1{
+  background: rgb(9, 139, 9)
+}
+
+.color2{
+  background: rgb(243, 208, 12)
+}
+
+.price-num{
+  font-size: 46rpx;
+}
+
+.paystyletext{
+  display: flex;
+  align-items: center;
+  color: rgb(85, 157, 240);
+  width: 100%;
+  padding: 0 5%;
+}
+
+.line{
+  width: 6rpx;
+  height: 30rpx;
+  background: rgb(243, 208, 12);
+  margin-right: 20rpx;
+}
+
+.paytitle{
+  display: flex;
+  flex-direction: column;
+  font-size: 20rpx;
+  color: rgb(145, 202, 255)
+}
+
+.paytitletext{
+  font-size: 26rpx;
+  color: rgb(85, 157, 240);
+}
+
+.payment{
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+  width: 90%;
+  margin: 10rpx 5%; 
+  border-radius: 5px;
+  background: white;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  position: relative;
+}
+
+.wechatimg{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 0 20rpx;
+}
+
+.checkimg{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 7%;
+}
+
+.surepay{
+  width: 90%;
+  margin: 30rpx 5%;
+  border-radius: 30px;
+  color: white;
+  background: rgb(85, 157, 240);
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+  text-align: center;
+  justify-content:center;
+}
+
+.demo2 {
+        width:40rpx;
+        height:40rpx;
+        border-radius:40px ;
+        /* background:rgb(63, 175, 11); */
+        display:block;
+        position: absolute; 
+        margin: 0 10rpx;
+        right: 7%;
+    }
+    
+    .demo2:before, .demo2::after {
+        content:"";
+        height:28rpx;
+        width:6rpx;
+        border-radius: 10rpx;
+        display:block;
+        background:white;
+        position: absolute;
+        top:6rpx;/*40-6=34*/
+        left:20rpx;/*make the two rects in the middle of the cycle */
+        transform:rotate(45deg);    
+        -ms-transform:rotate(45deg);    
+    }
+    .demo2::before {
+        height:15rpx;
+        transform: rotate(-45deg);
+        -ms-transform:rotate(-45deg);
+        position: absolute;
+        top:18rpx;/*40-18=12  */
+        left:8rpx;       
+    }

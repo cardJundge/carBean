@@ -1,0 +1,31 @@
+<!-- 签到的组件模态框 -->
+<view class="container" wx:if="{{show}}" catchtouchmove="ture">
+  <view class="modal-content">
+    <!-- 模态框头部时间 -->
+    <view class="modal-time">
+      <text>{{time.time}}</text>
+      <text>{{time.date}}  {{time.week}}</text>
+    </view>
+    <!-- 签到情况 -->
+    <view class="sign-in-status">
+      <view class="status-text">
+        <text wx:if="{{list}}">{{list.date}}签到</text>
+        <text wx:if="{{!list}}">{{status}}签到</text>
+        <text>连续签到会得到额外奖励</text>
+      </view>
+      <view class="status-img">
+        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/pic_sign_car.png" />
+      </view>
+    </view>
+    <!-- 签到按钮 -->
+    <view class="sign-in-btn-box">
+      <view class="sign-in-btn" bind:tap="toSignIn"  wx:if="{{!list}}">{{btnName}}</view>
+      <view class="sign-in-btn1" wx:if="{{list}}">今日已签到</view>
+      <text wx:if="{{list.count}}">已连续打卡{{list.count}}天</text>
+      <text wx:else>已连续打卡{{count}}天</text>
+    </view>
+    <view class="del-icon" bind:tap="hideModal">
+      <image src="/images/icon/icon_del_02.png" />
+    </view>
+  </view>
+</view>

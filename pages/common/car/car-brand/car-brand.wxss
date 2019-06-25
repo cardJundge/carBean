@@ -1,0 +1,197 @@
+/* 车辆类型选择 */
+
+.container1 {
+}
+
+.ok-btn {
+  background: #1a84ff;
+  height: 70rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ok-btn view {
+  width: 140rpx;
+  background: #fff;
+  color: white;
+  font-size: 32rpx;
+  line-height: 60rpx;
+  text-align: center;
+  position: absolute;
+  z-index: 999;
+  right: 12rpx;
+  bottom: 4rpx;
+}
+
+.containerX {
+  position: relative;
+  display: block;
+}
+
+.letter {
+  display: inline-block;
+  width: 50%;
+  height: 40rpx;
+  text-align: left;
+  background: #e6e6e6;
+}
+
+.letter text {
+  margin-left: 20rpx;
+  font-size: 32rpx;
+}
+
+.brand_cell {
+  display: block;
+  width: 50%;
+  text-align: left;
+  background: #f6f6f6;
+  padding: 16rpx 0rpx;
+  box-shadow: -10px 0px 10px -5px #e6e6e6 inset;
+  border-bottom: 1rpx solid #eee;
+}
+
+.active {
+  background: #fff;
+  box-shadow: none;
+}
+
+.img_cell {
+  display: inline-block;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.logo_img {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: middle;
+}
+
+.brand_name {
+  display: inline-block;
+  line-height: 80rpx;
+  font-size: 28rpx;
+}
+
+.series_cell {
+  display: inline-block;
+  width: 50%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 28rpx;
+  text-align: left;
+}
+
+.letter_null {
+  display: block;
+  width: 100%;
+  height: 40rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.each_series {
+  display: block;
+  width: 90%;
+  margin-left: 20rpx;
+  line-height: 80rpx;
+  padding: 16rpx 0rpx;
+  border-bottom: 1rpx solid #eee;
+  position: relative;
+}
+
+.fa-check {
+  position: absolute;
+  right: 30rpx;
+  top: 40rpx;
+}
+
+.active_series {
+  color: #1a84ff;
+}
+
+.navigate {
+  display: inline-block;
+  width: 5%;
+  position: fixed;
+  right: 0px;
+  top: 60rpx;
+  color: #1a84ff;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.navigate view {
+  line-height: 46rpx;
+}
+
+.letter_float {
+  display: inline-block;
+  width: 100%;
+  height: 200rpx;
+  position: absolute;
+  top: 46%;
+  text-align: center;
+}
+
+.letter_cell {
+  display: inline-block;
+  width: 140rpx;
+  height: 140rpx;
+  background: rgba(220, 220, 220, 0.8);
+  font-size: 80rpx;
+  border-radius: 20rpx;
+}
+
+.letter_cell view {
+  margin-top: 10rpx;
+  color: #fff;
+}
+
+.ok_btn {
+  display: inline-block;
+  width: 100%;
+  background: linear-gradient(#1a84ff, rgba(26, 133, 255, 0.534));
+  height: 70rpx;
+}
+
+.ok_btn view {
+  display: inline-block;
+  width: 96%;
+  text-align: right;
+  color: #fff;
+}
+
+.ok_btn view button {
+  display: inline-block;
+  width: 140rpx;
+  background: #fff;
+  color: #1a84ff;
+  font-size: 32rpx;
+  line-height: 60rpx;
+}
+
+.ok_btn view button::after {
+  border: none;
+}
+
+.modal_content input {
+  display: inline-block;
+  width: 130px;
+  font-size: 28rpx;
+  vertical-align: middle;
+  border: 1rpx solid #bbb;
+  border-radius: 8rpx;
+}
+
+.modal_content button {
+  margin-top: 60rpx;
+  background: #1a84ff;
+  color: #fff;
+}

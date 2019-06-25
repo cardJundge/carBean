@@ -1,0 +1,26 @@
+<!--搜索-->
+<view class="container">
+  <view class="search-box">
+    <image class="icon" src="/images/icon/circle.png" />
+    <input value="{{text}}"  bind:confirm="onConfirm" placeholder='雁塔区上汽大众' placeholder-class='in-bar' class='bar' auto-focus="true" bindinput="onInput"/>
+    <image src="/images/icon/search.png" bind:tap="onConfirm" wx:if="{{isSearch}}"/>
+    <image src="/images/icon/icon_del_01.png" bind:tap="onCancel" wx:else/>
+  </view>
+  <!-- 热门搜索 -->
+  <view class="hot" wx:if="{{searching}}">
+    <text>热门搜索</text>
+    <view class="hot-tag">
+      <block wx:key="" wx:for="{{tagData}}">
+        <view class="tag" bind:tap="onServicelist" data-text="{{item}}">
+          <text>{{item}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{!searching}}">
+    <!-- 搜索成功 -->
+    <my-search-result searchlist="{{searchlist}}" searchkey="{{searchKeys}}"/>
+    <!-- 搜索失败 -->
+  </view>
+</view>

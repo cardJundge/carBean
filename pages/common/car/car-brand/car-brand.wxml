@@ -1,0 +1,45 @@
+<!--车辆类型选择-->
+<view class="container1">
+  <view class="container" wx:if='{{loaded}}' style="height: {{systemHeight}};padding-top:0px;margin-bottom:70rpx;" animation="{{animationData}}">
+    <scroll-view scroll-y style="height: {{systemHeightC}};" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toViewModal}}" scroll-top="{{scrollTop}}">
+      <view id='{{itemCell.id}}' wx:key="" wx:for='{{allList}}' wx:for-item='itemCell' style='text-align:left'>
+        <view class='letter'>
+          <text>{{itemCell.id}}</text>
+        </view>
+        <view wx:key="" wx:for='{{itemCell.list}}' bindtap='changeSeries' wx:for-item='item' id='{{item.id}}' data-letter='{{itemCell.id}}' class='{{item.class}}'>
+          <view class='each_brand'>
+            <view class='img_cell'>
+              <image src="{{config}}/{{item.Logo}}" class='logo_img'></image>
+            </view>
+            <view class='brand_name'>{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class='series_cell'>
+      <view class='letter_null'>
+        <text></text>
+      </view>
+      <scroll-view scroll-y style="height: {{systemHeightC}};">
+        <view class='{{itemSeries.class}}' animation="{{animationData1}}" bindtap='chooseSeries' id='{{itemSeries.id}}' style='opacity:1' wx:for='{{series}}' wx:key="" wx:for-item='itemSeries' wx:key="">
+          <view class='brand_name'>
+            <text class='series_name'>{{itemSeries.name}}</text>
+            <text class='fa fa-check' wx:if='{{itemSeries.class=="each_series active_series"}}'></text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='navigate'>
+    <view wx:for='{{letterList}}' wx:key="" bindtap='toView' wx:for-item='item' wx:key="" id='{{item}}'>{{item}}</view>
+  </view>
+  <view class='letter_float' wx:if='{{animation}}'>
+    <view class='letter_cell'>
+      <view>{{toViewModal}}</view>
+    </view>
+  </view>
+
+  <view class='ok-btn' bind:tap="optionCar">确定
+    <!-- <view> 确 定</view> -->
+  </view>
+</view>

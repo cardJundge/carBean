@@ -1,0 +1,10 @@
+<!-- 关于我们 -->
+<view class="container">
+  <view class="about">
+    <view class="about-img">
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/logo.png" />
+    </view>
+    <text class="about-title">114车管家</text>
+    <text>v1.0.0</text>
+  </view>
+</view>

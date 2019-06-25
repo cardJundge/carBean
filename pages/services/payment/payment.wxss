@@ -1,0 +1,224 @@
+/* pages/services/payment/payment.wxss */
+.container{
+  width: 100%;
+  height: 100vh;
+  font-size: 32rpx;
+  background: #eee;
+}
+
+.fontstyle{
+  color: #1a84ff;
+  padding-top: 2%;
+  margin-left: 5%;
+}
+
+.size{
+  font-size:24rpx;
+}
+
+.userinfo{
+  display: flex;
+  box-shadow: 0 0 4rpx 2rpx rgba(191, 191, 191, 0.5);
+  width: 90%;
+  margin: 4% auto;
+  height: 6%;
+  border-radius: 5px;
+  background: white;
+  align-items: center;
+  font-size: 22rpx
+}
+
+.userimg{
+  width: 28rpx;
+  height: 32rpx;
+  margin-left: 3%;
+  margin-right: 2%
+}
+
+.telimg{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 260rpx;
+  margin-right: 10rpx;
+}
+
+.modify{
+  color: #1a84ff;
+}
+
+.serviceshop{
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+  width: 90%;
+  margin: 0% auto 4%;
+  background: white;
+  border-radius: 5px;
+  font-size: 22rpx;
+}
+
+.serviceshop-text{
+  color: #8E8E93;
+  padding: 3% 2%;
+}
+
+.serviceshopinfor{
+  display: flex;
+  border-top: 1px solid #eee;
+  width: 90%;
+  margin: 0 auto;
+  padding: 3% 0;
+  align-items:center;
+}
+
+.servicelogo{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.serviceshop-address{
+  letter-spacing: 1px;
+  margin-left: 4%;
+  width: 72%;
+}
+
+.address{
+  color: #8E8E93;
+  font-size: 16rpx;
+  margin-top: 4rpx;
+}
+
+.arrowimg{
+  width: 30rpx;
+  height: 30rpx; 
+}
+
+.num{
+  border:1px solid #1a84ff;
+  width: 60rpx;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 18rpx;
+  margin-top: 6rpx;
+}
+
+.pricenum{
+  text-align: right;
+  color: #8E8E93;
+}
+
+.price{
+  color: #1a84ff;
+  font-size: 22rpx;
+}
+
+.copy_cell {
+  padding: 1px 10px;
+  border: 1rpx solid #b3b3b3;
+  margin-left: 26px;
+  border-radius: 20px;
+  font-size: 10px;
+}
+.order-infor{
+  font-size: 22rpx;
+  color: #8E8E93;
+  letter-spacing: 1px;
+  margin: 0 5%;
+  padding-bottom: 2%;
+}
+
+.line{
+  border-top:1px solid #eee;
+  padding-top: 2%
+}
+
+.bottom{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  height: 7%;
+  font-size: 22rpx;
+  justify-content:space-between;
+  background: white;
+  width:100%;
+  padding: 0 5%;
+}
+
+.value{
+  color: #1a84ff;
+  font-size: 26rpx;
+  padding-left: 10rpx;
+}
+
+.order-pay{
+  color: white; 
+}
+
+.cancel{
+  padding: 16rpx 24rpx;
+  background: #ffbd22;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.confirm{
+  padding: 16rpx 24rpx;
+  background: #ff9222;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(110, 110, 110, 0.5);
+  text-align: center;
+  z-index: 3;
+}
+
+.modal_content {
+  width: 80%;
+  margin: 60% auto 0;
+  background: #fff;
+  display: inline-block;
+}
+
+.modal_input {
+  border: 1px solid #ccc;
+  line-height: 40px;
+  margin: 20px 14px;
+}
+
+.modal_input input {
+  line-height: 40px;
+  height: 40px;
+  border: none;
+}
+
+.redInfor{
+  color: red;
+}
+
+.modal_bottom1 button {
+  display: inline-block;
+  background: #fff;
+  font-size: 14px;
+  padding: 0px;
+  color: #aaa;
+  padding-right: 14px;
+}
+
+.modal_bottom1 button::after {
+  border: none;
+}
+
+.modal_bottom1 view {
+  float: right;
+}
+
+.edit_cell button {
+  color: #ff9800;
+}

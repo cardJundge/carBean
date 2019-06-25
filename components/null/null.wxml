@@ -1,0 +1,14 @@
+<!--页面为空-->
+<view class="container">
+  <view class="null">
+    <view class="null-img">
+      <image src="{{img}}" style="width:{{width}}rpx; height:{{height}}rpx" />
+    </view>
+    <view class="null-text">
+      <text>{{text02}}</text>
+      <text wx:if="{{!text01}}"></text>
+      <text wx:if="{{text01}}">{{text01}}</text>
+    </view>
+    <view class="null-btn" bind:tap="toAddressInfo" wx:if="{{!btnHidden}}">{{btnText}}</view>
+  </view>
+</view>

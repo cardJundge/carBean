@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "null-modal": "/components/null/null"
+  },
+  "navigationBarTitleText": "豆子明细",
+  "enablePullDownRefresh": true
+}

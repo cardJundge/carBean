@@ -1,0 +1,32 @@
+<!--商品兑换详情-->
+<view class="container">
+  <view class="exchange" wx:if="{{exchangeNull}}">
+    <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/order_detail_null.png'}}" text02="暂无兑换商品" btnText="去兑换" width="242" height="212" bind:navigate="onNavigate" />
+  </view>
+  <view class="exchange" wx:if="{{!exchangeNull}}">
+    <view class="order-list">
+      <view class="item">
+        <view class="item-content item-time">
+          <text>2019-05-08 10:32</text>
+          <text>已支付</text>
+        </view>
+        <view class="item-content item-pro">
+          <view class="pro-intro">
+            <view class="pro-img"></view>
+            <view class="pro-info">
+              <text>车载手机支架</text>
+              <view class="pro-num">x1</view>
+            </view>
+          </view>
+          <view class="bean-num">
+            <text>¥</text>
+            <text>1000豆子</text>
+          </view>
+        </view>
+        <view class="item-content item-odd">
+          物流单号：暂无
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,52 @@
+<!--pages/services/paystyle/paystyle.wxml-->
+<view class='container'> 
+
+  <view class='pay-price'>
+    <view class='price-text'>
+      <view class='circular color1'></view>
+      <view class='circular color2'></view>
+      <text>应付金额:</text>
+    </view>
+    <view>
+      <text>RMB</text>
+      <text class='price-num'>{{money}}</text>
+    </view>  
+  </view>
+
+  <view class='paystyletext'>
+    <view class='line'></view>
+    <view class='paytitle'>
+      <text class='paytitletext'>付款方式</text>
+      <text>TERMS OF PAYMENT</text>
+    </view>
+  </view>
+
+  <view class='payment' bindtap='paystyle' data-index='1'>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/WeChat@2x.png' class='wechatimg'></image>
+    <text>微信支付</text>
+    <!-- <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/checked.png' class='checkimg' wx:if='{{check1}}'></image> -->
+    <span class="demo2" style="background:rgb(63, 175, 11)"  wx:if='{{check1}}'></span>
+    <span class="demo2" style="background:#eee"  wx:else></span>
+    <!-- <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/check.png' class='checkimg' wx:else></image> -->
+  </view>
+
+  <!-- <view class='payment' bindtap='paystyle' data-index='2'>
+    <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/Gold-bean@2x 2.png" class='wechatimg'></image>
+    <text>金豆支付(余额:{{beannum}})</text>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/checked.png' class='checkimg' wx:if='{{check2}}'></image>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/check.png' class='checkimg' wx:else></image>
+  </view> -->
+
+  <view class='payment' bindtap='paystyle' data-index='3'>
+    <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/mianfei@2x.png" class='wechatimg'></image>
+    <text>会员免费({{equity_num}}次)</text>
+    <!-- <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/checked.png' class='checkimg' wx:if='{{check3}}'></image>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/check.png' class='checkimg' wx:else></image> -->
+
+    <span class="demo2" style="background:rgb(63, 175, 11)"  wx:if='{{check3}}'></span>
+    <span class="demo2" style="background:#eee"  wx:else></span>
+  </view>
+
+  <view class='surepay' bindtap='surepay'>确认支付</view>
+
+</view>

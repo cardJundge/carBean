@@ -1,0 +1,13 @@
+  <view class='fabu' bindtap='fabu'>
+    <image src="/images/icon/location.png" class='locationimg'></image>
+    <text>{{fabutype}}</text>
+    <image src="/images/down.png" class='arrowimg'></image>
+  </view>
+  <block wx:for="{{type}}" wx:if="{{istype}}" wx:key="">
+    <view class='type' bindtap='ontype' data-index='{{index}}'>
+      <icon type="success" size='16' color='#1a84ff' wx:if="{{typeindex == index}}"></icon>
+      <!-- <icon type="success_no_circle" size='16' color='#1a84ff' wx:else></icon> -->
+      <view class='noselected' wx:else></view>
+      <text>{{item}}</text>
+    </view>
+  </block>

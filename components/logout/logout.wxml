@@ -1,0 +1,16 @@
+<!--退出登录弹出框-->
+<view class="container" wx:if="{{show}}" catchtouchmove="ture">
+  <view class="modal-content">
+    <view class="title">提示</view>
+    <view class="msg">确定退出登录吗？</view>
+    <view class="btn-bar">
+      <view bind:tap="hideModal" class="btn">取消</view>
+      <view class="btn" bind:tap="confirm">
+        <navigator open-type="exit" target="miniProgram">确定</navigator>
+      </view>
+    </view>
+    <view class="del-icon" bind:tap="hideModal">
+      <image src="/images/icon/icon_del_01.png" />
+    </view>
+  </view>
+</view>

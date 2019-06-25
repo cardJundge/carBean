@@ -1,0 +1,26 @@
+.choose_cell{
+  margin: 0 5%;
+  display: flex;
+}
+
+.each_choose_cell{
+  width: 33.33%;
+  line-height: 50px;
+}
+
+.area{
+  display: inline-block;
+  font-size: 12px;
+}
+
+.down-img{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+
+.noservice{
+  width: 100%;
+  text-align: center;
+  margin-top: 22rpx;
+}

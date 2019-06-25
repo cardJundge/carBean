@@ -1,0 +1,37 @@
+<view wx:for='{{orderlistitem}}' wx:key="">
+  <view class='orderlistitem'>
+    <view class='ordername-state'>
+      <view class='ordername'>
+        <icon type='success' size='20'></icon>
+        <view class='serivername'wx:if="{{item.service_name.short_name}}">{{item.service_name.short_name}}</view>
+        <view class='serivername' wx:else>{{item.service_name.name}}</view>
+        <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/right_arrow.png' class='arrow'></image>
+      </view>
+      <view class='orderstate' wx:if="{{item.status == 0}}">待支付</view>
+      <view class='orderstate' wx:elif="{{item.status == 1}}">已支付</view>
+      <view class='orderstate' wx:elif="{{item.status == 2}}">已退款</view>
+      <view class='orderstate' wx:elif="{{item.status == 3}}">已评价</view>  
+      <view class='orderstate' wx:elif="{{item.status == 4}}">已取消</view> 
+    </view>
+
+    <view class='service-content'>
+      <image class='serviceimg' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg'></image>
+      <view class='service-text'>
+        <text>{{item.classify_name}}</text>
+        <text>服务项目</text>
+      </view>
+      <view class='order-price'>
+        <text>{{item.price}}</text>
+        <view>x1</view>
+      </view>
+    </view>
+
+    <view class='total'>合计:{{item.price}}</view>
+    <view class='delete-commont'>
+      <view class='delete spacing' bindtap='ondelete' data-orderid='{{item.id}}' wx:if="{{item.status == 3 || item.status== 4}}">删除</view>
+      <view class='delete' bindtap='evaluate' data-orderid='{{item.id}}' wx:if="{{item.work_status==4}}">待评价</view>
+      <view class='paystyle spacing' bindtap='payorder' data-orderid='{{item.id}}' wx:if="{{item.status == 0}}" data-price='{{item.price}}' data-classify_name='{{item.classify_name}}' data-orderno='{{item.order_no}}'>去支付</view>
+      <view class='delete spacing' bindtap='cancelorder' data-orderid='{{item.id}}' wx:if="{{item.status != 4}}">取消订单</view>
+    </view>
+  </view>
+</view>

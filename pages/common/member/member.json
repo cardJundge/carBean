@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "my-modal": "/components/member-modal/member",
+    "my-login-modal": "/components/login/login"
+  },
+  "navigationBarTitleText": "成为会员"
+ 
+}

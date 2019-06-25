@@ -1,0 +1,9 @@
+/**app.wxss**/
+page {
+  font-size: 30rpx;
+  color: #36363C;
+  font-family: PingFangSC-Regular;
+}
+view {
+  box-sizing: border-box;
+}

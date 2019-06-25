@@ -1,0 +1,67 @@
+<!--积分兑换-->
+<view class="container">
+  <view class="nickname">
+    <view class="nickname-box">
+      <text>{{mybean}}</text>
+      <text>当前豆子</text>
+    </view>
+    <text bind:tap="toExchangeDetail">商品兑换详情</text>
+  </view>
+  <view class="commodity">
+    <text>积分兑换商品</text>
+    <!-- <ul>
+      <li catch:tap="goAddressTap">
+        <view class="commodity-img"></view>
+        <view class="commodity-content">
+          <view class="commoadity-name">
+            <text>商品名称</text>
+            <text>商品详情商品详情商品详情商品详情商品详情</text>
+          </view>
+          <view class="commodity-integral">
+            <view class="integral-num">
+              <view class="integral-img"></view>
+              <text>1000</text>
+            </view>
+            <view class="integral-btn">立即兑换</view>
+          </view>
+        </view>
+      </li>
+      <li>
+        <view class="commodity-img"></view>
+        <view class="commodity-content">
+          <view class="commodity-name">
+            <text>商品名称</text>
+            <text>商品详情商品详情商品详情商品详情商品详情</text>
+          </view>
+          <view class="commodity-integral">
+            <view class="integral-num">
+              <view class="integral-img"></view>
+              <text>1000</text>
+            </view>
+            <view class="integral-btn">立即兑换</view>
+          </view>
+        </view>
+      </li>
+      <li>
+        <view class="commodity-img"></view>
+        <view class="commodity-content">
+          <view class="commodity-name">
+            <text>商品名称</text>
+            <text>商品详情商品详情商品详情商品详情商品详情</text>
+          </view>
+          <view class="commodity-integral">
+            <view class="integral-num">
+              <view class="integral-img"></view>
+              <text>1000</text>
+            </view>
+            <view class="integral-btn">立即兑换</view>
+          </view>
+        </view>
+      </li>
+    </ul> -->
+
+    <view class='actives'>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/active.png'></image>
+    </view>
+  </view>
+</view>

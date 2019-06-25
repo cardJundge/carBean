@@ -1,0 +1,41 @@
+/*成为会员 */
+.container {
+  width: 100%;
+}
+.member-container {
+  width: 702rpx;
+  margin: 43rpx auto;
+}
+.member-card {
+  width: 100%;
+  height: 330rpx;
+  margin-bottom: 24rpx;
+}
+
+.member-card image {
+  width: 100%;
+  height: 330rpx;
+}
+/* .member-category {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 36rpx;
+  left: 36rpx;
+}
+.member-ch-name {
+  font-size: 36rpx;
+}
+.member-en-name {
+  font-size: 24rpx;
+  color: #AFAFAF;
+}
+.member-insurance {
+  font-size: 24rpx;
+}
+.member-card>text {
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 24rpx;
+  right: 24rpx;
+} */

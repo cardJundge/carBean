@@ -1,0 +1,42 @@
+<view wx:for='{{servicelist}}' wx:key="">
+
+  <view class='serviceitem' bindtap='itemdetail' data-detail='{{item}}'>
+
+    <view class='serviceitem-1'>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg' class='serviceitem-img' wx:if='{{!item.face}}'></image>
+      <image src='{{hostName}}/uploads/face/{{item.face}}' class='serviceitem-img' wx:else></image>
+      <text class='weixiu bg' wx:if='{{item.type==3}}'>维修店</text>
+      <text class='weixiu bg' wx:if='{{item.type==2}}'>4s店</text>
+      <text class='weixiu bg' wx:if='{{item.type==4}}'>改装店</text>
+      <text class='weixiu bg' wx:if='{{item.type==5}}'>快修店</text>
+      <text class='weixiu bg' wx:if='{{item.type==6}}'>洗车美容</text>
+      <text class='weixiu bg' wx:if='{{item.type==7}}'>轮胎</text>
+      <text class='weixiu bg' wx:if='{{item.type==8}}'>道路救援</text>
+      <text class='weixiu bg' wx:if='{{item.type==9}}'>二手车</text>
+      <text class='weixiu bg' wx:if='{{item.type==10}}'>其他</text>
+      
+    </view>
+
+    <view class='serviceitem-2'>
+      <text class='service-name padd' wx:if="{{item.short_name}}">{{item.short_name}}</text>
+      <text class='service-name padd' wx:else>{{item.name}}</text>
+      <text class='service-address padd'>{{item.address}}</text>
+
+      <view class='tags'>
+        <block wx:for="{{item.tags}}" wx:for-item="tags" >
+        
+          <text class='servicer bg'>{{tags.name}}</text>
+        
+        </block>
+      </view>
+      <view class='order-comment'>
+        <image class='order-img' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_Order.png'></image>
+        <text>总订单  {{item.order}}</text>
+        <image class='order-img' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_score.png'></image>
+        <text>总评分  {{item.comment}}</text>
+      </view>
+    </view>
+
+    <view class='distance'>{{item.distance}}km</view>
+  </view>
+</view>

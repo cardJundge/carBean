@@ -1,0 +1,104 @@
+/* 二手车评估、年审代办、代办服务、车务咨询 */
+
+.container {
+}
+
+/* 车务咨询 */
+
+.vehicle {
+}
+
+.vehicle-img {
+  width: 100%;
+  height: 663rpx;
+}
+
+.vehicle-img image {
+  width: 100%;
+  height: 663rpx;
+}
+
+/* 二手车评估 */
+
+.assessment {
+  padding-bottom: 100rpx;
+}
+
+.assessment-img {
+  width: 100%;
+  height: 1285rpx;
+}
+
+.assessment-img image {
+  width: 100%;
+  height: 1285rpx;
+}
+
+/* 年审代办 */
+
+.annual-review {
+  padding-bottom: 100rpx;
+}
+
+.annual-review-img {
+  width: 100%;
+  height: 2581rpx;
+}
+
+.annual-review-img image {
+  width: 100%;
+  height: 2581rpx;
+}
+
+/* 代办服务 */
+
+.agency {
+  padding-bottom: 100rpx;
+}
+
+.agency-img {
+  width: 100%;
+  height: 1326rpx;
+}
+
+.agency-img image {
+  width: 100%;
+  height: 1326rpx;
+}
+
+/* 提交按钮样式 */
+
+.submit-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  background: #4f93fd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+/* 呼叫按钮 */
+
+.btn-toolbar {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24rpx;
+  margin-top: 190rpx;
+}
+
+.btn-toolbar view{
+  width: 330rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 34rpx;
+  background: #4f93fd;
+  border-radius: 40rpx;
+}

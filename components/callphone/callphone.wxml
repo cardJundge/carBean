@@ -1,0 +1,8 @@
+
+<view class='container' wx:if='{{show}}' bindtap='cancel'>
+  <view class='bottom'>
+    <view class='phone'>89521836</view>
+    <view class='call' bindtap='callphone'>呼叫</view>
+    <view class='call cancel' bindtap='cancel'>取消</view>
+  </view>
+</view>

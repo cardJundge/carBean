@@ -1,0 +1,100 @@
+<!-- 会员详情页面 -->
+<view class="container">
+  <!-- vip卡片 -->
+  <view class="member-card">
+    <view class="card-top">
+      <view class="card-avatar">
+        <image src="{{basicUserInfo.face}}" />
+      </view>
+      <view class="card-name">
+        <text>{{basicUserInfo.nickname}}</text>
+        <text>有效期:永久有效</text>
+      </view>
+    </view>
+    <view class="card-bottom">
+      <text></text>
+      <view>铜牌会员</view>
+    </view>
+  </view>
+  <!-- VIP专属特权 -->
+  <view class="member-privilege">
+    <view class="privilege-title">
+      <text>VIP专属特权</text>
+
+    </view>
+    <view class="privilege-content">
+      <view class="privilege-item">
+        <view class="item-left">
+          <view class="item-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/cwzx@2x.png" />
+          </view>
+          <view class="item-text">
+            <text>车务咨询</text>
+            <text>车务免费咨询</text>
+          </view>
+        </view>
+        <view class="item-right">
+        <text>不限</text>
+        <view class="next-icon">
+          <image src="/images/icon/icon_next.png" />
+        </view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="item-left">
+          <view class="item-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/114yc@2x.png" />
+          </view>
+          <view class="item-text">
+            <text>114移车</text>
+            <text>114线上挪车</text>
+          </view>
+        </view>
+        <view class="item-right">
+        <text>不限</text>
+        <view class="next-icon">
+          <image src="/images/icon/icon_next.png" />
+        </view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="item-left">
+          <view class="item-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/xxts@2x.png" />
+          </view>
+          <view class="item-text">
+            <text>信息推送</text>
+            <text>重要信息推送</text>
+          </view>
+        </view>
+        <view class="item-right">
+        <text>不限</text>
+        <view class="next-icon">
+          <image src="/images/icon/icon_next.png" />
+        </view>
+        </view>
+      </view>
+       <view class="privilege-item">
+        <view class="item-left">
+          <view class="item-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/yhhd@2x.png" />
+          </view>
+          <view class="item-text">
+            <text>优惠活动</text>
+            <text>优惠活动参与资格</text>
+          </view>
+        </view>
+        <view class="item-right">
+        <text>不限</text>
+        <view class="next-icon">
+          <image src="/images/icon/icon_next.png" />
+        </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 升级会员底部按钮 -->
+  <view class="upgrade-btn" bind:tap="toSilver">
+    升级会员
+  </view>
+</view>

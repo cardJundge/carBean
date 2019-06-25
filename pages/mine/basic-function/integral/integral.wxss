@@ -1,0 +1,134 @@
+/* 积分兑换 */
+
+.container {
+  width: 100%;
+}
+
+.nickname {
+  width: 640rpx;
+  height: 331rpx;
+  margin: 24rpx auto 0;
+  position: relative;
+  color: #fff;
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/integral_bg.png?sign=16fc172d061943c7ee34c0970092b76a&t=1557740135') no-repeat;
+  background-size: 100% 100%;
+}
+
+.nickname>text {
+  position: absolute;
+  bottom: 60rpx;
+  right: 24rpx;
+}
+
+.nickname-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding-top: 102rpx;
+}
+
+.nickname-box text:first-child {
+  font-size: 60rpx;
+}
+
+.commodity {
+  width: 702rpx;
+  margin: 0 auto;
+}
+
+.commodity>text {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+}
+
+.commodity ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: 36rpx;
+}
+
+.commodity ul li {
+  height: 178rpx;
+  box-shadow: 0 0 4rpx 2rpx rgba(204, 204, 204, 0.50);
+  border-radius: 4rpx;
+  margin-bottom: 12rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.commodity-img {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  background-color: #d8d8d8;
+  border: 1px solid #979797;
+}
+
+.commodity-content {
+  width: 500rpx;
+}
+
+.commodity-name {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15rpx;
+}
+
+.commodity-name text:last-child {
+  font-size: 24rpx;
+  color: #969696;
+}
+
+.commodity-integral {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.integral-num {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.integral-img {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background-color: #fda84f;
+  border: 4rpx solid rgba(249,167,65,0.20);
+}
+
+.integral-num text {
+  font-size: 24rpx;
+  color: #969696;
+}
+
+.integral-btn {
+  width: 130rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: #4f93fd;
+  border-radius: 6rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.actives{
+
+  display: flex;
+  justify-content: center;
+  height: 600rpx;
+  align-items: center;
+}
+
+.actives image{
+
+  width: 328rpx;
+  height: 274rpx;
+  margin-right: 90rpx;
+}

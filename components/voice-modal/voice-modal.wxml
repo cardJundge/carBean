@@ -1,0 +1,35 @@
+<view class='voicecontainer' wx:if="{{show}}">
+
+  <view class='voicedialog'>
+    <view class='title'>
+      <text>语音</text>
+      <view class='delete' bindtap='close'>
+        <image src="/images/icon/icon_del_01.png"></image>
+      </view>
+    </view>
+
+    <view>
+      <text>{{voicetime}}</text>
+      <text>/01:00</text>
+    </view>
+    <view class='voice-icon' bindtap='recorde' wx:if="{{voicecontent=='录制完成'}}" style='justify-content: space-around;'>
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/delete.png" class='delete-img' bindtap='deletevoice'></image>
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/voice.png" class='voice-img'></image>
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/right.png" class='delete-img' bindtap='complate'></image>
+    </view>
+
+    <view class='voice-icon' bindtap='recorde' wx:else style='justify-content: center;'>
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/voice.png" class='voice-img'></image> 
+    </view>
+
+    <view class="voice-text" wx:if="{{voicecontent=='录制完成'}}" style='justify-content: space-around;'>
+      <text>删除</text>
+      <text>{{voicecontent}}</text>
+      <text>完成</text>
+    </view>
+    <view class="voice-text" wx:else style='justify-content: center;'>
+      <text>{{voicecontent}}</text>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,40 @@
+.swiper-tab {
+  width: 100%;
+  text-align: center;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #fff;
+  font-family: PingFangSC-Medium;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+}
+.swiper-tab-list {
+  font-size: 34rpx;
+  color: #777777;
+  padding: 0 40rpx;
+  position: relative;
+  letter-spacing: 2rpx;
+}
+.active {
+  color: #000;
+  /* border-bottom: 5rpx solid #000; */
+  font-weight: 600;
+}
+
+.line{
+  width: 36rpx;
+  height: 10rpx;
+  background: #000;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+
+.tab-content {
+  text-align: center;
+  padding: 100rpx 50rpx;
+}

@@ -1,0 +1,242 @@
+/* 服务的底部弹出框 */
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 750rpx;
+  height: 570rpx;
+  background: #fff;
+  border-radius: 34rpx 34rpx 0 0;
+  padding: 48rpx 24rpx 12rpx 24rpx;
+}
+
+.modal-bottom>text {
+  display: block;
+  font-size: 36rpx;
+  border-bottom: 1rpx solid#E3E3E3;
+  padding-bottom: 12rpx;
+}
+
+/* 服务列表 */
+
+.service-list {
+  padding-top: 36rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 34rpx;
+  margin-bottom: 24rpx;
+}
+
+.service-item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.service-item-img {
+  width: 150rpx;
+  height: 150rpx;
+  /* background: #d8d8d8;
+  border: 1px solid #979797; */
+  border-radius: 30rpx;
+}
+
+/* 活动列表 */
+
+.activity-list {
+  margin-top: 36rpx;
+}
+
+/* 车库 */
+/* 暂无车辆时的样式 */
+.no-car {
+  margin: 34rpx auto 26rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.no-car>text {
+  font-size: 24rpx;
+  color: #818181;
+}
+.no-car-img {
+  width: 280rpx;
+  height: 224rpx;
+  border-radius: 50%;
+  /* background: #D8D8D8; */
+  margin: 34rpx 0 22rpx;
+}
+
+.no-car-img image {
+  width: 304rpx;
+  height: 224rpx;
+}
+/* 有车辆列表时的样式 */
+
+.have-car {
+  margin: 16rpx 0 38rpx;
+  display: inline-flex;
+  align-items: center;
+}
+.car-item {
+  width: 340rpx;
+  height: 324rpx;
+  border-radius: 14rpx;
+  margin-right: 22rpx;
+  position: relative;
+  background: url(https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/services/pic_cheliangbeijing@2x.png?sign=d7c1330f93db82efeed4b34897ddd73b&t=1557479716) no-repeat left top;
+  background-size: 100% 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-car-item {
+  width: 750rpx;
+  height: 324rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #488FFD;
+}
+
+.car-text{
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 6rpx;
+}
+
+.car-item-icon {
+  width: 100%;
+  height: 28rpx;
+  flex-direction:row-reverse;
+  display: flex;
+  padding-right:30rpx;
+
+  /* background: #AFAFAF; */
+  /* position: absolute;
+  top: 36rpx;
+  right: 22rpx; */
+  
+}
+/* 选择器 偶数项选中 */
+/* .car-item:nth-child(2n) {
+  margin-right: 0
+} */
+
+
+.circle{
+  width: 28rpx;
+  height: 28rpx;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.car-img {
+  width: 106rpx;
+  height: 106rpx;
+  /* border: 1rpx solid #fff; */
+  border-radius: 50%;
+  margin: 24rpx 0 16rpx;
+}
+
+.car-img image {
+  width: 106rpx;
+  height: 106rpx;
+  border-radius: 50%;
+}
+
+.carmode{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.car-item>text:first-child {
+  font-size: 36rpx;
+}
+.car-item>text:last-child {
+  font-size: 24rpx;
+}
+/* 添加新车辆按钮 */
+.add-car-btn {
+  width: 480rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  background: #488FFD;
+  color: #fff;
+  border-radius: 35rpx;
+  margin: 0 auto;
+}
+/* 关闭模态框按钮 */
+
+.del-icon {
+  position: absolute;
+  right: 38rpx;
+  top: 38rpx;
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.del-icon image {
+  width: 22.6rpx;
+  height: 22.6rpx;
+}
+
+/* logo */
+
+.logo {
+  width: 170rpx;
+  height: 170rpx;
+  /* border-radius: 50%; */
+  position: absolute;
+  top: -45rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  /* background: #d8d8d8;
+  border: 6rpx solid #fff; */
+  /* box-shadow: 0 0 4rpx 2rpx rgba(201, 201, 201, 0.50); */
+}
+
+.bottom-pos {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  }
+
+.actives{
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.actives image{
+  width: 304rpx;
+  height: 254rpx;
+  margin-top: 30rpx;
+  margin-right: 90rpx;
+}

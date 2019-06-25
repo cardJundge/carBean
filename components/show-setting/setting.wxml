@@ -1,0 +1,13 @@
+<!--设置地理权限-->
+<view class="container" wx:if="{{show}}">
+  <view class="modal-content">
+  <view class="title">提示</view>
+    <view class="msg">需要授权位置信息</view>
+    <view class="btn-bar">
+        <button bindtap="openSetting">去设置</button>
+    </view>
+    <view class="del-icon" bind:tap="hideModal">
+      <image src="/images/icon/icon_del_01.png" />
+    </view>
+  </view>
+</view>

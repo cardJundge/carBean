@@ -1,0 +1,17 @@
+<!--添加车辆-->
+<view class="container">
+  <view class="info-cell">
+    <view class='title'>准确填写车辆信息</view>
+    <view class="input-box" bind:tap="toSelectBrand">
+    <!-- {{carInfo.brandName}} -->
+      <input placeholder="请选择车型" value="{{carInfo.seriesName}}"/>
+      <view class="input-icon">
+        <image src="/images/down.png" />
+      </view>
+    </view>
+     <view class="input-box">
+      <input placeholder="请输入车牌号" value="" bindinput="getCarPlate"/>
+    </view>
+    <view class="input-btn" bind:tap="toAddCar">确认</view>
+  </view>
+</view>

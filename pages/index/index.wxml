@@ -1,0 +1,139 @@
+<!--首页-->
+<view class="container" id="scrollview">
+  <!-- <view class="games" style="background: url(data:image/jpg;base64,{{backgroundurl}});background-size: 100% 100%"> -->
+  <view class='games'>
+    <view class="ripple" style="{{rippleStyle}}"></view>
+    <view class="games-top">
+      <!-- 普通用户 -->
+      <view class="user">
+        <view class="user-cell" bind:tap="onMember">
+          <view class="user-img">
+            <image wx:if='{{memberImg}}' src="{{memberImg}}" />
+            <image wx:else src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/unlogin.png'/>
+          </view>
+          <view class="user-name" wx:if='{{memberName}}'>{{memberName}}</view>
+          <view class="user-name" wx:else>未登录</view>
+        </view>
+        <view class="reward-list" wx:if="{{hasUserInfo}}">
+          <view class="reward-cell" wx:for="{{tipList}}" wx:key="">
+            <view class="reward-box" wx:if="{{item}}" data-beanNum="{{item.bean}}" data-signId="{{item.id}}" bind:tap="toGetBean">
+              <view class="reward">
+                <text>{{item.bean}}</text>
+              </view>
+              <text>{{item.text}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 签到、服务、车库 -->
+      <view class="activity-bar">
+        <view class="item" bind:tap='toSignIn'>
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_qiandao.png" />
+        </view>
+        <view class="item" bind:tap='toServiceModal'>
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_fuwu.png" />
+        </view>
+        <view class="item" bind:tap="toGarageModal">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_cheku.png" />
+        </view>
+      </view>
+      <!-- 天气提醒的气泡框 -->
+      <view  class="weather-tip" wx:if="{{showWeather || showLimit}}">{{showWMsg}}</view>
+    </view>
+
+    <!-- 中间的红色车辆 -->
+    <view class="car-box">
+      <!-- <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/car.png" bind:tap="weatherTip"/>     -->
+      <image  bindtouchstart="containerTap" src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/car.png" bind:tap="weatherTip"/> 
+      <view class="carid">{{carid}}</view>
+    </view>
+    <!-- 新手奖励或者签到奖励的豆子 -->
+    <view class="games-bottom">
+      <!-- 当前豆子 -->
+      <view class="bean">
+        <view class="bean-img" bind:tap="toBeanDetails">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_douzi.png" />
+        </view>
+        <view class="bubble" wx:if="{{basicUserInfo.bean}}">{{beanNum}}</view>
+        <view class="bubble" wx:else>0</view>
+      </view>
+      <!-- 攻略 -->
+      <view class="item item-hd item-hw" bind:tap="toStrategy">
+        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_gonglue.png" />
+      </view>
+      <!-- 活动 -->
+      <view class="item item-hd" bind:tap="toActivityModal">
+        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_huodong.png" />
+      </view>
+    </view>
+  </view>
+  <!-- 个人资料 -->
+  <view class="personal" wx:if="{{hasUser}}">
+    <view class="personal-info" catch:tap="personalData">
+      <view class="persoanl-img">
+        <image src="{{basicUserInfo.face}}" class="userloginimg"/>
+      </view>
+      <view class="persoanl-name">{{basicUserInfo.nickname}}</view>
+      <view class="persoanl-grade">LV{{basicUserInfo.vip_lv}}</view>
+    </view>
+    <view wx:if="{{carNum}}">已绑定{{carNum}}辆车</view>
+    <view wx:else>已绑定0辆车</view>
+  </view>
+  <view class="personal" wx:if="{{!hasUser}}">
+    <view class="personal-info" catch:tap="personalData">
+      <view class="persoanl-img">
+        <image src="/images/user_no_login.png" class='userunloginimg'/>
+      </view>
+      <view class="persoanl-name">登录/注册</view>
+      
+    
+    
+    </view>
+    <view class="persoanl-tip">登录后即可体验更多服务</view>
+  </view>
+  <!-- 成为会员入口 -->
+  <!-- <view class="member-entry" bind:tap="onMemberEntry">
+    <image src="/images/pic_home_cwhy.png" />
+  </view> -->
+  <!-- 活动专区 -->
+  <view class="activity-area">
+    <!-- <text>广告</text> -->
+    <!-- <view class="activity-list">
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/advertisement.png" />
+    </view> -->
+    <text>专区</text>
+    <view class='game-gitf-area'>
+      <view class='game-area'>
+        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/youxi.png" ></image>
+        <view class='game-text'>
+          <text class='game-text1'>游戏专区</text>
+          <text class='game-text2'>敬请期待</text>
+        </view>
+      </view>
+
+      <view class='gift-area'>
+        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/gift.png"></image>
+        <view class='gift-text'>
+          <text class='game-text1'>兑换礼品</text>
+          <text class='game-text2'>敬请期待</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <my-sign-modal bind:hide="toHide" show="{{showSignModal}}" list="{{statusList}}" count="{{statusCount}}" time="{{time}}" />
+  <my-bottom-modal animationData="{{animationData}}" show="{{showBottomModal}}" title="{{title}}" tag="{{tag}}" img="{{imgLogoUrl}}" list="{{modalList}}" hascar="{{hasCar}}"  bind:confirm="confirm"  defaultCar="{{defaultCar}}"/>
+  <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>
+  <my-location-modal show="{{showLocationModal}}"/>
+</view>
+<view class="container-mask" wx:if="{{!hasUserInfo}}" style="height:{{mainHeight}}px">
+  <button class="btn-reward-box" open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>
+    <view class="btn-reward">
+      <text>100</text>
+    </view>
+    <!-- <text style="color: #fff">新手奖励</text> -->
+    <view class="finger">
+      <image src="/images/finger.gif" />
+    </view>
+    <text class='finger-text' style="color: #fff">点击领取</text>
+  </button>
+</view>

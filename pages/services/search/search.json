@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "my-search-result":"/components/searchlist/searchlist"
+  },
+  "navigationBarBackgroundColor":"#1A84FF",
+  "navigationBarTextStyle":"white",
+  "navigationBarTitleText":"搜索"
+}

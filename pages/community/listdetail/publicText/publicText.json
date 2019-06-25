@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发布图文",
+  "usingComponents": {
+    "my-fabutype-modal": "/components/fabutype/fabutype"
+  }
+}

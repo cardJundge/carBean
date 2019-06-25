@@ -1,0 +1,9 @@
+<!--赠送保险一份-->
+<view class="container">
+  <view class="cell">
+    <view class="image-cell">
+      <image  src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/insurance.png"/>
+    </view>
+     <text>敬请期待</text>
+  </view>
+</view>

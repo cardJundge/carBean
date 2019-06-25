@@ -1,0 +1,48 @@
+/* 活动项目 */
+.container {
+
+}
+.activity-item {
+  width: 702rpx;
+  height: 204rpx;
+  background: #FBA922 ;
+  border-radius: 14rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.activity-info {
+  display: flex;
+  align-items: center;
+}
+.activity-img {
+  width: 106rpx;
+  height: 106rpx;
+  border-radius: 50%;
+  /* background-color: #fff; */
+  border: 1px solid #FBA922 ;
+  margin-right: 36rpx;
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+}
+.activity-text {
+  display: flex;
+  flex-direction: column;
+  color: #fff
+}
+.activity-text>text:first-child {
+  font-size: 36rpx;
+}
+.activity-text>text:last-child {
+  font-size: 24rpx;
+}
+.activity-btn {
+  width: 144rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #fff;
+  color: #FBA922;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+}

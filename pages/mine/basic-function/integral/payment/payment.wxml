@@ -1,0 +1,46 @@
+<!--积分兑换支付页面-->
+<view class="container">
+  <view class="address-cell" bind:tap="toAddress">
+    <view class="cell-icon">
+      <image src="/images/icon/address_icon.png" />
+    </view>
+    <view class="cell-info">
+      <view class="info-name">
+        <text>姓名</text>
+        <text>14678907765</text>
+      </view>
+      <view class="info-add">
+        <text>陕西省西安市雁塔区西电科技园B座408室</text>
+        <view class="info-next">
+          <image src="/images/icon/icon_next.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="pro-cell">
+    <view class="pro-detail">
+      <view class="pro-img"></view>
+      <view class="pro-content">
+        <view class="pro-title">
+          <text>商品名称</text>
+          <text>x1</text>
+        </view>
+        <view class="pro-msg">汽车内饰配件汽车车用车载手机支架改装…</view>
+      </view>
+    </view>
+    <view class="pro-price">
+      <text>共1件</text>
+      <text>小计：</text>
+      <text>1000豆子</text>
+    </view>
+  </view>
+</view>
+<view class="pay-btn">
+  <view class="pay-msg">
+    <text>共1件</text>
+    <text>小计：</text>
+    <text>1000豆子</text>
+  </view>
+  <view class="btn" bind:tap="toPayProduct">去兑换</view>
+</view>
+<pay-modal show="{{showPayModal}}" bind:confirm="toConfirmPay"/>

@@ -1,0 +1,112 @@
+.each_service_cell{  
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;  
+  position: relative;
+}
+
+.title{
+  margin: 20rpx 0;
+  display: flex;
+}
+
+.check{
+  width: 40rpx;
+  height: 40rpx;
+  padding: 0 20rpx;
+}
+
+.usednum{
+  color: red;
+  font-size: 12px;
+  margin-left: 80rpx
+}
+
+.comment{
+  display: flex;
+  margin: 20rpx 0  20rpx 80rpx;
+  color: #919293;
+  font-size: 12px;
+}
+
+.ordernum{
+  margin:2rpx 34rpx 0 7rpx
+}
+
+.orderimg{
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.border-line{
+  margin-left: 80rpx;
+  background: url(https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/service/local/dotted_line.png?sign=5150e2e3a144e212a81a0b0c1a8027d1&t=1542351948);
+  height: 10rpx;
+  margin-right:50rpx;
+  background-size: 100% 100%;
+}
+
+.price{
+  position: absolute;
+  right: 3%;
+  top: 30rpx;
+  display: flex;
+  color: #919293;
+}
+
+.price-num{
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  text-align: right;
+  margin-right: 20rpx;
+}
+
+.value{
+  color: #1a84ff;
+  margin: 14rpx 0;
+  font-weight: 600
+}
+
+.arrow{
+  width: 20rpx;
+  height: 20rpx;
+  margin-top: 20rpx;
+}
+
+.invalid{
+  text-decoration: line-through;
+}
+
+.demo2 {
+        width:40rpx;
+        height:40rpx;
+        border-radius:40px ;
+        /* background:rgb(63, 175, 11); */
+        display:block;
+        position: relative; 
+        margin: 0 36rpx 0 10rpx;
+    }
+    
+    .demo2:before, .demo2::after {
+        content:"";
+        height:28rpx;
+        width:6rpx;
+        border-radius: 10rpx;
+        display:block;
+        background:white;
+        position: absolute;
+        top:6rpx;/*40-6=34*/
+        left:20rpx;/*make the two rects in the middle of the cycle */
+        transform:rotate(45deg);    
+        -ms-transform:rotate(45deg);    
+    }
+    .demo2::before {
+        height:15rpx;
+        transform: rotate(-45deg);
+        -ms-transform:rotate(-45deg);
+        position: absolute;
+        top:18rpx;/*40-18=12  */
+        left:8rpx;       
+    }
+

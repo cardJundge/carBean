@@ -1,0 +1,31 @@
+/* pages/index/Community/listDetail/publicText/publicText.wxss */
+@import '../../../../components/community-modal/detail/detail.wxss';
+@import '../../../../components/community-modal/detail/rating.wxss';
+
+.ratings_cell {
+  margin-top: 12px;
+}
+
+.image_cell {
+  padding-bottom: 0px;
+}
+
+.button_active1{
+ background: #c1c1c1 !important
+}
+.button_active {
+  margin-top: 0px;
+}
+
+.video_cell {
+  margin: 12px;
+}
+
+.video_cell video {
+  width: 100%;
+}
+.address{
+  text-align: left;
+  font-size: 12px;
+  color: #1A84FF;
+}

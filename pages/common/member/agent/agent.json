@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-usertel-modal": "/components/usertel/usertel"
+  },
+  "navigationBarTitleText": ""
+}

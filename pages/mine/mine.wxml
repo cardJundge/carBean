@@ -1,0 +1,131 @@
+<!--我的-->
+<view class="container">
+  <!-- 用户基本信息 -->
+  <view>
+    <view class="pesonal-info">
+      <view class="personal-info-left" wx:if="{{hasUserInfo}}">
+        <view class="personal-avatar">
+          <image src="{{basicUserInfo.face}}" />
+        </view>
+        <view class="personal-name">
+          <text>{{basicUserInfo.nickname}}</text>
+          <text>{{memberInfo.name}}</text>
+        </view>
+      </view>
+      <view class="personal-info-left" wx:if="{{!hasUserInfo}}" bind:tap="toLogin">
+        <view class="personal-avatar">
+          <image src="/images/mine/no_avatar.png" />
+        </view>
+        <view class="personal-name">
+          <text>登录/注册</text>
+          <text>登录后即可体验更多服务</text>
+        </view>
+      </view>
+      <view class="personal-info-right" bind:tap="toInfoEdit" wx:if="{{hasUserInfo}}">
+        <image src="/images/mine/edit.png" />
+      </view>
+    </view>
+    <view class="content">
+      <!-- 账户 -->
+      <view class="account" bind:tap="toBean">
+        <view class="account-left">
+          <view class="account-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/bean.png" />
+          </view>
+          <view class="account-text">
+            当前豆子
+            <text wx:if="{{beanNum}}">{{beanNum}}</text>
+            <text wx:else>0</text>
+          </view>
+        </view>
+        <view class="account-right">
+          <text>账户明细</text>
+          <image src="/images/icon/icon_next.png"></image>
+        </view>
+      </view>
+      <!-- 会员入口 -->
+      <view class="member-entry" bind:tap="onMemberEntry"  wx:if="{{basicUserInfo.vip_lv != 3 &&basicUserInfo.vip_lv != 2 || !hasUserInfo}}">
+        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member_entry.png" />
+      </view>
+      <view wx:else></view>
+      <!-- 基本功能 -->
+      <view class="basic-function">
+        <view>
+          <view class="basic-item" bind:tap="onPublish">
+            <view class="basic-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/release.png" />
+            </view>
+            <text>我的发布</text>
+          </view>
+          <view class="basic-item" bind:tap="onOrderList">
+            <view class="basic-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/order.png" />
+            </view>
+            <text>我的订单</text>
+          </view>
+          <view class="basic-item" bind:tap="onMember">
+            <view class="basic-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member.png" />
+            </view>
+            <text>我的会员</text>
+          </view>
+        </view>
+        <view>
+          <view class="basic-item" bind:tap="onCar">
+            <view class="basic-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/my_garage.png" />
+            </view>
+            <text>我的车库</text>
+          </view>
+          <view class="basic-item" bind:tap="onMessage">
+            <view class="basic-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/msg.png" />
+            </view>
+            <text>消息通知</text>
+          </view>
+          <view class="basic-item" bind:tap="onExchange">
+            <view class="basic-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/integral.png" />
+            </view>
+            <text>兑换礼品</text>
+          </view>
+        </view>
+      </view>
+      <!-- 设置 -->
+      <view class="setting">
+        <text>设置</text>
+        <ul>
+          <!-- <li bind:tap="onUseHelp">
+            <view class="setting-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/help.png" />
+            </view>
+            <text>使用帮助</text>
+          </li> -->
+          <li bind:tap="onFeedback">
+            <view class="setting-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/feedback.png" />
+            </view>
+            <text>意见反馈</text>
+          </li>
+          <li bind:tap="onAboutUs">
+            <view class="setting-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/about_us.png" />
+            </view>
+            <text>关于我们</text>
+          </li>
+          <li bind:tap="toLogout" wx:if="{{hasUserInfo}}">
+            <view class="setting-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/login_out.png" />
+            </view>
+            <text>退出登录</text>
+          </li>
+          <!-- <li>
+            <navigator open-type="exit" target="miniProgram">关闭按钮</navigator>
+          </li> -->
+        </ul>
+      </view>
+    </view>
+    <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>
+    <my-logout-modal show="{{showLogoutModal}}"  bind:confirm="confirmLogout"/>
+  </view>
+</view>

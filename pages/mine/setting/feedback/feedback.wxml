@@ -1,0 +1,8 @@
+<!-- 意见反馈 -->
+<view class="container">
+  <view class="input-box">
+    <textarea auto-height placeholder="请输入您的意见…" bindinput="getContent"></textarea>
+  </view>
+  <view class="btn" bind:tap="submitFeedback">确定</view>
+</view>
+

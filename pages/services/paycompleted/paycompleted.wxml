@@ -1,0 +1,18 @@
+<!--pages/services/paycompleted/paycompleted.wxml-->
+<view class='container'>
+  <view class='top'>
+    <view class='success'>支付成功</view>
+    <view class='back'>
+      <view class='order' bindtap='orderlist'>返回订单</view>
+      <view class='order' bindtap='back'>返回首页</view>
+    </view>
+  </view>
+
+  
+  <view class='recommendservicetext'>推荐服务商</view>
+  
+ 
+  <my-recommendserviceitem-model servicelist="{{servicelist}}" hostName='{{hostName}}'/>
+
+
+</view>

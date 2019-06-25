@@ -1,0 +1,16 @@
+<view>
+
+<view class="swiper-tab">
+  <view wx:for="{{tablist}}" wx:key="index" class="swiper-tab-list {{currentTab==index ? 'active' : ''}}"  bindtap='switchnav' data-index='{{index}}' >
+        <view>{{item}}</view>
+        <view class="{{currentTab==index ? 'line' : ''}}"></view>
+  </view>
+</view>
+
+<!-- 切换的内容 -->
+  <!-- <view class="tab-content" wx:if="{{currentTab===0}}">选项卡演示内容1111111</view>
+  <view class="tab-content" wx:if="{{currentTab===1}}">选项卡演示内容2222222</view>
+  <view class="tab-content" wx:if="{{currentTab===2}}">选项卡演示内容3333333</view> -->
+
+</view>
+

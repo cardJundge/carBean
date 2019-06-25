@@ -1,0 +1,74 @@
+/* 退出登录弹出框 */
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.modal-content {
+  width: 600rpx;
+  /* height: 278rpx; */
+  background-color: #fff;
+  /* border-radius: 30rpx; */
+  position: relative;
+}
+
+.del-icon {
+  position: absolute;
+  top: 20.5rpx;
+  right: 20.5rpx;
+}
+
+.del-icon image {
+  width: 20.5rpx;
+  height: 20.5rpx;
+}
+
+.title {
+  width: 100%;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  color: #010101;
+  font-size: 36rpx;
+  border-bottom: 1rpx solid #F6F6F6;
+}
+
+.msg {
+  width: 100%;
+  height: 110rpx;
+  color: #6A6A6A;
+  text-align: center;
+  line-height: 110rpx;
+  font-size: 36rpx;
+}
+
+.btn-bar {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+}
+.btn:first-child {
+  background: #CFCFCF;
+}
+.btn:last-child {
+  background: #488FFD
+}

@@ -1,0 +1,20 @@
+<!-- 成为会员 -->
+<view class="container">
+  <!-- 铜牌会员 -->
+  <view class="member-container">
+    <view class="member-card" bind:tap="onBronzeRegister" wx:if="{{basicUserInfo.vip_lv < 1 || !hasUserInfo}}">
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/pic_tongpai.png" />
+    </view>
+    <!-- 银牌会员 -->
+    <view class="member-card" bind:tap="onSilverRegister" wx:if="{{basicUserInfo.vip_lv < 2 ||!hasUserInfo}}">
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/pic_yinpai.png" />
+    </view>
+    <!-- 金牌会员 -->
+    <view class="member-card" bind:tap="onGoldRegister" wx:if="{{basicUserInfo.vip_lv < 3 || !hasUserInfo}}">
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/pic_jinpai.png" />
+    </view>
+    <!-- model弹出框 -->
+    <my-modal bind:confirm="onConfirm" show="{{showModal}}" title='{{title}}'/>
+    <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>
+  </view>
+</view>

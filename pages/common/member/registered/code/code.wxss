@@ -1,0 +1,78 @@
+/* pages/common/member/registered/code/code.wxss */
+.container{
+  width: 90%;
+  margin: 3% 5%;
+}
+
+.input-code{
+  font-family: PingFangSC-Medium;
+  font-size: 24px;
+}
+
+.code-num{
+  font-family:PingFangSC-Regular;
+  font-size: 14px;
+  color: rgb(197, 197, 197);
+  margin-bottom: 10px;
+}
+
+.code{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  width: 100%;
+  height: 20%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.num{
+  width: 80rpx;
+  height: 80rpx;
+  background: #f1f1f1;
+  /* 改变光标颜色 */
+  caret-color:#fff;
+  margin: 3% 3%; 
+  border-radius: 5px 
+}
+
+form input{
+  height: 80rpx;
+  width:80rpx;
+  border:1px solid #cdcdcd;
+  border-radius: 8rpx;
+  display: inline-block;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 48rpx;
+  color:#323232;
+  margin:14rpx 22rpx;
+}
+
+form .hidden_ipt{
+  height: 0rpx;
+  width:0rpx;
+  border:none;
+  margin:0;
+}
+
+
+.time{
+  color: #666666;
+  width: 100%;
+  text-align: center
+}
+
+.time1{
+  color: #1a84ff;
+  width: 100%;
+  text-align: center
+}
+
+.surechecked{
+  width: 100%;
+  margin: 4% 0;
+  background: #1a84ff;
+  color: #fff;
+  border-radius: 30px;
+}

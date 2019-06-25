@@ -1,0 +1,62 @@
+/* 添加收货地址 */
+.container {
+  font-size: 36rpx;
+}
+.section {
+
+}
+.input-box {
+  height: 94rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #F4F4F4;
+  position: relative;
+}
+.input-box label {
+  width: 180rpx;
+}
+.select-icon {
+  width: 18rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 24rpx;
+}
+.select-icon image {
+  width: 18rpx;
+  height: 32rpx;
+}
+.holder-class {
+  color: #C3C3C3
+}
+.detail-address {
+  height: 148rpx;
+  padding: 24rpx;
+  display: flex;
+  align-items: flex-start;
+}
+.detail-address textarea {
+  width: 520rpx;
+}
+.line {
+  height: 36rpx;
+  width: 100%;
+  background-color: #FBFBFB;
+}
+.selected-bar {
+  padding: 24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.conserve-btn {
+  width: 702rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 0 24rpx;
+  color: #fff;
+  background-color: #4F93FD;
+  border-radius: 40rpx;
+  position: fixed;
+  bottom: 40rpx;
+}

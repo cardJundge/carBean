@@ -1,0 +1,66 @@
+<!--pages/index/Community/communityC/comment.wxml-->
+<import src="../../../components/community-modal/community.wxml" />
+<import src="../../../components/evaluationList/evaluationlist.wxml" />
+<import src="../../../components/replytemplate/replytemplate.wxml" />
+<template is='dynamicList' data='{{dynamicArr,hostName,islogin}}' />
+
+<view class='reply_title'>
+  <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/fire.png'></image>
+  <text>评论</text>
+  <view class='reply_line'></view>
+</view>
+
+
+<view class='evaluate'>{{evaluate}}</view>
+
+<view catchtap='loseFocus'>
+    <template is="evaluationlist" data="{{evaluationArr,hostName,moreShow}}" />
+</view>
+
+
+<!-- <view wx:for="{{evaluationArr}}" wx:index="{{index}}" wx:item="{{item}}">
+  <template is="replytemplate" data="{{reply:item.reply, hostName}}" />
+</view> -->
+
+
+<!-- 评论框 -->
+<!-- <view class='model' wx:if="{{inputBoxShow}}">
+<form bindsubmit='submitPublic'>
+<textarea class="textarea" placeholder="请输入你的看法" name='content'/>
+<button class='send' form-type='submit'>发送</button>
+</form>
+</view> -->
+
+<form bindsubmit='submitPublic'>
+
+<view class="reply_bg" style="bottom:{{focus?height:0}}px">
+  <textarea class="{{detail?'reply_':'reply_1'}}" fixed='true' adjust-position="{{false}}" placeholder='{{logo}}'cursor-spacing='0' bindfocus="textinput" bindblur="distext" name='content' value='{{re_content}}' focus="{{focus}}" show-confirm-bar="{{false}}" ></textarea>
+
+<block wx:if="{{!dianzan}}">
+  <view class='dianzan'>
+
+    <block wx:if="{{dynamicArr[0].is_zan == 1}}">
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Fabulous_n@2x .png"  catchtap='toCancelThumnUp' id="{{dynamicArr[0].id}}" data-item='{{0}}'></image>
+      <text>{{dynamicArr[0].zan}}</text>
+    </block>
+    <block  wx:else>
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Fabulous_h@2x.png" data-item='{{0}}'  id="{{dynamicArr[0].id}}" catchtap='toThumnUp'></image>
+    <text>{{dynamicArr[0].zan}}</text>
+    </block>
+  </view>
+</block>
+<block wx:else>
+  <view class='dianzan1' style="bottom:{{focus?height+12:0}}px">
+    <button form-type='submit' class='send1'>发送</button>
+  </view>
+</block>
+</view>
+
+</form>
+
+<my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>
+
+
+
+
+

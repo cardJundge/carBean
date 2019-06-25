@@ -1,0 +1,219 @@
+page{
+  background: #eee;
+}
+
+.container{
+  width: 100%;
+  font-size: 12px;
+}
+
+.headerimg{
+  width: 100%;
+  height: 355rpx;
+}
+
+.bodycontent{
+  position: relative;
+  top:-110rpx;
+  width: 94%;
+  left: 3%;
+  /* box-shadow: 0 0 4px 2px rgba(212, 212, 212, 0.50); */
+  display: flex;
+  flex-direction: column;
+  border-radius:5px;
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 3%;
+  border-radius: 5px;
+  color: #919293;
+}
+
+.title{
+  vertical-align: middle;
+  display: flex
+}
+
+.shopname{
+  color: #1a84ff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.shoptype{
+  border-radius: 30px;
+  background: #f4b05e;
+  color: white;
+  margin-left: 14rpx;
+  font-size: 10px;
+  width: 80rpx;
+  height: 30rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.evaluate{
+  margin: 16rpx 0;
+  display: flex; 
+  
+}
+
+.orderimg{
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.evaluate-num{
+  margin: 2rpx 34rpx 0 7rpx;
+}
+
+.distance{
+  position: absolute;
+  right:3%;
+  top: 30rpx; 
+  font-size: 16px;
+  color: #1a84ff;
+}
+
+.navigation{
+  position: absolute;
+  right:3%;
+  top: 90rpx;
+  display: flex;
+  flex-direction: column; 
+}
+
+.positionimg{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.arrowimg{
+  width: 20rpx;
+  height: 20rpx;
+  vertical-align: middle
+}
+
+.technicians{
+  display: flex;
+  border-radius: 5px;
+  padding: 3%;
+  background: white;
+  margin-top: 2%;
+  justify-content:space-between;
+  color:#919293;
+}
+
+.technician_text{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.technicians_num{
+  margin-top: 4rpx;
+}
+
+.section{
+  padding: 3%;
+  background: white;
+  margin-top: 2%;
+  border-radius: 5px;
+}
+
+.service_text{
+   height: 50rpx;
+   border-bottom: 1px solid #eee;
+   color:#919293;
+   font-weight: 600; 
+}
+
+.bottom{
+  position: fixed;
+  bottom: 0;
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content:space-around;
+  border-top: 1px solid #eee;
+  padding: 14rpx 0;
+}
+
+.bottom-left{
+  color: #919293;
+  font-size: 12px;  
+}
+
+.serviceprice{
+  color: #1a84ff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 10rpx
+}
+
+.serviceinvalid{
+  text-decoration: line-through;
+}
+
+.sold{
+  vertical-align: middle
+}
+
+.bottom-right{
+  display: flex;
+}
+
+.customer{
+  background: #ffbd22;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: white;
+  display: flex;
+  width: 190rpx;
+  align-items: center;
+}
+
+.pay{
+  background: #ff9222;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  color: white;
+  display: flex;
+  width: 190rpx;
+  align-items: center;
+}
+
+.consult{
+  width: 40rpx;
+  height: 38rpx;
+  margin-left: 20rpx;
+}
+
+.customer_text{
+  /* margin: 20rpx 0 0 10rpx; */
+  padding: 0;
+  font-size: 30rpx;
+  width: 150rpx;
+  color: white;
+  text-align: left;
+  padding-left: 10rpx;
+  padding-top: 4rpx;
+}
+
+.btn{
+  background: transparent
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  background-color: transparent;
+  border-radius: 0;
+}
+
+
+

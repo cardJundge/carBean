@@ -1,0 +1,48 @@
+/* 我的车库 */
+
+.container {
+}
+
+.allCar {
+  text-align: left;
+  margin: 24rpx 24rpx 0 24rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.eachCar {
+  width: 33.3%;
+}
+
+.carContent {
+  height: 280rpx;
+  position: relative;
+  text-align: center;
+  background: url(https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/mine/myCar/pic_Garage-background@2x.png?sign=e895080e34d9c82fee425a0a3929c89a&t=1542870012);
+  background-size: 100% 100%;
+}
+
+.car-logo {
+  height: 200rpx;
+  padding: 30rpx 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.car-logo image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.car-logo view {
+  font-size: 24rpx;
+}
+
+
+.car-num {
+  line-height: 80rpx;
+  color: #1a84ff;
+}

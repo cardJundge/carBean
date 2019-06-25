@@ -1,0 +1,17 @@
+
+<view class='container' wx:if='{{show}}'>
+  <view class='dialogbox'>
+    <view class='title'>
+      <view>提示</view>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/del_icon.png' class='cancelimg'></image>
+    </view>
+    <view class='tipscontent'>您的个人信息尚未完善，请先完善个人信息再下单!</view>
+    <view>
+      <view class='cancel btn' bindtap='cancel'>取消</view>
+      <view class='perfect btn' bindtap='perfect'>去完善</view>
+    </view>
+  </view>
+</view>
+
+<!-- model弹出框 -->
+<!-- <my-userinfor-modal bind:confirm="onConfirm" show="{{showModal}}" title="{{title}}"/> -->

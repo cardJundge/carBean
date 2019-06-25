@@ -1,0 +1,136 @@
+/* 订单详情 */
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.detail-container {
+  width: 666rpx;
+  height: 676rpx;
+  /* margin: 42rpx; */
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/member/agent_bg.png?sign=d5cca5293012066b80c5aac7388224ca&t=1561102162') no-repeat center;
+  background-size: contain;
+  position: relative;
+}
+
+.detail-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48rpx 0 36rpx;
+}
+
+.detail-title text:first-child {
+  font-family: PingFangSC-Medium;
+  font-size: 48rpx;
+  color: #4f93fd;
+  margin-bottom: 12rpx;
+}
+
+.detail-title text:last-child {
+  font-size: 34rpx;
+  color: #343538;
+}
+
+.detail-content {
+  width: 100%;
+  padding: 48rpx 36rpx 0;
+  font-size: 34rpx;
+}
+
+.content-item {
+  display: flex;
+  margin-bottom: 24rpx;
+  position: relative;
+}
+
+.content-item text:first-child {
+  margin-right: 48rpx;
+}
+
+.modify-tel {
+  position: absolute;
+  right: 24rpx;
+  color: #4F93FD;
+}
+
+.detail-msg {
+  font-size: 34rpx;
+  color: #aeaeae;
+  text-align: center;
+  margin: 12rpx 0;
+}
+
+.order-status {
+  color: #4F93FD;
+}
+
+.detail-btn {
+  width: 618rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background: #4F93FD;
+  border-radius: 42rpx;
+  position: absolute;
+  bottom: -40rpx;
+  left: 24rpx;
+  font-size: 34rpx;
+}
+
+.modal {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background: rgba(110, 110, 110, 0.5);
+  text-align: center;
+  z-index: 3;
+}
+
+.modal_content {
+  width: 80%;
+  margin: 60% auto 0;
+  background: #fff;
+  display: inline-block;
+}
+
+.modal_input {
+  border: 1rpx solid #ccc;
+  line-height: 80rpx;
+  margin: 40rpx 24rpx;
+}
+
+.modal_input input {
+  line-height: 80rpx;
+  height: 80rpx;
+  border: none;
+}
+
+.redInfor{
+  color: red;
+}
+
+.modal_bottom1 button {
+  display: inline-block;
+  background: #fff;
+  font-size: 30rpx;
+  padding: 0;
+  color: #aaa;
+  padding-right: 24rpx;
+}
+
+.modal_bottom1 button::after {
+  border: none;
+}
+
+.modal_bottom1 view {
+  float: right;
+}
+
+.edit_cell button {
+  color: #ff9800;
+}

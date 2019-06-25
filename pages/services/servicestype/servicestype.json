@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-service-modal": "/components/servicelist/servicelist"
+  },
+  "navigationBarTitleText": "服务",
+  "enablePullDownRefresh": true
+}

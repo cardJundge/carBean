@@ -1,0 +1,7 @@
+<!--底部弹出来的键盘上方的input框-->
+<view class="container">
+  <view class="input-box" wx:if="{{showInputBox}}">
+    <textarea focus="{{focus}}" cursor-spacing="60" bindinput="getReplyText" bindconfirm="showReplyText"></textarea>
+    <view bind:tap="showReplyText">发送</view>
+  </view>
+</view>

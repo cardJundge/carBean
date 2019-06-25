@@ -1,0 +1,30 @@
+/* 赠送保险一份 */
+
+.container {
+  height: 1206rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cell {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cell text{
+  text-align: center;
+  color: #4F93FD;
+}
+
+.image-cell {
+  width: 326rpx;
+  height: 320rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.image-cell image{
+  width: 326rpx;
+  height: 320rpx;
+}

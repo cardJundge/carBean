@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-input": "/components/my-input/input",
+    "null-modal": "/components/null/null"
+  },
+  "navigationBarTitleText": "消息通知"
+}

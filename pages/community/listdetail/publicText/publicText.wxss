@@ -1,0 +1,24 @@
+/* pages/index/Community/listDetail/publicText/publicText.wxss */
+@import '../../../../components/community-modal/detail/detail.wxss';
+@import '../../../../components/community-modal/detail/detail.wxss';
+.ratings_cell{
+  margin-top: 12px
+}
+.image_cell {
+  padding-bottom: 0px;
+}
+
+.button_active{
+  margin-top: 0px;
+  line-height: 40px;
+  color: white;
+  
+}
+.relative_cell{
+  display: inline-block;
+  position: relative;
+}
+.delete_cell image{
+  background: #fff;
+  border-radius: 50%;
+}

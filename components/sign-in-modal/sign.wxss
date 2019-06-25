@@ -1,0 +1,103 @@
+/* 签到的组件模态框 */
+.container {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+.modal-content {
+  width: 560rpx;
+  height: 560rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  position: relative;
+}
+.modal-time {
+  height: 260rpx;
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/home/sign_bg.png?sign=355771059e1b6d20ac64ac47ca8ea255&t=1557737920') no-repeat;
+  background-size: 100% 100%;
+  border-radius: 30rpx 30rpx 0 0;
+  color: #FFFFFF;
+  padding: 82rpx 0 38rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+.modal-time text:first-child {
+  font-size: 70rpx;
+}
+/* 签到状态 */
+.sign-in-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 20rpx 39rpx 40rpx;
+}
+.status-text {
+  display: flex;
+  flex-direction: column;
+}
+.status-text text:first-child {
+
+}
+.status-text text:last-child {
+  color: #919191;
+}
+.status-img {
+  width: 114rpx;
+  height: 82rpx;
+}
+
+.status-img image {
+  width: 114rpx;
+  height: 82rpx;
+}
+/* 签到按钮 */
+.sign-in-btn-box {
+  padding: 0 40rpx;
+  text-align: center;
+  }
+.sign-in-btn {
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #488FFD;
+  color: #fff;
+  border-radius: 35rpx;
+  margin-bottom: 12rpx;
+}
+
+.sign-in-btn1 {
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #fff;
+  color: #919191;
+  border-radius: 35rpx;
+  margin-bottom: 12rpx;
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+}
+
+.sign-in-btn-box1 text {
+  font-size: 24rpx;
+  color: #919191;
+}
+
+.sign-in-btn-box text {
+  font-size: 24rpx;
+  color: #919191;
+}
+.del-icon {
+  position: absolute;
+  top: 20.5rpx;
+  right: 20.5rpx;
+}
+.del-icon image {
+  width: 40rpx;
+  height: 40rpx;
+}

@@ -1,0 +1,26 @@
+<!--自定义模态框组件-->
+<view class="container" wx:if="{{show}}" catchtouchmove="ture">
+  <view class="modal-content">
+    <view class="modal-title">
+      <text>{{title}}</text>
+      <view bind:tap="hideModal" class="del-icon">
+        <image src="/images/icon/del_icon.png" />
+      </view>
+    </view>
+    <view class="modal-form">
+      <view class="form-input">
+        <text>姓名:</text>
+        <input bindinput="getName" placeholder-class="input-holder" placeholder='请输入您的真实姓名' />
+      </view>
+      <view class="form-input">
+        <text>电话:</text>
+        <input bindinput="getPhone" placeholder-class="input-holder" placeholder='请输入您的手机号码' />
+      </view>
+      <!-- <view class="form-input">
+        <text>车牌号:</text>
+        <input bindinput="getLicensePlate" placeholder-class="input-holder" placeholder='请输入您的车牌号' />
+      </view> -->
+    </view>
+    <view class="modal-btn" bind:tap="onConfirm">确定</view>
+  </view>
+</view>

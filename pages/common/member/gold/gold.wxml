@@ -1,0 +1,213 @@
+<!--金牌-->
+<view class="container" wx:if="{{showMemberIntro}}">
+  <!-- vip卡片 -->
+  <view>
+    <view class="member-card">
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/pic_jinpai_bg.png" />
+    </view>
+    <view class="member-img">
+      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/pic_jinpai_content.png" />
+    </view>
+    <view class="member-btn" bind:tap="toBuyGold">立即购买(¥368/年)</view>
+  </view>
+</view>
+<view class="container1" wx:if="{{!showMemberIntro}}">
+  <view>
+    <!-- vip卡片 -->
+    <view class="member-card-vip">
+      <view class="card-top">
+        <view class="card-avatar">
+          <image src="{{basicUserInfo.face}}" />
+        </view>
+        <view class="card-name">
+          <text>{{basicUserInfo.nickname}}</text>
+          <text>有效期:{{starttimes}}到{{endtimes}}</text>
+        </view>
+      </view>
+      <view class="card-bottom">
+        <text></text>
+        <view>金牌会员</view>
+      </view>
+    </view>
+    <!-- VIP专属特权 -->
+    <view class="member-privilege">
+      <view class="privilege-title">
+        <text>VIP专属特权</text>
+        <text></text>
+      </view>
+      <view class="privilege-content">
+        <view class="privilege-item" bindtap="toserviceItem" data-server='洗车'>
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/xc@2x.png" />
+            </view>
+            <view class="item-text">
+              <text>洗车</text>
+              <text>每次洗车赠送玻璃水一瓶</text>
+            </view>
+          </view>
+          <view class="item-right">
+            <view class="item-text-sum" wx:for="{{comboproject}}" wx:key="" wx:if="{{item.id==20}}">
+              <text>剩余{{item.num}}次</text>
+              <text>{{item.sum}}次/年</text>
+            </view>
+            
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+        <view class="privilege-item" bindtap="toserviceItem" data-server='车辆检测'>
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/cljc@2x.png" />
+            </view>
+            <view class="item-text">
+              <text>车辆检测</text>
+              <text>32项车辆检测服务</text>
+            </view>
+          </view>
+          <view class="item-right">
+            <view class="item-text-sum" wx:for="{{comboproject}}" wx:key="" wx:if="{{item.id==17}}">
+              <text>剩余{{item.num}}次</text>
+              <text>{{item.sum}}次/年</text>
+            </view>
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+        <view class="privilege-item" bindtap="toserviceItem" data-server='非事故救援'>
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/jjjy@2x.png" />
+            </view>
+            <view class="item-text">
+              <text>紧急救援</text>
+              <text></text>
+            </view>
+          </view>
+          <view class="item-right">
+            <view class="item-text-sum" wx:for="{{comboproject}}" wx:key="" wx:if="{{item.id==21}}">
+              <text>剩余{{item.num}}次</text>
+              <text>{{item.sum}}次/年</text>
+            </view>
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+        <view class="privilege-item" bind:tap="toAgent" data-Type="0" data-Agent="代办服务">
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/dbfu@2x.png" />
+            </view>
+            <view class="item-text">
+              <text>代办服务</text>
+              <text>维修/理赔/保养，三选一</text>
+            </view>
+          </view>
+          <view class="item-right">
+            <!-- <view class="item-text-sum" wx:for="{{comboproject}}" wx:key="" wx:if="{{item.id==15}}"> -->
+            <view class="item-text-sum" wx:for="{{agentList}}" wx:key="" wx:if="{{item.id == 0}}">
+              <text>剩余{{item.count}}次</text>
+              <text>1次/年</text>
+            </view>
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+        <view class="privilege-item" bind:tap="toAgent" data-Type="2"  data-Agent="年审代办">
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/dbns@2x.png" />
+            </view>
+            <view class="item-text">
+              <text>年审代办</text>
+              <text></text>
+            </view>
+          </view>
+          <view class="item-right">
+            <!-- <view class="item-text-sum" wx:for="{{comboproject}}" wx:key="" wx:if="{{item.id==14}}"> -->
+            <view class="item-text-sum" wx:for="{{agentList}}" wx:key="" wx:if="{{item.id == 2}}">
+              <text>剩余{{item.count}}次</text>
+              <text>1次/年</text>
+            </view>
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+        <view class="privilege-item">
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/bxzk@2x.png" />
+            </view>
+            <view class="item-text">
+              <text>保险折扣</text>
+              <text></text>
+            </view>
+          </view>
+          <view class="item-right">
+            <text>最低3.8折</text>
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+        <view class="privilege-item" bind:tap="toAgent" data-Type="1"  data-Agent="二手车评估">
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/escpg@2x.png" />
+            </view>
+            <view class="item-text">
+              <text>二手车评估</text>
+              <text></text>
+            </view>
+          </view>
+          <view class="item-right">
+            <text>不限</text>
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+        <view class="privilege-item" bind:tap="toAgent" data-Agent="车务咨询">
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/cwzx@2x.png" />
+            </view>
+            <view class="item-text">
+              <text>车务咨询</text>
+              <text>车务免费咨询</text>
+            </view>
+          </view>
+          <view class="item-right">
+            <text>不限</text>
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+        <view class="privilege-item" bind:tap="toInsurance">
+          <view class="item-left">
+            <view class="item-img">
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/baoxian.png" />
+            </view>
+            <view class="item-text">
+              <text>赠送保险</text>
+              <text></text>
+            </view>
+          </view>
+          <view class="item-right">
+            <text>敬请期待</text>
+            <view class="next-icon">
+              <image src="/images/icon/icon_next.png" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

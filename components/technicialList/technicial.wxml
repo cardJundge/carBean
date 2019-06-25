@@ -1,0 +1,40 @@
+<template name='technicial'>
+  <view class='all_technical'>
+    <view class='each_cell' wx:for='{{task}}' wx:for-item='item'>
+      <view class='each_technician'>
+        <view class='technician_left'>
+          <view class='avatar_cell'>
+            <view class='avatar'>
+              <image src='/images/mine/no_avatar.png' wx:if='{{!item.face}}'></image>
+              <image src='{{hostName}}/uploads/face/{{item.face}}' wx:if='{{item.face}}'></image>
+            </view>
+            <view class='technician_name'>
+              <text>{{item.nickname}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='technician_right'>
+          <view class='infor_cell'>
+            <view class='service_cell'>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/icon_Order@2x.png' class='ratingIcon'></image>
+              <text class='tag_num'>0次</text>
+            </view>
+            <view class='service_rating'>
+              <view class='star_cell'>
+                <view class='each_star' wx:for='{{item.star}}' wx:for-item='item1'>
+                  <image src='/images/service/full_star.png' wx:if='{{item1=="full"}}'></image>
+                  <image src='/images/service/star_half.png' wx:if='{{item1=="half"}}'></image>
+                  <image src='/images/service/star_o.png' wx:if='{{item1=="space"}}'></image>
+                </view>
+              </view>
+              <view class='comment'>
+                {{item.comment}}
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

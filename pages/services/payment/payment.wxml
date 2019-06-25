@@ -1,0 +1,80 @@
+<!--pages/services/payment/payment.wxml-->
+<view class='container'>
+  
+  <view class='fontstyle'>等待您支付</view>
+  <!-- <view class='fontstyle size'>还剩26分自动取消</view> -->
+  <view class='userinfo'>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon-name@2x.png' class='userimg'></image>
+    <view>{{nickname}}</view>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon-phone@2x.png' class='telimg'></image>
+    <view>{{telphone}}</view>
+    <view class='modify' bindtap='editModal'>修改</view>
+  </view>
+
+  <view class='serviceshop'>
+    <view class='serviceshop-text'>服务门店</view>
+    <view class='serviceshopinfor' catchtap='serviceitemdetail'>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg' class='servicelogo' wx:if="{{!serviceface}}"></image>
+      <image src='{{hostName}}/uploads/face/{{serviceface}}' class='servicelogo' wx:else></image>
+      <view class='serviceshop-address'>
+        <view>{{shopname}}</view>
+        <view class='address'>{{shopaddress}}</view>
+      </view>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/right_arrow.png' class='arrowimg'></image>
+    </view>
+  </view>
+
+  <view class='serviceshop'>
+    <view class='serviceshop-text'>服务</view>
+    <view class='serviceshopinfor'>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg' class='servicelogo' wx:if="{{!serviceface}}"></image>
+      <image src='{{hostName}}/uploads/face/{{serviceface}}' class='servicelogo' wx:else></image>
+      <view class='serviceshop-address'>
+        <text>{{classify}}</text>
+        <view class='num'>x1</view>
+      </view>
+      <view class='pricenum'>
+        <view>RMB</view>
+        <view class='price'>{{platform_price}}</view>
+      </view>
+    </view>
+
+    <view class='order-infor line'>
+      <text>订单编号:{{orderno}}</text>
+      <text class='copy_cell' bindtap="copyTBL" id='{{orderno}}'>复制</text>  
+    </view>
+    <view class='order-infor'>订单时间:{{ordertime}}</view>
+    <view class='order-infor'>支付方式:线上支付</view>
+  </view>
+
+</view>
+
+<view class='bottom'>
+   <view>
+    <text>合计:</text>
+    <text class='value'>{{platform_price}}</text>
+   </view>
+   <view class='order-pay'>
+      <text class='cancel' bindtap='cancelorder'>取消订单</text>
+      <text class='confirm' bindtap='pay'>立即支付</text>
+   </view>
+</view>
+
+<view class='modal' wx:if='{{editMobile}}'>
+  <form bindsubmit='updateMobile'>
+    <view class='modal_content'>
+      <view class='modal_input'>
+        <input type='number' bindfocus='cancelRed' name='mobile' placeholder='请输入联系电话' />
+      </view>
+      <view class='redInfor' wx:if='{{mobileError}}'>请输入正确的手机号码！</view>
+      <view class='modal_bottom1'>
+        <view class='edit_cell'>
+          <button hover-class='none' form-type='submit'>确定</button>
+        </view>
+        <view class='phonecancel' style='margin-right:30px;'>
+          <button hover-class='none' bindtap='cancelModal'>取消</button>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

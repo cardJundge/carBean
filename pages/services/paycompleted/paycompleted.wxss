@@ -1,0 +1,41 @@
+/* pages/services/paycompleted/paycompleted.wxss */
+
+.container{
+  width: 100%;
+  font-size: 26rpx;
+}
+
+.top{
+  width: 100%;
+  height: 280rpx;
+  background: rgb(3, 132, 238);
+}
+
+.success{
+  font-size: 48rpx;
+  color: white;
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.back{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 30rpx;
+}
+
+.order{
+  width: 200rpx;
+  border-radius: 30px;
+  background: white;
+  color: rgb(3, 132, 238);
+  text-align: center;
+  padding: 15rpx 0;
+}
+
+.recommendservicetext{
+  font-size: 34rpx;
+  font-weight: 600;
+  margin: 3% 0 0 5%;
+}

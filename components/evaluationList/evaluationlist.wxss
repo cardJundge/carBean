@@ -1,0 +1,87 @@
+@import '../replytemplate/replytemplate.wxss';
+
+.evaluationArr{
+  display: flex;
+  flex-direction: row;
+  margin: 14px auto;
+}
+
+.evaluationArr1{
+  display: flex;
+  flex-direction: row;
+  margin-top: 14px;
+  /* margin-bottom: 5em; */
+  padding-bottom: 10em
+}
+
+.face{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 12px;
+}
+
+.level{
+  width: 15px;
+  height: 15px;
+  margin-top: 26px;
+  margin-left: -10px;
+}
+
+.eva_message{
+  margin-left: 14px;
+  width: 70%;
+  letter-spacing:2rpx;
+  line-height:22px;
+  padding-bottom:3%;
+  border-bottom:1px solid #f2f2f2;
+}
+.username{
+  color: #1a84ff;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.evacontent{ 
+  font-size: 16px;
+  color: #3f3f3f;
+  line-height: 20px;
+  word-break:break-all;
+  margin: 4% auto;
+  /* letter-spacing: 2rpx; */
+}
+
+.time-Reply{
+  display: flex;
+  flex-direction: row;
+}
+
+.evatime{
+  font-size: 14px;
+  letter-spacing: 0;
+  color: #d1d1d1
+}
+
+.evareive{
+  font-size: 14px;
+  color: #1a84ff;
+  margin-left: 6px;
+}
+
+.frame{
+  background: #f2f2f2;
+  width: 100%;
+  margin-top: 6px;
+  padding: 4px 0 6px 10px;
+}
+
+.replytext{
+
+  font-size: 14px;
+  color: #3f3f3f;
+}
+
+.placeholder{
+  display: inline-block;
+  
+}

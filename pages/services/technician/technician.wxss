@@ -1,0 +1,11 @@
+/* pages/services/technician/technician.wxss */
+
+@import '/components/technicialList/technicial.wxss';
+
+.section {
+  padding-top: 10px;
+}
+
+page {
+  background: #f0eff5;
+}

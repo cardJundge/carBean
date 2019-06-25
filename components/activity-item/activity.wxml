@@ -1,0 +1,13 @@
+<!--活动项目-->
+<view class="container">
+  <view class="activity-item">
+    <view class="activity-info">
+      <image src='/images/mine/icon_canyuhuodong.png' class="activity-img"></image>
+      <view class="activity-text">
+        <text>活动名称</text>
+        <text>活动介绍</text>
+      </view>
+    </view>
+    <view class="activity-btn">去参加</view>
+  </view>
+</view>

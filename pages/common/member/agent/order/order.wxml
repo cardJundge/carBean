@@ -1,0 +1,53 @@
+<!--订单详情-->
+<view class="container">
+  <view class="detail-container">
+    <view class="detail-title">
+      <text wx:if="{{type == 0}}">代办服务(维修/保养/理赔)</text>
+      <text wx:if="{{type == 1}}">二手车评估</text>
+      <text wx:if="{{type == 2}}">年审代办</text>
+      <text>服务内容</text>
+    </view>
+    <view class="detail-content">
+     <view class="content-item">
+        <text>手机号码：</text>
+        <text>{{mobile}}</text>
+        <text class="modify-tel" bind:tap="toModifyTel">修改</text>
+      </view>
+      <view class="content-item">
+        <text>订单编号：</text>
+        <text>{{orderData.replace_no}}</text>
+      </view>
+      <view class="content-item">
+        <text>下单时间：</text>
+        <text>{{orderData.create_time}}</text>
+      </view>
+      <view class="content-item">
+        <text>订单状态：</text>
+        <text wx:if="{{orderData.status == 0}}" class="order-status">待审核</text>
+        <text wx:if="{{orderData.status == 1}}" class="order-status">进行中</text>
+        <text wx:if="{{orderData.status == 2}}" class="order-status">已完成</text>
+        <text wx:if="{{orderData.status == 3}}" class="order-status">已取消</text>
+      </view>
+    </view>
+    <view class="detail-msg">下单成功，工作人员会和您联系</view>
+    <view class="detail-btn" bind:tap="toCancelOrder">取消订单</view>
+  </view>
+</view>
+<view class='modal' wx:if='{{editMobile}}'>
+  <form bindsubmit='updateMobile'>
+    <view class='modal_content'>
+      <view class='modal_input'>
+        <input type='number' bindfocus='cancelRed' name='mobile' placeholder='请输入联系电话' />
+      </view>
+      <view class='redInfor' wx:if='{{mobileError}}'>请输入正确的手机号码！</view>
+      <view class='modal_bottom1'>
+        <view class='edit_cell'>
+          <button hover-class='none' form-type='submit'>确定</button>
+        </view>
+        <view class='phonecancel' style='margin-right:30px;'>
+          <button hover-class='none' bindtap='cancelModal'>取消</button>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

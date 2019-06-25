@@ -1,0 +1,105 @@
+<!--消息通知-->
+<view class="container">
+  <view class="message-tab">
+    <view data-tab="1" bind:tap="onSwitchMsgTab">
+      <text class="{{showMsg == true? 'tab-hover':'tab-default'}}">系统通知</text>
+      <view wx:if="{{showMsg}}" class="line"></view>
+    </view>
+    <view data-tab="2" bind:tap="onSwitchMsgTab">
+      <text class="{{showMsg == false? 'tab-hover':'tab-default'}}">动态</text>
+      <view wx:if="{{!showMsg}}" class="line"></view>
+    </view>
+  </view>
+  <!-- 系统通知 -->
+  <view wx:if="{{showMsg}}" class="system-content">
+    <ul wx:if="{{!showMsgNull}}">
+      <li>
+        <view class="item-top">
+          <text>系统推送</text>
+          <text>2019-04-16  14:20</text>
+        </view>
+        <view class="item-bottom">
+          <text>您的豆子增加了100，请注意查收</text>
+        </view>
+      </li>
+      <li>
+        <view class="item-top">
+          <text>系统推送</text>
+          <text>2019-04-16  14:20</text>
+        </view>
+        <view class="item-bottom">
+          <text>您的豆子增加了100，请注意查收</text>
+        </view>
+      </li>
+    </ul>
+    <view wx:if="{{showMsgNull}}" class="msg-null">
+      <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/msg_null.png'}}" text01="暂无消息" width="208" height="250" btnHidden="true" />
+    </view>
+  </view>
+  <!-- 动态 -->
+  <view wx:if="{{!showMsg}}" class="dynamic-content">
+    <block wx:key="" wx:for="{{fromInfoList}}">
+      <view class="dynamic-item" wx:if="{{!showDynamicNull}}">
+        <!-- <view class="reply-title">
+          {{item.from_user.nickname}}评论了我
+        </view> -->
+        <view class="reply-content">
+          <view class="person-info-box">
+            <view class="person-info">
+              <view class="person-img">
+                <image src="{{item.from_user.face}}" />
+              </view>
+              <view class="person-name">
+                <text>{{item.from_user.nickname}}</text>
+                <text>{{item.date}}</text>
+              </view>
+            </view>
+            <!-- <view class="reply-btn" data-dynamicId="{{item.id}}" bind:tap="openKeyBoard">回复</view> -->
+            <!-- <view class="reply-btn">回复</view> -->
+          </view>
+          <!-- 评论 -->
+          <view class="comment">
+            <text wx:if="{{item.content !== null}}">{{item.content}}</text>
+            <view class="comment-reply" wx:if="{{item.evaluate}}">
+              <text>@{{basicUserInfo.nickname}}</text> 回复
+              <text style="color:#4F93FD">@{{item.from_user.nickname}}</text>：{{item.evaluate.content}}
+            </view>
+            <view class="comment-reply" wx:if="{{item.id == dynamicId}}" wx:for="{{replyList}}" wx:key="" wx:for-item="items">
+              <text>@{{basicUserInfo.nickname}}</text> 回复
+              <text style="color:#4F93FD">@{{item.from_user.nickname}}</text>：{{items}}
+            </view>
+          </view>
+          <view class="reply-dynamic">
+            <view class="dynamic-img" wx:if="{{false}}"></view>
+            <view class="dynamic-content">
+              <text>@{{basicUserInfo.nickname}}</text>
+              <text>{{item.dynamic.title}}</text>
+              <!-- 处理图文 -->
+              <view class='image_cell' wx:if='{{item.dynamic.imagecell}}'>
+                <view class='each_image' wx:for='{{item.dynamic.imagecell}}' wx:for-item='itemImg' wx:key='' wx:for-index="itemIndex">
+                  <view wx:if='{{itemIndex%3==1||itemIndex%3==2}}' style='text-align:{{itemIndex%3==1?"center":"right"}}'>
+                    <image mode='aspectFill' lazy-load src='{{restUrl}}{{itemImg}}'></image>
+                  </view>
+                  <view wx:if='{{itemIndex%3==0}}' style='text-align:left'>
+
+                    <image mode='aspectFill' lazy-load src='{{restUrl}}{{itemImg}}' />
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 没有更多数据了... -->
+    <view class="no-more-data" wx:if="{{bottomShow}}">
+      <image src="/images/loading.gif" wx:if="{{!noMoreData}}" />
+      <text wx:if="{{noMoreData}}">没有更多数据了...</text>
+    </view>
+    <view wx:if="{{showDynamicNull}}" class="msg-null">
+      <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/msg_null.png'}}" text01="暂无消息" width="208" height="250" btnHidden="true" />
+    </view>
+  </view>
+  <!-- 底部弹出来的input框 -->
+  <!-- <my-input bind:send="onSend" focus="{{focus}}" showInputBox="{{showInputBox}}" /> -->
+</view>

@@ -1,0 +1,521 @@
+/* 首页 */
+
+.container {
+  width: 100%;
+  padding-bottom: 24rpx;
+}
+
+.ripple {
+  background-color: rgba(79,147,253,1);
+  border-radius: 100%;
+  height: 20rpx;
+  width: 20rpx;
+  position: absolute;
+  z-index: 999;
+  -webkit-transform: scale(0);
+  overflow: hidden;
+}
+
+@-webkit-keyframes ripple {
+  100% {
+    -webkit-transform: scale(6);
+    transform: scale(6);
+    background-color: transparent;
+  }
+}
+
+.games {
+  width: 100%;
+  height: 870rpx;
+  padding: 46rpx 36rpx 70rpx 56rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/home/index_bg.png?sign=143eb885ac5b99a059d667da2a69bee0&t=1557479103') no-repeat left top;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.games-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+}
+
+.weather-tip {
+  width: 328rpx;
+  height: auto;
+  position: absolute;
+  bottom: -20rpx;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 999;
+  background: url("https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/home/tip.png?sign=c6fb245c6f58b3e4cad3ab810bc79325&t=1560390194") center no-repeat;
+  background-size: 100% 100%;
+  padding: 12rpx 12rpx 36rpx;
+  font-size: 24rpx;
+}
+
+button::after {
+  border: none;
+  display: inline-block;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-cell {
+  width: 246rpx;
+  height: 90rpx;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 45rpx;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  font-size: 30rpx;
+}
+
+.user-img {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  background-color: #d8d8d8;
+  /* border: 3rpx solid #fff; */
+  margin-right: 12rpx;
+}
+
+.user-img image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.user-name {
+}
+
+.activity-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  width: 74rpx;
+  height: 86rpx;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  margin-bottom: 57rpx;
+}
+
+.item-hd {
+  margin-bottom: 0;
+}
+
+.item-hw {
+  margin-left: 200rpx;
+}
+
+.item image {
+  width: 74rpx;
+  height: 86rpx;
+}
+
+.games-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bean {
+  display: flex;
+  align-items: center;
+}
+
+.bean-img {
+  width: 115rpx;
+  height: 90rpx;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.bean-img image {
+  width: 115rpx;
+  height: 90rpx;
+}
+
+.bubble {
+  position: relative;
+  width: 104rpx;
+  /* height: 50rpx; */
+  line-height: 50rpx;
+  text-align: center;
+  background: #fff;
+  color: #fb9700;
+  z-index: 99;
+  border-radius: 4rpx;
+}
+
+.bubble::before {
+  position: absolute;
+  left: -4rpx;
+  top: 10rpx;
+  content: '';
+  width: 30rpx;
+  height: 30rpx;
+  border-style: solid;
+  border-width: 2rpx;
+  border-color: #fff;
+  border-radius: 6rpx;
+  background-color: #fff;
+  transform: rotate(45deg);
+  /* z-index: ; */
+}
+
+.activity {
+  position: relative;
+}
+
+.activity .item-img {
+  margin-bottom: 0;
+}
+
+/* 中间的红色车辆 */
+
+.car-box {
+  width: 317rpx;
+  height: 317rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 101rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.car-box image {
+  width: 317rpx;
+  height: 317rpx;
+}
+
+.carid {
+  position: absolute;
+  top: 200rpx;
+  font-size: 12rpx;
+  left: 130rpx;
+}
+
+/* 新手奖励或者签到奖励的豆子 */
+
+.reward-list {
+  width: 500rpx;
+  height: 320rpx;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.reward-box {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* position: absolute; */
+}
+
+.reward-box>text {
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.reward-cell {
+  width: 120rpx;
+  height: 160rpx;
+  line-height: 160rpx;
+  text-align: center;
+  animation: mymove 3s infinite;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+}
+
+@keyframes mymove {
+  from {
+    transform: translate3d(0, -20rpx, 0);
+  }
+
+  to {
+    transform: translate3d(0, 20rpx, 0);
+  }
+}
+
+.reward {
+  width: 120rpx;
+  height: 120rpx;
+  text-align: center;
+  line-height: 120rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-image: radial-gradient(50% 105%, #a2bcff 50%, #5482f7 92%, #83a6ff 100%);
+  /* box-shadow: 0 0 10rpx 0 #81b2fa; */
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/home/energy_bubble.png?sign=9273df96f0691dded01803474f8e1c38&t=1557743726') no-repeat center;
+  background-size: 100% 100%;
+  margin-bottom: 12rpx;
+}
+
+.reward>text {
+  font-family: PingFangSC-Medium;
+  color: #fff;
+}
+
+/* 个人资料 */
+
+.personal {
+  width: 702rpx;
+  height: 166rpx;
+  padding: 0 24rpx 0 38rpx;
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+  border-radius: 10rpx;
+  margin: 70rpx auto 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.personal-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.persoanl-img {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  /* border: 1px solid #979797; */
+  margin-right: 20rpx;
+  border: 3px solid #c3dbff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userunloginimg {
+  width: 52rpx;
+  height: 40rpx;
+  /* border-radius: 50%; */
+}
+
+.userloginimg {
+  width: 78rpx;
+  height: 78rpx;
+  border-radius: 50%;
+}
+
+.persoanl-name {
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  color: #36363c;
+}
+
+.persoanl-tip {
+  position: absolute;
+  right: 40rpx;
+  font-size: 24rpx;
+  color: #838383;
+}
+
+.persoanl-grade {
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  background-color: #c3dbff;
+  color: #fff;
+  font-family: PingFangSC-Medium;
+  font-size: 24rpx;
+}
+
+/* 成为会员入口 */
+
+/* .member-entry {
+  width: 702rpx;
+  height: 60rpx;
+  margin: 0 auto;
+}
+
+.member-entry image {
+  width: 702rpx;
+  height: 60rpx;
+} */
+
+/* 活动专区 */
+
+.activity-area {
+  width: 702rpx;
+  margin: 24rpx auto;
+}
+
+.activity-area>text {
+  font-family: PingFangSC-Medium;
+  font-size: 36rpx;
+  color: #36363c;
+}
+
+.activity-list {
+  width: 702rpx;
+  height: 204rpx;
+  margin-top: 24rpx;
+}
+
+.activity-list image {
+  width: 702rpx;
+  height: 204rpx;
+}
+
+.container-mask {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.btn-reward-box {
+  position: absolute;
+  top: 360rpx;
+  left: 200rpx;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  animation: novice 3s infinite;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
+}
+
+@keyframes novice {
+  from {
+    transform: translate3d(0, -20rpx, 0);
+  }
+
+  to {
+    transform: translate3d(0, 20rpx, 0);
+  }
+}
+
+.btn-reward-box>text {
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.btn-reward {
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-image: radial-gradient(50% 105%, #a2bcff 50%, #5482f7 92%, #83a6ff 100%);
+  /* box-shadow: 0 0 10rpx 0 #81b2fa; */
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/home/energy_bubble.png?sign=9273df96f0691dded01803474f8e1c38&t=1557743726') no-repeat center;
+  background-size: 100% 100%;
+  margin-bottom: 12rpx;
+}
+
+.btn-reward>text {
+  font-family: PingFangSC-Medium;
+  color: #fff;
+}
+
+.finger {
+  position: absolute;
+  width: 86rpx;
+  height: 89rpx;
+  top: 50rpx;
+  left: 100rpx;
+}
+
+.finger image {
+  width: 86rpx;
+  height: 89rpx;
+}
+
+.finger-text {
+  height: 30rpx;
+  margin-top: 6rpx;
+}
+
+.game-gitf-area {
+  display: flex;
+  height: 180rpx;
+  margin-top: 14rpx;
+  align-items: center;
+}
+
+.game-area {
+  width: 48%;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.5);
+  margin-right: 2%;
+  border-radius: 5px;
+  height: 150rpx;
+  align-items: center;
+}
+
+.game-area image {
+  width: 100rpx;
+  height: 94rpx;
+}
+
+.game-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gift-area {
+  width: 48%;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.5);
+  margin-left: 2%;
+  border-radius: 5px;
+  height: 150rpx;
+  align-items: center;
+}
+
+.gift-area image {
+  width: 100rpx;
+  height: 94rpx;
+}
+
+.gift-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-text1 {
+  font-family: PingFangSC-Medium;
+  font-size: 18px;
+}
+
+.game-text2 {
+  font-family: PingFangSC-Regular;
+  color: #d8d8d8;
+}

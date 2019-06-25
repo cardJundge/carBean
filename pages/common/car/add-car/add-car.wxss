@@ -1,0 +1,50 @@
+/* 添加车辆 */
+
+.container {
+}
+
+.info-cell {
+}
+
+.title{
+  padding: 24rpx;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  color: #202020;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+  /* background: #FBFBFB; */
+}
+
+.input-box {
+  padding: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background: #FBFBFB; */
+  border-bottom: 2rpx solid #eee;
+  color: #4F93FD;
+}
+
+.input-icon {
+ width: 30rpx;
+  height: 30rpx;
+}
+
+.input-icon image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.input-btn {
+  width: 702rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-color: #4F93FD;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  margin: 40rpx auto;
+
+}

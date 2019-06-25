@@ -1,0 +1,79 @@
+<!--个人资料-->
+<import src="../../../components/community-modal/community.wxml" />
+<view class="container">
+  <view class="bg-absolute"></view>
+  <!-- 个人基本信息 -->
+  <view class="personal-info">
+    <view class="personal-name">
+      <view class="personal-avatar">
+        <image src="{{basicUserInfo.face}}" />
+      </view>
+      <text>{{basicUserInfo.nickname}}</text>
+    </view>
+    <view class="member-grade">
+      <text>{{member.name}}</text>
+      <view class="grade">LV{{member.leavel}}</view>
+    </view>
+  </view>
+  <!-- 我的车库 -->
+  <view class="garage">
+    <text>我的车库</text>
+    <view class="car-list" >
+      <view class="car carborder" wx:if="{{defaultCar}}" wx:for="{{defaultCar}}" wx:key="">
+        <view class="car-img">
+          <image src='https://dev.feecgo.com/{{item.brand.logo}}' />
+        </view>
+        <view class="car-name">
+          <text>{{item.car_no}}</text>
+          <text>{{item.model}}</text>
+        </view>
+      </view>
+      <view wx:if="{{!defaultCar}}" class="car">暂无车辆</view>
+    </view>
+  </view>
+  <!-- 动态 -->
+  <view class="dynamic">
+    <text>动态</text>
+    <view class='outMap'>
+
+      <view class='section'>
+        <template is='dynamicList' data='{{dynamicArr,hostName}}' />
+        <view class='loading_img_cell' wx:if='{{loadedMore}}'>
+          <image src='../../images/community/loading.gif'></image>
+        </view>
+        <!-- <view class='noData' wx:if='{{dynamicNull}}'>该地区还没有动态哦，快来发布第一条数据吧~</view> -->
+        <view class='noData' wx:if='{{dynamicNull}}'>
+          <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/msg_null.png'}}" text01="暂无动态" width="208" height="250" btnHidden="true" />
+        </view>
+        <view class='noData' wx:if='{{noData}}'>
+          <view class='left-line'></view>
+          <view class='text'>到底啦</view>
+          <view class='right-line'></view>
+        </view>
+      </view>
+      <!-- <cover-view class='public' bindtap='openPublic' style='top:{{top}}px;left:{{left}}px'>
+        <cover-image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Release@2x.png'></cover-image>
+
+      </cover-view> -->
+    </view>
+    <cover-view class='public_modal' wx:if='{{ifPublic}}' catchtap='closePublic'>
+      <cover-view class='pmodal_content'>
+        <cover-view class='icons'>
+          <cover-view class='icon_cell' bindtap='toPublicText'>
+            <cover-image src='/images/community/tt.png'></cover-image>
+            <!-- <cover-view>图文</cover-view> -->
+          </cover-view>
+          <cover-view class='icon_cell' bindtap='topublicVideo'>
+            <!-- <cover-image src='../../../images/icon_video@2x.png'></cover-image> -->
+            <cover-image src='/images/community/tt1.png'></cover-image>
+            <!-- <cover-view>视频</cover-view> -->
+          </cover-view>
+        </cover-view>
+        <cover-view class='close' catchtap='closePublic'>
+          <cover-image src='/images/community/close.png'></cover-image>
+          <!-- <cover-view>关闭</cover-view> -->
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </view>
+</view>

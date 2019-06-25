@@ -1,0 +1,46 @@
+
+<view class='{{container}}'>
+  <view class='loading_img_cell' wx:if='{{loaded}}'>
+  </view>
+  <view class='main_content' wx:if='{{!loaded}}'>
+    <form bindsubmit='submitRatings'>
+      <view class='ratings_cell'>
+        <view class='rating_content'>
+          <view class='input_cell1'>
+            <view style='position:relative'>
+              <textarea maxlength='200' placeholder='给大家分享一下附近的有趣故事吧' value='{{rating_contents}}' name='intro' show-confirm-bar='{{false}}' bindinput='shareinput'>
+              </textarea>
+              <text class='circle'></text>
+              <text class='circleB'></text>
+              <text class='length'>{{mess}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='image_cell'>
+        <view class='each_image' wx:for='{{imagecell}}' wx:for-item='item1' id='{{item1.id}}'>
+          <view class='relative_cell'>
+            <image src='{{item1.path}}'></image>
+            <view class='delete_cell' bindtap='deleteImg' id='{{item1.id}}'>
+              <image src='/images/icon/del_icon.png'></image>
+            </view>
+          </view>
+        </view>
+        <view class='each_image' bindtap='addImage' style='text-align:center;' wx:if='{{imagecell.length<9}}'>
+          <view style='width:90px;background:#fff;padding:13px 0px;'>
+            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_camera@2x.png' style='width:50px;height:40px'></image>
+            <view style='color:#ccc;font-size:12px;line-height:20px'>{{imagecell.length}}/9</view>
+          </view>
+        </view>
+      </view>
+      <view style='margin:5% 5%'>
+        <my-fabutype-modal type="{{type}}" bind:onchecktype="onchecktype"/>
+      </view>
+      
+      <view style='margin:0px 12px'>
+        <button form-type='submit' class='button_active' wx:if='{{!isOver}}'>发布</button>
+        <button class='button_active' wx:if='{{isOver}}'>正在发布...</button>
+      </view>
+    </form>
+  </view>
+</view>

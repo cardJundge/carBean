@@ -1,0 +1,17 @@
+<!--pages/community/mapcommunity/mapcommunity.wxml-->
+<view>
+
+  <cover-view class="swiper-tab">
+    <cover-view wx:for="{{tablist}}" wx:key="index" class="swiper-tab-list {{currentTab==index ? 'active' : ''}}" bindtap='switchnav' data-index='{{index}}'>
+      <cover-view>{{item}}</cover-view>
+      <cover-view class="{{currentTab==index ? 'line' : ''}}"></cover-view>
+    </cover-view>
+  </cover-view>
+
+
+  <map longitude="{{longitude}}" latitude="{{latitude}}" show-location="{{showlocation}}"  markers='{{markers}}'  bindregionchange="regionchange"  id='map' circles='{{circles}}' class="map"></map>
+
+  <canvas canvas-id='handleCanvas' hidden='true'></canvas>
+
+  <my-location-modal show="{{locationshow}}" bind:hide="hideLoginModal"/>
+</view>

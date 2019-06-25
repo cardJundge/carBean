@@ -1,0 +1,67 @@
+<view class='container'>
+
+  <form bindsubmit='evaluaterelease'>
+
+  <view class='title'>
+    <image class='serviceimg' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg'></image>
+    <text>五座轿车标准洗车</text>
+    <image class='serviceimg' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg'></image>
+    <text>技师名称</text>
+  </view>
+
+  <view class='stars'>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='1' wx:if='{{stars1}}'></image>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='1' wx:else></image>
+
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='2' wx:if='{{stars2}}'></image>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='2' wx:else></image>
+
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='3' wx:if='{{stars3}}'></image>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='3' wx:else></image>
+
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='4' wx:if='{{stars4}}'></image>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='4' wx:else></image>
+
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='5' wx:if='{{stars5}}'></image>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='5' wx:else></image>
+  </view>
+
+  <view class='camerawhole'>
+  <block wx:for="{{imagecell}}" wx:key=''>
+    <view class='cameraitem'>
+      <image src='{{item}}' class='imagecellitem'></image>
+      <image src="/images/icon/del_icon.png" class='deleteimg'></image>
+    </view>
+  </block>
+
+  <view class='camera-num' bindtap='addImage'>
+    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_camera@2x.png' class='cameraimg'></image>
+  </view>
+  </view>
+  
+
+  <view class='eva-content'>
+    <textarea value='{{rating_contents}}' maxlength='200' name='intro' class='intro' bindfocus='evafocus'></textarea>
+    <view class='promptslogans' hidden='{{promptslogans}}' >
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/circle.png' class='circleimg'></image>
+      <text class='promptsloganstext'>我们的服务您还满意么?</text>
+    </view>
+    <view class='textwordnumber'>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/circle.png' class='circle1img'></image>
+      <text class='promptsloganstext'>200</text>
+    </view>
+  </view>
+
+  <button class="release" form-type='submit'>发布</button>
+  </form>
+</view>
+
+
+<view class='auto-whole' hidden='{{auto}}'>
+    <view class='auto-text'>评价成功！</view>
+    <view class='auto-back'>{{num}}秒后自动返回...</view>
+    <view>
+        <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/Bitmap@2x.png' class='cancellogo'></image>
+    </view>
+</view>
+

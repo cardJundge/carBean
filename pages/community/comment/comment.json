@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "my-login-modal": "/components/login/login"
+  }
+}

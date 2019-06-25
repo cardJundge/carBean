@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "null-modal":"/components/null/null"
+  },
+  "navigationBarTitleText": "个人资料",
+  "navigationBarBackgroundColor": "#488FFD",
+  "navigationBarTextStyle": "white"
+}

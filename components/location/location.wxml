@@ -1,0 +1,22 @@
+<view class="container" wx:if="{{show}}" catchtouchmove="ture">
+  <view class="modal-content">
+    <view class="del-icon" bind:tap="hideModal">
+      <image src="/images/icon/icon_del_01.png" />
+    </view>
+    <view class="center-content">
+      <view class="content-img">
+        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/pic_sign_car.png" />
+      </view>
+      <view class="text-01">114车管家需要获取你的地理位置</view>
+      <view class="enjoy-service">
+        <view>
+          <text>授权成功即可查看</text>
+        </view>
+        <!-- <view>
+          <text>成为会员后还可以参与活动</text>
+        </view> -->
+      </view>
+      <button class="login-btn"  open-type='openSetting' bind:tap="hideModal">去设置</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<view wx:for='{{serviceitem}}' wx:key='item'>
+
+  <view class='each_service_cell' >
+    <view class='title' >
+
+      <view wx:if="{{ischecked}}" bindtap='oncheck' data-id='{{item.id}}' data-index='{{index}}' data-classify='{{item.classify_id}}' data-price='{{item.platform_price}}' data-market_price='{{item.market_price}}'>
+        <span class="demo2"  wx:if="{{ item.id==serviceid}}" style="background:rgb(63, 175, 11)"></span> 
+      <span class="demo2"  wx:else style="background:#eee"></span>
+      </view>
+
+      <view wx:else bindtap='oncheck' data-id='{{item.id}}' data-index='{{index}}' data-classify='{{item.classify_id}}' data-price='{{item.platform_price}}' data-market_price='{{item.market_price}}'>
+        <span class="demo2"  wx:if="{{ item.id==serviceitem[0].id}}"  style="background:rgb(63, 175, 11)"></span>
+        <span class="demo2"  wx:else style="background:#eee"></span> 
+      </view>
+       
+
+      <!-- <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/checked.png' class='check' bindtap='oncheck' data-id='{{item.id}}' data-index='{{index}}' data-classify='{{item.classify_id}}' data-price='{{item.platform_price}}' wx:if="{{item.id==serviceid}}"></image>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/check.png' class='check' bindtap='oncheck' data-id='{{item.id}}'  data-price='{{item.platform_price}}' data-index='{{index}}' data-classify='{{item.classify_id}}' wx:else></image> -->
+      <view bindtap="serviceitemdetail" data-itemdetails='{{item}}' data-index='{{index}}'>{{item.classify}}</view>
+    </view>
+
+    <view class='usednum' wx:if='{{item.equity_num!=undefined}}'  bindtap="serviceitemdetail" data-itemdetails='{{item}}' data-index='{{index}}'>你有<text wx:if='{{item.combo_id == 3}}'>黄金</text><text wx:if='{{item.combo_id == 2}}'>白银</text>套餐{{item.equity_num}}次</view>
+    <view class='usednum' wx:if='{{item.classify_num != undefined}}' bindtap="serviceitemdetail" data-itemdetails='{{item}}' data-index='{{index}}'>保单增值服务:{{item.classify_num}}次</view>
+    <!-- <view class='usednum' wx:else>保单增值服务:{{item.classify_num}}次</view> -->
+    <view class='comment' bindtap="serviceitemdetail" data-itemdetails='{{item}}' data-index='{{index}}'>
+      <image src='/images/icon/icon_Order.png' class='orderimg'></image>
+      <view class='ordernum'>{{item.order}}</view>
+      <image src='/images/icon/icon_score.png' class='orderimg'></image>
+      <view>{{item.comment}}</view>
+    </view>
+
+    <view class='border-line'></view>
+
+    <view class='price' bindtap='serviceitemdetail' data-itemdetails='{{item}}' data-index='{{index}}'>
+      <view class='price-num'>
+        <view>RMB</view>
+        <view class='value'>{{item.platform_price}}</view>
+        <view class='invalid'>{{item.market_price}}</view>  
+      </view>  
+      <image src='/images/icon/right_arrow.png' class='arrow'></image>     
+    </view>
+
+  </view>
+
+
+</view>

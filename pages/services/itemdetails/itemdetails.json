@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "my-phone-modal": "/components/callphone/callphone",
+    "my-login-modal": "/components/login/login",
+    "my-usertel-modal": "/components/usertel/usertel"
+  }
+}

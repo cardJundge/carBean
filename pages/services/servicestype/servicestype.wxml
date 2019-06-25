@@ -1,0 +1,35 @@
+
+<view class="container">
+
+  <view class='choose_cell'>
+    <view class='each_choose_cell' style='text-align:left'>
+      <picker mode='region' value='{{region}}' custom-item="{{customItem}}" bindchange="bindRegionChange">
+        <view class='area'>{{region[2]}}</view>
+        <image src='/images/down.png' class='down-img'></image>
+      </picker>
+    </view>
+    <view class='each_choose_cell' style='text-align:center'>
+      <picker mode='selector' value="{{storeIndex}}" range='{{storeType}}'  bindchange="bindPickerStore">
+        <view class='area'>{{storeType[storeIndex]}}</view>
+        <image src='/images/down.png' class='down-img'></image>
+      </picker>
+    </view>
+    <view class='each_choose_cell'style='text-align:right'>
+      <picker mode='selector' value="{{sortIndex}}" range='{{sortArr}}'  bindchange="bindPickerSort">
+        <view class='area'>{{sortArr[sortIndex]}}</view>
+        <image src='/images/down.png' class='down-img'></image>
+      </picker>
+    </view> 
+  </view>
+
+  <!-- <view class='noservice' hidden='{{noservice}}'>
+    <view>没有更多服务商了</view>
+  </view> -->
+
+  <my-service-modal servicelist="{{servicelist}}"  hostName='{{hostName}}' type='home'/>
+
+  <view class='noservice' hidden='{{noservice1}}'>
+    <view>没有更多服务商了</view>
+  </view>
+
+</view>

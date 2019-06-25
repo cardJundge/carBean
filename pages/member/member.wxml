@@ -1,0 +1,105 @@
+<!--开通会员-->
+<view class="container">
+  <view class="vip-bg">
+
+  </view>
+  <view class="vip-content">
+    <view class="vip-title">VIP专属特权</view>
+    <!-- <view class="service-list"> -->
+      <!-- <view class="service-item">
+        <view class="item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/icon_xiche@2x.png" />
+        </view>
+        <text>洗车</text>
+      </view>
+      <view class="service-item">
+        <view class="item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/icon_cheliangjiancha@2x.png" />
+        </view>
+        <text>车辆检查</text>
+      </view>
+      <view class="service-item">
+        <view class="item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/icon_jiuyuan@2x.png" />
+        </view>
+        <text>紧急救援</text>
+      </view>
+      <view class="service-item">
+        <view class="item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/icon_consultation.png" />
+        </view>
+        <text>车务咨询</text>
+      </view> -->
+    <!-- </view> -->
+    <view class="privilege-item">
+        <view class="item-left">
+          <view class="item-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/xc@2x.png" />
+          </view>
+          <view class="item-text">
+            <text>洗车</text>
+            <text>每次洗车赠送玻璃水一瓶</text>
+          </view>
+        </view>
+        <view class="item-right">
+          <text>12次/年</text>
+          <view class="next-icon">
+            <!-- <image src="/images/icon/icon_next.png" /> -->
+          </view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="item-left">
+          <view class="item-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/cljc@2x.png" />
+          </view>
+          <view class="item-text">
+            <text>车辆检测</text>
+            <text></text>
+          </view>
+        </view>
+        <view class="item-right">
+          <text>1次/年</text>
+          <view class="next-icon">
+            <!-- <image src="/images/icon/icon_next.png" /> -->
+          </view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="item-left">
+          <view class="item-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/jjjy@2x.png" />
+          </view>
+          <view class="item-text">
+            <text>紧急救援</text>
+            <text></text>
+          </view>
+        </view>
+        <view class="item-right">
+          <text>2次/年</text>
+          <view class="next-icon">
+            <!-- <image src="/images/icon/icon_next.png" /> -->
+          </view>
+        </view>
+      </view>
+      <view class="privilege-item">
+        <view class="item-left">
+          <view class="item-img">
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/cwzx@2x.png" />
+          </view>
+          <view class="item-text">
+            <text>车务咨询</text>
+            <text>车务免费咨询</text>
+          </view>
+        </view>
+        <view class="item-right">
+          <text>不限</text>
+          <view class="next-icon">
+            <!-- <image src="/images/icon/icon_next.png" /> -->
+          </view>
+        </view>
+      </view>
+  </view>
+  <button class="vip-btn" open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo' wx:if="{{!hasAuth}}">申请开通</button>
+   <button class="vip-btn" bind:tap="openMember" wx:if="{{hasAuth}}">申请开通</button>
+</view>

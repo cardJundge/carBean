@@ -1,0 +1,52 @@
+/* 收货地址 */
+
+.container {
+}
+
+.address-list {
+
+}
+
+.list-item {
+  padding: 20rpx 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+
+.avatar {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  border: 1px solid #4F93FD;
+  margin-right: 24rpx;
+}
+
+.basic-info {
+
+}
+
+.basic-info-top {
+
+}
+.basic-info-top text:first-child {
+  font-size: 30rpx;
+  margin-right: 52rpx; 
+}
+
+.basic-info-top text:last-child {
+  color: #909090
+}
+
+.basic-info-bottom {
+
+}
+.edit-btn {
+  width: 72rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-left: 1px solid #979797;
+  text-align: right;
+  color: #909090;
+}

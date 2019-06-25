@@ -1,0 +1,103 @@
+<!--服务的底部弹出框-->
+<view class='container' wx:if="{{show}}" catchtouchmove="ture">
+  <view class="modal-bottom" animation="{{animationData}}">
+    <!-- 关闭模态框按钮 -->
+    <view bind:tap="hideModal" class="del-icon">
+      <image src="/images/icon/icon_del_01.png" />
+    </view>
+    <!-- logo -->
+    <view class="logo">
+      <image src="{{img}}" class='logo'></image>
+    </view>
+    <text>{{title}}</text>
+    <!-- 服务列表 -->
+    <view class="service-list" wx:if="{{tag == 1}}">
+      <view class="service-item" bindtap='toserviceItem' data-server='洗车'>
+        <view class="service-item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_xiche@2x.png" class='service-item-img'></image>
+        </view>
+        <text>洗车</text>
+      </view>
+      <view class="service-item" bindtap='toserviceItem' data-server='车辆检测'>
+        <view class="service-item-img">
+          <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_cheliangjiance@2x.png' class='service-item-img'></image>
+        </view>
+        <text>车辆检测</text>
+      </view>
+      <view class="service-item" bindtap='toserviceItem' data-server='非事故救援'>
+        <view class="service-item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_jiuyuan@2x.png" class='service-item-img'></image>
+        </view>
+        <text>紧急救援</text>
+      </view>
+      <view class="service-item" bind:tap="toAgent" data-Type="0" data-Agent="代办服务">
+        <view class="service-item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_daibanfuwu@2x.png" class='service-item-img'></image>
+        </view>
+        <text>代办服务</text>
+      </view>
+      <view class="service-item"  bind:tap="toAgent" data-Type="2"  data-Agent="年审代办">
+        <view class="service-item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_naishendaiban@2x.png" class='service-item-img'></image>
+        </view>
+        <text>年审代办</text>
+      </view>
+      <view class="service-item"  bind:tap="toAgent" data-Type="1"  data-Agent="二手车评估">
+        <view class="service-item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_ershouche@2x.png" class='service-item-img'></image>
+        </view>
+        <text>二手车服务</text>
+      </view>
+
+      <view class="service-item" bind:tap="toAgent" data-Agent="车务咨询">
+        <view class="service-item-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_chewuzixun@2x.png" class='service-item-img'></image>
+        </view>
+        <text>车务咨询</text>
+      </view>
+
+    </view>
+    <!-- 活动 -->
+    <view class="activity-list" wx:elif="{{tag == 2}}">
+      <!-- <my-activity-item  /> -->
+      <view class='actives'>
+        <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/active.png' ></image>
+      </view>  
+    </view>
+    <!-- 车库 -->
+    <view class="garage-list" wx:elif="{{tag == 3}}">
+      <!-- 暂无车辆的样式 -->
+      <view class="no-car" wx:if="{{hascar == false}}">
+        <view class="no-car-img">
+          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/pic_no_car.png" />
+        </view>
+        <text>暂无车辆</text>
+      </view>
+      <!-- 添加新车辆按钮 -->
+      <view class="add-car-btn" wx:if="{{hascar == false}}" bind:tap="addNewCar">添加新车辆</view>
+      <!-- 有车辆列表的样式 -->
+      <scroll-view scroll-x='true' class='car-scroll' style="white-space: nowrap" wx:if="{{hascar == true}}">
+        <view class="have-car">
+          <view class="car-item" wx:for="{{list}}" wx:key="">
+            <view class='car-text'>我的车辆</view>
+            <!-- 右上角小图标 -->
+            <view class="car-item-icon" data-carId="{{item.id}}" bind:tap='onIcon'>
+              <icon type='success' color='white' size='14' wx:if="{{((item.id == carId) && defaultCar) || item.default == 1?'icon': ''}}"></icon>
+              <view wx:else class='circle'></view>
+            </view>
+            <view class="car-img">
+              <image src="{{hostName}}/{{item.brand.logo}}" />
+            </view>
+            <text>{{item.car_no}}</text>
+            <text>{{item.model}}</text>
+          </view>
+          <!-- <view class="no-car-item" wx:if="{{list==''}}">
+            <text>车辆加载中...</text>
+          </view> -->
+        </view>
+      </scroll-view>
+      <!-- 添加新车辆按钮 -->
+      <view class="add-car-btn" wx:if="{{hascar == true}}" bind:tap="addNewCar">添加新车辆</view>
+    </view>
+  </view>
+</view>

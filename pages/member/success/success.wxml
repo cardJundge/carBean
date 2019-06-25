@@ -1,0 +1,8 @@
+<!--开通会员-->
+<view class="container">
+  <view class="success-img">
+    <image src="/images/vip_bg.png" />
+  </view>
+  <view class="success-text">已发送开通申请，请稍候留意…</view>
+  <view class="success-btn" bind:tap="toIndex">返回首页</view>
+</view>

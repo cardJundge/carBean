@@ -1,0 +1,8 @@
+<import src='/components/technicialList/technicial.wxml' />
+
+<view class='{{container}}'>
+  <view class='section' style='height:{{contnt_height}}'>
+    <template is='technicial' data='{{task,hostName2}}' />
+
+  </view>
+</view>

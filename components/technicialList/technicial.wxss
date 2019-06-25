@@ -1,0 +1,76 @@
+.all_technical {
+  margin: 0px 6px;
+  text-align: left;
+}
+
+.each_cell {
+  margin-bottom: 12px;
+  display: inline-block;
+  width: 50%;
+}
+.each_star{
+  display: inline-block;
+  margin: 0px 2px;
+}
+.each_star image{
+  width: 9px;
+  height: 9px;
+}
+.each_technician {
+  margin: 0px 6px;
+  background: #fff;
+  box-shadow: 0 0 2px 2px rgba(233, 233, 233, 0.50);
+  border-radius: 5px;
+}
+
+.technician_left {
+  vertical-align: middle;
+}
+.service_cell image{
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+.avatar_cell {
+  padding: 10px;
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+.technician_right {
+  color: #aaa;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 10px;
+  padding: 10px;
+  line-height: 20px;
+}
+
+.avatar image {
+  width: 70px;
+  height: 70px;
+  border: 4rpx solid #d4ebff;
+  border-radius: 50%;
+}
+
+.technician_name {
+  display: inline-block;
+  width: 60%;
+  border-right: 1px solid #f0eff5;
+  font-size: 15px;
+  margin-left: 6px;
+  text-align: center;
+  color: #2a2c2e;
+}
+
+.tag_num {
+  vertical-align: middle;
+}
+.star_cell{
+  display: inline-block;
+}
+.comment{
+  display: inline-block;
+  color: #FF9725;
+}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "my-recommendserviceitem-model":"/components/recommendserviceitem/recommendserviceitem"
+  }
+}

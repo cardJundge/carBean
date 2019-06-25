@@ -1,0 +1,30 @@
+<!--pages/common/member/registered/code/code.wxml-->
+<view class='container'>
+  <view class='input-code'>输入验证码</view>
+  <view class='code-num'>验证码已发送{{usertel}}</view>
+
+  <form bindsubmit="verificationCode">
+  <view class='code'>
+    <view class='ipt_box'>
+      <input 
+      type='number' wx:for="{{inputLen}}" wx:key="{{index}}" 
+      disabled bindtap='onFocus'
+      value="{{iptValue.length>=index+1?iptValue[index]:''}}"
+      />
+    </view>
+  <input name="password" password="{{true}}" class='hidden_ipt' maxlength="{{inputLen}}" 
+  focus="{{isFocus}}" bindinput="setValue"></input>
+  </view>
+
+  <view class="time" wx:if='{{sendMessage}}'>
+    <text>倒计时:{{limit}}秒</text>
+  </view>
+
+  <view class='time1' wx:else>
+    <text catchtap='sendMessage'>重新发送</text>
+  </view>
+
+    <button class='surechecked' form-type="submit">下一步</button>
+  
+  </form>
+</view>

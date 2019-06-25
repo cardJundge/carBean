@@ -1,0 +1,166 @@
+.container{
+  width: 100%;
+  font-size: 26rpx;
+  color: rgb(3, 112, 255);
+  height: 100vh;
+  background: #eee;
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  padding: 5% 5%;
+}
+
+.title text{
+  margin: 0 20rpx 0 10rpx;
+  font-weight: 600;
+}
+
+.serviceimg{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+
+.stars{
+  display: flex;
+  justify-content:center;
+  margin-bottom: 5%;
+}
+
+.starsimg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.camerawhole{
+  display: flex;
+  width: 90%;
+  margin: 0 5%;
+  flex-flow: wrap;
+}
+
+.cameraitem{
+  width: 33.33%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+  position: relative
+}
+
+.imagecellitem{
+  width: 90px;
+  height: 90px;
+  background: white;
+  margin-right: 12rpx;
+}
+
+.camera-num{
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid rgb(3, 112, 255);
+  background: white;
+  justify-content: center;
+}
+
+.cameraimg{
+  width: 30px;
+  height: 26px;
+}
+
+.eva-content{
+  margin: 3% 5%;
+  background: white;
+  height: 300rpx;
+  border-radius: 5px;
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+  position: relative;
+}
+
+.intro{
+  padding: 20rpx 20rpx;
+}
+
+.promptslogans{
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+
+.circleimg{
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.circle1img{
+  width: 10rpx;
+  height: 10rpx;
+}
+
+.promptsloganstext{
+  color: rgb(179, 170, 170);
+  margin-left: 10rpx;
+}
+
+.textwordnumber{
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.release{
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  background: rgb(3, 112, 255);
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.deleteimg{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 40rpx;
+}
+
+.auto-whole{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+}
+
+.auto-text{
+  width: 100%;
+  text-align: center;
+  padding-top: 15%;
+  color: #1a84ff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.auto-back{
+  width: 100%;
+  text-align: center;
+  margin: 3% 0 15%;
+  font-size: 14px;
+  color: #d5d5d5;
+}
+
+.cancellogo{
+  width: 420rpx;
+  height: 240rpx;
+  margin-left: 22%;
+}
+

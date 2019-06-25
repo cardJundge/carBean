@@ -1,0 +1,50 @@
+
+.fabu{
+  display: flex;
+  font-size: 24rpx;
+  position: relative;
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+  align-items: center;
+  height: 30px;
+  
+}
+
+.locationimg{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.fabu >text{
+  margin: 0 14rpx;
+}
+
+.arrowimg{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 20rpx;
+}
+
+.type{
+  display: flex;
+  height: 26px;
+  align-items: center;
+  font-size: 24rpx;
+  margin: 10rpx 0;
+}
+
+/* icon{
+  border-radius: 50%;
+  border: 1rpx solid #1a84ff;
+} */
+
+.type>text{
+  margin:0 14rpx; 
+}
+
+.noselected{
+  width: 30rpx;
+  height: 30rpx;
+  border: 1rpx solid #1a84ff; 
+  border-radius: 50%;
+}

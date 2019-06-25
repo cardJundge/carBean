@@ -1,0 +1,80 @@
+/* 授权位置弹出框 */
+.container {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.modal-content {
+  width: 560rpx;
+  height: 560rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  position: relative;
+}
+
+.del-icon {
+  position: absolute;
+  top: 20.5rpx;
+  right: 20.5rpx;
+}
+
+.del-icon image {
+  width: 22.6rpx;
+  height: 22.6rpx;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.content-img {
+  margin-top: 56rpx;
+}
+
+.content-img image {
+  width: 195rpx;
+  height: 140rpx;
+}
+
+.text-01 {
+  font-size: 30rpx;
+  margin: 44rpx 0 24rpx; 
+}
+
+.enjoy-service {
+  font-size: 34rpx;
+  /* width: 348rpx; */
+  display: flex;
+  flex-direction: column;
+  text-align: left
+}
+
+.enjoy-service view:first-child {
+  margin-bottom: 12rpx;
+}
+
+.login-btn {
+  width: 100%;
+  height: 90rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #488FFD;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 40rpx;
+}

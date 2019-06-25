@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "null-modal": "/components/null/null"
+  },
+  "navigationBarTitleText": "兑换详情"
+}

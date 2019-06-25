@@ -1,0 +1,11 @@
+.searching-result {
+  width: 702rpx;
+  margin: 0 auto;
+}
+.result-item {
+  height: 90rpx;
+  border-bottom: 1px solid #EAEAEA;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

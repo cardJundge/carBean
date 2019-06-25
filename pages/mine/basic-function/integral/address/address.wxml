@@ -1,0 +1,24 @@
+<!--我的收货地址-->
+<view class="container">
+  <view class="address" wx:if="{{addressNull}}">
+     <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/address_null.png'}}" text01="您还未添加收货地址" text02="赶紧去添加吧" btnText="添加新地址" width="366" height="192" bind:navigate="onNavigate"/>
+  </view>
+  <view class="address" wx:if="{{!addressNull}}">
+    <view class="address-list">
+      <view class="list-item">
+        <view class="avatar">
+        </view>
+        <view class="basic-info" bind:tap="toPay">
+          <view class="basic-info-top">
+            <text>姓名</text>
+            <text>14678907765</text>
+          </view>
+          <view class="basic-info-bottom">
+            陕西省  西安市  雁塔区  电子城街道  西电科技园408室
+          </view>
+        </view>
+        <view class="edit-btn" bind:tap="editAddressInfo">编辑</view>
+      </view>
+    </view>
+  </view>
+</view>
