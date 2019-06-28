@@ -217,3 +217,36 @@
   background: #4f93fd;
   font-size: 30rpx;
 }
+
+/* 青铜 */
+
+.level_icon {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.level_icon image {
+  width: 100rpx;
+  height: 40rpx;
+}
+
+.level_progress {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 22rpx;
+  margin-left: 20rpx;
+  line-height: 32rpx;
+}
+
+.level_progress_icon {
+  display: block;
+  width: 160rpx;
+  background: #FF822F;
+  border-radius: 4rpx;
+}
+
+.experience {
+  background: #FF822F;
+  height: 8rpx;
+  border-radius: 4rpx;
+}

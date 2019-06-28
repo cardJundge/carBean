@@ -25,7 +25,12 @@ var signModel = new Sign();
 var carModel = new Car();
 import utils from '../../utils/util.js'
 var app = getApp();
-
+var amapFile = require('../../utils/amap-wx.js');
+var markersData = {
+  latitude: '',//纬度
+  longitude: '',//经度
+  key: "c52037b5121de3cec2fde1db03bb4694"//申请的高德地图key
+};
 Page({
   data: {
     // false为模态框不显示
@@ -38,7 +43,7 @@ Page({
     imgLogoUrl: '', // 首页下拉框logo
     memberImg: '',
     openId: '',
-    carid: '114车管家',
+    carid: '车豆',
     showWeather: false, // 天气显示的框
     showLimit: false,
     showLocationModal: false,
@@ -60,7 +65,7 @@ Page({
         // 没有授权
         if (!data) {
           // 判断是否是新手
-          beanModel.isNew(that.data.openId,"114",(res) => {
+          beanModel.isNew(that.data.openId,"chedou",(res) => {
             if (res.status == 0) {
               that.setData({
                 hasUser: false,  //不显示个人信息
@@ -92,6 +97,7 @@ Page({
             that.getBeanNum(response.data.data.id)
             // that.carListNum(response.data.data.id)
             that.carList()
+            // that.loadGWeather()
             that.loadInfo()
           })
         }
@@ -104,6 +110,7 @@ Page({
         basicUserInfo: app.globalData.userInfo
       })
       that.randData(app.globalData.userInfo.id)
+      // that.loadGWeather()
       that.loadInfo()
     }
     var animation = wx.createAnimation({
@@ -128,7 +135,7 @@ Page({
       this.getBeanNum(this.data.basicUserInfo.id)
       // this.carListNum(this.data.basicUserInfo.id)
       this.carList()
-      indexModel.toLogin(app.globalData.userInfo.unionId, '114',(res) => {
+      indexModel.toLogin(app.globalData.userInfo.unionId, 'chedou',(res) => {
         if(res.status == 1) {
           app.globalData.userInfo = res.data
           this.memberLevel(res.data.vip_lv)
@@ -142,7 +149,7 @@ Page({
   },
   containerTap: function (res) {
     var that = this
-    console.log("ddd",res)
+    // console.log("ddd",res)
     var x = res.touches[0].pageX;
     var y = res.touches[0].pageY;
     that.setData({
@@ -154,46 +161,76 @@ Page({
       });
     }, 200)
   },
-
-  // 天气----》获取地理位置
+  // 天气=====>高德地图获取地理位置
   loadInfo: function() {
-    var page = this
+    var that = this
     wx.getLocation({
-      type: 'gcj02',
-      success: function(res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        // console.log('获取经纬度',latitude, longitude)
-        page.loadCity(latitude, longitude)
-      },
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        var latitude = res.latitude//维度
+        var longitude = res.longitude//经度
+        console.log('经纬度',res);
+        that.loadCity(latitude, longitude);
+      }
     })
   },
-  // 天气-----》将经纬度解析为具体地址
+  // 天气====》 高德地图获取城市
   loadCity: function (latitude, longitude) {
-    var page = this
-    wx.request({
-      url: 'https://api.map.baidu.com/geocoder/v2/?ak=enViFfe0vajtDUuAykAY1QptGfXt5Q1L&location=' + latitude + ',' + longitude + '&output=json',
-      header: {
-        'Content-Type': 'application/json'
+    var that = this
+    var myAmapFun = new amapFile.AMapWX({ key: markersData.key })
+    myAmapFun.getRegeo({
+      location: '' + longitude + ',' + latitude + '',//location的格式为'经度,纬度'
+      success: function (data) {       
+        var city = data[0].regeocodeData.addressComponent.city.replace("市", "")
+        that.setData({
+          city: city
+        })
       },
-      success: function(res) {
-        var city = res.data.result.addressComponent.city;
-        city = city.replace("市", "")
-        page.setData({ city: city })
-        // console.log('城市',city)
-        page.loadWeather(city)
-      }
+      fail: function (info) { }
+    })
+    myAmapFun.getWeather({
+      success: function (data) {
+        console.log('成功', data, data.liveData)
+        var weatherData = data.liveData.weather
+        var temperature = data.liveData.temperature
+        var tag
+        if (weatherData.match("晴")) {
+          tag = 1
+          console.log('晴', tag)
+        } else if (weatherData.match("雨")) {
+          tag = 2
+          console.log('雨', tag)
+        } else if (weatherData.match("雪")) {
+          tag = 3
+          console.log('雪', tag)
+        } else if (temperature >= 30) {
+          tag = 5
+          console.log('高温', tag)
+        } else if (temperature <= 0) {
+          tag = 4
+          console.log('低温', tag)
+        } else {
+          console.log('温度适宜', tag)
+          tag = 1
+        }
+        that.setData({
+          weatherTag: tag
+        })
+        that.weatherSentence(tag)
+      },
+      fail: function (info) {}
     })
   },
   // 天气-------》获取天气
   loadWeather: function (city) {
     var page = this;
     wx.request({
-      url: 'https://api.map.baidu.com/telematics/v3/weather/?ak=enViFfe0vajtDUuAykAY1QptGfXt5Q1L&location=' + city + '&output=json',
+      url: 'https://api.map.baidu.com/telematics/v3/weather/?ak=UU38f0bxWbqIVgjH3OjUS9fTPVniO9Ko&location=' + city + '&output=json',
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        console.log('错误信息2', res)
         console.info('查询天气返回',res.data.results[0])
         var weatherData = res.data.results[0].weather_data[0]
         var temperature = weatherData.temperature.split(' ~')[0]
@@ -304,6 +341,7 @@ Page({
               if (that.data.weatherTag) {
                 that.weatherSentence(that.data.weatherTag)
               } else {
+                // that.loadGWeather()
                 that.loadInfo()
               }
             }
@@ -550,7 +588,7 @@ Page({
           showBottomModal: true,
           title: '服务',
           tag: 1,
-          imgLogoUrl: 'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/pic_fuwu.png'
+          imgLogoUrl: 'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/pic_wodefuwu.png'
         })
         
         // setTimeout(function () {
@@ -581,7 +619,7 @@ Page({
           showBottomModal: true,
           title: '活动',
           tag: 2,
-          imgLogoUrl: 'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/pic_huodong.png'
+          imgLogoUrl: 'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/pic_huodong.png'
         })
         // setTimeout(function () {
           that.fadeIn()//调用显示动画
@@ -602,7 +640,7 @@ Page({
           showBottomModal: true,
           title: '车库',
           tag: 3,
-          imgLogoUrl: 'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/pic_cheku.png'
+          imgLogoUrl: 'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/pic_wodecheke.png'
         })
         if (app.globalData.userInfo.id) {
           // 获得车辆列表
@@ -843,6 +881,7 @@ Page({
               })
 
             })
+            // that.loadGWeather()
             that.loadInfo()
           }
         })

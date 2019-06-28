@@ -3,7 +3,7 @@
   <!-- 车务咨询 -->
   <view class="vehicle" wx:if="{{itemFlag == '车务咨询'}}">
     <view class="vehicle-img">
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/chewuzixun@2x.png" />
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/member/chewuzixun@2x.png" />
     </view>
     <view class="btn-toolbar">
       <view class="btn-left" bind:tap="phoneCall" data-num="114">114转车管家</view>
@@ -13,21 +13,21 @@
   <!-- 二手车评估 -->
   <view class="assessment" wx:if="{{itemFlag == '二手车评估'}}">
     <view class="assessment-img">
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/ershouchepinggu@2x.png" />
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/member/ershouchepinggu@2x.png" />
     </view>
-    <view class="submit-btn" bind:tap="toOrder" data-orderType="1">立即下单</view>
+    <view class="submit-btn" bind:tap="toOrder" data-orderType="1">立即预约</view>
   </view>
   <!-- 年审代办 -->
   <view class="annual-review" wx:if="{{itemFlag == '年审代办'}}">
     <view class="annual-review-img">
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/nianshendaiban@2x.png" />
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/member/nianshendaiban@2x.png" />
     </view>
-     <view class="submit-btn" bind:tap="toOrder" data-orderType="2">立即下单</view>
+     <view class="submit-btn" bind:tap="toOrder" data-orderType="2">立即预约</view>
   </view>
   <!-- 代办服务 -->
   <view class="agency" wx:if="{{itemFlag == '代办服务'}}">
     <view class="agency-img">
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member/daibanfuwu@2x.png" />
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/member/daibanfuwu@2x.png" />
     </view>
     <view class="submit-btn" bind:tap="toOrder" data-orderType="0">立即预约</view>
   </view>

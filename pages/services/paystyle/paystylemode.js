@@ -18,9 +18,9 @@ class Paystyle extends Base{
         order_no: app.globalData.seviceorderno,
         money: app.globalData.serviceplatform_price,
         // money:'1',
-        openid: app.globalData.userInfo.openId_114,
+        openid: app.globalData.userInfo.openId_chedou,
         order_id: app.globalData.serviceorderid,
-        type:1,   //1 114  0 车豆
+        type: 0,   //1 114  0 车豆
       },
       sCallback: callback
     }

@@ -33,7 +33,7 @@
       </li>
     </ul>
     <view wx:if="{{showMsgNull}}" class="msg-null">
-      <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/msg_null.png'}}" text01="暂无消息" width="208" height="250" btnHidden="true" />
+      <null-modal img="{{'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_zanwuxiaoxi@2x.png'}}" text01="暂无消息" width="208" height="250" btnHidden="true" />
     </view>
   </view>
   <!-- 动态 -->
@@ -97,7 +97,7 @@
       <text wx:if="{{noMoreData}}">没有更多数据了...</text>
     </view>
     <view wx:if="{{showDynamicNull}}" class="msg-null">
-      <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/msg_null.png'}}" text01="暂无消息" width="208" height="250" btnHidden="true" />
+      <null-modal img="{{'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_zanwuxiaoxi@2x.png'}}" text01="暂无消息" width="208" height="250" btnHidden="true" />
     </view>
   </view>
   <!-- 底部弹出来的input框 -->

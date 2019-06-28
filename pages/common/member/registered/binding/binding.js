@@ -72,7 +72,7 @@ Page({
       codemode.toBronze(that.data.usertel, that.data.carInfo,carid,respones=>{
 
         if (respones.status == 1){
-          memberModel.toLogin(app.globalData.userInfo.unionId, '114', res => {
+          memberModel.toLogin(app.globalData.userInfo.unionId, 'chedou', res => {
 
             if (res.status == 1) {
 

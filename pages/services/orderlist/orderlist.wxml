@@ -1,7 +1,7 @@
 <!--pages/services/orderlist/orderlist.wxml-->
 <my-orderlist-modal tablist='{{tablist}}' currentTab='{{currentTab}}' bind:send='onsend'/>
 <view class='noorder' wx:if="{{noorder}}">
-  <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/pingjia.png' class='noorderimg'></image>
+  <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myOrder/pic_zanwudingdan@2x.png' class='noorderimg'></image>
   <text>您暂无{{orderinfor}}订单</text>
 </view>
 <view class='order-hx'>

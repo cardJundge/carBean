@@ -1,0 +1,46 @@
+<!--作业员扫码评价-->
+<view class="container">
+  <view class='rating-title'>
+    <text>服务评价</text>
+  </view>
+  <view class='content'>
+    <!-- <view class='avatar-cell'>
+    </view> -->
+    <view class='start-text'>
+      {{ratingText[starIndex]}}
+    </view>
+    <view class='stars'>
+      <view wx:for='{{starts}}' wx:for-item='item' class='stars-cell' bindtap='ratingStar' id='{{item.id}}'>
+        <view>
+          <image src='/images/star_o.png' wx:if='{{item.color=="grey"}}'></image>
+          <image src='/images/full_star.png' wx:if='{{item.color=="yellow"}}'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='reasons'>
+    <view class='each-reason-cell {{changeReason}}'>{{changeReason}}
+      <view wx:for='{{medaReason}}' wx:for-item='item' class='{{item.class}}' data-content='{{item}}' bindtap='unhappyReason'>
+        <view class='reason {{item.ifActive?"reasonActive":""}}'>{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='rating_content'>
+    <form bindsubmit='submitRatings'>
+      <!-- <textarea value='{{rating_contents}}' bindinput='ckeckContent' name='ratings' placeholder='其他想说的'>
+      </textarea> -->
+      <view class='input_cell'>
+        <input type='text' placeholder='其他想说的' value='{{rating_contents}}' bindinput='ckeckContent' />
+      </view>
+      <!-- 没有星 -->
+      <button class='button_noactive' wx:if='{{!hasStar}}'>提交</button>
+      <!-- 有头像，有星，但没点提交 -->
+      <button form-type='submit' class='button_active' wx:if='{{hasStar&&hasUserInfo&&!isOver}}'>提交</button>
+      <!-- 有头像，有星，点了提交 -->
+      <button class='button_noactive' wx:if='{{hasStar&&hasUserInfo&&isOver}}'>正在提交...</button>
+      <button class='button_noactive' wx:if='{{hasStar&&!hasUserInfo&&isOver}}'>正在提交...</button>
+       <!-- 没有头像，有星 -->
+      <button class='button_active' open-type="getUserInfo" bindgetuserinfo="getUserInfo" wx:if='{{hasStar&&!hasUserInfo&&!isOver}}'>提交</button>
+    </form>
+  </view>
+</view>

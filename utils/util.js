@@ -1,3 +1,4 @@
+var test = getApp().globalData.hostName
 var QQMapWX = require('../qqmap-wx-jssdk.js');
 var demo = new QQMapWX({
   key: '4J3BZ-YS3CO-XKKWU-SV3H4-HPQF7-5XBUV' // 必填
@@ -62,8 +63,30 @@ function getlocation(){
   })
 }
 
+function beanLog(that) {
+  var location = app.globalData.location
+  if (app.globalData.location == 'undefined' || app.globalData.location == undefined) {
+    location = ''
+  }
+  wx.request({
+    url: test + '/user/user/entry',
+    method: 'POST',
+    data: {
+      models: app.globalData.mobileType,
+      address: location,
+      title: that.data.beanLogTit,
+      bean: that.data.beanLogBean,
+    },
+    header: {
+      'Content-Type': 'application/x-www-form-urlencoded', 'Cookie': 'PHPSESSID=' + app.globalData.userInfo.session_id
+    },
+    success: function (res) {
+    }
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
-  getlocation: getlocation
-  
+  getlocation: getlocation,
+  beanLog: beanLog
 }

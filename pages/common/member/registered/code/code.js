@@ -91,7 +91,7 @@ Page({
 
             var detail = app.globalData.servicelistitem;
 
-            memberModel.toLogin(app.globalData.userInfo.unionId, '114', res => {
+            memberModel.toLogin(app.globalData.userInfo.unionId, 'chedou', res => {
 
               if (res.status == 1) {
 

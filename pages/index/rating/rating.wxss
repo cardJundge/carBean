@@ -1,0 +1,244 @@
+/* 作业员扫码评价 */
+
+.container {
+  width: 100%;
+}
+
+.rating-title {
+  color: #1a84ff;
+  font-size: 34rpx;
+  height: 128rpx;
+  line-height: 128rpx;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 40rpx;
+  border-bottom: 2rpx solid #aaa;
+}
+
+.content {
+  width: 100%;
+}
+
+.avatar-cell {
+  display: inline-block;
+  text-align: center;
+  padding: 16rpx 0;
+}
+
+/* .avatar {
+  display: inline-block;
+  width: 12%;
+  text-align: left;
+  height: 40px;
+  vertical-align: top;
+}
+
+.avatar view {
+  text-align: center;
+  border: 2px solid #ff9800;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+} */
+
+.start-text {
+  font-size: 30rpx;
+  color: #ff9800;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  width: 100%;
+}
+
+/* .avatar view image {
+  margin-top: 3px;
+  width: 26px;
+  height: 26px;
+} */
+
+/* .service-Infor {
+  color: #aaa;
+  text-align: left;
+  display: inline-block;
+  width: 86%;
+}
+
+.service-Infor {
+  font-size: 30rpx;
+  line-height: 40px;
+  height: 40px;
+} */
+
+.stars {
+  width: 80%;
+  margin: 40rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stars-cell {
+  /* display: inline-block;
+  width: 18%; */
+}
+
+.stars-cell image {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.reasons{
+  /* display: inline-block; */
+  width:90%;
+  margin: 0 auto;
+}
+.each-reason-cell{
+  text-align: left;
+  
+}
+.each-reason-cell .each_reason{
+  display: inline-block;
+  width:50%;
+  line-height: 52rpx;
+}
+.right_reason{
+  text-align: right;
+}
+.each-reason-cell .each_reason .reason{
+  display: inline-block;
+  width:80%;
+  height: 52rpx;
+  border: 1rpx solid #CECECE;
+  color:#9C9C9C;
+  margin: 20rpx 0;
+  font-size: 24rpx;
+  text-align: center;
+  padding-left: 20rpx;
+  border-radius: 4rpx;
+}
+.changeReason .perfect .reason{
+  background: #F3F4F6;
+  color:rgb(211, 211, 211)!important;
+  border: 1rpx solid #F3F4F6!important;
+} 
+.reasonActive{
+  background: #FF9800;
+  color:#fff!important;
+  border: 1rpx solid #F3F4F6!important;
+}
+/* 其他想说的 */
+.rating_content {
+  width: 90%;
+  margin: 0 auto;
+}
+.input_cell {
+  display: inline-block;
+  width: 100%;
+  background: #f3f4f6;
+  height: 80rpx;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.rating_content input {
+  display: inline-block;
+  width: 96%;
+  margin-left: 4%;
+  font-size: 26rpx;
+  text-align: left;
+  height: 80rpx;
+  line-height: 80rpx;
+  vertical-align: middle;
+}
+.button_noactive {
+  background: #999;
+  color: #fff;
+  margin-top: 40rpx;
+  width: 100%;
+  font-size: 36rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.button_active {
+  background: #ff9800;
+  color: #fff;
+  margin-top: 40rpx;
+  width: 96%;
+   height: 80rpx;
+  line-height: 80rpx;
+  font-size: 36rpx;
+}
+.modal_con {
+  margin-top: 66%;
+}
+
+.modal_text {
+  margin-top: 20px;
+  text-align: left;
+  display: inline-block;
+  width: 90%;
+  line-height: 60rpx;
+  color: #494949;
+  font-size: 30rpx;
+}
+
+.modal-left {
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+  border-right: 1rpx solid #aaa;
+  color: #494949;
+  font-size: 30rpx;
+}
+
+.modal-right {
+  font-size: 30rpx;
+  color: green;
+}
+
+.modal_cell1 {
+  position: fixed;
+  bottom: 140px;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.modal_cell1 view {
+  background: #000;
+  font-size: 36rpx;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+}
+.modal_user{
+  position: fixed;
+  top:0px;
+  right: 0px;
+  display: inline-block;
+  width:100%;
+  height: 100vh;
+  text-align: center;
+  background: rgba(100, 100, 100, 0.5)
+}
+.modal_content{
+  display: inline-block;
+  width:80%;
+  margin-top: 60%;
+  padding: 0px;
+}
+.modal_content .content{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1rpx solid rgb(192, 192, 192);
+  text-align: center;
+}
+.modal_content button{
+  color:rgb(4, 138, 4);
+  background: none;
+}
+.modal_content button::after{
+  border:none;
+}

@@ -64,7 +64,7 @@ Page({
     var that = this
     var params = {
       body: '白银套餐',
-      openId: that.data.basicUserInfo.openId_114,
+      openId: that.data.basicUserInfo.openId_chedou,
       money: '168',
       type: '1'
     }

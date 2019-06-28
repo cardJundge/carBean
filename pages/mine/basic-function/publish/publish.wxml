@@ -10,7 +10,7 @@
         </view>
         <!-- <view class='noData' wx:if='{{dynamicNull}}'>该地区还没有动态哦，快来发布第一条数据吧~</view> -->
         <view class='noData' wx:if='{{dynamicNull}}'>
-          <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/msg_null.png'}}" text01="暂无动态" width="208" height="250" btnHidden="true" />
+          <null-modal img="{{'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_zanwuxiaoxi@2x.png'}}" text01="暂无动态" width="208" height="250" btnHidden="true" />
         </view>
         <view class='noData' wx:if='{{noData}}'>
           <view class='left-line'></view>

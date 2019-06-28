@@ -519,3 +519,16 @@ button::after {
   font-family: PingFangSC-Regular;
   color: #d8d8d8;
 }
+
+/* 青铜 */
+
+.level_icon {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.level_icon image {
+  width: 100rpx;
+  height: 40rpx;
+}
+

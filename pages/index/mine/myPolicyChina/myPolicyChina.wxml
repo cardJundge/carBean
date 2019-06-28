@@ -1,0 +1,176 @@
+<!-- 中银保险 -->
+<view class='container' wx:if='{{hasUserInfo}}'>
+<!-- welcome中银logo -->
+  <view class='showLogo' wx:if='{{!showLogo&&hasBinling}}' bindtap='cancelModal'>
+    <view class='showContent'>
+      <image src='/images/welcome.png'></image>
+    </view>
+  </view>
+  <!-- <view class='loading_img_cell' animation="{{animationData}}">
+    <image src='/images/loading.gif'></image>
+  </view> -->
+<!-- 绑定的保单的主要内容 -->
+  <view class='main_content' animation="{{animationData}}" wx:if='{{hasBinling&&loaded&&showLogo}}'>
+    <view class='item_cellc'>
+      <view class='{{activeItem==index?"itemc":""}}' wx:for='{{policyArr}}' wx:for-item='item' wx:key="" id='{{index}}' bindtap='changePolicy'>保单{{chinaNumber[index]}}</view>
+      <text class='fa fa-plus-circle' bindtap='addMore'></text>
+    </view>
+    <view class='all_content'>
+      <view class='policy_infor'>
+        <view class='policy_tit' style='padding-top:0px;'>
+          <text class='line'></text>
+          <view class='tit_name'>
+            <view>保单信息</view>
+            <view>INFORMATION OF POLICY</view>
+          </view>
+        </view>
+        <view class='policy_content'>
+          <view class='policy_center'>
+            <view class='each_item'>
+              <view class='item_key'>保险公司：</view>
+              <view class='item_value'>{{serviceName}}</view>
+            </view>
+            <view class='each_item'>
+              <view class='item_key'>保单号：</view>
+              <view class='item_value'>{{activeSertvice.policy_no}}</view>
+            </view>
+            <view class='each_item'>
+              <view class='item_key'>被保人姓名：</view>
+              <view class='item_value'>{{activeSertvice.user_name}}</view>
+            </view>
+            <view class='each_item'>
+              <view class='item_key'>服务开始日期：</view>
+              <view class='item_value'>{{activeSertvice.start_date}}</view>
+            </view>
+            <view class='each_item'>
+              <view class='item_key'>服务结束日期：</view>
+              <view class='item_value'>{{activeSertvice.end_date}}</view>
+            </view>
+            <view class='each_item'>
+              <view class='item_key'>车型：</view>
+              <view class='item_value'>{{activeSertvice.car_model}}</view>
+            </view>
+            <view class='each_item'>
+              <view class='item_key'>车牌号：</view>
+              <view class='item_value'>{{activeSertvice.car_no}}</view>
+            </view>
+            <view class='each_item'>
+              <view class='item_key'>车架号：</view>
+              <view class='item_value'>{{activeSertvice.car_frame_no}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='increment_service'>
+        <view class='policy_tit' style='position:relative' bindtap='toMyOrder'>
+          <text class='line'></text>
+          <view class='tit_name'>
+            <view>增值服务包</view>
+            <view>VALUE ADDED SERVICE PACKAGE</view>
+            <image class='orderLink' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon-search copy@2x2.png'></image>
+          </view>
+        </view>
+        <view class='increment_content'>
+          <view class='each_service' wx:for='{{activeSertvice.projectName}}' wx:for-item='item' wx:key="">
+            <view wx:if='{{item.id!=18}}' class='service_content'>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/Service-Washthecar@2x.png' wx:if='{{item.id==20}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/Tire change@2x.png' wx:elif='{{item.id==21}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/Annual-trial@2x.png' wx:elif='{{item.id==7}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/Repair@2x.png' wx:elif='{{item.id==15}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/Testing@2x.png' wx:elif='{{item.id==30}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/Assessment@2x.png' wx:elif='{{item.id==10}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/icon_driving@2x.png' wx:else></image>
+              <text>{{item.name}}</text>
+              <text class='fa fa-info-circle' catchtap='openIntro' id='{{index}}'></text>
+              <view class='downNum' bindtap='toserviceItem' data-server='{{item.name}}'>
+                <text wx:if='{{item.num>0}}'>{{item.num}}次</text>
+                <text wx:elif='{{item.num=="不限"}}'>不限次</text>
+                <text wx:else>自费</text>
+                <text class='fa fa-angle-right'></text>
+              </view>
+            </view>
+            <view wx:else bindtap='toDriving' class='service_content' id='{{item.num}}'>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/icon_driving@2x.png'></image>
+              <text>{{item.name}}</text>
+              <text class='fa fa-info-circle' catchtap='openIntro' id='{{index}}'></text>
+              <view class='downNum'>
+                <text wx:if='{{item.num>0}}'>{{item.num}}次</text>
+                <text wx:elif='{{item.num=="不限"}}'>不限次</text>
+                <text wx:else>0次</text>
+                <text class='fa fa-angle-right'></text>
+              </view>
+            </view>
+            <view class='intro' wx:if='{{introArr[index]}}'>
+              <text>{{item.intro}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='modal_cell' style='height:100vh' wx:if='{{!hasBinling&&loaded}}'>
+  <view class='backBtn' wx:if='{{ifAdd}}' bindtap='notAdd'>返回</view>
+  <view class='bac'>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/policyChina.png' style='height:{{screenWidth}}'></image>
+  </view>
+  <view class='modal_content1'>
+    <view class='logo'>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/rating/icon-boc-insurance@2x.png'></image>
+    </view>
+    <view class='brance'>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/rating/icon-boc-insurance-Typeface@2x.png'></image>
+    </view>
+    <view wx:if='{{!vertifing}}'>
+      <form bindsubmit='bingingPolicy'>
+        <view class='modal_text'>
+          <input type='text' name='policyNum' bindfocus='cancelRed' placeholder='请输入车牌号/发动机后六位' />
+        </view>
+        <view class='red_infor' wx:if='{{no_policy}}'>未查询到保单</view>
+        <view class='red_infor' wx:if='{{inforOk}}'>请输入正确的车牌号或发动机后六位</view>
+        <view class='red_infor' wx:if='{{bindings}}'>该保单已绑定</view>
+        <view class='modal_btn'>
+          <button form-type='submit'>确 定</button>
+        </view>
+      </form>
+    </view>
+    <view wx:if='{{vertifing}}' class='vertify'>
+      <form bindsubmit='veryifyCode'>
+        <view class='phone'>请输入{{mobile1}}的验证码</view>
+        <view class='phone' style='color:red' wx:if='{{codeError}}'>请输入正确的验证码</view>
+
+        <view class='modal_text'>
+          <input type='number' name='code' bindfocus='cancelRed' placeholder='请输入验证码' />
+        </view>
+        <view class='modal_btn'>
+          <button form-type='submit'>确 定
+            <text style='font-size:12px'>({{timer}}s后重发)</text>
+          </button>
+        </view>
+      </form>
+    </view>
+  </view>
+
+</view>
+
+<view class='modal_cell' style='height:100vh' wx:if='{{!hasUserInfo}}'>
+  <view class='modal_content' style='padding:100px 20px;margin-top：40%'>
+    <view class='modal_btn'>
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">请先授权登录</button>
+    </view>
+  </view>
+</view>
+<!-- <view class='backIndex' wx:if='{{menu}}' bindtap='backIndex' style=''>
+  <view>回到首页</view>
+</view> -->
+<view class='modal' wx:if='{{openItem}}'>
+
+  <view class='modal_content'>
+    <view style='font-weight:bold;text-align:center'> 条款声明</view>
+    本服务仅为代办年检，但不承诺包过年检，另需自付300元上线费用（服务商收取）。
+    <view class='item'>
+      <text bindtap='closeItem'>取消</text>
+      <text bindtap='okItem'>确定</text>
+    </view>
+  </view>
+</view>

@@ -14,44 +14,44 @@
     <view class="service-list" wx:if="{{tag == 1}}">
       <view class="service-item" bindtap='toserviceItem' data-server='洗车'>
         <view class="service-item-img">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_xiche@2x.png" class='service-item-img'></image>
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/xc.png" class='service-item-img'></image>
         </view>
         <text>洗车</text>
       </view>
       <view class="service-item" bindtap='toserviceItem' data-server='车辆检测'>
         <view class="service-item-img">
-          <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_cheliangjiance@2x.png' class='service-item-img'></image>
+          <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/cljc.png' class='service-item-img'></image>
         </view>
         <text>车辆检测</text>
       </view>
       <view class="service-item" bindtap='toserviceItem' data-server='非事故救援'>
         <view class="service-item-img">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_jiuyuan@2x.png" class='service-item-img'></image>
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/jjjy.png" class='service-item-img'></image>
         </view>
         <text>紧急救援</text>
       </view>
       <view class="service-item" bind:tap="toAgent" data-Type="0" data-Agent="代办服务">
         <view class="service-item-img">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_daibanfuwu@2x.png" class='service-item-img'></image>
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/dbfw.png" class='service-item-img'></image>
         </view>
         <text>代办服务</text>
       </view>
       <view class="service-item"  bind:tap="toAgent" data-Type="2"  data-Agent="年审代办">
         <view class="service-item-img">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_naishendaiban@2x.png" class='service-item-img'></image>
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/nsdb.png" class='service-item-img'></image>
         </view>
         <text>年审代办</text>
       </view>
       <view class="service-item"  bind:tap="toAgent" data-Type="1"  data-Agent="二手车评估">
         <view class="service-item-img">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_ershouche@2x.png" class='service-item-img'></image>
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/escfw.png" class='service-item-img'></image>
         </view>
         <text>二手车服务</text>
       </view>
 
       <view class="service-item" bind:tap="toAgent" data-Agent="车务咨询">
         <view class="service-item-img">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_home_chewuzixun@2x.png" class='service-item-img'></image>
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/cwzx.png" class='service-item-img'></image>
         </view>
         <text>车务咨询</text>
       </view>
@@ -61,7 +61,7 @@
     <view class="activity-list" wx:elif="{{tag == 2}}">
       <!-- <my-activity-item  /> -->
       <view class='actives'>
-        <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/active.png' ></image>
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/active.png' ></image>
       </view>  
     </view>
     <!-- 车库 -->
@@ -69,7 +69,7 @@
       <!-- 暂无车辆的样式 -->
       <view class="no-car" wx:if="{{hascar == false}}">
         <view class="no-car-img">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/pic_no_car.png" />
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/no_car.png" />
         </view>
         <text>暂无车辆</text>
       </view>

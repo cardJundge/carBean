@@ -7,7 +7,8 @@ function userInfor(that) {
       url: test + '/user/user/info',
       method: 'POST',
       header: { 
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json', // 默认值
+        'Cookie': 'PHPSESSID=' + app.globalData.userInfo.session_id 
       },
       data: {
         id: that.data.case_id

@@ -123,7 +123,7 @@ Page({
 
               var detail = app.globalData.servicelistitem;
 
-              memberModel.toLogin(app.globalData.userInfo.unionId, '114', res => {
+              memberModel.toLogin(app.globalData.userInfo.unionId, 'chedou', res => {
 
                 if (res.status == 1) {
 
@@ -172,7 +172,7 @@ Page({
               })
 
             } else if(that.data.agent) {
-              memberModel.toLogin(app.globalData.userInfo.unionId, '114', res => {
+              memberModel.toLogin(app.globalData.userInfo.unionId, 'chedou', res => {
                 if (res.status == 1) {
                   app.globalData.userInfo = res.data;
                   memberModel.toAgentOrder(app.globalData.userInfo.id, wx.getStorageSync("agentType"), (res) => {

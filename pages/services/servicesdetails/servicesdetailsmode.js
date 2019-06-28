@@ -66,7 +66,7 @@ class Servicesdetails extends Base{
         classify_id: that.data.serviceitemclassify,
         price: that.data.serviceitemprice,
         user_id: that.data.userid,
-        source:"openId_114"
+        source:"openId_chedou"
       },
       sCallback:callback
     }

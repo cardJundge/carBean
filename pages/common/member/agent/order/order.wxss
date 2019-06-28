@@ -9,7 +9,7 @@
   width: 666rpx;
   height: 676rpx;
   /* margin: 42rpx; */
-  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/member/agent_bg.png?sign=d5cca5293012066b80c5aac7388224ca&t=1561102162') no-repeat center;
+  background: url('https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/member/dingdan%402x.png?sign=28e2f31fbeebc08e90acfbd2af0d264a&t=1561514020') no-repeat center;
   background-size: contain;
   position: relative;
 }

@@ -6,12 +6,14 @@
     <view class="games-top">
       <!-- 普通用户 -->
       <view class="user">
-        <view class="user-cell" bind:tap="onMember">
+        <view class="user-cell">
           <view class="user-img">
-            <image wx:if='{{memberImg}}' src="{{memberImg}}" />
+            <!-- <image wx:if='{{memberImg}}' src="{{memberImg}}" /> -->
+            <image wx:if='{{memberImg}}' src="{{basicUserInfo.face}}" />
             <image wx:else src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/unlogin.png'/>
           </view>
-          <view class="user-name" wx:if='{{memberName}}'>{{memberName}}</view>
+          <!-- <view class="user-name" wx:if='{{memberName}}'>{{memberName}}</view> -->
+          <view class="user-name" wx:if='{{memberName}}'>{{basicUserInfo.nickname}}</view>
           <view class="user-name" wx:else>未登录</view>
         </view>
         <view class="reward-list" wx:if="{{hasUserInfo}}">
@@ -28,13 +30,13 @@
       <!-- 签到、服务、车库 -->
       <view class="activity-bar">
         <view class="item" bind:tap='toSignIn'>
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_qiandao.png" />
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/icon_qiandao@2x.png" />
         </view>
         <view class="item" bind:tap='toServiceModal'>
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_fuwu.png" />
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/icon_fuwu@2x.png" />
         </view>
         <view class="item" bind:tap="toGarageModal">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_cheku.png" />
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/icon_cheku@2x.png" />
         </view>
       </view>
       <!-- 天气提醒的气泡框 -->
@@ -43,8 +45,8 @@
 
     <!-- 中间的红色车辆 -->
     <view class="car-box">
-      <!-- <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/car.png" bind:tap="weatherTip"/>     -->
-      <image  bindtouchstart="containerTap" src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/car.png" bind:tap="weatherTip"/> 
+      <!-- <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/pic_che.png" bind:tap="weatherTip"/>     -->
+      <image  bindtouchstart="containerTap" src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/pic_che.png" bind:tap="weatherTip"/> 
       <view class="carid">{{carid}}</view>
     </view>
     <!-- 新手奖励或者签到奖励的豆子 -->
@@ -52,18 +54,18 @@
       <!-- 当前豆子 -->
       <view class="bean">
         <view class="bean-img" bind:tap="toBeanDetails">
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_douzi.png" />
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/icon_douzi@2x.png" />
         </view>
         <view class="bubble" wx:if="{{basicUserInfo.bean}}">{{beanNum}}</view>
         <view class="bubble" wx:else>0</view>
       </view>
       <!-- 攻略 -->
       <view class="item item-hd item-hw" bind:tap="toStrategy">
-        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_gonglue.png" />
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/gonglve.png" />
       </view>
       <!-- 活动 -->
       <view class="item item-hd" bind:tap="toActivityModal">
-        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/icon_huodong.png" />
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/icon_huodong@2x.png" />
       </view>
     </view>
   </view>
@@ -74,7 +76,19 @@
         <image src="{{basicUserInfo.face}}" class="userloginimg"/>
       </view>
       <view class="persoanl-name">{{basicUserInfo.nickname}}</view>
-      <view class="persoanl-grade">LV{{basicUserInfo.vip_lv}}</view>
+      <!-- <view class="persoanl-grade">LV{{basicUserInfo.vip_lv}}</view> -->
+      <view>
+         <view class='level_icon'>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/bronze@2x.png' wx:if='{{basicUserInfo.grade[0]==1}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/silver@2x.png' wx:elif='{{basicUserInfo.grade[0]==2}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/gold@3x.png' wx:elif='{{basicUserInfo.grade[0]==3}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/Platinum@2x.png' wx:elif='{{basicUserInfo.grade[0]==4}}'></image>
+
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/Diamonds@2x.png' wx:elif='{{basicUserInfo.grade[0]==5}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/Supreme@2x.png' wx:elif='{{basicUserInfo.grade[0]==6}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/king@2x.png' wx:else></image>
+            </view>
+      </view>
     </view>
     <view wx:if="{{carNum}}">已绑定{{carNum}}辆车</view>
     <view wx:else>已绑定0辆车</view>
@@ -104,7 +118,7 @@
     <text>专区</text>
     <view class='game-gitf-area'>
       <view class='game-area'>
-        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/youxi.png" ></image>
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/game_01.png" ></image>
         <view class='game-text'>
           <text class='game-text1'>游戏专区</text>
           <text class='game-text2'>敬请期待</text>
@@ -112,7 +126,7 @@
       </view>
 
       <view class='gift-area'>
-        <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/gift.png"></image>
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/game_02.png"></image>
         <view class='gift-text'>
           <text class='game-text1'>兑换礼品</text>
           <text class='game-text2'>敬请期待</text>

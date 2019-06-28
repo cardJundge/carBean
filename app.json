@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/mine/mine",
     "pages/services/services",
@@ -25,6 +26,7 @@
     "pages/mine/edit-info/info",
     "pages/common/member/gold/gold",
     "pages/common/member/silver/silver",
+    "pages/index/rating/rating",
     "pages/mine/basic-function/integral/exchange-detail/exchange",
     "pages/mine/basic-function/integral/payment/payment",
     "pages/services/itemdetails/itemdetails",
@@ -51,13 +53,14 @@
     "pages/common/member/insurance/insurance",
     "pages/community/mapcommunity/mapcommunity",
     "pages/common/member/agent/agent",
-    "pages/common/member/agent/order/order"
-
+    "pages/common/member/agent/order/order",
+    "pages/index/mine/myPolicy/myPolicy",
+    "pages/index/mine/myPolicyChina/myPolicyChina"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "车豆v1.0",
+    "navigationBarTitleText": "车豆",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

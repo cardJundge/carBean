@@ -15,7 +15,7 @@
     <view class='eachCar' bindtap='toAddCar'>
       <view class='carContent'>
         <view class='car-logo'>
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/add_icon.png" />
+          <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myCar/addIcon.png" />
         </view>
         <view class='car-num'>添加车辆</view>
       </view>

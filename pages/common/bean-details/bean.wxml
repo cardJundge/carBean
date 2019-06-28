@@ -27,6 +27,6 @@
     </view>
   </view>
   <view class="section" wx:if="{{showMsgNull}}">
-    <null-modal img="{{'cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/order_detail_null.png'}}" text02="暂无豆子明细" width="242" height="212" btnHidden="true"/>
+    <null-modal img="{{'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/no_bean.png'}}" text02="暂无豆子明细" width="242" height="212" btnHidden="true"/>
   </view>
 </view>

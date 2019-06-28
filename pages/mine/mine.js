@@ -15,10 +15,7 @@ Page({
     memberInfo: {}
   },
   onLoad: function(options) {
-    var that = this;
-
-    console.log("www"+wx.getStorageSync("beanNum"));
-   
+    var that = this
     if (app.globalData.userInfo) {
       that.setData({
         basicUserInfo: app.globalData.userInfo,
@@ -55,8 +52,6 @@ Page({
         beanNum: wx.getStorageSync("beanNum"),
         memberInfo: wx.getStorageSync("memberInfo")
       })
-
-      console.log("sss", this.data.basicUserInfo);
     }
   },
   // 去登录授权
@@ -135,6 +130,21 @@ Page({
       } else {
         wx.navigateTo({
           url: '../services/orderlist/orderlist',
+        })
+      }
+    })
+  },
+  // 我的保单
+  onPolicy: function(e) {
+    var that = this
+    app.getSet((res) => {
+      if (!res) {
+        that.setData({
+          showLoginModal: true
+        })
+      } else {
+        wx.navigateTo({
+          url: '../index/mine/myPolicyChina/myPolicyChina',
         })
       }
     })

@@ -48,7 +48,7 @@ class OrderList extends Base{
       type: 'GET',
       data: {
         order_id: orderid,
-        type:"114"
+        type:"chedou"
       },
       sCallback: callback
     }

@@ -1,0 +1,44 @@
+@import '../myPolicyChina/myPolicyChina.wxss';
+
+.title_cell,.title_cellX {
+  background: #182987;
+}
+
+.modal_btn button {
+  background: #182987;
+}
+
+.modal_text {
+  border: 1px solid #182987;
+}
+.modal_text input{
+  color: #182987;
+}
+
+.brance .chinese {
+  color: #182987;
+  font-size: 50rpx;
+}
+
+.brance .eng {
+  color: #DCDCDC;
+  font-size:24rpx;
+}
+.policy_tit .line{
+  border-left:4rpx solid #182987
+}
+.fa-caret-down{
+  color:#182987;
+}
+.tit_name{
+  
+}
+
+.backBtn {
+  text-align: left;
+  color: #182987;
+  margin: 0 30rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  text-decoration: underline;
+}

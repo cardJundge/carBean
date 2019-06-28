@@ -9,7 +9,25 @@
         </view>
         <view class="personal-name">
           <text>{{basicUserInfo.nickname}}</text>
-          <text>{{memberInfo.name}}</text>
+          <!-- <text>{{memberInfo.name}}</text> -->
+          <view>
+            <view class='level_icon'>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/bronze@2x.png' wx:if='{{basicUserInfo.grade[0]==1}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/silver@2x.png' wx:elif='{{basicUserInfo.grade[0]==2}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/gold@3x.png' wx:elif='{{basicUserInfo.grade[0]==3}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/Platinum@2x.png' wx:elif='{{basicUserInfo.grade[0]==4}}'></image>
+
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/Diamonds@2x.png' wx:elif='{{basicUserInfo.grade[0]==5}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/Supreme@2x.png' wx:elif='{{basicUserInfo.grade[0]==6}}'></image>
+              <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/king@2x.png' wx:else></image>
+            </view>
+            <view class='level_progress'>
+              <view>{{basicUserInfo.exp}}/{{basicUserInfo.grade[1]}}</view>
+              <view class='level_progress_icon'>
+                <view class='experience' style='width:{{basicUserInfo.exp*100/basicUserInfo.grade[1]+"%"}};'></view>
+              </view>
+            </view>
+          </view>
         </view>
       </view>
       <view class="personal-info-left" wx:if="{{!hasUserInfo}}" bind:tap="toLogin">
@@ -30,7 +48,7 @@
       <view class="account" bind:tap="toBean">
         <view class="account-left">
           <view class="account-img">
-            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/bean.png" />
+            <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/pic-bean@2x.png" />
           </view>
           <view class="account-text">
             当前豆子
@@ -44,48 +62,54 @@
         </view>
       </view>
       <!-- 会员入口 -->
-      <view class="member-entry" bind:tap="onMemberEntry"  wx:if="{{basicUserInfo.vip_lv != 3 &&basicUserInfo.vip_lv != 2 || !hasUserInfo}}">
+      <!-- <view class="member-entry" bind:tap="onMemberEntry"  wx:if="{{basicUserInfo.vip_lv != 3 &&basicUserInfo.vip_lv != 2 || !hasUserInfo}}">
         <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member_entry.png" />
       </view>
-      <view wx:else></view>
+      <view wx:else></view> -->
       <!-- 基本功能 -->
       <view class="basic-function">
         <view>
           <view class="basic-item" bind:tap="onPublish">
             <view class="basic-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/release.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodefabu@2x.png" />
             </view>
             <text>我的发布</text>
           </view>
           <view class="basic-item" bind:tap="onOrderList">
             <view class="basic-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/order.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodedingdan@2x.png" />
             </view>
             <text>我的订单</text>
           </view>
-          <view class="basic-item" bind:tap="onMember">
+          <view class="basic-item" bind:tap="onPolicy">
             <view class="basic-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/member.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodehuiyuan@2x.png" />
+            </view>
+            <text>我的保单</text>
+          </view>
+          <!-- <view class="basic-item" bind:tap="onMember">
+            <view class="basic-img">
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodehuiyuan@2x.png" />
             </view>
             <text>我的会员</text>
-          </view>
+          </view> -->
         </view>
         <view>
           <view class="basic-item" bind:tap="onCar">
             <view class="basic-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/my_garage.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodecheku@2x.png" />
             </view>
             <text>我的车库</text>
           </view>
           <view class="basic-item" bind:tap="onMessage">
             <view class="basic-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/msg.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_xiaoxitongzhi@2x.png" />
             </view>
             <text>消息通知</text>
           </view>
           <view class="basic-item" bind:tap="onExchange">
             <view class="basic-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/integral.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_jifenduihuan@2x.png" />
             </view>
             <text>兑换礼品</text>
           </view>
@@ -103,19 +127,19 @@
           </li> -->
           <li bind:tap="onFeedback">
             <view class="setting-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/feedback.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_yijianfankui@2x.png" />
             </view>
             <text>意见反馈</text>
           </li>
           <li bind:tap="onAboutUs">
             <view class="setting-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/about_us.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_guanyuwomen@2x.png" />
             </view>
             <text>关于我们</text>
           </li>
           <li bind:tap="toLogout" wx:if="{{hasUserInfo}}">
             <view class="setting-img">
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/mine/login_out.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_tuichu@2x.png" />
             </view>
             <text>退出登录</text>
           </li>
@@ -125,7 +149,7 @@
         </ul>
       </view>
     </view>
-    <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>
-    <my-logout-modal show="{{showLogoutModal}}"  bind:confirm="confirmLogout"/>
+    <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal" />
+    <my-logout-modal show="{{showLogoutModal}}" bind:confirm="confirmLogout" />
   </view>
 </view>
