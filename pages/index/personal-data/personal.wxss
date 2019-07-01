@@ -55,6 +55,7 @@
   align-items: center;
   justify-content: flex-start;
   font-size: 24rpx;
+  padding: 24rpx;
 }
 
 .member-grade text {
@@ -83,12 +84,13 @@
 }
 
 .car {
-  height: 148rpx;
+  height: 128rpx;
   /* box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50); */
   border-radius: 8rpx;
-  margin: 24rpx 0;
+  margin: 24rpx;
   display: flex;
   align-items: center;
+  color: #383737;
 }
 
 .carborder{
@@ -267,4 +269,43 @@ communitytitle {
   width: 40%;
   height: 66rpx;
   margin-left: 30%;
+}
+
+/* 青铜 */
+
+.level_icon {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.level_icon image {
+  width: 100rpx;
+  height: 40rpx;
+}
+
+.level_progress {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 22rpx;
+  margin-left: 20rpx;
+  line-height: 32rpx;
+}
+
+.level_progress_icon {
+  display: block;
+  width: 160rpx;
+  background: #eee;
+  border-radius: 4rpx;
+}
+
+.experience {
+  background: #FF822F;
+  height: 8rpx;
+  border-radius: 4rpx;
+}
+
+.no-data {
+  font-size: 28rpx;
+  margin: 0 24rpx;
+  padding: 24rpx;
 }

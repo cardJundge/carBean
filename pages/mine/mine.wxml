@@ -81,7 +81,7 @@
             </view>
             <text>我的订单</text>
           </view>
-          <view class="basic-item" bind:tap="onPolicy">
+          <view class="basic-item" bind:tap="onPolicy" wx:if='{{basicUserInfo.service_id==3949}}'>
             <view class="basic-img">
               <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodehuiyuan@2x.png" />
             </view>

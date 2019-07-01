@@ -222,45 +222,45 @@ Page({
     })
   },
   // 天气-------》获取天气
-  loadWeather: function (city) {
-    var page = this;
-    wx.request({
-      url: 'https://api.map.baidu.com/telematics/v3/weather/?ak=UU38f0bxWbqIVgjH3OjUS9fTPVniO9Ko&location=' + city + '&output=json',
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log('错误信息2', res)
-        console.info('查询天气返回',res.data.results[0])
-        var weatherData = res.data.results[0].weather_data[0]
-        var temperature = weatherData.temperature.split(' ~')[0]
-        var tag
-        if (weatherData.weather.match("晴")) {
-          tag = 1
-          // console.log('晴', tag)
-        } else if (weatherData.weather.match("雨")) {
-          tag = 2
-          // console.log('雨', tag)
-        } else if (weatherData.weather.match("雪")) {
-          tag = 3
-          // console.log('雪', tag)
-        } else if (temperature >= 30) {
-          tag = 5
-          // console.log('高温', tag)
-        } else if (temperature <= 0) {
-          tag = 4
-          // console.log('低温', tag)
-        } else {
-          // console.log('温度适宜', tag)
-          tag = 1
-        }
-        page.setData({
-          weatherTag: tag
-        })
-        page.weatherSentence(tag)
-      }
-    })
-  },
+  // loadWeather: function (city) {
+  //   var page = this;
+  //   wx.request({
+  //     url: 'https://api.map.baidu.com/telematics/v3/weather/?ak=UU38f0bxWbqIVgjH3OjUS9fTPVniO9Ko&location=' + city + '&output=json',
+  //     header: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     success: function (res) {
+  //       console.log('错误信息2', res)
+  //       console.info('查询天气返回',res.data.results[0])
+  //       var weatherData = res.data.results[0].weather_data[0]
+  //       var temperature = weatherData.temperature.split(' ~')[0]
+  //       var tag
+  //       if (weatherData.weather.match("晴")) {
+  //         tag = 1
+  //         // console.log('晴', tag)
+  //       } else if (weatherData.weather.match("雨")) {
+  //         tag = 2
+  //         // console.log('雨', tag)
+  //       } else if (weatherData.weather.match("雪")) {
+  //         tag = 3
+  //         // console.log('雪', tag)
+  //       } else if (temperature >= 30) {
+  //         tag = 5
+  //         // console.log('高温', tag)
+  //       } else if (temperature <= 0) {
+  //         tag = 4
+  //         // console.log('低温', tag)
+  //       } else {
+  //         // console.log('温度适宜', tag)
+  //         tag = 1
+  //       }
+  //       page.setData({
+  //         weatherTag: tag
+  //       })
+  //       page.weatherSentence(tag)
+  //     }
+  //   })
+  // },
   // 调用天气接口----》
   weatherSentence: function(tag) {
     var that = this

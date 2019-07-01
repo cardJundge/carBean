@@ -241,7 +241,7 @@
 .level_progress_icon {
   display: block;
   width: 160rpx;
-  background: #FF822F;
+  background: #eee;
   border-radius: 4rpx;
 }
 

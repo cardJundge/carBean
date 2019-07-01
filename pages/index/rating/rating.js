@@ -603,7 +603,7 @@ Page({
     var caseId = decodeURIComponent(options.scene)
     that.setData({
       medaReason: that.data.reasonsArr,
-      case_id: 83663
+      case_id: caseId
     })
     common.pageCss(this)
     app.getAuth(res => {
