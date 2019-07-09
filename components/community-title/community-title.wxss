@@ -46,7 +46,7 @@
 }
 
 .sidelabel{
-  position: absolute;
+  position: fixed;
   right: 0;
   top:0;
   z-index: 2000;
@@ -58,7 +58,7 @@
 }
 
 .com-style{
-  position: absolute;
+  position: fixed;
   right: 0;
   top:0;
   z-index: 1500;
@@ -75,8 +75,8 @@
 }
 
 .close{
-  width: 30rpx;
-  height: 10rpx;
+  width: 40rpx;
+  height: 14rpx;
   background: white;
   position: absolute;
   right: 20rpx;

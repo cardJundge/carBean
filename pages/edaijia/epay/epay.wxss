@@ -1,0 +1,120 @@
+/* pages/index/service/epay/epay.wxss */
+
+.driverstate{
+  width: 89%;
+  margin: 10% 5% 0;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.driver-information{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d5d5d5;
+  margin: 0 5%;
+}
+
+.driver-img{
+  width: 90rpx;
+  height: 90rpx;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin: 4% 2% 4% 4%;
+}
+
+.driver{
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  width: 66%;
+  margin: 5% 0;
+}
+
+.tel{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 7%;
+}
+
+.user-information{
+  display: flex;
+  flex-direction: column;
+  padding: 3% 0;
+  border-bottom: 1px solid #d5d5d5;
+  margin: 0 5%;
+}
+
+.user-time{
+  display: flex;
+  margin: 2% 0;
+}
+
+.time-img{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 3rpx 14rpx 0 0;
+}
+
+.time-text{
+  width: 20%;
+  color: #6b6b6b;
+}
+
+.timepoint{
+  width: 72%;
+  text-align: right;
+}
+
+.uesr-address{
+  display: flex;
+}
+
+.address-img{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 3rpx 14rpx 0 0;
+}
+
+.pay-detail{
+  display: flex;
+  flex-direction: column;
+  padding: 3% 0;
+  border-bottom: 1px solid #d5d5d5;
+  margin: 0 5%;
+}
+
+.start{
+  display: flex;
+  justify-content:space-between;
+  margin: 2% 0;
+  color: #6b6b6b;
+}
+
+.total{
+  display: flex;
+  justify-content:flex-end;
+}
+
+.drivingcard{
+  display: flex;
+  flex-direction: column;
+  padding: 3% 5%;
+}
+
+.wechatpay{
+  background: #11a743;
+  color: white;
+  border-radius: 5px;
+  width: 90%;
+  margin: 5% 5%;
+  font-size: 16px;
+}
+
+.tips{  
+  margin-top: 5%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #6b6b6b;
+}

@@ -1,0 +1,52 @@
+<!--pages/index/service/driving_/driving_.wxml-->
+<view  class='orderstate' hidden='{{orderstate}}' bindtap='orderstate'>{{ordercontent}}</view>
+<view class='driver'>
+    附近有
+    <text class='driver-num'>{{drivernum}}</text>
+    位司机随时接驾
+</view>
+<view class='driver-distance' hidden='{{isdistance}}'>
+最近司机距您
+    <text class='driver-num'>{{distance}}{{unit}}</text>
+</view>
+<view class='driver-message'>
+    <view bindtap='drivingmap'>
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_dizhi@2x.png' class='location-img'></image>
+    <view class='client-address'>
+      <text class='address-text'>{{etitle}}</text>
+    </view>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/cancel.png' class='cancel-img'></image>
+    </view>
+    <view class='line'></view>
+    <view>
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_contact@2x.png' class='location-img'></image>
+    <view class='client-address'>
+      <!-- <text>18392362741</text> -->
+      <input type='text' name="userphone" value='{{phonenumber}}' bindinput='bindblur'  placeholder='输入手机号'/>
+    </view>
+    </view>
+</view>
+
+<view class='frequency'>代驾卡:{{num}}次</view>
+<view class='call-driver' bindtap="callcar" wx:if='{{is_agree}}'>我要司机</view>
+<view class='call-driver' wx:else>我要司机</view>
+
+<view class='agree-whole'>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_dui@3x.png' class='agree-img' wx:if="{{is_agree}}" catchtap='isAgree'></image>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_dui_gray@3x.png' class='agree-img' wx:else  catchtap='isAgree'></image>
+    <text class='agree-text1'>已阅读并同意</text>
+    <text class='agree-text2'>《使用规则与代驾服务协议》</text>
+</view>
+
+<view class='used-whole'>
+  <view class="used">使用须知</view>
+  <view>1、每次使用上限金额60元，收费标准依据E代驾官方网站为准，超出部分自付。</view>
+  <view>2、代驾服务由E代驾提供。</view>
+  <view>3、最终解释权归中银保险所有</view>
+</view>
+
+<!-- <view class='tel'>
+    <text>客服电话:</text>
+    <text class='tel-num'>18681830731</text>
+</view> -->
+

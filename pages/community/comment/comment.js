@@ -5,8 +5,12 @@ var test = getApp().globalData.hostName;
 
 import util from '../../../utils/util.js';
 import common from '../../../utils/common.js';
-
 import { Config } from '../../../utils/config.js';
+import { Community } from '../communitymode.js';
+
+var community = new Community();
+
+const myAudio = wx.createInnerAudioContext();
 
 Page({
 
@@ -30,7 +34,10 @@ Page({
     level:0,
     logo:'写评论',
     moreShow:true,
-    showLoginModal:false
+    showLoginModal:false,
+    showVoiceModal:false,
+    isvoiceplay: true, //暂停/播放(评论)
+    isvoiceplay1:true   //(详情页)
   },
 
   /**
@@ -74,11 +81,15 @@ Page({
     that.data.userimg = app.globalData.userInfo.face;
     that.data.username = app.globalData.userInfo.nickname
 
-    console.log("RRRRRRR" + JSON.stringify(options));
-    that.data.item = options.item;
-    that.data.page = options.page;
+    if (options.item){
+      that.data.item = options.item;
+      that.data.page = options.page;
+    }
+    
     that.data.id = options.id;
-    that.data.dynamicArr = JSON.parse(options.dynamicArr);
+
+    that.data.dynamicArr = app.globalData.dynamicArr;
+    // that.data.dynamicArr = JSON.parse(options.dynamicArr);
 
     console.log("GGGG", that.data.dynamicArr);
 
@@ -86,7 +97,8 @@ Page({
       dynamicArr: [that.data.dynamicArr],
       moreShow: true,
       hostName: Config.restUrl,
-      touid: that.data.dynamicArr.user_id
+      touid: that.data.dynamicArr.user_id,
+      userid: app.globalData.userInfo.id
     })
 
     getDynamicevaluationlist(that);
@@ -125,6 +137,87 @@ Page({
     
     getDynamicevaluationlist(that)
 
+  },
+
+  //显示语音模块
+  playvoicemode:function(){
+
+    var that = this;
+    that.setData({
+      showVoiceModal:true,
+      logo:""
+    })
+  },
+
+  //判断是否获取地理位置
+  getLocation: function () {
+
+    var that = this;
+
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          that.setData({
+            showLoginModal: true
+          })
+        } else if (!res.authSetting['scope.userLocation']) {
+          that.setData({
+            locationshow: true
+          })
+        }
+      }
+    })
+
+  },
+
+  //语音结束刷新页面
+  refresh: function () {
+    var that = this;
+    // that.onLoad();
+    
+  },
+
+  //播放详情页面的语音
+  playingvoice: function (e) {
+
+    var that = this;
+
+    var index = e.currentTarget.dataset.index;
+    if (that.data.isvoiceplay1) {
+      myAudio.src = Config.restUrl + "/uploads/community/voice/" + e.currentTarget.dataset.voicesrc;
+      myAudio.play();
+
+
+      var temp = 'dynamicArr[' + index + '].voiceisplaying'
+
+      that.setData({
+        [temp]: true,
+        isvoiceplay1: false,
+        dynamicArr: that.data.dynamicArr
+      })
+
+
+      myAudio.onEnded(res => {
+        var temp = 'dynamicArr[' + index + '].voiceisplaying';
+        myAudio.stop();
+        that.setData({
+          isvoiceplay1: true,
+          [temp]: false,
+          dynamicArr: that.data.dynamicArr
+        })
+      })
+
+    } else {
+      var temp = 'dynamicArr[' + index + '].voiceisplaying'
+      myAudio.pause();
+      that.setData({
+        isvoiceplay1: true,
+        [temp]: false,
+        dynamicArr: that.data.dynamicArr
+      })
+
+      
+    }
   },
 
   //分享
@@ -198,9 +291,28 @@ Page({
 
     var that = this
 
+    //type 1是文字  2是语音
+
     if (app.globalData.userInfo) {
 
-      that.data.content = e.detail.value.content;
+      if (e.detail.value){
+
+        if (e.detail.value.content==""){
+          
+          wx.showToast({
+            title: '评论内容不能为空!',
+          })
+
+          return
+        }else{
+          that.data.content = e.detail.value.content;
+          that.data.type = "1"
+        }
+        
+      }else{
+        that.data.content = e.detail.fileName
+        that.data.type = "2"
+      }
 
       console.log("^^^^^" + that.data.content);
 
@@ -433,6 +545,111 @@ Page({
         showLoginModal:true
       })
     }
+  },
+
+  //组件返回
+  getComment:function(e){
+
+    var that = this;
+    that.setData({
+      logo:"写评论"
+    })
+
+    // that.data.content = e.detail.fileName;
+    that.submitPublic(e)
+  },
+
+  //播放语音
+  playvoice: function (e) {
+
+    var that = this;
+
+    var index = e.currentTarget.dataset.index;
+    if (that.data.isvoiceplay) {
+      myAudio.src = Config.restUrl + "/uploads/community/voice/" + e.currentTarget.dataset.voicesrc;
+      myAudio.play();
+
+
+      var temp = 'evaluationArr[' + index + '].voiceisplaying'
+
+      that.setData({
+        [temp]: true,
+        isvoiceplay: false,
+        evaluationArr: that.data.evaluationArr
+      })
+
+      myAudio.onEnded(res => {
+        var temp = 'evaluationArr[' + index + '].voiceisplaying';
+        myAudio.stop();
+        that.setData({
+          isvoiceplay: true,
+          [temp]: false,
+          evaluationArr: that.data.evaluationArr
+        })
+      })
+
+
+    } else {
+      var temp = 'evaluationArr[' + index + '].voiceisplaying'
+      myAudio.pause();
+      that.setData({
+        isvoiceplay: true,
+        [temp]: false,
+        evaluationArr: that.data.evaluationArr
+      })
+    }
+  },
+
+  deleteEva:function(e){
+
+    var that = this;
+
+    var evaid = e.currentTarget.dataset.evaid;
+
+    var dynamicid = e.currentTarget.dataset.dynamicid;
+
+    wx.showModal({
+      title: '提示',
+      content: '确定删除吗?',
+      success(res) {
+        if (res.confirm) {
+
+          community.evadel(evaid, dynamicid, res => {
+            console.log("res" + res);
+            if(res.status == 1){
+              wx.showToast({
+                title: '删除成功!',
+              })
+
+              that.data.evaluationArr=[];
+              that.data.evaluatepage =1;
+              getDynamicevaluationlist(that);
+
+              var temp = 'dynamicArr[0].comment';
+
+              var comment = parseInt(that.data.dynamicArr[0].comment) - 1
+
+              console.log("HHHHH" + that.data.dynamicArr[0].comment);
+
+              that.setData({
+                [temp]: comment
+              })
+
+            }else{
+              wx.showToast({
+                title: '删除失败!',
+              })
+
+            } 
+          })
+
+        } else if (res.cancel) {
+          
+        }
+      }
+    })
+
+    
   }
  
 })
@@ -532,11 +749,29 @@ function getDynamicevaluationlist(that){
                 if ((res.data.data[i])[j].length != 0){
 
                   that.data.length = (res.data.data[i])[j].length
+
+                  if ((res.data.data[i])[j].type == 2){
+                    
+                    if ((res.data.data[i])[j].content) {
+                      (res.data.data[i])[j].voiceduration = (res.data.data[i])[j].content.split('?')[1];
+                      (res.data.data[i])[j].voiceisplaying = false
+                    }
+                  }
                 
                 }else{
 
                   that.data.length = 0;
                 }
+
+
+                if (res.data.data[i].type == 2) {
+
+                  if (res.data.data[i].content) {
+                    res.data.data[i].voiceduration = res.data.data[i].content.split('?')[1];
+                    res.data.data[i].voiceisplaying = false
+                  }
+                }
+
                 res.data.data[i].length = that.data.length;
 
                 res.data.data[i].moreShow = false
@@ -548,7 +783,7 @@ function getDynamicevaluationlist(that){
             
           }
           
-          console.log("%%%%%%%" + JSON.stringify(res.data.data));
+          console.log("%%%%%%%" , that.data.evaluationArr);
 
            that.setData({
              evaluationArr: that.data.evaluationArr
@@ -558,10 +793,13 @@ function getDynamicevaluationlist(that){
 
         }else{
 
+          console.log("dddddd", that.data.evaluationArr)
+
           if (that.data.evaluationArr.length==0){
 
             that.setData({
-              evaluate: res.data.data
+              evaluate: res.data.data,
+              evaluationArr:[]
             })
 
           }else{
@@ -597,7 +835,8 @@ function releaseevaluation(that){
         dynamic_id: that.data.id,
         from_uid: that.data.userId,
         to_uid: that.data.touid,
-        level: that.data.level
+        level: that.data.level,
+        type:that.data.type
       },
       success:function(res){
         var dataType = typeof res.data
@@ -624,20 +863,51 @@ function releaseevaluation(that){
 
           if(that.data.level == 0){
 
-            that.data.evaluationObj = {
-              id:res.data.id,
-              dynamic_id: that.data.id,
-              content: that.data.content,
-              level: 0,
-              from_uid: that.data.userId,
-              to_uid:0,
-              post_date: time,
-              user_info: {
-                nickname: that.data.username,
-                face: that.data.userimg
-              },
-              reply: []
+            if(that.data.type == 2){
+
+              if (that.data.content) {
+                that.data.voiceduration = that.data.content.split('?')[1];
+                that.data.voiceisplaying = false
+              }
+
+              that.data.evaluationObj = {
+                id: res.data.id,
+                dynamic_id: that.data.id,
+                content: that.data.content,
+                level: 0,
+                from_uid: that.data.userId,
+                to_uid: 0,
+                post_date: time,
+                user_info: {
+                  nickname: that.data.username,
+                  face: that.data.userimg
+                },
+                reply: [],
+                type:2,
+                voiceduration: that.data.voiceduration,
+                voiceisplaying: that.data.voiceisplaying
+              }
+
+            }else{
+
+              that.data.evaluationObj = {
+                id: res.data.id,
+                dynamic_id: that.data.id,
+                content: that.data.content,
+                level: 0,
+                from_uid: that.data.userId,
+                to_uid: 0,
+                post_date: time,
+                user_info: {
+                  nickname: that.data.username,
+                  face: that.data.userimg
+                },
+                reply: [],
+                type:1
+              }
             }
+
+            
 
             console.log("7777", that.data.evaluationObj);
 
@@ -663,20 +933,50 @@ function releaseevaluation(that){
             console.log("RRRRRRRRRRR" + JSON.stringify(that.data.evaluationArr));
             console.log("HHHHHHHHHHHH"+that.data.i)
 
-            that.data.reply1 = {
-              dynamic_id: that.data.id,
-              content: that.data.content,
-              from_uid: that.data.userId,
-              to_uid: that.data.touid,
-              post_date: time,
-              level: that.data.level,
-              from_user_info: {
-                nickname: that.data.username
-              },
-              to_user_info: {
-                nickname: that.data.itusername
+            if(that.data.type == 2){
+
+              if (that.data.content){
+                that.data.voiceduration = that.data.content.split('?')[1];
+                that.data.voiceisplaying = false
+              }
+
+              that.data.reply1 = {
+                dynamic_id: that.data.id,
+                content: that.data.content,
+                from_uid: that.data.userId,
+                to_uid: that.data.touid,
+                post_date: time,
+                level: that.data.level,
+                from_user_info: {
+                  nickname: that.data.username
+                },
+                to_user_info: {
+                  nickname: that.data.itusername
+                },
+                type:2,
+                voiceduration: that.data.voiceduration,
+                voiceisplaying:that.data.voiceisplaying
+              }
+            }else{
+
+              that.data.reply1 = {
+                dynamic_id: that.data.id,
+                content: that.data.content,
+                from_uid: that.data.userId,
+                to_uid: that.data.touid,
+                post_date: time,
+                level: that.data.level,
+                from_user_info: {
+                  nickname: that.data.username
+                },
+                to_user_info: {
+                  nickname: that.data.itusername
+                },
+                type:1
               }
             }
+
+            
 
             that.data.evaluationArr[that.data.i].reply.push(that.data.reply1);
 

@@ -1,0 +1,14 @@
+<template name = "location">
+
+    <view wx:for="{{pois}}" wx:for-index="index" wx:for-item='item'>
+        <view class='pois'>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/location.png' class='location-img'></image>
+            <view class='location-infor' catchtap='confirmateAddress' 
+            data-title='{{item.title}}' data-location='{{item.location}}'>
+              <text >{{item.title}}</text>
+              <text class='pois-address'>{{item.address}}</text>
+            </view>
+        </view>
+    </view>
+
+</template>

@@ -1,6 +1,6 @@
 .voicecontainer{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
@@ -8,7 +8,7 @@
   right: 0;
   bottom: 0;
   font-size: 32rpx;
-  z-index: 500;
+  z-index: 1000;
 }
 
 .voicedialog{
@@ -20,6 +20,7 @@
   align-items: center;
   position: fixed;
   bottom: 0;
+  z-index: 1000;
 }
 
 .title{
@@ -36,7 +37,7 @@
   right: 40rpx;
 }
 
-.delete image{
+.delete cover-image{
   width: 30rpx;
   height: 30rpx;
 }
@@ -66,3 +67,8 @@
 
 .circle_box,.circle_draw{ position: relative; }
 .circle_bg{position: absolute;}
+
+.voice-time{
+  display: flex;
+  
+}

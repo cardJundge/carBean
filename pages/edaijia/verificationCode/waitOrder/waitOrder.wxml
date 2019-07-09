@@ -1,0 +1,38 @@
+<!--pages/index/service/verificationCode/waitOrder/waitOrder.wxml-->
+
+<view class='order-state'>
+    <text>请稍等正在为您联络司机...</text>
+</view>
+
+<view class='order-message'>
+    <view class='order-time'>
+      <image class='time-img' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_shijian@3x.png'></image>
+      <text class='order-time-text a'>下单时间:</text>
+      <text class='a'>{{currenttime}}</text>
+    </view>
+    <view class='order-time'>
+      <image class='time-img' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_dizhi@2x.png'></image>
+      <text class='order-time-text a'>出发地点:</text>
+      <text class='a'>{{address}}</text>
+    </view>
+    <view class='order-time1'>
+      <image class='time-img' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_contact@2x.png'></image>
+      <text class='order-time-text a'>联系电话:</text>
+      <text class='a'>{{phone}}</text>
+    </view>
+</view>
+
+<view class='pre-time'>
+    <text>预计</text>
+    <text class='miao'>{{timeout}}</text>
+    <text>秒派单成功</text>
+</view>
+
+<view class='send-tip' bindtap='driverstate'>如果派单成功,司机会电话联系你</view>
+
+<!-- <view class='canceltext' catchtap='cancelorder'>取消订单</view> -->
+
+<!-- <view class='tel'>
+    <text>客服电话:</text>
+    <text class='tel-num'>18681830731</text>
+</view> -->

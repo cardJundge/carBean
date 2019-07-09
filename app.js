@@ -6,7 +6,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     wx.cloud.init({
-      env: 'cheguanjia1-beb14e'
+      env: 'a-data-1a3ebf'
     })
 
     if (wx.canIUse("getUpdateManager")) {
@@ -158,5 +158,9 @@ App({
     // hostName: 'http://192.168.1.108',
     // hostName: 'https://www.chedou123.cn',
     server: null,
+    appkey: '61000252',
+    secret: '1d27224d-e6de-4a93-8cd4-c90084c94a7c',
+    efrom: "01051718",
+    httpurl: 'https://open.api.edaijia.cn',
   }
 })

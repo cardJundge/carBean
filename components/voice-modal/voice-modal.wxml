@@ -1,35 +1,42 @@
-<view class='voicecontainer' wx:if="{{show}}">
+<cover-view class='voicecontainer' wx:if="{{show}}">
 
-  <view class='voicedialog'>
-    <view class='title'>
-      <text>语音</text>
-      <view class='delete' bindtap='close'>
-        <image src="/images/icon/icon_del_01.png"></image>
-      </view>
-    </view>
+  <cover-view class='voicedialog'>
+    <cover-view class='title'>
+      <cover-view>语音</cover-view>
+      <cover-view class='delete' bindtap='close'>
+        <cover-image src="/images/icon/icon_del_01.png"></cover-image>
+      </cover-view>
+    </cover-view>
 
-    <view>
-      <text>{{voicetime}}</text>
-      <text>/01:00</text>
-    </view>
-    <view class='voice-icon' bindtap='recorde' wx:if="{{voicecontent=='录制完成'}}" style='justify-content: space-around;'>
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/delete.png" class='delete-img' bindtap='deletevoice'></image>
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/voice.png" class='voice-img'></image>
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/right.png" class='delete-img' bindtap='complate'></image>
-    </view>
+    <cover-view class='voice-time'>
+      <cover-view>{{voicetime}}</cover-view>
+      <cover-view>/01:00</cover-view>
+    </cover-view>
+    <cover-view class='voice-icon' bindtap='recorde' wx:if="{{voicecontent=='录制完成'}}" style='justify-content: space-around;'>
+      <cover-image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/delete.png" class='delete-img' bindtap='deletevoice'></cover-image>
+      <cover-image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/voice.png" class='voice-img'></cover-image>
+      <cover-image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/right.png" class='delete-img' bindtap='complate'></cover-image>
+    </cover-view>
 
-    <view class='voice-icon' bindtap='recorde' wx:else style='justify-content: center;'>
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/voice.png" class='voice-img'></image> 
-    </view>
+    <cover-view class='voice-icon' bindtap='recorde' wx:else style='justify-content: center;'>
+      <cover-view wx:if="{{voicecontent=='正在录制'}}">
+      <cover-image src="{{voicegif}}" class='voice-img'></cover-image>
+      </cover-view>
+      <cover-view wx:else>
+      <cover-image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/voice.png" class='voice-img'></cover-image>
+      </cover-view>
 
-    <view class="voice-text" wx:if="{{voicecontent=='录制完成'}}" style='justify-content: space-around;'>
-      <text>删除</text>
-      <text>{{voicecontent}}</text>
-      <text>完成</text>
-    </view>
-    <view class="voice-text" wx:else style='justify-content: center;'>
-      <text>{{voicecontent}}</text>
-    </view>
+      <!-- <image src="{{voiceimg}}" class='voice-img'></image> -->
+    </cover-view>
 
-  </view>
-</view>
+    <cover-view class="voice-text" wx:if="{{voicecontent=='录制完成'}}" style='justify-content: space-around;'>
+      <cover-view>删除</cover-view>
+      <cover-view>{{voicecontent}}</cover-view>
+      <cover-view>完成</cover-view>
+    </cover-view>
+    <cover-view class="voice-text" wx:else style='justify-content: center;'>
+      <cover-view>{{voicecontent}}</cover-view>
+    </cover-view>
+
+  </cover-view>
+</cover-view>

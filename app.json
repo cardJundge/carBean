@@ -55,7 +55,16 @@
     "pages/common/member/agent/agent",
     "pages/common/member/agent/order/order",
     "pages/index/mine/myPolicy/myPolicy",
-    "pages/index/mine/myPolicyChina/myPolicyChina"
+    "pages/index/mine/myPolicyChina/myPolicyChina",
+    "pages/edaijia/driving_/driving_",
+    "pages/edaijia/drivingmap/drivingmap",
+    "pages/edaijia/drivingmap/cityselect/cityselect",
+    "pages/edaijia/verificationCode/verificationCode",
+    "pages/edaijia/verificationCode/waitOrder/waitOrder",
+    "pages/edaijia/driverstate/driverstate",
+    "pages/edaijia/epay/epay",
+    "pages/edaijia/sureCancel/sureCancel"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

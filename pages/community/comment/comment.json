@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "my-login-modal": "/components/login/login"
+    "my-login-modal": "/components/login/login",
+    "my-voice-modal": "/components/voice-modal/voice-modal"
   }
 }

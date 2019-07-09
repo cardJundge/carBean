@@ -58,7 +58,7 @@ height: 2.3em
   border-radius: 5px;
   font-size: 14px;
   /* margin: 4% 0 0 6%; */
-  width: 440rpx;
+  width: 72%;
   background: #fff;
   /* line-height: 40rpx; */
   /* padding-top: 2%; */
@@ -118,13 +118,13 @@ height: 2.3em
 .dianzan{
   display: inline-block;
   position: fixed;
-  right: 14%;
-  bottom: 16rpx  
+  right: 4%;
+  bottom: 1rpx  
 }
 
 .dianzan image{
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
 }
 
 .dianzan1{

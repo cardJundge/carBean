@@ -1,0 +1,22 @@
+<template name='driverstate'>
+
+  <view wx:for="{{driverstate}}" wx:for-item='item' wx:for-index='index'>
+      
+        <view class='driverstaterow' >
+
+        <view class='driver-list-tip'>
+          <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/circle.png'       wx:if="{{(driverstate.length-1) == index}}"></image>
+          <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/circle_gray.png' wx:else></image>
+          <view wx:if="{{(driverstate.length-1) == index}}"></view>
+          <view class='line' wx:else></view>
+        </view>
+
+        <view class='driver-list-content'>
+            <text>{{item.content}}</text>
+            <text  class="{{(driverstate.length-1) == index ? 'driver-time' : 'driver-time1'}}">{{item.time}}</text>
+        </view>
+               
+      </view>
+    </view>
+
+</template>

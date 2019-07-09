@@ -68,6 +68,7 @@ Page({
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userLocation']) {
+
           that.setData({
             locationshow: true
           })
@@ -93,6 +94,7 @@ Page({
       }
     })
 
+    //地图社区
     community.mapDynamic(that.data.latitude + "," + that.data.longitude, res => {
 
       if (res.status == 1) {
@@ -274,7 +276,7 @@ Page({
 
   regionchange(e) {
     // 地图发生变化的时候，获取中间点，也就是用户选择的位置toFixed   
-    if (e.type == 'end' && (e.causedBy == 'scale' || e.causedBy == 'drag')) {
+    if (e.type == 'end' && e.causedBy == 'drag') {
       console.log('update之后', e)
       var that = this
       this.mapCtx = wx.createMapContext("map");
@@ -367,6 +369,33 @@ Page({
   },
 
 
+  markerstap:function(e){
+    console.log("ddd",e);
+    var id = e.markerId;
+    community.dynamicInfo(id,res=>{
+
+      if (res.status == 1){
+
+        if (res.data.type == 1) {
+          if (res.data.content) {
+            res.data.imagecell = res.data.content.split(',')
+          }
+        } else if (res.data.type == 2) {
+          if (res.data.content) {
+            res.data.voiceduration = res.data.content.split('?')[1];
+          }
+        }
+
+        app.globalData.dynamicArr = res.data
+        
+        wx.navigateTo({
+          url: '../comment/comment?id=' + id + '&dynamicArr=' + res.data,
+        })
+      }
+    })
+  },
+
+
 })
 
 function draw(that, item) {
@@ -384,31 +413,31 @@ function draw(that, item) {
         ctx.beginPath()
         ctx.arc(50, 50, 50, 0, 2 * Math.PI)
         ctx.clip()
-        ctx.drawImage(res.tempFilePath, 0, 0, 100, 100)
+        ctx.drawImage(res.tempFilePath, 0, 0, 120, 120)
         // ctx.drawImage("../../../images/132.jpg", 0, 0, 100, 100)
         ctx.draw(false, function() {
           wx.canvasToTempFilePath({
             x: 0,
             y: 0,
-            width: 100,
-            height: 100,
+            width: 120,
+            height: 120,
             canvasId: 'handleCanvas',
             success(res) {
 
               console.log("333333", that.data.dynamicArr[item])
 
-              ctx.drawImage(res.tempFilePath, 0, 0, 100, 100)
+              ctx.drawImage(res.tempFilePath, 0, 0, 120, 120)
 
               ctx.restore()
 
               if (that.data.dynamicArr[item].type == 2) {
-                ctx.drawImage('../../../images/audioBac.png', 100, 10, 200, 90)
-                ctx.drawImage('../../../images/community/triangle.png', 110, 30, 45, 45)
-                ctx.drawImage('../../../images/community/wave.png', 170, 30, 80, 50)
+                ctx.drawImage('../../../images/audioBac.png', 120, 10, 200, 90)
+                ctx.drawImage('../../../images/community/triangle.png', 130, 30, 45, 45)
+                ctx.drawImage('../../../images/community/wave.png', 190, 30, 80, 50)
                 // ctx.drawImage('../../../images/position.png', 30, 120, 40, 40)
                 ctx.setFontSize(20)
                 ctx.setStrokeStyle('red')
-                ctx.fillText(that.data.dynamicArr[item].voiceduration + '″', 270, 60)
+                ctx.fillText(that.data.dynamicArr[item].voiceduration + '″', 290, 60)
 
                 console.log("55555")
 
@@ -422,7 +451,7 @@ function draw(that, item) {
                 wx.canvasToTempFilePath({
                   x: 0,
                   y: 0,
-                  width: 330,
+                  width: 370,
                   height: 160,
                   canvasId: 'handleCanvas',
                   success(res) {

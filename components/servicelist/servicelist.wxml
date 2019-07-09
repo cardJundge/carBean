@@ -3,7 +3,7 @@
   <view class='serviceitem' bindtap='itemdetail' data-detail='{{item}}'>
 
     <view class='serviceitem-1'>
-      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg' class='serviceitem-img' wx:if='{{!item.face}}'></image>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/services/servicelogo.jpg' class='serviceitem-img' wx:if='{{!item.face}}'></image>
       <image src='{{hostName}}/uploads/face/{{item.face}}' class='serviceitem-img' wx:else></image>
       <text class='weixiu bg' wx:if='{{item.type==3}}'>维修店</text>
       <text class='weixiu bg' wx:if='{{item.type==2}}'>4s店</text>

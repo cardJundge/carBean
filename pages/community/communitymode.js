@@ -39,6 +39,52 @@ class Community extends Base{
 
     this.request(params);
   }
+
+  //获取动态详情
+  dynamicInfo(dynamic_id,callback){
+    var that = this;
+    var params = {
+      url: '/user/index/dynamic_info',
+      type: 'GET',
+      data: {
+        dynamic_id: dynamic_id
+      },
+      sCallback: callback
+    }
+
+    this.request(params);
+  }
+
+  //删除动态
+  deletedynamic(dynamicid, callback){
+    var that = this;
+    var params = {
+      url: '/user/community/dynamicDel',
+      type: 'GET',
+      data: {
+        dynamic_id: dynamicid
+      },
+      sCallback: callback
+    }
+
+    this.request(params);
+  }
+
+  //删除评论
+  evadel(eva_id,dynamicid,callback){
+    var that = this;
+    var params = {
+      url: '/user/community/eva_del',
+      type: 'GET',
+      data: {
+        eva_id: eva_id,
+        dynamic_id: dynamicid
+      },
+      sCallback: callback
+    }
+
+    this.request(params);
+  }
 }
 
 export {Community}

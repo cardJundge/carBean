@@ -1,0 +1,7 @@
+<template name='city'>
+    <view wx:for='{{citylist}}'>
+        <view class='itemcity' catchtap='selectcityitem' data-city='{{item}}'>
+          <text>{{item}}</text>
+        </view>
+    </view>
+</template>

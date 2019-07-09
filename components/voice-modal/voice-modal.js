@@ -13,7 +13,8 @@ var community = new Community();
 //语音组件模态框
 Component({
   properties: {
-    show: Boolean
+    show: Boolean,
+    mode:String
   },
   data: {
     voicecontent: "点击录制",
@@ -33,7 +34,8 @@ Component({
       that.setData({
         show: false,
         voicecontent:'点击录制',
-        voicetime:"00:00"
+        voicetime:"00:00",
+        voicegif:""
       })
 
 
@@ -75,70 +77,81 @@ Component({
       var that = this;
       if (that.data.voicecontent =="点击录制"){
 
-        var time = 0;
+        
+        wx.getSetting({
+          success(res) {
+            if (!res.authSetting['scope.userInfo'] || !res.authSetting['scope.userLocation']) {
 
-        that.data.time = setInterval(function(){
+              //触发父类事件
+              that.triggerEvent('location', {
 
-          ++time;
-
-          if(time<10){
-            that.setData({
-              voicetime:"00:0"+time
-            })
-          }else{
-
-            if(time>=60){
-              that.setData({
-                voicetime:"01:00"
               })
-              clearInterval(that.data.time)
-              recorderManager.stop();
+            }else{
 
-              wx.showToast({
-                title: '结束录音!'
+              const options = {
+                duration: 60000,
+                format: "mp3",
+                frameSize: 50
+              }
+              recorderManager.start(options);
+
+              recorderManager.onStart(res=>{
+
+                var time = 0;
+
+                that.data.time = setInterval(function () {
+
+                  ++time;
+
+                  if (time < 10) {
+                    that.setData({
+                      voicetime: "00:0" + time
+                    })
+                  } else {
+
+                    if (time >= 60) {
+                      that.setData({
+                        voicetime: "01:00"
+                      })
+                      clearInterval(that.data.time)
+                      recorderManager.stop();
+
+                      wx.showToast({
+                        title: '结束录音!'
+                      })
+
+                      recorderManager.onStop(res => {
+
+                        console.log("录音路径:",res);
+
+                        that.data.mediaSrc = res.tempFilePath
+
+                        //计算录音时间
+                        that.data.audiolength = parseInt(res.duration / 1000);
+
+                      })
+
+                      that.setData({
+                        voicecontent: "录制完成"
+                      })
+
+
+                    } else {
+                      that.setData({
+                        voicetime: "00:" + time
+                      })
+                    }
+                  }
+                }, 1000)
+              })
+
+              that.setData({
+                voicecontent: "正在录制",
+                voicegif: "/images/icon/voice.gif"
               })
               
-
-              recorderManager.onStop(res => {
-                
-                that.data.mediaSrc = res.tempFilePath
-                // that.data.fileType = "voice";
-                // that.data.publicContent = "";
-                // that.data.userId = app.globalData.userInfo.id;
-                // that.data.fileTypePublic = "2";
-
-                // common.uploadDynamic(that).then(function (that) {
-                //   common.publicDynamic(that).then(function (that) {
-                //     console.log("发布" + that.data.fileName)
-                //   })
-                // })
-
-              })
-
-              that.setData({
-                voicecontent: "录制完成"
-              })
-
-
-            }else{
-              that.setData({
-                voicetime: "00:"+time
-              })
             } 
           }
-          
-
-        },1000)
-
-        const options = {
-          duration: 10000,
-          format: "mp3",
-          frameSize: 50
-        }
-        recorderManager.start(options);
-
-        that.setData({
-          voicecontent:"正在录制"
         })
 
       } else if (that.data.voicecontent =="正在录制"){
@@ -167,6 +180,8 @@ Component({
           }
 
           that.data.mediaSrc = res.tempFilePath 
+
+          console.log("that.data.mediaSrc", res.tempFilePath);
           
           // common.uploadDynamic(that).then(common.publicDynamic).then(function (res) {
 
@@ -180,8 +195,8 @@ Component({
 
       } else{
 
-        myAudio.src = Config.restUrl + "/uploads/community/voice/" + that.data.fileName;
-        myAudio.play();
+        // myAudio.src = Config.restUrl + "/uploads/community/voice/" + that.data.fileName;
+        // myAudio.play();
 
       }
 
@@ -192,14 +207,18 @@ Component({
 
       var that = this;
       that.data.mediaSrc = "";
-      wx.showLoading({
+      wx.showToast({
         title: '删除成功!',
-        duration:2000,
-        icon:"none"
-      })
+        duration: 2000,
+        icon: "none",
+        success(res){
 
-      that.setData({
-        voicetime: "00:00"
+          that.setData({
+            voicecontent: '点击录制',
+            voicetime: "00:00",
+            voicegif: ""
+          })
+        }
       })
 
     },
@@ -213,19 +232,61 @@ Component({
       that.data.userId = app.globalData.userInfo.id;
       that.data.fileTypePublic = "2";
 
-      common.uploadDynamic(that).then(function (that) {
+      console.log("that.properties.mode", that.properties.mode);
 
-        if (that.data.fileName){
-          common.publicDynamic(that).then(function (that) {
+      if(that.properties.mode == "动态"){
 
-            console.log("发布" + that.data.fileName)
-            wx.showToast({
-              title: '语音发布成功!',
-              duration:2000
+        common.uploadDynamic(that).then(function (that) {
+
+          if (that.data.fileName) {
+            common.publicDynamic(that).then(function (that) {
+
+              console.log("发布" + that.data.fileName)
+              wx.showToast({
+                title: '语音发布成功!',
+                duration: 2000
+              })
+
+              // clearInterval(that.data.time)
+              // recorderManager.stop();
+
+              that.setData({
+                show: false,
+                voicecontent: '点击录制',
+                voicetime: "00:00",
+                voicegif:''
+              })
+
+
+              //触发父类事件
+              that.triggerEvent('refresh', {
+
+              })
             })
-          })
-        }
-      })
+          }
+        })
+      }else{
+
+        common.uploadDynamic(that).then(function (that) {
+
+          if (that.data.fileName) {
+
+            that.setData({
+              show: false,
+              voicecontent: '点击录制',
+              voicetime: "00:00"
+            })
+
+
+            //触发父类事件
+            that.triggerEvent('comment', {
+              fileName: that.data.fileName +"?"+ that.data.audiolength
+            })
+          }
+        })
+        
+        
+      } 
     }
   },
 

@@ -1,0 +1,75 @@
+/* pages/index/service/verificationCode/verificationCode.wxss */
+
+.whole{
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+}
+
+.tip-content{
+  margin: 5% 3%;
+}
+
+.tel{
+  color: #1a84ff;
+}
+
+.code{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  width: 100%;
+  height: 20%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.num{
+  width: 80rpx;
+  height: 80rpx;
+  background: #f1f1f1;
+  /* 改变光标颜色 */
+  caret-color:#fff;
+  margin: 3% 3%; 
+  border-radius: 5px 
+}
+
+form input{
+  height: 80rpx;
+  width:80rpx;
+  border:1px solid #cdcdcd;
+  border-radius: 8rpx;
+  display: inline-block;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 48rpx;
+  color:#323232;
+  margin:14rpx 22rpx;
+}
+
+form .hidden_ipt{
+  height: 0rpx;
+  width:0rpx;
+  border:none;
+  margin:0;
+}
+
+
+.time{
+  color: #666666;
+  width: 100%;
+  text-align: center
+}
+
+.time1{
+  color: #1a84ff;
+  width: 100%;
+  text-align: center
+}
+
+.surechecked{
+  width: 90%;
+  margin: 4% 5%;
+  background: #1a84ff;
+  color: #fff;
+}

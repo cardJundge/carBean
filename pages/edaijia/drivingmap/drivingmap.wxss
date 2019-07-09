@@ -1,0 +1,111 @@
+/* pages/index/service/drivingmap/drivingmap.wxss */
+@import '../../../components/locationList/locationList.wxss';
+@import '../../../components/cityList/cityList.wxss';
+.top-add{
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  line-height: 80rpx;
+  background: #fff;
+   
+}
+
+.add-city{
+  color: #202020;
+  font-size: 14px;
+  vertical-align: middle;
+  padding-left: 20rpx;
+  padding-right: 10rpx
+}
+
+.arrow-down{
+  display: table-cell;
+}
+
+.top-add image{
+  width: 16rpx;
+  height: 12rpx;
+  vertical-align: middle;
+  padding-right: 16rpx;
+  padding-bottom: 4rpx;
+}
+
+input{
+  font-size: 12px;
+  vertical-align: middle;
+  height: 80rpx;
+  width: 72%;
+}
+
+.cancel{
+  font-size: 14px;
+  line-height: 80rpx;
+  vertical-align: middle;
+  color: #202020;
+}
+
+.recommend-add{
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  position: fixed;
+  bottom: 10%;
+  width: 90%;
+  border-radius: 5px;
+  background: #fff;
+  margin-left: 5%;
+  z-index: 100
+}
+
+.recommend-add-content{
+  display: flex;
+  flex-direction: row;
+}
+
+.locationlist{
+  position: fixed;
+  top:80rpx;
+  width: 100%;
+  height: 100%;
+  background: #d5d5d5;
+  z-index: 1000
+}
+
+.list{
+  margin: 1% 3% 0;
+  background: #fff
+}
+
+.current-city{
+  font-size: 16px;
+  margin: 5% 5% 0;
+  line-height: 60rpx;
+}
+
+.circle-img{
+  width: 18rpx;
+  height: 18rpx;
+  padding: 26rpx 17rpx 16rpx;
+}
+
+.add-text{
+  padding-top: 20rpx;
+  height: 34rpx;
+}
+
+.recommend-flag{
+  color: #1a84ff;
+  padding-left: 52rpx;
+  font-size: 12px;
+  padding-bottom: 20rpx; 
+}
+
+.sure-flag{
+  line-height: 66rpx;
+  width: 100%;
+  background: #1a84ff;
+  color: #fff;
+  text-align: center;
+}

@@ -1,0 +1,30 @@
+
+<view class='surecanceltitle'>请选择您取消代驾的原因</view>
+<view class='remarks'>(注：私自协商代驾将被封号禁用)</view>
+
+<form class='reason' bindsubmit='cancelorder'>
+  <checkbox-group bindchange="checkboxChange" class='checkedreason'>
+    <label wx:for="{{reason}}" class="{{(reason.length-1)== index?'checkbox1':'checkbox'}}">
+      <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+      <text>{{item.value}}</text>
+    </label>
+  </checkbox-group>
+
+  <textarea class='itreason' name="itreason" placeholder='其他原因...' placeholder-style='color:#b2b2b2;font-size:14px'></textarea>
+  <view class='focus'>与司机私下交易将无法享受高额代驾保险</view>
+  <button class='submit' form-type="submit">提交</button>
+</form>
+
+
+<!-- <view class='tel'>
+    <text>客服电话:</text>
+    <text class='tel-num'>18686810731</text>
+</view> -->
+
+<view class='auto-whole' hidden='{{auto}}'>
+    <view class='auto-text'>订单已取消</view>
+    <view class='auto-back'>{{num}}秒后自动返回...</view>
+    <view>
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/cancellogo.png' class='cancellogo'></image>
+    </view>
+</view>

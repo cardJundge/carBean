@@ -12,7 +12,9 @@
   margin-top: 0px;
   line-height: 40px;
   color: white;
-  
+  background: #1a84ff !important;
+  border-radius: 27px;
+  width: 100% !important;
 }
 .relative_cell{
   display: inline-block;

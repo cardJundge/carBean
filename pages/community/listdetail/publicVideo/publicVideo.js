@@ -16,7 +16,8 @@ Page({
     videoSrc:'',
     duration:0,
     mess:200,
-    type: ["全部", "保险", "理赔", "维修"]
+    type: ["全部", "保险", "理赔", "维修"],
+    locationshow:false
 
   },
   backPage: function() {
@@ -84,79 +85,89 @@ Page({
 
     console.log("%%%%%%%" + e.detail.value.content + that.data.videoSrc);
 
-    if (e.detail.value.content == '' && that.data.videoSrc == '') {
-      wx.showToast({
-        title: '内容不能为空',
+    if(app.globalData.latitude){
+
+      if (e.detail.value.content == '' && that.data.videoSrc == '') {
+        wx.showToast({
+          title: '内容不能为空',
+        })
+
+        that.setData({
+          isOver: true
+        })
+        return
+
+      } else if (that.data.duration > 15) {
+
+        wx.showToast({
+          title: '时长超过15s'
+        })
+
+        that.setData({
+          isOver: false,
+          mediaSrc: "",
+          rating_contents: ""
+        })
+
+        return
+      }
+
+
+      wx.showLoading({
+        title: '发布中...',
       })
+      that.data.publicContent = e.detail.value.content
+      common.uploadDynamic(that).then(common.publicDynamic).then(function () {
+        wx.showToast({
+          title: '发布成功',
+        })
+        console.log(that.data.fileName)
+        console.log(JSON.stringify(that.data))
+        //处理上个页面
+        var tempType = 3
+        if (!that.data.mediaSrc) {
+
+          tempType = 1
+          that.data.fileName = ''
+        }
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2];
+        prevPage.data.dynamicArr.unshift({
+          id: that.data.tempUploadId,
+          add_time: '刚刚',
+          comment: 0,
+          content: that.data.fileName,
+          //grade: app.globalData.userAllInfor.grade[0],
+          grade: that.data.userInfo.grade[0],
+          is_zan: 0,
+          share: 0,
+          title: that.data.publicContent,
+          location: app.globalData.latitude + ',' + app.globalData.longitude,
+          address: app.globalData.address,
+          user_id: that.data.userId,
+          user_info: { nickname: that.data.userInfo.nickName, face: that.data.userInfo.avatarUrl },
+          zan: 0,
+          type: tempType
+        })
+        prevPage.setData({
+          dynamicArr: prevPage.data.dynamicArr
+        })
+
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
+
+      })
+    }else{
 
       that.setData({
-        isOver:true
+        locationshow:true
       })
-      return
-
-    } else if (that.data.duration > 15){
-
-      wx.showToast({
-        title: '时长超过15s'
-      })
-
-      that.setData({
-        isOver: false,
-        mediaSrc:"",
-        rating_contents:""
-      })
-
-      return
     }
 
 
-    wx.showLoading({
-      title: '发布中...',
-    })
-    that.data.publicContent = e.detail.value.content
-    common.uploadDynamic(that).then(common.publicDynamic).then(function() {
-      wx.showToast({
-        title: '发布成功',
-      })
-      console.log(that.data.fileName)
-      console.log(JSON.stringify(that.data))
-      //处理上个页面
-      var tempType=3
-      if (!that.data.mediaSrc) {
-
-        tempType = 1
-        that.data.fileName=''
-      }
-      var pages = getCurrentPages();
-      var prevPage = pages[pages.length - 2];
-      prevPage.data.dynamicArr.unshift({
-        id: that.data.tempUploadId,
-        add_time: '刚刚',
-        comment: 0,
-        content: that.data.fileName,
-        //grade: app.globalData.userAllInfor.grade[0],
-        grade: that.data.userInfo.grade[0],
-        is_zan: 0,
-        share: 0,
-        title: that.data.publicContent,
-        location: app.globalData.latitude + ',' + app.globalData.longitude,
-        address: app.globalData.address,
-        user_id: that.data.userId,
-        user_info: { nickname: that.data.userInfo.nickName, face: that.data.userInfo.avatarUrl },
-        zan: 0,
-        type: tempType
-      })
-      prevPage.setData({
-        dynamicArr: prevPage.data.dynamicArr
-      })
-
-      setTimeout(function(){
-        wx.navigateBack({
-          delta: 1
-        })
-      },1000)
-     
-    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -217,6 +228,14 @@ Page({
    */
   onPullDownRefresh: function() {
 
+  },
+
+  //关闭授权地址的模化框
+  hideLocationModal: function () {
+    var that = this;
+    that.setData({
+      locationshow: false
+    })
   },
 
   /**

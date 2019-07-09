@@ -81,11 +81,12 @@
             </view>
             <text>我的订单</text>
           </view>
-          <view class="basic-item" bind:tap="onPolicy" wx:if='{{basicUserInfo.service_id==3949}}'>
+          
+          <view class="basic-item" bind:tap="onExchange">
             <view class="basic-img">
-              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodehuiyuan@2x.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_jifenduihuan@2x.png" />
             </view>
-            <text>我的保单</text>
+            <text>兑换礼品</text>
           </view>
           <!-- <view class="basic-item" bind:tap="onMember">
             <view class="basic-img">
@@ -107,12 +108,20 @@
             </view>
             <text>消息通知</text>
           </view>
-          <view class="basic-item" bind:tap="onExchange">
+          
+          <!-- <view class="basic-item" bind:tap="onPolicy" wx:if='{{basicUserInfo.service_id==3949}}'> -->
+            <view class="basic-item" bind:tap="onPolicy">
             <view class="basic-img">
-              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_jifenduihuan@2x.png" />
+              <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodehuiyuan@2x.png" />
             </view>
-            <text>兑换礼品</text>
+            <text>我的保单</text>
           </view>
+          <!-- <view wx:else  class="basic-item">
+            <view class="basic-img">
+              
+            </view>
+            <text></text>
+          </view> -->
         </view>
       </view>
       <!-- 设置 -->

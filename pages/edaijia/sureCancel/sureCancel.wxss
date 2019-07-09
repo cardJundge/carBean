@@ -1,0 +1,164 @@
+.surecanceltitle{
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 5%;
+}
+
+.remarks{
+  color: #d5d5d5;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+}
+
+
+.checkedreason{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 5% 5%;
+  font-size: 16px;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+}
+
+.checkbox{
+  margin: 0 3%;
+  border-bottom: 1px solid #d5d5d5;
+  padding: 4%;
+}
+
+.checkbox1{
+  margin: 0 3%;
+  padding: 4%;
+}
+
+checkbox {
+
+width: 38rpx;
+height: 38rpx;
+
+}
+
+
+
+checkbox .wx-checkbox-input {
+
+width: 26rpx;
+height: 26rpx;
+
+}
+
+
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+
+background: #3296fa;
+
+}
+
+
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+
+width: 28rpx;
+
+height: 28rpx;
+
+line-height: 28rpx;
+
+text-align: center;
+
+font-size: 22rpx;
+
+color: #fff;
+
+background: transparent;
+
+transform: translate(-50%, -50%) scale(1);
+
+-webkit-transform: translate(-50%, -50%) scale(1);
+
+}
+
+.checkbox text{
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.checkbox1 text{
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.itreason{
+  width: 88%;
+  margin: 5% 5%;
+  border: 1px solid #d5d5d5;
+  font-size: 14px;
+  color: #b2b2b2;
+  padding: 1%;
+  height: 200rpx;
+}
+
+.focus{
+  width: 100%;
+  font-size: 14px;
+  color: #d5d5d5;
+  text-align: center;
+}
+
+.submit{
+  background: #3296fa;
+  color: #fff;
+  margin: 3% 5%;
+  font-size: 18px;
+}
+
+.tel{
+  position: fixed;
+  bottom: 30rpx;
+  width: 50%;
+  margin-left: 25%;
+  font-size: 14px;
+  text-align: center
+}
+
+.tel-num{
+  color: #1a84ff
+}
+
+.auto-whole{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 100;
+}
+
+.auto-text{
+  width: 100%;
+  text-align: center;
+  padding-top: 15%;
+  color: #1a84ff;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.auto-back{
+  width: 100%;
+  text-align: center;
+  margin: 3% 0 15%;
+  font-size: 14px;
+  color: #d5d5d5;
+}
+
+.cancellogo{
+  width: 420rpx;
+  height: 240rpx;
+  margin-left: 22%;
+}

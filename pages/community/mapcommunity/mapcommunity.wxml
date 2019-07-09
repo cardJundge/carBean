@@ -9,7 +9,7 @@
   </cover-view>
 
 
-  <map longitude="{{longitude}}" latitude="{{latitude}}" show-location="{{showlocation}}"  markers='{{markers}}'  bindregionchange="regionchange"  id='map' circles='{{circles}}' class="map"></map>
+  <map longitude="{{longitude}}" latitude="{{latitude}}" show-location="{{showlocation}}"  markers='{{markers}}'  bindregionchange="regionchange"  id='map' circles='{{circles}}' class="map"  bindmarkertap="markerstap"></map>
 
   <canvas canvas-id='handleCanvas' hidden='true'></canvas>
 

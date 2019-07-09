@@ -4,9 +4,9 @@
   <view class='fontstyle'>等待您支付</view>
   <!-- <view class='fontstyle size'>还剩26分自动取消</view> -->
   <view class='userinfo'>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon-name@2x.png' class='userimg'></image>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/icon-name@2x.png' class='userimg'></image>
     <view>{{nickname}}</view>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon-phone@2x.png' class='telimg'></image>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/icon-phone@2x.png' class='telimg'></image>
     <view>{{telphone}}</view>
     <view class='modify' bindtap='editModal'>修改</view>
   </view>
@@ -14,20 +14,20 @@
   <view class='serviceshop'>
     <view class='serviceshop-text'>服务门店</view>
     <view class='serviceshopinfor' catchtap='serviceitemdetail'>
-      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg' class='servicelogo' wx:if="{{!serviceface}}"></image>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/servicelogo.jpg' class='servicelogo' wx:if="{{!serviceface}}"></image>
       <image src='{{hostName}}/uploads/face/{{serviceface}}' class='servicelogo' wx:else></image>
       <view class='serviceshop-address'>
         <view>{{shopname}}</view>
         <view class='address'>{{shopaddress}}</view>
       </view>
-      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/right_arrow.png' class='arrowimg'></image>
+      <image src='/images/icon/right_arrow.png' class='arrowimg'></image>
     </view>
   </view>
 
   <view class='serviceshop'>
     <view class='serviceshop-text'>服务</view>
     <view class='serviceshopinfor'>
-      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg' class='servicelogo' wx:if="{{!serviceface}}"></image>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/servicelogo.jpg' class='servicelogo' wx:if="{{!serviceface}}"></image>
       <image src='{{hostName}}/uploads/face/{{serviceface}}' class='servicelogo' wx:else></image>
       <view class='serviceshop-address'>
         <text>{{classify}}</text>

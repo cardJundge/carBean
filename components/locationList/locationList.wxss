@@ -1,0 +1,25 @@
+
+.pois{
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  color: #1a1a1a;
+  height: 100rpx
+}
+
+.location-img{
+    width: 20rpx;
+    height: 20rpx;
+    padding: 5% 3% 0;
+}
+
+.location-infor{
+  display: flex;
+  flex-direction: column;
+  padding-top: 2%;
+}
+
+.pois-address{
+  font-size: 12px;
+  color: #7e7a7a
+}

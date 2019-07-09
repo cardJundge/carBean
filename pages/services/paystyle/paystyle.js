@@ -30,7 +30,21 @@ Page({
     //从我的=>我的订单
     if (options.price){
 
-      servicesdetails.getEquity(userid, res => {
+      // servicesdetails.getPolicyInfo(userid, res =>{
+
+      //   if (res.status == 1) {
+
+      //     app.globalData.seviceorderno = options.orderno;
+      //     app.globalData.serviceplatform_price = options.price;
+
+      //     app.globalData.serviceorderid = options.id;
+      //     app.globalData.serviceclassify = options.classify_name;
+
+      //   }
+
+      // })
+
+      servicesdetails.getPolicyInfo(userid, res => {
 
         if (res.status == 1) {
 
@@ -284,7 +298,7 @@ Page({
       }else{
         if(that.data.check3){
 
-          if (that.data.equity_num == 0){
+          if (that.data.equity_num <= 0){
             wx.showToast({
               title: '无使用次数!',
             })

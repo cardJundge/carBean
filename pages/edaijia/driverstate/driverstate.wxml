@@ -1,0 +1,47 @@
+<import src="../../../components/driverstateList/driverstateList.wxml" />
+
+<view class='tip'>司机正在赶来接您</view>
+
+<view class='driverstate'>
+    <view class='driver-information'>
+        <!-- <image src="../../../images/132.jpg" class='driver-img'></image> -->
+        <image src="{{driverimgurl}}" class='driver-img'></image>
+        <view class='driver'>
+            <text>{{drivername}}</text>
+            <text>{{driverId}}</text>
+        </view>
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_contact@2x.png' class='tel' catchtap='callphone'></image>
+    </view>
+
+    <view class="distance"  hidden='{{isDistance}}'>
+        <text>距离您</text>
+        <text class='distance-num'>{{realtimeDistance}}米</text>
+    </view>
+
+    <view class='driverstatewhole'>
+        <template is='driverstate' data="{{driverstate}}"/>
+    </view>
+</view>
+
+<view class="cancel-order">
+      <text catchtap='cancelorder'>取消订单</text>
+</view>
+
+<!-- <view class='tel1'>
+    <text>客服电话:</text>
+    <text class='tel-num'>18686810731</text>
+</view> -->
+
+
+<view class='callphone' catchtap='bgcancel' wx:if='{{is_callphone}}'>
+  <view class='call-whole'>
+    <text>拨打电话</text>
+    <text>{{etel}}</text>
+    <view class='btn-whole'>
+        <button class='cancel-call'>取消拨打</button>
+        <button class='sure-call' catchtap='surecall'>确认拨打</button>
+    </view>
+  </view>
+    
+</view>
+

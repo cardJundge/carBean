@@ -10,13 +10,13 @@
     </view>
     <!-- 等级 -->
     <view style='display:inline-block' wx:if='{{item.grade}}'>
-      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_bronze@2x.png' class='user_level' wx:if='{{item.grade==1}}' class='level'></image>
-            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_silver@2x.png' class='user_level' wx:elif='{{item.grade==2}}' class='level'></image>
-            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_gold@2x.png' class='user_level' wx:elif='{{item.grade==3}}' class='level'></image>
-            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_Platinum@2x.png' class='user_level' wx:elif='{{item.grade==4}}' class='level'></image>
-            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_Diamonds@2x.png' class='user_level' wx:elif='{{item.grade==5}}' class='level'></image>
-            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_Supreme@2x.png' class='user_level' wx:elif='{{item.grade==6}}' class='level'></image>
-            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/level/icon_king@2x.png' class='user_level' wx:else='{{item.grade==7}}' class='level'></image>
+      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_bronze@2x.png' class='user_level' wx:if='{{item.grade==1}}' class='level'></image>
+            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_silver@2x.png' class='user_level' wx:elif='{{item.grade==2}}' class='level'></image>
+            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_gold@2x.png' class='user_level' wx:elif='{{item.grade==3}}' class='level'></image>
+            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Platinum@2x.png' class='user_level' wx:elif='{{item.grade==4}}' class='level'></image>
+            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Diamonds@2x.png' class='user_level' wx:elif='{{item.grade==5}}' class='level'></image>
+            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Supreme@2x.png' class='user_level' wx:elif='{{item.grade==6}}' class='level'></image>
+            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_king@2x.png' class='user_level' wx:else='{{item.grade==7}}' class='level'></image>
     </view>
     <view style='display:inline-block' wx:else>
     </view>
@@ -24,10 +24,29 @@
     <view class='eva_message'>
        <view class='username'>{{item.user_info.nickname}}</view>
         
-        <view class='evacontent' catchtap='keyboard' 
+        <block wx:if="{{item.type == 2}}">
+          <view class='voicestyle' bindtap='playvoice'  data-index="{{index}}" data-voicesrc="{{item.content}}">
+
+
+            <block wx:if="{{item.voiceisplaying}}">
+              <image src="/images/community/suspend.png" class='triangle'></image>
+            </block>
+
+            <block wx:else>
+              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/triangle.png" class='triangle'></image>
+            </block>
+            
+            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/wave.png" class='wave'></image>
+            <text>{{item.voiceduration}}s</text>
+          </view>
+        </block>
+
+        <block wx:else>
+            <view class='evacontent' catchtap='keyboard' 
         data-nickname='{{item.user_info.nickname}}' data-fromid='{{item.from_uid}}' 
         data-level='{{item.id}}' data-index='{{index}}'>{{item.content}}</view>
-        <view class='time-Reply'>
+        </block>
+          <view class='time-Reply'>
           <view class='evatime'>{{item.post_date}}</view>
           <!-- <view class='evareive' wx:if='{{item.reply.length==0}}' data-replyindex="{{index}}">回复</view>
           <view class='evareive' wx:else  data-replyindex="{{index}}">
@@ -45,6 +64,12 @@
           <text class='replytext'>已显示全部评论</text>
         </view> -->
 
+    </view>
+
+    <view class='delete' catchtap='deleteEva' data-evaid = "{{item.id}}"  data-dynamicid="{{item.dynamic_id}}"  wx:if="{{item.to_uid == userid}}">
+      <view class='dot'></view>
+      <view class='dot'></view>
+      <view class='dot'></view>
     </view>
 
     </view>

@@ -1,0 +1,46 @@
+
+.driverstatewhole{
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 4%;
+}
+
+.driverstaterow{
+  display: flex;
+  flex-direction: row;
+  margin: 0 5%;
+}
+
+
+.driver-list-tip{
+  display: flex;
+  flex-direction: column-reverse
+}
+
+.driver-list-tip image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.line{
+  width: 1rpx;
+  height: 70rpx;
+  margin-left:15rpx;
+  background: #d5d5d5;
+}
+
+.driver-list-content{
+  font-size: 14px;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30rpx;
+}
+
+.driver-time{
+  color: #1a84ff
+}
+
+.driver-time1{
+  color: #000
+}

@@ -45,9 +45,11 @@ Page({
 
         for(var i in res.data){
 
-          if (res.data[i].dynamic.content){
-            res.data[i].dynamic.imagecell = res.data[i].dynamic.content.split(',')
-            console.log("hhh", res.data[i].dynamic.imagecell[0]);
+          if (res.data[i].dynamic){
+            if (res.data[i].dynamic.content) {
+              res.data[i].dynamic.imagecell = res.data[i].dynamic.content.split(',')
+              console.log("hhh", res.data[i].dynamic.imagecell[0]);
+            }
           }
 
           reqInfo.push(res.data[i])

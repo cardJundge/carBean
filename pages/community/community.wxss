@@ -90,7 +90,7 @@
   position: fixed;
   bottom: 30px;
   right: 7px;
-  z-index: 100;
+  z-index: 10;
 }
 
 .top1{
@@ -145,10 +145,54 @@
   margin-left: 28%;
 }
 
+.map{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  z-index: 10;
+  margin-top: 70rpx;
+  height: 100%;
+}
+
 /* .section{
 
   margin-top: 12%;
 } */
+
+.scale_icon_add{
+  width: 80rpx;
+  height: 90rpx;
+  position: fixed;
+  top: 500rpx;
+  right: 30rpx;
+  z-index: 10
+}
+
+.scale_icon_decrease{
+  width: 80rpx;
+  height: 90rpx;
+  position: fixed;
+  top: 588rpx;
+  right: 30rpx;
+  z-index: 10
+} 
+
+.setting{
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  top: 720rpx;
+  right: 30rpx;
+  z-index: 10
+}
+
+.setshow{
+  position: fixed;
+  top: 500rpx;
+  right: 30rpx;
+  z-index: 100;
+}
 
 
 

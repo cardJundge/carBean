@@ -22,7 +22,7 @@
   </view>
 
   <view class='payment' bindtap='paystyle' data-index='1'>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/WeChat@2x.png' class='wechatimg'></image>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/WeChat@2x.png' class='wechatimg'></image>
     <text>微信支付</text>
     <!-- <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/checked.png' class='checkimg' wx:if='{{check1}}'></image> -->
     <span class="demo2" style="background:rgb(63, 175, 11)"  wx:if='{{check1}}'></span>
@@ -38,8 +38,8 @@
   </view> -->
 
   <view class='payment' bindtap='paystyle' data-index='3'>
-    <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/mianfei@2x.png" class='wechatimg'></image>
-    <text>会员免费({{equity_num}}次)</text>
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/mianfei@2x.png" class='wechatimg'></image>
+    <text>保单免费({{equity_num}}次)</text>
     <!-- <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/checked.png' class='checkimg' wx:if='{{check3}}'></image>
     <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/check.png' class='checkimg' wx:else></image> -->
 

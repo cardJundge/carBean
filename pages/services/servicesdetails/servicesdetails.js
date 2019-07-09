@@ -15,7 +15,8 @@ Page({
     serviceid:'',
     cancelorder:'',
     serviceitemprice:"0.00",
-    market_price:"0.00"
+    market_price:"0.00",
+    allPolicy:[]
   },
 
   /**
@@ -24,12 +25,12 @@ Page({
   onLoad: function (options) {
 
     var that = this;
-
+    app.globalData.servicedetailindex = 0
     app.globalData.distance = options.distance;
 
     that.data.userid = app.globalData.userInfo.id;
 
-    var detail = options.detail;
+    that.data.detail = options.detail;
 
     var shopname;
 
@@ -49,75 +50,10 @@ Page({
         lng: JSON.parse(options.lng)
       })
 
-    servicesdetails.getServerDetail(detail,res=>{
-
-      console.log("resres", res)
-      that.data.detailproject = res.data.project;
-      app.globalData.serviceid = res.data.service.id;
-      app.globalData.service = res.data.service;
-
-      that.data.task_count =res.data.task_count
-
-
-      if (app.globalData.userInfo.vip_lv == 2 || app.globalData.userInfo.vip_lv == 3){
-        that.getEquity();
-
-        //服务商服务项目
-        if (typeof (that.data.detailproject) == "object"){
-
-          //默认选中
-          app.globalData.servicedetailindex = 0
-          that.data.serviceitemid = that.data.detailproject[0].id
-          that.data.serviceitemclassify = that.data.detailproject[0].classify_id
-          that.data.serviceitemprice = that.data.detailproject[0].platform_price
-          that.data.serviceitemmarketprice = that.data.detailproject[0].market_price
-
-          app.globalData.serviceitemid = that.data.serviceitemid;
-          app.globalData.serviceitemclassify = that.data.serviceitemclassify;
-          app.globalData.serviceitemprice = that.data.serviceitemprice;
-
-          that.setData({
-            serviceitem: that.data.detailproject,
-            task_count: that.data.task_count,
-            serviceitemprice: that.data.serviceitemprice,
-            market_price: that.data.serviceitemmarketprice
-          })
-        }
-        
-      }else{
-        app.globalData.servicedetail = that.data.detailproject;
-
-        if (typeof (that.data.detailproject)=="object"){
-          
-          //默认选中
-          app.globalData.servicedetailindex = 0
-          that.data.serviceitemid = that.data.detailproject[0].id
-          that.data.serviceitemclassify = that.data.detailproject[0].classify_id
-          that.data.serviceitemprice = that.data.detailproject[0].platform_price
-          that.data.serviceitemmarketprice = that.data.detailproject[0].market_price
-
-          app.globalData.serviceitemid = that.data.serviceitemid;
-          app.globalData.serviceitemclassify = that.data.serviceitemclassify;
-          app.globalData.serviceitemprice = that.data.serviceitemprice;
-
-
-
-          that.setData({
-            serviceitem: that.data.detailproject,
-            task_count: that.data.task_count,
-            serviceitemprice: that.data.serviceitemprice,
-            market_price: that.data.serviceitemmarketprice
-          })
-        }
-        
-      }
-      
-    })
-
   },
 
   //获取会员权益
-  getEquity:function(){
+  getEquity:function(callback){
 
     var that = this;
 
@@ -145,8 +81,6 @@ Page({
       console.log("eee", that.data.detailproject);
       app.globalData.servicedetail = that.data.detailproject;
 
-      app.globalData.servicedetailindex = 0
-
       that.data.serviceitemid = that.data.detailproject[0].id
       that.data.serviceitemclassify = that.data.detailproject[0].classify_id
       that.data.serviceitemprice = that.data.detailproject[0].platform_price
@@ -161,6 +95,7 @@ Page({
         task_count: that.data.task_count
       })
       
+      callback && callback(res);
     })
     
   },
@@ -306,7 +241,7 @@ Page({
 
 
   //获取保单详情
-  getPolicyInfo: function (){
+  getPolicyInfo: function (callback){
 
     var that = this;
 
@@ -314,34 +249,55 @@ Page({
 
       for (var item in that.data.detailproject){
 
-        for ( var id in res.data[0].project){
+        // for ( var id in res.data[0].project){
 
-          if(id == that.data.detailproject[item].classify_id){
+        //   if(id == that.data.detailproject[item].classify_id){
             
-            that.data.detailproject[item].classify_num = res.data[0].project[id];
+        //     that.data.detailproject[item].classify_num = res.data[0].project[id];
 
+        //   }
+
+        // }
+
+        for (var item1 in res.data) {
+
+          console.log("item1", res.data[item1])
+
+          for (var item2 in res.data[item1].project) {
+
+            if (item2 == that.data.detailproject[item].classify_id) {
+
+              console.log("dfff", res.data[item1].project[item2],item);
+
+              that.data.allPolicy.push(res.data[item1].project[item2])
+
+              that.data.detailproject[item].classify_num = that.data.allPolicy;
+            }
           }
         }
+        console.log("ggg", that.data.detailproject[item].classify_num);
       }
 
       //值为0=false
       // if (app.globalData.mobile.is_vip){
 
-      if (app.globalData.userInfo.vip_lv == 2 || app.globalData.userInfo.vip_lv == 3){
+      // if (app.globalData.userInfo.vip_lv == 2 || app.globalData.userInfo.vip_lv == 3){
 
-        that.getEquity();
+      //   that.getEquity(res=>{
 
-      }else{
+      //   });
+
+      // }else{
 
 
-        app.globalData.servicedetail = that.data.detailproject;
-        that.setData({
-          serviceitem: that.data.detailproject,
-          task_count: that.data.task_count
-        })
-      }
+        // app.globalData.servicedetail = that.data.detailproject;
+        // that.setData({
+        //   serviceitem: that.data.detailproject,
+        //   task_count: that.data.task_count
+        // })
+      // }
     
-    
+      callback && callback(res)
     })
   },
 
@@ -386,6 +342,200 @@ Page({
         duration:2000
       })
     }
+
+    servicesdetails.getServerDetail(that.data.detail, res => {
+
+      console.log("resres", res)
+      that.data.detailproject = res.data.project;
+      app.globalData.serviceid = res.data.service.id;
+      app.globalData.service = res.data.service;
+
+      that.data.task_count = res.data.task_count
+
+      that.data.stores = res.data.service.stores.split(",")
+      that.setData({
+        stores: that.data.stores
+      })
+
+      that.getPolicyInfo(policyres=>{
+
+        //服务商服务项目
+        if (typeof (that.data.detailproject) == "object") {
+
+          //默认选中
+          if (app.globalData.servicedetailindex == 0) {
+
+            console.log("hhhh", that.data.detailproject)
+
+            that.data.serviceitemid = that.data.detailproject[0].id
+            that.data.serviceitemclassify = that.data.detailproject[0].classify_id
+            that.data.serviceitemprice = that.data.detailproject[0].platform_price
+            that.data.serviceitemmarketprice = that.data.detailproject[0].market_price
+            that.data.serviceprojectname = that.data.detailproject[0].classify
+
+            app.globalData.serviceitemid = that.data.serviceitemid;
+            app.globalData.serviceitemclassify = that.data.serviceitemclassify;
+            app.globalData.serviceitemprice = that.data.serviceitemprice;
+
+            that.setData({
+              serviceitem: that.data.detailproject,
+              task_count: that.data.task_count,
+              serviceitemprice: that.data.serviceitemprice,
+              market_price: that.data.serviceitemmarketprice,
+              serviceprojectname: that.data.serviceprojectname,
+
+            })
+          } else {
+
+            that.data.serviceitemid = that.data.detailproject[app.globalData.servicedetailindex].id
+            that.data.serviceitemclassify = that.data.detailproject[app.globalData.servicedetailindex].classify_id
+            that.data.serviceitemprice = that.data.detailproject[app.globalData.servicedetailindex].platform_price
+            that.data.serviceitemmarketprice = that.data.detailproject[app.globalData.servicedetailindex].market_price
+            that.data.serviceprojectname = that.data.detailproject[app.globalData.servicedetailindex].classify
+
+            app.globalData.serviceitemid = that.data.serviceitemid;
+            app.globalData.serviceitemclassify = that.data.serviceitemclassify;
+            app.globalData.serviceitemprice = that.data.serviceitemprice;
+
+            that.setData({
+              serviceitem: that.data.detailproject,
+              task_count: that.data.task_count,
+              serviceitemprice: that.data.serviceitemprice,
+              market_price: that.data.serviceitemmarketprice,
+              serviceprojectname: that.data.serviceprojectname,
+            })
+
+          }
+
+
+          app.globalData.servicedetail = that.data.detailproject
+
+
+          // app.globalData.servicedetailindex = 0
+
+        }
+
+      })
+
+
+
+
+
+      // if (app.globalData.userInfo.vip_lv == 2 || app.globalData.userInfo.vip_lv == 3) {
+
+      //   that.getEquity(equityres => {
+
+      //     //服务商服务项目
+      //     if (typeof (that.data.detailproject) == "object") {
+
+      //       //默认选中
+      //       if (app.globalData.servicedetailindex == 0) {
+
+      //         console.log("hhhh", that.data.detailproject)
+
+      //         that.data.serviceitemid = that.data.detailproject[0].id
+      //         that.data.serviceitemclassify = that.data.detailproject[0].classify_id
+      //         that.data.serviceitemprice = that.data.detailproject[0].platform_price
+      //         that.data.serviceitemmarketprice = that.data.detailproject[0].market_price
+      //         that.data.serviceprojectname = that.data.detailproject[0].classify
+
+      //         app.globalData.serviceitemid = that.data.serviceitemid;
+      //         app.globalData.serviceitemclassify = that.data.serviceitemclassify;
+      //         app.globalData.serviceitemprice = that.data.serviceitemprice;
+
+      //         that.setData({
+      //           serviceitem: that.data.detailproject,
+      //           task_count: that.data.task_count,
+      //           serviceitemprice: that.data.serviceitemprice,
+      //           market_price: that.data.serviceitemmarketprice,
+      //           serviceprojectname: that.data.serviceprojectname,
+
+      //         })
+      //       } else {
+
+      //         that.data.serviceitemid = that.data.detailproject[app.globalData.servicedetailindex].id
+      //         that.data.serviceitemclassify = that.data.detailproject[app.globalData.servicedetailindex].classify_id
+      //         that.data.serviceitemprice = that.data.detailproject[app.globalData.servicedetailindex].platform_price
+      //         that.data.serviceitemmarketprice = that.data.detailproject[app.globalData.servicedetailindex].market_price
+      //         that.data.serviceprojectname = that.data.detailproject[app.globalData.servicedetailindex].classify
+
+      //         app.globalData.serviceitemid = that.data.serviceitemid;
+      //         app.globalData.serviceitemclassify = that.data.serviceitemclassify;
+      //         app.globalData.serviceitemprice = that.data.serviceitemprice;
+
+      //         that.setData({
+      //           serviceitem: that.data.detailproject,
+      //           task_count: that.data.task_count,
+      //           serviceitemprice: that.data.serviceitemprice,
+      //           market_price: that.data.serviceitemmarketprice,
+      //           serviceprojectname: that.data.serviceprojectname,
+
+      //         })
+
+      //       }
+
+
+      //       // app.globalData.servicedetailindex = 0
+
+      //     }
+
+      //   });
+
+
+
+
+      // } else {
+      //   app.globalData.servicedetail = that.data.detailproject;
+
+      //   if (typeof (that.data.detailproject) == "object") {
+
+      //     //默认选中
+
+      //     if (app.globalData.servicedetailindex == 0) {
+
+      //       that.data.serviceitemid = that.data.detailproject[0].id
+      //       that.data.serviceitemclassify = that.data.detailproject[0].classify_id
+      //       that.data.serviceitemprice = that.data.detailproject[0].platform_price
+      //       that.data.serviceitemmarketprice = that.data.detailproject[0].market_price
+      //       that.data.serviceprojectname = that.data.detailproject[0].classify
+
+      //       app.globalData.serviceitemid = that.data.serviceitemid;
+      //       app.globalData.serviceitemclassify = that.data.serviceitemclassify;
+      //       app.globalData.serviceitemprice = that.data.serviceitemprice;
+
+      //       that.setData({
+      //         serviceitem: that.data.detailproject,
+      //         task_count: that.data.task_count,
+      //         serviceitemprice: that.data.serviceitemprice,
+      //         market_price: that.data.serviceitemmarketprice,
+      //         serviceprojectname: that.data.serviceprojectname
+
+      //       })
+      //     } else {
+
+      //       that.data.serviceitemid = that.data.detailproject[app.globalData.servicedetailindex].id
+      //       that.data.serviceitemclassify = that.data.detailproject[app.globalData.servicedetailindex].classify_id
+      //       that.data.serviceitemprice = that.data.detailproject[app.globalData.servicedetailindex].platform_price
+      //       that.data.serviceitemmarketprice = that.data.detailproject[app.globalData.servicedetailindex].market_price
+      //       that.data.serviceprojectname = that.data.detailproject[app.globalData.servicedetailindex].classify
+
+      //       app.globalData.serviceitemid = that.data.serviceitemid;
+      //       app.globalData.serviceitemclassify = that.data.serviceitemclassify;
+      //       app.globalData.serviceitemprice = that.data.serviceitemprice;
+
+      //       that.setData({
+      //         serviceitem: that.data.detailproject,
+      //         task_count: that.data.task_count,
+      //         serviceitemprice: that.data.serviceitemprice,
+      //         market_price: that.data.serviceitemmarketprice,
+      //         serviceprojectname: that.data.serviceprojectname,
+
+      //       })
+      //     }
+      //   }
+      // }
+
+    })
   },
 
 

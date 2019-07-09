@@ -9,11 +9,11 @@
           <view class='input_cell1'>
             <view style='position:relative'>
             <!-- value='{{rating_contents}}' -->
-              <textarea maxlength='200' placeholder='给大家分享一下附近的有趣故事吧'  value='{{rating_contents}}' name='content' bindfocus="sharecontent" show-confirm-bar="{{false}}">
+              <textarea  placeholder='给大家分享一下附近的有趣故事吧'  value='{{rating_contents}}' name='content' bindfocus="sharecontent" show-confirm-bar="{{false}}">
               </textarea>
               <text class='circle'></text>
-              <text class='circleB'></text>
-              <text class='length'>{{mess}}</text>
+              <!-- <text class='circleB'></text>
+              <text class='length'>{{mess}}</text> -->
             </view>
           </view>
         </view>
@@ -45,3 +45,6 @@
     </form>
   </view>
 </view>
+
+<my-location-modal show="{{locationshow}}" bind:hide="hideLocationModal" />
+

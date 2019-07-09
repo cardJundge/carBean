@@ -7,39 +7,43 @@
     </view>
   </view>
 
-  <view class='sidelabel' bindtap='sidelabel' wx:if="{{sideshow}}">
-    <image src="/images/community/sidelabel.png"></image>
-  </view>
-  <view class='com-style' wx:else  animation="{{animationout}}">
-    <view class='close' bindtap='close'></view>
-    <block wx:for="{{sidelist}}" wx:key="" >
-      <ul wx:if="{{index == 0}}" style="margin-top:28rpx" bindtap="selectitem" data-index="{{index}}">
-        <li wx:if="{{index==sidetab}}" style="justify-content:space-between;">
-        <view class='circle' wx:if="{{index==sidetab}}"></view>
-        <view>{{item}}</view>
-        <view class='circle' wx:if="{{index==sidetab}}"></view>
-        </li>
-        
-        <li wx:else style="justify-content:center;">
-        <view class='circle' wx:if="{{index==sidetab}}"></view>
-        <view>{{item}}</view>
-        <view class='circle' wx:if="{{index==sidetab}}"></view>
-        </li>
+  <block wx:if="{{modechange}}">
 
-      </ul>
-      <ul wx:else bindtap="selectitem" data-index="{{index}}">
-        <li wx:if="{{index==sidetab}}" style="justify-content:space-between;">
-        <view class='circle' wx:if="{{index==sidetab}}"></view>
-        <view>{{item}}</view>
-        <view class='circle' wx:if="{{index==sidetab}}"></view>
-        </li>
+    <view class='sidelabel' bindtap='sidelabel' wx:if="{{sideshow}}">
+      <image src="/images/community/sidelabel.png"></image>
+    </view>
+    <view class='com-style' wx:else animation="{{animationout}}">
+      <view class='close' bindtap='close'></view>
+      <block wx:for="{{sidelist}}" wx:key="">
+        <ul wx:if="{{index == 0}}" style="margin-top:40rpx" bindtap="selectitem" data-index="{{index}}">
+          <li wx:if="{{index==sidetab}}" style="justify-content:space-between;">
+            <view class='circle' wx:if="{{index==sidetab}}"></view>
+            <view>{{item}}</view>
+            <view class='circle' wx:if="{{index==sidetab}}"></view>
+          </li>
 
-        <li wx:else style="justify-content:center;">
-        <view class='circle' wx:if="{{index==sidetab}}"></view>
-        <view>{{item}}</view>
-        <view class='circle' wx:if="{{index==sidetab}}"></view>
-        </li>
-      </ul>
-    </block>
-  </view>
+          <li wx:else style="justify-content:center;">
+            <view class='circle' wx:if="{{index==sidetab}}"></view>
+            <view>{{item}}</view>
+            <view class='circle' wx:if="{{index==sidetab}}"></view>
+          </li>
+
+        </ul>
+        <ul wx:else bindtap="selectitem" data-index="{{index}}">
+          <li wx:if="{{index==sidetab}}" style="justify-content:space-between;">
+            <view class='circle' wx:if="{{index==sidetab}}"></view>
+            <view>{{item}}</view>
+            <view class='circle' wx:if="{{index==sidetab}}"></view>
+          </li>
+
+          <li wx:else style="justify-content:center;">
+            <view class='circle' wx:if="{{index==sidetab}}"></view>
+            <view>{{item}}</view>
+            <view class='circle' wx:if="{{index==sidetab}}"></view>
+          </li>
+        </ul>
+      </block>
+    </view>
+  </block>
+
 </view>

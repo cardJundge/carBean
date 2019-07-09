@@ -1,0 +1,53 @@
+<!--pages/index/service/drivingmap/drivingmap.wxml-->
+<import src="../../../components/locationList/locationList.wxml" />
+<import src="../../../components/cityList/cityList.wxml" />
+<view>
+
+    <view class='top-add'>
+        <view class='add-city' catchtap='selectcity'>{{city}}</view>
+        <view class='arrow-down'>
+          <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/down.png'>
+          </image>
+        </view>
+        <input placeholder="您的位置在哪儿" name="address" value='{{topaddress}}' type='text' bindfocus="obtainLocation" bindconfirm='surelocation'/>
+        <text class="cancel" catchtap='cancel'>取消</text>      
+      </view>
+
+    <map longitude="{{longitude}}" latitude="{{latitude}}"  show-location="true" style="width: 100%; height:92vh; margin-top:80rpx" hidden='{{mapshow}}'></map>
+
+    <view class='locationlist' hidden='{{background}}'>
+      <view class='list'>
+        <template is="location" data='{{pois}}'/>
+      </view>   
+    </view>
+
+    <view class='locationlist' hidden='{{citybackground}}'>
+        <view class='list'>
+          <view class='current-city'>
+            <text>当前城市：{{city}}</text>
+          </view>
+          
+          <scroll-view scroll-y="{{true}}" style='height:1000px'>
+            <template is="city" data='{{citylist}}' />
+          </scroll-view>
+          
+        </view>
+    </view>
+    
+
+    <cover-view class='recommend-add'  hidden='{{recommendshow}}'>
+      
+      <cover-view class='recommend-add-content'>
+        
+        <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/circle.png' class='circle-img'>
+        </cover-image>
+        
+        <cover-view class='add-text'>{{etitle}}</cover-view>
+      </cover-view>
+
+      <cover-view class='recommend-flag'>为您推荐上车地点</cover-view>
+      <cover-view class='sure-flag' bindtap='sureaddress'>确认地点</cover-view>
+    </cover-view>
+
+    
+</view>

@@ -74,6 +74,33 @@ class Base{
   } 
 }
 
+  //单独计算距离
+  calculateDistance(demo, lat, lng, sCallback) {
+
+    var distance;
+    demo.calculateDistance({
+
+      mode: 'driving',
+      to: [{
+        latitude: lat,
+        longitude: lng
+      }],
+      success(res) {
+
+        if (res.status == 0) {
+          distance = res.result.elements[0].distance
+        } else {
+          console.log("请求距离失败!");
+        }
+
+        sCallback && sCallback(distance)
+
+      }
+    })
+
+  }
+
+
 //距离排序
 sort(arr,sCallback){
   arr.sort(function(a,b){
@@ -82,6 +109,36 @@ sort(arr,sCallback){
 
   sCallback && sCallback(arr) 
 }
+
+  //地址转经纬度
+  geocoder(demo, address, sCallback) {
+
+    demo.geocoder({
+      address: address,
+      success: res => {
+        sCallback && sCallback(res.result.location)
+      }
+    })
+  }
+
+  //腾讯坐标转地址
+  reverseGeocoder(demo, lat, lng, sCallback) {
+    demo.reverseGeocoder({
+      location: {
+        latitude: lat,
+        longitude: lng
+      },
+      success(res) {
+        sCallback && sCallback(res.result.address_component)
+      },
+      fail(error) {
+        console.error(error);
+      }
+    })
+  }
+
+
+
 
 }
 

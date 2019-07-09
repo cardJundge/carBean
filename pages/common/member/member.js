@@ -91,7 +91,7 @@ Page({
   },
   // 模态框确定按钮传入input值
   onConfirm: function(e) {
-    let appData = app.globalData.userAllInfor;
+    let appData = app.globalData.userInfor;
     console.log(appData,e.detail)
     var params = {
       mobile: e.detail.telphone,

@@ -1,0 +1,48 @@
+<!--pages/index/service/verificationCode/verificationCode.wxml-->
+<view class='whole'>
+
+  <form bindsubmit="verificationCode">
+  
+    <view class='tip-content'>
+      <text>请输入手机号</text>
+      <text class='tel'>{{phone}}</text>
+      <text>短信验证码</text>
+  </view>
+    
+  <view class='code'>
+    <!-- <input type='number' name='num1' class='num' maxlength='1' id='num1'  bindinput='codeinput' focus='{{code1}}'/>
+    <input type='number' name='num2' class='num' maxlength='1' id='num2' focus='{{code2}}' bindinput='codeinput'/>
+    <input type='number' name='num3' class='num' maxlength='1' id='num3' bindinput='codeinput' 
+    focus='{{code3}}'/>
+    <input type='number' name='num4' class='num' maxlength='1' id='num4' bindinput='codeinput' 
+    focus='{{code4}}'/> -->
+
+    <view class='ipt_box'>
+      <input 
+      type='number' wx:for="{{inputLen}}" wx:key="{{index}}" 
+      disabled bindtap='onFocus'
+      value="{{iptValue.length>=index+1?iptValue[index]:''}}"
+      />
+    </view>
+  <input 
+  name="password" password="{{true}}" 
+  class='hidden_ipt' maxlength="{{inputLen}}" 
+  focus="{{isFocus}}" bindinput="setValue"
+  ></input>
+  </view>
+
+  <view class="time" wx:if='{{sendMessage}}'>
+    <text>倒计时:{{limit}}秒</text>
+  </view>
+
+  <view class='time1' wx:else>
+    <text catchtap='sendMessage'>重新发送</text>
+  </view>
+
+  
+    <button class='surechecked' form-type="submit">确认下单</button>
+  
+  </form>
+
+  
+</view>

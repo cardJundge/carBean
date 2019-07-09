@@ -3,7 +3,8 @@
     "my-tab-modal": "/components/community-title/community-title",
     "null-modal": "/components/null/null",
     "my-login-modal": "/components/login/login",
-    "my-voice-modal": "/components/voice-modal/voice-modal"
+    "my-voice-modal": "/components/voice-modal/voice-modal",
+    "my-location-modal": "/components/location/location"
   },
 
   "navigationBarTitleText": "社区"

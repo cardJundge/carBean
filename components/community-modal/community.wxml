@@ -2,33 +2,42 @@
 <template name='dynamicList'>
   <view>
     <view class='each_dynamic' wx:for='{{dynamicArr}}' wx:for-item='item'  wx:for-index='index' wx:key=''>
-      <view class='title' catchtap='toDetail' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>
-        <view class='avatar' catchtap='toViewUserInfor' data-userid='{{item.user_id}}'>
+      <view class='title' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>
+        <view class='avatar' catchtap='toViewUserInfor' data-userid='{{item.user_id}}'  catchtap='toDetail' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>
           <!-- <image src='{{item.user_info.face}}' wx:if='{{item.grade}}'></image>
           <image src='{{userInfo.avatarUrl}}' wx:else></image> -->
           <image src='{{item.user_info.face}}' wx:if='{{item.user_info}}'></image>
           <image src='/images/mine/no_avatar.png' wx:else></image>
           <!-- 等级 -->
           <view style='display:inline-block' wx:if='{{item.grade}}'>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_bronze@2x.png' class='user_level' wx:if='{{item.grade==1}}'></image>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_silver@2x.png' class='user_level' wx:elif='{{item.grade==2}}'></image>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_gold@2x.png' class='user_level' wx:elif='{{item.grade==3}}'></image>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Platinum@2x.png' class='user_level' wx:elif='{{item.grade==4}}'></image>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Diamonds@2x.png' class='user_level' wx:elif='{{item.grade==5}}'></image>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Supreme@2x.png' class='user_level' wx:elif='{{item.grade==6}}'></image>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_king@2x.png' class='user_level' wx:else='{{item.grade==7}}'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/icon_bronze@2x.png' class='user_level' wx:if='{{item.grade==1}}'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/icon_silver@2x.png' class='user_level' wx:elif='{{item.grade==2}}'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/icon_gold@2x.png' class='user_level' wx:elif='{{item.grade==3}}'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/icon_Platinum@2x.png' class='user_level' wx:elif='{{item.grade==4}}'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/icon_Diamonds@2x.png' class='user_level' wx:elif='{{item.grade==5}}'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/icon_Supreme@2x.png' class='user_level' wx:elif='{{item.grade==6}}'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/icon_king@2x.png' class='user_level' wx:else='{{item.grade==7}}'></image>
           </view>
           <view style='display:inline-block' wx:else>
           </view>
         </view>
         <view class='nickname_time'>
-          <view class='nickName' wx:if='{{item.user_info}}'>{{item.user_info.nickname}}</view>
-          <view wx:else class='nickName'>114车管家</view>
-          <view class='location'>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon-address@2x.png' class='locationIcon'></image>
+          <view class='nickName' wx:if='{{item.user_info}}' catchtap='toDetail' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>{{item.user_info.nickname}}</view>
+          <view wx:else class='nickName' catchtap='toDetail' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>114车管家</view>
+          <view class='location' catchtap='toMap' data-address='{{item.address}}'>
+            <image src='/images/icon/address_icon.png' class='locationIcon'></image>
             <text>{{item.address}}</text>
           </view>
         </view>
+
+        <!-- 删除动态 -->
+        <view class='deletedynamic'  catchtap='deletedynamic' data-dynamicid="{{item.id}}" wx:if="{{mine}}">
+          <view class='dot'></view>
+          <view class='dot'></view>
+          <view class='dot'></view>
+        </view>
+
+
         <!-- <view class='public_time' id='{{item.id}}'>{{item.add_time}}</view> -->
       </view>
       <view id='{{item.id}}'>
@@ -61,17 +70,23 @@
         <view class='video_cell' wx:if='{{item.type==3}}'>
           <view class='each_video'>
             <!-- poster="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/mengban.png" -->
-            <video id="myVideo" show-center-play-btn src="{{hostName}}/uploads/community/video/{{item.content}}" page-gesture='false' controls='true' object-fit="cover"></video>
-.
-.00
+            <video id="myVideo" show-center-play-btn src="{{hostName}}/uploads/community/video/{{item.content}}" page-gesture='false' controls='true' object-fit="cover" bindfullscreenchange="bindfullscreenchange" ></video>
 
           </view>
         </view>
 
-        <view class='voice' wx:if='{{item.type==2}}' bindtap='playvoice' data-voicesrc="{{item.content}}">
+        <view class='voice' wx:if='{{item.type==2}}' bindtap='playingvoice' data-voicesrc="{{item.content}}" data-index = "{{index}}">
           
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/triangle.png" class='triangle'></image>
-          <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/wave.png" class='wave'></image>
+          <block wx:if="{{item.voiceisplaying}}">
+          <image src="/images/community/suspend.png" class='triangle'></image>
+          </block>
+
+          <block wx:else>
+          <image src="/images/community/triangle.png" class='triangle'></image>
+          
+          </block>
+          
+          <image src="/images/community/wave.png" class='wave'></image>
           <text>{{item.voiceduration}}s</text>
 
         </view>

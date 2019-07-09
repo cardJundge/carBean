@@ -10,12 +10,14 @@ Component({
     tablist:Array,
     currentTab: Number,
     sidelist:Array,
-    animation:Object
+    animation:Object,
+    
   },
   data: {
     page: 1,
     sidetab:0,
-    sideshow:true
+    sideshow:true,
+    modechange:true
   },
   methods: {
 
@@ -27,10 +29,28 @@ Component({
       })
 
       if (that.data.currentTab == 1){
-        wx.navigateTo({
-          url: './mapcommunity/mapcommunity',
+        that.setData({
+          modechange:false
+        })
+      }else{
+        that.setData({
+          modechange: true
         })
       }
+
+
+      //触发父类事件
+      that.triggerEvent('select', {
+        currentTab: that.data.currentTab
+      })
+
+
+      // if (that.data.currentTab == 1){
+      //   wx.navigateTo({
+      //     url: './mapcommunity/mapcommunity',
+      //   })
+      // }
+
     },
 
     sidelabel:function(){

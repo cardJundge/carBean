@@ -47,8 +47,6 @@ Page({
 
     // that.getservicelistcommond();
 
-    
-
     services.highGrade(res=>{
 
       console.log("22222222",res);
@@ -61,8 +59,6 @@ Page({
     that.setData({
       topactive: false
     })
-
-    
   },
 
   bindRegionChange:function(e){
@@ -171,8 +167,6 @@ Page({
 
     var that = this;
 
-    console.log("ddddddd",e);
-
     wx.navigateTo({
       url: './servicestype/servicestype?goodserver=' + e.currentTarget.dataset.tag + '&goodtitle=' + e.currentTarget.dataset.title,
     })
@@ -202,7 +196,7 @@ Page({
 
     var that = this;
 
-    if(wx.getStorageSync("flag")){
+    // if(wx.getStorageSync("flag")){
       wx.getSetting({
         success: function (res) {
           if (!res.authSetting['scope.userLocation']) {
@@ -215,11 +209,34 @@ Page({
             that.data.keywords = ''
             that.data.page = 1
 
-            that.getservicelistcommond();
+            wx.getLocation({
+              type: "gcj02",
+              altitude: true,
+              success(res) {
+                base.reverseGeocoder(demo, res.latitude, res.longitude, res => {
+
+                  var region = [];
+
+                  region.push(res.province);
+                  region.push(res.city);
+                  region.push(res.district);
+
+                  that.setData({
+                    region: region
+                  })
+
+                  that.getservicelistcommond();
+
+                })
+
+              }
+            })
+
+            
           }
         }
       })
-    }
+    // }
         
   },
 

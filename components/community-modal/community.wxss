@@ -77,13 +77,15 @@
 }
 
 .image_cell {
-  margin: 0px 13px;
-  padding: 2px 0px;
-  text-align: left;
+  margin: 0px 26rpx;
+  padding: 4rpx 0px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 .video_cell{
-  margin: 0px 13px;
-  padding: 2px 0px;
+  margin: 0px 26rpx;
+  padding: 4rpx 0px;
   text-align: center;
   
 }
@@ -95,7 +97,7 @@
   align-items: center;
   width: 220rpx;
   border-radius: 30rpx;
-  padding: 4rpx 16rpx;
+  padding: 7rpx 16rpx;
   
 }
 
@@ -105,13 +107,14 @@
 }
 
 .triangle{
-  width: 30rpx;
-  height: 30rpx;
+  width: 24rpx;
+  height: 24rpx;
 }
 
 .wave{
-  width: 90rpx;
-  height: 50rpx;
+  width: 60rpx;
+  height: 40rpx;
+  margin: 0 30rpx 0 12rpx;
 }
 
 .video_cell video{
@@ -123,7 +126,8 @@
 
 .each_image {
   display: inline-block;
-  width: 33.3%;
+  /* width: 33.3%; */
+  margin-right: 10rpx;
 }
 
 .each_image image {
@@ -233,9 +237,25 @@
   padding: 0 47%;
 }
 
-.public {
+/* .public {
   position: fixed;
   bottom: 30px;
   right: 7px;
-  z-index: 2;
+
+} */
+
+.deletedynamic{
+  display: flex;
+  position: absolute;
+  right: 30rpx;
+  top:14rpx;
+}
+
+.dot{
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background: #c1c1c1;
+  margin-right: 4rpx;
+  
 }

@@ -421,7 +421,7 @@ Page({
 
 
     wx.navigateTo({
-      url: '../../service/driving_/driving_?card_length=' + e.currentTarget.id + '&policyId=' + this.data.activeSertvice.policy_no + '&policy=' + this.data.activeSertvice.id + '&title=',
+      url: '../../../edaijia/driving_/driving_?card_length=' + e.currentTarget.id + '&policyId=' + this.data.activeSertvice.policy_no + '&policy=' + this.data.activeSertvice.id + '&title=',
     })
     this.data.activeId = this.data.activeSertvice.id
   },

@@ -1,0 +1,61 @@
+<!--pages/index/service/epay/epay.wxml-->
+<view class='driverstate'>
+  <view class='driver-information'>
+        <image src="{{pictureSmall}}" class='driver-img'></image>
+        <view class='driver'>
+            <text>{{drivername}}</text>
+            <text>{{driverId}}</text>
+        </view>
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_contact@2x.png' class='tel' catchtap='callphone'></image>
+  </view>
+
+  <view class='user-information'>
+    <view class='user-time'>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_shijian@3x.png' class='time-img'></image>
+      <text class='time-text'>下车时间:</text>
+      <text class='timepoint'>{{getofftime}}</text>
+    </view>
+    <view class='uesr-address'>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_dizhi@2x.png' class='address-img'></image>
+      <text class='time-text'>出发地点:</text>
+      <text class='timepoint'>{{address}}</text>
+    </view>
+  </view>
+
+
+  <view class='pay-detail'>
+    <view class='start'>
+      <text>起步价(含3公里)</text>
+      <text>{{startprice}}</text>
+    </view>
+    <view class='start'>
+      <text>里程费(含6公里)</text>
+      <text>{{mileagefee}}</text>
+    </view>
+    <view class='start'>
+      <text>代叫服务费</text>
+      <text>{{servicefee}}</text>
+    </view>
+    <view class='total'>
+      <text>合计{{income}}元</text>
+    </view>
+  </view>
+
+  <view class='drivingcard'>
+      <view class='start'>
+        <text>代驾卡</text>
+        <text>-60元</text>
+      </view>
+      <view class='total'>
+        <text>实际支付：{{value}}元</text>
+      </view>
+  </view>
+</view>
+
+<view class='tips'>超出60元的费用请直接支付给e代驾司机</view>
+
+<view class='tips' bindtap='back'>返回首页</view>
+
+<!-- <view>
+    <button class='wechatpay' bindtap='wechatpay'>微信支付 0元</button>
+</view> -->

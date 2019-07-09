@@ -1,0 +1,141 @@
+/* pages/index/service/driving_/driving_.wxss */
+.orderstate{
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  background:#8d7373;
+  color: white;
+  padding: 2% 0;
+}
+
+.driver{
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+  letter-spacing: 1px;
+  margin-top: 10%;
+  font-weight: 600;
+}
+
+.driver-num{
+  color: #feba01;
+}
+
+.driver-distance{
+  color: #c2c2c2;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+  margin-top: 2%;
+  letter-spacing: 1px;
+}
+
+.driver-message{
+  width: 89%;
+  margin: 8% 5% 4% 5%;
+  border: 1px solid #c2c2c2;
+  height: 16%;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.location-img{
+  width: 40rpx;
+  height: 40rpx;
+  padding-left: 5%;
+  padding-right: 3%;
+  vertical-align: middle;
+}
+
+.client-address{
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 6%;
+  width: 78%;
+  padding-bottom: 6%;
+  font-size: 30rpx;
+}
+
+.cancel-img{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}
+
+.address-text{
+  line-height: 60rpx;
+}
+
+.line{
+  width: 96%;
+  margin-left: 2%;
+  border: 1px solid #d5d5d5;
+}
+
+.frequency{
+  width: 26%;
+  line-height: 80rpx;
+  border: 1px solid #1a84ff;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-left: 5%;
+  text-align: center;
+  color: #1a84ff;
+  display: inline-block
+}
+
+.call-driver{
+  line-height: 80rpx;
+  border-radius: 5px;
+  margin-left: 5%;
+  font-size: 16px;
+  color: #fff;
+  background: #1a84ff;
+  width: 58%;
+  text-align: center;
+  display: inline-block
+}
+
+.agree-whole{
+  margin: 4% 5% 7%;
+  font-size: 14px
+}
+
+.agree-img{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align:middle;
+  padding-right: 14rpx
+}
+
+.agree-text1{
+  color: #c2c2c2;
+  vertical-align: middle
+}
+
+.agree-text2{
+  color: #1a84ff;
+  vertical-align: middle
+}
+
+.used-whole{
+  margin: 0 5%;
+  font-size: 14px;
+}
+.used{
+  color: #a1a1a1;
+  margin-bottom: 1%
+}
+
+.tel{
+  position: fixed;
+  bottom: 30rpx;
+  width: 50%;
+  margin-left: 25%;
+  font-size: 14px;
+  text-align: center
+}
+
+.tel-num{
+  color: #1a84ff
+}
