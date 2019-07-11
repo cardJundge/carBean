@@ -37,15 +37,23 @@
     <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/check.png' class='checkimg' wx:else></image>
   </view> -->
 
-  <view class='payment' bindtap='paystyle' data-index='3'>
-    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/mianfei@2x.png" class='wechatimg'></image>
-    <text>保单免费({{equity_num}}次)</text>
+  <block wx:for="{{policyInfo}}" wx:key="">
+  <view class='payment' bindtap='paystyle' data-index='3'  data-arrindex="{{index}}"  data-item="{{item}}">
+
+    
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/mianfei@2x.png" class='wechatimg'></image>
+    <!-- <text>保单{{index+1}}免费({{equity_num}}次)</text> -->
+    <text>保单{{index+1}}免费({{item.num}}次)</text>
     <!-- <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/checked.png' class='checkimg' wx:if='{{check3}}'></image>
     <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/check.png' class='checkimg' wx:else></image> -->
 
-    <span class="demo2" style="background:rgb(63, 175, 11)"  wx:if='{{check3}}'></span>
+    <span class="demo2" style="background:rgb(63, 175, 11)"  wx:if='{{index==arrindex}}'></span>
     <span class="demo2" style="background:#eee"  wx:else></span>
+    
+    
   </view>
+
+  </block>
 
   <view class='surepay' bindtap='surepay'>确认支付</view>
 

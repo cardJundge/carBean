@@ -6,6 +6,11 @@ import {
   Mine
 } from '../../models/minemodel.js';
 
+import {
+  Community
+} from '../../../community/communitymode.js';
+var community = new Community();
+
 import common from '../../../../utils/common.js';
 import utils from '../../../../utils/util.js'
 var mineModel = new Mine()
@@ -21,7 +26,7 @@ Page({
     dynamicArr: [],
     page: 1,
     event_type: 0,
-
+    mine:"mine"
   },
 
   /**
@@ -82,6 +87,11 @@ Page({
               if (res.data[i].content) {
                 res.data[i].imagecell = res.data[i].content.split(',')
               }
+            } else if (res.data[i].type == 2) {
+              if (res.data[i].content) {
+                res.data[i].voiceduration = res.data[i].content.split('?')[1];
+                res.data[i].voiceisplaying = false
+              }
             }
             that.data.dynamicArr.push(res.data[i])
 
@@ -123,6 +133,109 @@ Page({
 
     wx.navigateTo({
       url: '../../../community/comment/comment?item=' + e.target.dataset.item + '&page=' + that.data.page + '&id=' + e.target.id + '&dynamicArr=' + dynamicArr,
+    })
+
+  },
+
+  //删除动态
+  deletedynamic: function (e) {
+
+    var that = this
+    var dynamicid = e.currentTarget.dataset.dynamicid;
+
+
+    wx.showModal({
+      title: '提示',
+      content: '确定删除吗?',
+      success(res) {
+        if (res.confirm) {
+
+          community.deletedynamic(dynamicid, res => {
+
+            console.log("res", res)
+
+            if (res.status == 1) {
+
+              wx.showToast({
+                title: '删除成功!',
+              })
+
+              that.data.page = 1;
+
+              that.data.dynamicArr = [];
+
+              
+              mineModel.getPublish(that.data.basicUserInfo.id, that.data.page, that.data.basicUserInfo.id, (res) => {
+                //处理图文
+                if (res.status == 1) {
+
+                  if (that.data.dynamicArr.length == 0 && res.data.length == 0) {
+                    that.setData({
+                      dynamicNull: true
+                    })
+
+                  } else {
+                    that.setData({
+                      dynamicNull: false
+                    })
+                    if (res.data.length == 0) {
+                      that.setData({
+                        noData: true,
+                      })
+                    } else {
+                      for (var i in res.data) {
+                        if (res.data[i].type == 1) {
+                          if (res.data[i].content) {
+                            res.data[i].imagecell = res.data[i].content.split(',')
+                          }
+                        } else if (res.data[i].type == 2) {
+                          if (res.data[i].content) {
+                            res.data[i].voiceduration = res.data[i].content.split('?')[1];
+                            res.data[i].voiceisplaying = false
+                          }
+                        }
+                        that.data.dynamicArr.push(res.data[i])
+
+                      }
+
+                      wx.hideNavigationBarLoading();
+                      that.setData({
+                        dynamicArr: that.data.dynamicArr,
+                        hostName: Config.restUrl
+                      })
+                    }
+                  }
+
+                  wx.hideNavigationBarLoading();
+
+                  wx.stopPullDownRefresh() //停止下拉刷新
+
+                } else if (res.status == 0) {
+                  that.setData({
+                    // noData: true,
+                    dynamicNull: true,
+                    dynamicArr:[]
+                  })
+                } else {
+                  wx.showModal({
+                    title: '操作超时',
+                    content: '',
+                  })
+                }
+                that.setData({
+                  loadedMore: false
+                })
+
+              })
+
+            } else {
+              wx.showToast({
+                title: '删除失败!',
+              })
+            }
+          })
+        }
+      }
     })
 
   },
@@ -265,6 +378,11 @@ Page({
                 if (res.data[i].content) {
                   res.data[i].imagecell = res.data[i].content.split(',')
                 }
+              } else if (res.data[i].type == 2) {
+                if (res.data[i].content) {
+                  res.data[i].voiceduration = res.data[i].content.split('?')[1];
+                  res.data[i].voiceisplaying = false
+                }
               }
               that.data.dynamicArr.push(res.data[i])
 
@@ -334,6 +452,11 @@ Page({
               if (res.data[i].type == 1) {
                 if (res.data[i].content) {
                   res.data[i].imagecell = res.data[i].content.split(',')
+                }
+              } else if (res.data[i].type == 2) {
+                if (res.data[i].content) {
+                  res.data[i].voiceduration = res.data[i].content.split('?')[1];
+                  res.data[i].voiceisplaying = false
                 }
               }
               that.data.dynamicArr.push(res.data[i])

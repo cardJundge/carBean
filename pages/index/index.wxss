@@ -209,7 +209,7 @@ button::after {
   position: absolute;
   top: 200rpx;
   font-size: 12rpx;
-  left: 130rpx;
+  /* left: 130rpx; */
 }
 
 /* 新手奖励或者签到奖励的豆子 */
@@ -523,8 +523,8 @@ button::after {
 /* 青铜 */
 
 .level_icon {
-  display: inline-block;
-  vertical-align: top;
+  display: flex;
+  align-items: center
 }
 
 .level_icon image {

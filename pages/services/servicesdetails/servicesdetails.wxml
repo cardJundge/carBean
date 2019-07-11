@@ -15,8 +15,14 @@
   <view class='bodycontent'>
     <view class='nav'>
       <view class='title'>
+        <block wx:if="{{shopname.length>8}}">
+          <view class='shopname' style="width:66%">{{shopname}}</view>
+        </block>
+
+        <block wx:else>
+          <view class='shopname'>{{shopname}}</view>
+        </block>
         
-        <view class='shopname'>{{shopname}}</view>
         <view class='shoptype' wx:if='{{type==2}}'>4s店</view>
         <view class='shoptype' wx:if='{{type==3}}'>维修店</view>
         <view class='shoptype' wx:if='{{type==4}}'>改装店</view>
@@ -67,7 +73,7 @@
         <text class='serviceprice'>¥{{serviceitemprice}}</text>
         <text class='serviceinvalid'>{{market_price}}</text>
       </view>
-      <view>代为送检(年审,不含上线)</view>
+      <view>{{serviceprojectname}}</view>
     </view>
     <view class='bottom-right'>
       <view class='customer' bindtap='callphone'>
@@ -76,7 +82,7 @@
       </view>
       <view class='pay' bindtap='pay'>
         <image src="/images/icon/button_account.png" class='consult'></image>
-        <button class='customer_text' hover-class="btn" >去结算</button>
+        <button class='customer_text' hover-class="btn" >去下单</button>
         <!-- <button class='customer_text' hover-class="btn" open-type='us'>去结算</button> -->
       </view>
     </view>

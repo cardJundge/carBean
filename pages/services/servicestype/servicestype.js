@@ -10,10 +10,16 @@ var demo = new QQMapWX({
   key: 'OEIBZ-MF2HD-B6U4J-HRVAP-AASNO-CMBEQ' // 必填
 });
 
-import { Servicestype } from 'servicestypemode.js';
-import { Base } from '../../../utils/base.js';
+import {
+  Servicestype
+} from 'servicestypemode.js';
+import {
+  Base
+} from '../../../utils/base.js';
 
-import { Config } from '../../../utils/config.js'
+import {
+  Config
+} from '../../../utils/config.js'
 
 var base = new Base();
 
@@ -37,104 +43,24 @@ Page({
     total: [],
     noservice1: true,
     server: '',
-    tags:''
+    tags: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
     var that = this;
-    
-    that.data.total = [];
 
-    // if (server) {
+    console.log("eeee")
 
-    if (options.goodtitle){
+    that.data.options = options;
 
-      console.log("ddddd", options.goodtitle);
-      wx.setNavigationBarTitle({
-        title: options.goodtitle
-      })
 
-      that.data.tags = options.goodserver,
-      that.data.page = 1,
-      that.getservicelistcommond();
-
-    }else{
-
-      var server = options.server;
-
-      wx.setNavigationBarTitle({
-        title: server
-      })
-
-      if (server == "洗车") {
-
-        that.data.keywords = server,
-          that.data.page = 1,
-
-          that.getservicelistcommond();
-
-      } else if (server == "车辆检测") {
-
-        that.data.keywords = server,
-          console.log("ddd", server);
-        that.data.page = 1,
-
-          that.getservicelistcommond();
-
-      } else if (server == "非事故救援") {
-
-        that.data.keywords = server,
-          that.data.page = 1,
-          console.log("ddd", server);
-
-        that.getservicelistcommond();
-
-      } else if (server == "代办服务") {
-
-          that.data.keywords = "代办维修",
-          that.data.page = 1,
-          console.log("ddd", server);
-
-        that.getservicelistcommond();
-
-      } else if (server == "年审代办") {
-
-        that.data.keywords = server,
-          that.data.page = 1,
-
-          that.getservicelistcommond();
-
-      } else if (server == "二手车服务") {
-
-        that.data.keywords = server,
-          that.data.page = 1,
-
-          that.getservicelistcommond();
-
-      } else if (server == "车务咨询") {
-
-        that.data.keywords = server,
-          that.data.page = 1,
-          that.getservicelistcommond();
-
-      } else {
-
-        that.data.searchKeys = server,
-          that.data.page = 1,
-          that.getservicelistcommond();
-      }
-
-    }
-    
-    
-    
   },
 
-  bindRegionChange: function (e) {
+  bindRegionChange: function(e) {
 
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -146,7 +72,7 @@ Page({
     this.getservicelistcommond();
   },
 
-  bindPickerStore: function (e) {
+  bindPickerStore: function(e) {
 
     var that = this;
 
@@ -191,7 +117,7 @@ Page({
     })
   },
 
-  bindPickerSort: function (e) {
+  bindPickerSort: function(e) {
 
     var that = this;
     that.data.page = 1;
@@ -225,11 +151,293 @@ Page({
   },
 
 
-  onShow: function (e) {
+  onShow: function(e) {
+
+    var that = this;
+
+    var options = that.data.options;
+
+
+    wx.getLocation({
+      type: "gcj02",
+      altitude: true,
+      success(res) {
+        base.reverseGeocoder(demo, res.latitude, res.longitude, res => {
+
+          var region = [];
+
+          region.push(res.province);
+          region.push(res.city);
+          region.push(res.district);
+
+          that.setData({
+            region: region
+          })
+
+          that.data.total = [];
+
+          // if (server) {
+
+          if (options.goodtitle) {
+
+            console.log("ddddd", options.goodtitle);
+            wx.setNavigationBarTitle({
+              title: options.goodtitle
+            })
+
+            that.data.tags = options.goodserver,
+              that.data.page = 1,
+              that.getservicelistcommond();
+
+          } else {
+
+            var server = options.server;
+
+            wx.setNavigationBarTitle({
+              title: server
+            })
+
+            if (server == "洗车") {
+
+              that.data.keywords = server,
+                that.data.page = 1,
+
+                that.getservicelistcommond();
+
+            } else if (server == "车辆检测") {
+
+              that.data.keywords = server,
+                console.log("ddd", server);
+              that.data.page = 1,
+
+                that.getservicelistcommond();
+
+            } else if (server == "非事故救援") {
+
+              that.data.keywords = server,
+                that.data.page = 1,
+                console.log("ddd", server);
+
+              that.getservicelistcommond();
+
+            } else if (server == "代办服务") {
+
+              that.data.keywords = "代办维修",
+                that.data.page = 1,
+                console.log("ddd", server);
+
+              that.getservicelistcommond();
+
+            } else if (server == "年审代办") {
+
+              that.data.keywords = server,
+                that.data.page = 1,
+
+                that.getservicelistcommond();
+
+            } else if (server == "二手车服务") {
+
+              that.data.keywords = server,
+                that.data.page = 1,
+
+                that.getservicelistcommond();
+
+            } else if (server == "车务咨询") {
+
+              that.data.keywords = server,
+                that.data.page = 1,
+                that.getservicelistcommond();
+
+            } else {
+
+              that.data.searchKeys = server,
+                that.data.page = 1,
+                that.getservicelistcommond();
+            }
+
+          }
+
+        })
+      },
+      fail:function(res){
+
+        console.log("res222222",res)
+        that.setData({
+          locationshow: true
+        })
+      }
+    })
+
+
+
+
+
+    // wx.getSetting({
+    //   success: function (res) {
+    //     if (!res.authSetting['scope.userLocation']) {
+    //       that.setData({
+    //         locationshow: true
+    //       })
+    //     } else {
+
+    //       wx.getLocation({
+    //         type: "gcj02",
+    //         altitude: true,
+    //         success(res) {
+    //           base.reverseGeocoder(demo, res.latitude, res.longitude, res => {
+
+    //             var region = [];
+
+    //             region.push(res.province);
+    //             region.push(res.city);
+    //             region.push(res.district);
+
+    //             that.setData({
+    //               region: region
+    //             })
+
+    //             that.data.total = [];
+
+    //             // if (server) {
+
+    //             if (options.goodtitle) {
+
+    //               console.log("ddddd", options.goodtitle);
+    //               wx.setNavigationBarTitle({
+    //                 title: options.goodtitle
+    //               })
+
+    //               that.data.tags = options.goodserver,
+    //                 that.data.page = 1,
+    //                 that.getservicelistcommond();
+
+    //             } else {
+
+    //               var server = options.server;
+
+    //               wx.setNavigationBarTitle({
+    //                 title: server
+    //               })
+
+    //               if (server == "洗车") {
+
+    //                 that.data.keywords = server,
+    //                   that.data.page = 1,
+
+    //                   that.getservicelistcommond();
+
+    //               } else if (server == "车辆检测") {
+
+    //                 that.data.keywords = server,
+    //                   console.log("ddd", server);
+    //                 that.data.page = 1,
+
+    //                   that.getservicelistcommond();
+
+    //               } else if (server == "非事故救援") {
+
+    //                 that.data.keywords = server,
+    //                   that.data.page = 1,
+    //                   console.log("ddd", server);
+
+    //                 that.getservicelistcommond();
+
+    //               } else if (server == "代办服务") {
+
+    //                 that.data.keywords = "代办维修",
+    //                   that.data.page = 1,
+    //                   console.log("ddd", server);
+
+    //                 that.getservicelistcommond();
+
+    //               } else if (server == "年审代办") {
+
+    //                 that.data.keywords = server,
+    //                   that.data.page = 1,
+
+    //                   that.getservicelistcommond();
+
+    //               } else if (server == "二手车服务") {
+
+    //                 that.data.keywords = server,
+    //                   that.data.page = 1,
+
+    //                   that.getservicelistcommond();
+
+    //               } else if (server == "车务咨询") {
+
+    //                 that.data.keywords = server,
+    //                   that.data.page = 1,
+    //                   that.getservicelistcommond();
+
+    //               } else {
+
+    //                 that.data.searchKeys = server,
+    //                   that.data.page = 1,
+    //                   that.getservicelistcommond();
+    //               }
+
+    //             }
+
+    //           })
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
+
+
+
+
+
+
+
+
+
+
+    // if (that.data.servicelist.length == 0) {
+
+    //   wx.getSetting({
+    //     success: function(res) {
+    //       if (!res.authSetting['scope.userLocation']) {
+    //         that.setData({
+    //           locationshow: true
+    //         })
+    //       } else {
+
+    //         that.data.total = [];
+    //         that.data.keywords = ''
+    //         that.data.page = 1
+
+    //         wx.getLocation({
+    //           type: "gcj02",
+    //           altitude: true,
+    //           success(res) {
+    //             base.reverseGeocoder(demo, res.latitude, res.longitude, res => {
+
+    //               var region = [];
+
+    //               region.push(res.province);
+    //               region.push(res.city);
+    //               region.push(res.district);
+
+    //               that.setData({
+    //                 region: region
+    //               })
+
+    //               that.getservicelistcommond();
+
+    //             })
+    //           }
+    //         })
+    //       }
+    //     }
+    //   })
+    // }
 
   },
 
-  getservicelistcommond: function () {
+  getservicelistcommond: function() {
 
     var that = this;
 
@@ -293,7 +501,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
     var that = this;
     that.data.page++;
@@ -306,8 +514,9 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     var that = this;
+    that.data.page++; 
     wx.showNavigationBarLoading() //显示导航条加载动画
     that.getservicelistcommond();
   },

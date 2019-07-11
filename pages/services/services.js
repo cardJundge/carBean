@@ -35,6 +35,8 @@ Page({
   },
   onLoad: function (options) {
 
+    console.log("eeee");
+
     var that = this;
 
     that.data.total = [];
@@ -56,9 +58,11 @@ Page({
 
     })
 
+
     that.setData({
       topactive: false
     })
+
   },
 
   bindRegionChange:function(e){
@@ -197,45 +201,78 @@ Page({
     var that = this;
 
     // if(wx.getStorageSync("flag")){
-      wx.getSetting({
-        success: function (res) {
-          if (!res.authSetting['scope.userLocation']) {
-            that.setData({
-              locationshow: true
-            })
-          }else{
 
-            that.data.total = [];
-            that.data.keywords = ''
-            that.data.page = 1
+    that.data.total = [];
+    that.data.keywords = ''
+    that.data.page = 1
 
-            wx.getLocation({
-              type: "gcj02",
-              altitude: true,
-              success(res) {
-                base.reverseGeocoder(demo, res.latitude, res.longitude, res => {
+    wx.getLocation({
+      type: "gcj02",
+      altitude: true,
+      success(res) {
+        base.reverseGeocoder(demo, res.latitude, res.longitude, res => {
 
-                  var region = [];
+          var region = [];
 
-                  region.push(res.province);
-                  region.push(res.city);
-                  region.push(res.district);
+          region.push(res.province);
+          region.push(res.city);
+          region.push(res.district);
 
-                  that.setData({
-                    region: region
-                  })
+          that.setData({
+            region: region
+          })
 
-                  that.getservicelistcommond();
+          that.getservicelistcommond();
 
-                })
+        })
 
-              }
-            })
+      },
+      fail:function(res){
+        that.setData({
+          locationshow: true
+        })
+      }
+    })
+
+      // wx.getSetting({
+      //   success: function (res) {
+      //     if (!res.authSetting['scope.userLocation']) {
+      //       that.setData({
+      //         locationshow: true
+      //       })
+      //     }else{
+
+      //       that.data.total = [];
+      //       that.data.keywords = ''
+      //       that.data.page = 1
+
+      //       wx.getLocation({
+      //         type: "gcj02",
+      //         altitude: true,
+      //         success(res) {
+      //           base.reverseGeocoder(demo, res.latitude, res.longitude, res => {
+
+      //             var region = [];
+
+      //             region.push(res.province);
+      //             region.push(res.city);
+      //             region.push(res.district);
+
+      //             that.setData({
+      //               region: region
+      //             })
+
+      //             that.getservicelistcommond();
+
+      //           })
+
+      //         }
+      //       })
 
             
-          }
-        }
-      })
+      //     }
+      //   }
+      // })
     // }
         
   },

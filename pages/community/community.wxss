@@ -141,7 +141,7 @@
 .close {
   margin-top: 20px;
   width: 44%;
-  height: 70rpx;
+  height: 80rpx;
   margin-left: 28%;
 }
 

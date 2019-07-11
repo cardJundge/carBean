@@ -66,7 +66,7 @@ Page({
       success(res){
         console.log(res);
         // that.data.scale = res.windowWidth / 375 / res.pixelRatio*1.8
-        that.data.scale = res.windowWidth / 375 / res.pixelRatio
+        that.data.scale = res.windowWidth / 375 / res.pixelRatio *1.2
         }
     })
 
@@ -1429,22 +1429,22 @@ function draw(that, item) {
               console.log("www", that.data.mapdynamicArr, "ppp", item);
 
               if (that.data.mapdynamicArr[item].type == 2) {
-                ctx.drawImage('../../images/audioBac.png', that.remSize(42), 0, that.remSize(110), that.remSize(42))
+                ctx.drawImage('../../images/audioBac.png', that.remSize(42), 0, that.remSize(97), that.remSize(42))
                 ctx.drawImage('../../images/community/triangle.png', that.remSize(50), that.remSize(15), that.remSize(12), that.remSize(12))
                 ctx.drawImage('../../images/community/wave.png', that.remSize(70), that.remSize(6), that.remSize(42), that.remSize(30))
                 // ctx.drawImage('../../../images/position.png', 20, 50, 40, 40)
-                ctx.setFontSize(that.remSize(18))
+                ctx.setFontSize(that.remSize(15))
                 // ctx.setStrokeStyle('red')
                 ctx.fillText(that.data.mapdynamicArr[item].voiceduration + '″', that.remSize(122), that.remSize(28))
 
 
               } else {
 
-                ctx.drawImage('../../images/audioBac.png', that.remSize(42), 0, that.remSize(110), that.remSize(42))
+                ctx.drawImage('../../images/audioBac.png', that.remSize(42), 0, that.remSize(97), that.remSize(42))
 
-                ctx.setFontSize(that.remSize(18))
+                ctx.setFontSize(that.remSize(15))
                 // ctx.setTextAlign('left')
-                ctx.fillText(that.data.mapdynamicArr[item].title.substring(0, 6), that.remSize(50), that.remSize(28))
+                ctx.fillText(that.data.mapdynamicArr[item].title.substring(0, 4)+"...", that.remSize(50), that.remSize(28))
 
                 
                 // ctx.setStrokeStyle('red')

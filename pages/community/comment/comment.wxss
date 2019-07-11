@@ -51,6 +51,8 @@ height: 2.3em
   position: fixed;
   /* bottom: 0; */
   z-index: 1000;
+  display: flex;
+  justify-content: space-around;
 }
 
 .reply_{
@@ -58,16 +60,17 @@ height: 2.3em
   border-radius: 5px;
   font-size: 14px;
   /* margin: 4% 0 0 6%; */
-  width: 72%;
+  /* width: 72%; */
   background: #fff;
   /* line-height: 40rpx; */
   /* padding-top: 2%; */
   /* padding-bottom: 2%; */
-  margin-left: 6%;
+  /* margin-left: 6%; */
   margin-top: 20rpx;
   padding-top: 20rpx;
-  height: 50rpx;
+  height: 70rpx;
   padding-left: 20rpx;
+  
 }
 
 .reply_1{
@@ -75,12 +78,13 @@ height: 2.3em
   border: 1px solid #c1c1c1;
   border-radius: 5px;
   font-size: 14px;
-  width: 440rpx;
+  /* width: 440rpx; */
   background: #fff;
   height: 70rpx;
-  margin-left: 6%;
-  margin-top: 2%;
+  /* margin-left: 6%; */
+  margin-top: 20rpx;
   padding-top: 6rpx;
+
 }
 
 .reply_title{
@@ -116,10 +120,11 @@ height: 2.3em
 }
 
 .dianzan{
-  display: inline-block;
+  /* display: inline-block;
   position: fixed;
   right: 4%;
-  bottom: 1rpx  
+  bottom: 1rpx   */
+  margin-top: 14rpx;
 }
 
 .dianzan image{
@@ -128,10 +133,11 @@ height: 2.3em
 }
 
 .dianzan1{
-  display: inline-block;
+  /* display: inline-block;
   position: fixed;
   right: 10%;
-  bottom: 0
+  bottom: 0 */
+  margin-top: 23rpx;
 }
 
 .dianzan text{
@@ -150,7 +156,7 @@ height: 2.3em
   padding-left: 14px;
   padding-right: 14px;
   line-height: 2.5;
-  text-align: center;
+  /* text-align: center; */
 }
 
 

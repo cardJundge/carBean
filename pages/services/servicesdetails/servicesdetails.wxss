@@ -41,6 +41,7 @@ page{
   color: #1a84ff;
   font-weight: 600;
   font-size: 18px;
+  /* width: 66%; */
 }
 
 .shoptype{

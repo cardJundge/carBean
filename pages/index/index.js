@@ -401,7 +401,8 @@ Page({
       }else{
 
         that.setData({
-          carNum: 0
+          carNum: 0,
+          carid:"车豆"
         })
       }
     })

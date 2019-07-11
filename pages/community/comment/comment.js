@@ -306,6 +306,9 @@ Page({
           return
         }else{
           that.data.content = e.detail.value.content;
+
+          that.data.content=common.utf16toEntities(that.data.content);
+
           that.data.type = "1"
         }
         
@@ -750,13 +753,33 @@ function getDynamicevaluationlist(that){
 
                   that.data.length = (res.data.data[i])[j].length
 
-                  if ((res.data.data[i])[j].type == 2){
+                  
+
+                  // if ((res.data.data[i])[j].type == 2){
+
+                  //   for (var k in (res.data.data[i])[j]) {
+                      
+                  //     if (((res.data.data[i])[j])[k].content){
+                        
+                  //     }
+
+                  //   }
+
                     
-                    if ((res.data.data[i])[j].content) {
-                      (res.data.data[i])[j].voiceduration = (res.data.data[i])[j].content.split('?')[1];
-                      (res.data.data[i])[j].voiceisplaying = false
-                    }
-                  }
+                    
+                    // if ((res.data.data[i])[j].content) {
+                    //   (res.data.data[i])[j].voiceduration = (res.data.data[i])[j].content.split('?')[1];
+                    //   (res.data.data[i])[j].voiceisplaying = false
+                    // }
+                  // }else{
+
+                    for (var k in (res.data.data[i])[j]){
+                      console.log("eeeee", ((res.data.data[i])[j])[k].content);
+                      ((res.data.data[i])[j])[k].content = common.entitiesToUtf16(((res.data.data[i])[j])[k].content);
+                    } 
+                    
+                    
+                  // }
                 
                 }else{
 
@@ -775,6 +798,11 @@ function getDynamicevaluationlist(that){
                 res.data.data[i].length = that.data.length;
 
                 res.data.data[i].moreShow = false
+              }
+
+              if (j == "content"){
+
+                (res.data.data[i])[j]=common.entitiesToUtf16((res.data.data[i])[j])
               }
 
             }
@@ -893,7 +921,7 @@ function releaseevaluation(that){
               that.data.evaluationObj = {
                 id: res.data.id,
                 dynamic_id: that.data.id,
-                content: that.data.content,
+                content: common.entitiesToUtf16(that.data.content),
                 level: 0,
                 from_uid: that.data.userId,
                 to_uid: 0,

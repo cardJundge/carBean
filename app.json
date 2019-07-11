@@ -63,7 +63,8 @@
     "pages/edaijia/verificationCode/waitOrder/waitOrder",
     "pages/edaijia/driverstate/driverstate",
     "pages/edaijia/epay/epay",
-    "pages/edaijia/sureCancel/sureCancel"
+    "pages/edaijia/sureCancel/sureCancel",
+    "pages/edaijia/cancelOrder/cancelOrder"
 
   ],
   "window": {

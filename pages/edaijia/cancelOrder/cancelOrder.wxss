@@ -1,0 +1,84 @@
+
+.tip{
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5% 0;
+}
+
+.time{
+  width: 100%;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.order-img image{
+  width: 330rpx;
+  height: 330rpx;
+  margin-left: 28%;
+}
+
+
+.canceled-temporarily{
+  width: 90%;
+  margin: 5% 5%;
+  padding: 3% 0;
+  color: #fff;
+  background: #1a84ff;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.sure-temporarily{
+  width: 90%;
+  margin: 5% 5%;
+  padding: 3% 0;
+  color: #fff;
+  background: #d5d5d5;
+  text-align: center;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+
+.cancel-text{
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  color: #d5d5d5
+}
+
+.cancel-rule{ 
+  margin-top: 5%;
+  width: 100%;
+  text-align: center;
+}
+
+.cancel-rule image{
+  width: 24rpx;
+  height: 24rpx;
+  vertical-align: middle
+}
+
+.cancel-rule text{
+  font-size: 12px;
+  margin-left: 10rpx;
+  color: #d5d5d5;
+}
+
+.tel{
+  position: fixed;
+  bottom: 30rpx;
+  width: 50%;
+  margin-left: 25%;
+  font-size: 14px;
+  text-align: center
+}
+
+.tel-num{
+  color: #1a84ff
+}

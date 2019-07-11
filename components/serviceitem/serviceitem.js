@@ -52,7 +52,8 @@ Component({
         serviceitemid: e.currentTarget.dataset.id,
         serviceitemclassify: e.currentTarget.dataset.classify,
         serviceitemprice: e.currentTarget.dataset.price,
-        serviceitemmarketprice: e.currentTarget.dataset.market_price
+        serviceitemmarketprice: e.currentTarget.dataset.market_price,
+        serviceprojectname: e.currentTarget.dataset.serviceprojectname
       })
 
     }

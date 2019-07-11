@@ -33,10 +33,10 @@
             </block>
 
             <block wx:else>
-              <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/triangle.png" class='triangle'></image>
+              <image src="/images/community/triangle.png" class='triangle'></image>
             </block>
             
-            <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/wave.png" class='wave'></image>
+            <image src="/images/community/wave.png" class='wave'></image>
             <text>{{item.voiceduration}}s</text>
           </view>
         </block>
@@ -56,7 +56,7 @@
 
         <view wx:if='{{item.reply.length!=0}}'>
           <view class='frame'>
-          <template is="replytemplate" data="{{reply:item.reply ,           Topcommentname:item.user_info.nickname , Arrindex:index , level:item.id ,moreShow:item.moreShow}}"/>
+          <template is="replytemplate" data="{{reply:item.reply , Topcommentname:item.user_info.nickname , Arrindex:index , level:item.id ,moreShow:item.moreShow}}"/>
           </view> 
         </view>
         

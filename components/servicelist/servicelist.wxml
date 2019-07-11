@@ -30,9 +30,9 @@
         </block>
       </view>
       <view class='order-comment'>
-        <image class='order-img' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_Order.png'></image>
+        <image class='order-img' src='/images/icon/icon_Order.png'></image>
         <text>总订单  {{item.order}}</text>
-        <image class='order-img' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_score.png'></image>
+        <image class='order-img' src='/images/icon/icon_score.png'></image>
         <text>总评分  {{item.comment}}</text>
       </view>
     </view>

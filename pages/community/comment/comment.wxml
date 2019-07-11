@@ -5,7 +5,7 @@
 <template is='dynamicList' data='{{dynamicArr,hostName,islogin}}' />
 
 <view class='reply_title'>
-  <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/fire.png'></image>
+  <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/fire.png'></image>
   <text>评论</text>
   <view class='reply_line'></view>
 </view>
@@ -34,7 +34,7 @@
 <form bindsubmit='submitPublic'>
 
 <view class="reply_bg" style="bottom:{{focus?height:0}}px">
-  <textarea class="{{detail?'reply_':'reply_1'}}" fixed='true' adjust-position="{{false}}" placeholder='{{logo}}'cursor-spacing='0' bindfocus="textinput" bindblur="distext" name='content' value='{{re_content}}' focus="{{focus}}" show-confirm-bar="{{false}}" ></textarea>
+  <textarea class="{{detail?'reply_':'reply_1'}}" fixed='true' adjust-position="{{false}}" placeholder='{{logo}}'cursor-spacing='0' bindfocus="textinput" bindblur="distext" name='content' value='{{re_content}}' focus="{{focus}}" show-confirm-bar="{{false}}"  fixed="true"></textarea>
 
 <block wx:if="{{!dianzan}}">
   <view class='dianzan' catchtap='playvoicemode'>
@@ -47,7 +47,7 @@
       <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Fabulous_h@2x.png" data-item='{{0}}'  id="{{dynamicArr[0].id}}" catchtap='toThumnUp'></image>
     <text>{{dynamicArr[0].zan}}</text>
     </block> -->
-    <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/voice.png"></image>
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/voice.png"></image>
 
   </view>
 </block>

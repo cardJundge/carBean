@@ -112,6 +112,13 @@ Page({
       })
     }
 
+    if (app.globalData.policyInfo){
+
+      that.setData({
+        policyInfo: app.globalData.policyInfo
+      })
+    }
+
     if (app.globalData.serviceitem) {
 
       if (app.globalData.serviceitem.equity_num){
@@ -155,7 +162,7 @@ Page({
     that.setData({
       check1: true,
       check2: false,
-      check3: false
+      arrindex: -1
     })
 
   },
@@ -177,25 +184,34 @@ Page({
   paystyle:function (e) {
 
     var that = this;
+    
+
     if (e.currentTarget.dataset.index == 1){
       that.setData({
         check1:true,
         check2:false,
-        check3:false
+        arrindex:-1
       })
     } else if (e.currentTarget.dataset.index == 2){
       that.setData({
         check1: false,
         check2: true,
-        check3: false
+        arrindex: -1
       })
     } else if (e.currentTarget.dataset.index == 3) {
+
+      var item = e.currentTarget.dataset.item
+
+      that.data.policyid = item.id;
+
+      that.data.arrindex = e.currentTarget.dataset.arrindex;
+
       that.setData({
         check1: false,
         check2: false,
-        check3: true
+        arrindex: e.currentTarget.dataset.arrindex
       })
-    }
+    } 
   },
 
   /**
@@ -296,37 +312,56 @@ Page({
         }
 
       }else{
-        if(that.data.check3){
 
-          if (that.data.equity_num <= 0){
-            wx.showToast({
-              title: '无使用次数!',
-            })
-          }else{
+        
+        if (that.data.arrindex >= 0){
 
-            paystyle.vipPay(res=>{
-              console.log("会员支付",res);
+          paystyle.policyPay(that.data.policyid,res=>{
 
-              if (res.status == 1){
+            if (res.status == 1) {
 
-                if (that.data.equity_num != '不限'){
-                  that.data.equity_num --
-                }
-                wx.showToast({
-                  title: '支付成功!',
+              if (app.globalData.policyInfo[that.data.arrindex].num !="不限"){
+                that.setData({
+                  policyInfo: that.data.policyInfo[that.data.arrindex].num --
                 })
               }
-
-              // wx.navigateTo({
-              //   url: '../paycompleted/paycompleted',
-              // })
 
               wx.redirectTo({
                 url: '../paycompleted/paycompleted',
               })
+            }
 
-            })
-          }
+          })
+
+          // if (app.globalData.policyInfo <= 0){
+          //   wx.showToast({
+          //     title: '无使用次数!',
+          //   })
+          // }else{
+
+          //   paystyle.vipPay(res=>{
+          //     console.log("会员支付",res);
+
+          //     if (res.status == 1){
+
+          //       if (that.data.equity_num != '不限'){
+          //         that.data.equity_num --
+          //       }
+          //       wx.showToast({
+          //         title: '支付成功!',
+          //       })
+          //     }
+
+          //     // wx.navigateTo({
+          //     //   url: '../paycompleted/paycompleted',
+          //     // })
+
+          //     wx.redirectTo({
+          //       url: '../paycompleted/paycompleted',
+          //     })
+
+          //   })
+          // }
 
         }else{
           wx.showToast({

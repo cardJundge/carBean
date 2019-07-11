@@ -111,9 +111,9 @@
 }
 
 .dot{
-  width: 6rpx;
-  height: 6rpx;
+  width: 10rpx;
+  height: 10rpx;
   background: #d1d1d1;
   border-radius: 50%;
-  margin-right: 2rpx;
+  margin-right: 4rpx;
 }

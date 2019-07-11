@@ -78,6 +78,24 @@ class Paystyle extends Base{
   }
 
 
+  //保单支付(礼包支付)
+  policyPay(id,callback){
+
+    var params = {
+      type:'POST',
+      url:'/user/server/policyPay',
+      data:{
+        order_id: app.globalData.serviceorderid,
+        policy_id:id
+      },
+      sCallback: callback
+
+    }
+
+    this.request(params);
+  
+  }
+
 
 }
 

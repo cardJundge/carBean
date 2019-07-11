@@ -28,6 +28,8 @@
 
   <my-service-modal servicelist="{{servicelist}}"  hostName='{{hostName}}' type='home'/>
 
+  <my-location-modal show="{{locationshow}}" />
+
   <view class='noservice' hidden='{{noservice1}}'>
     <view>没有更多服务商了</view>
   </view>

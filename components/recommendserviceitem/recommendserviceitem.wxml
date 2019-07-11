@@ -2,7 +2,7 @@
 <view class='servicelist'>
 <block wx:for="{{servicelist}}" wx:key="">
   <view class='serviceitem' bindtap='itemdetail' data-detail='{{item}}'>
-    <image class='serviceimg' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg'></image>
+    <image class='serviceimg' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/services/servicelogo.jpg'></image>
     <view class='servicename-price'>
       <text>{{item.short_name}}</text>
       <text>5.00</text>
@@ -21,9 +21,9 @@
       <text class='business type2' wx:if='{{item.type==10}}'>其他</text>
     </view>
     <view class='commont-distance'>
-      <image class='order-img' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_Order.png'></image>
+      <image class='order-img' src='/images/icon/icon_Order.png'></image>
       <view>{{item.order}}</view>
-      <image class='order-img' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/icon_score.png'></image>
+      <image class='order-img' src='/images/icon/icon_score.png'></image>
       <view>{{item.comment}}</view>
     </view>
   </view>

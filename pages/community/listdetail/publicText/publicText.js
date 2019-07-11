@@ -118,6 +118,11 @@ Page({
       if (that.data.publicContent) {
 
         console.log("llll" + e.detail.value.intro)
+
+
+        that.data.publicContent = common.utf16toEntities(that.data.publicContent)
+
+        
         wx.showLoading({
           title: '上传中...',
         })
@@ -161,7 +166,7 @@ Page({
               imagecell: tempFile,
               is_zan: 0,
               share: 0,
-              title: that.data.publicContent,
+              title: common.entitiesToUtf16(that.data.publicContent),
               location: app.globalData.latitude + ',' + app.globalData.longitude,
               address: app.globalData.address,
               user_id: that.data.userId,

@@ -3,12 +3,12 @@
   <view class='each_service_cell' >
     <view class='title' >
 
-      <view wx:if="{{ischecked}}" bindtap='oncheck' data-id='{{item.id}}' data-index='{{index}}' data-classify='{{item.classify_id}}' data-price='{{item.platform_price}}' data-market_price='{{item.market_price}}'>
+      <view wx:if="{{ischecked}}" bindtap='oncheck' data-id='{{item.id}}' data-index='{{index}}' data-classify='{{item.classify_id}}' data-price='{{item.platform_price}}' data-market_price='{{item.market_price}}' data-serviceprojectname = '{{item.classify}}'>
         <span class="demo2"  wx:if="{{ item.id==serviceid}}" style="background:rgb(63, 175, 11)"></span> 
       <span class="demo2"  wx:else style="background:#eee"></span>
       </view>
 
-      <view wx:else bindtap='oncheck' data-id='{{item.id}}' data-index='{{index}}' data-classify='{{item.classify_id}}' data-price='{{item.platform_price}}' data-market_price='{{item.market_price}}'>
+      <view wx:else bindtap='oncheck' data-id='{{item.id}}' data-index='{{index}}' data-classify='{{item.classify_id}}' data-price='{{item.platform_price}}' data-market_price='{{item.market_price}}' data-serviceprojectname = '{{item.classify}}'>
         <span class="demo2"  wx:if="{{ item.id==serviceitem[0].id}}"  style="background:rgb(63, 175, 11)"></span>
         <span class="demo2"  wx:else style="background:#eee"></span> 
       </view>
@@ -21,7 +21,7 @@
 
     <!-- <view class='usednum' wx:if='{{item.equity_num!=undefined}}'  bindtap="serviceitemdetail" data-itemdetails='{{item}}' data-index='{{index}}'>你有<text wx:if='{{item.combo_id == 3}}'>黄金</text><text wx:if='{{item.combo_id == 2}}'>白银</text>套餐{{item.equity_num}}次</view> -->
     <view class='usednum' wx:if='{{item.classify_num}}' bindtap="serviceitemdetail" data-itemdetails='{{item}}' data-index='{{index}}' wx:for="{{item.classify_num}}" wx:for-index="idx" wx:for-item="item1" wx:key="">
-    <view>保单{{idx}}增值服务:{{item1}}次</view>
+    <view>保单{{idx+1}}增值服务:{{item1.num}}次</view>
     </view>
     <!-- <view class='usednum' wx:else>保单增值服务:{{item.classify_num}}次</view> -->
     <view class='comment' bindtap="serviceitemdetail" data-itemdetails='{{item}}' data-index='{{index}}'>

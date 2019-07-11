@@ -5,7 +5,7 @@
         <icon type='success' size='20'></icon>
         <view class='serivername'wx:if="{{item.service_name.short_name}}">{{item.service_name.short_name}}</view>
         <view class='serivername' wx:else>{{item.service_name.name}}</view>
-        <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/right_arrow.png' class='arrow'></image>
+        <image src='/images/icon/right_arrow.png' class='arrow'></image>
       </view>
 
       <view wx:if='{{item.work_status == 4}}'>已完成</view>
@@ -19,7 +19,7 @@
     </view>
 
     <view class='service-content'>
-      <image class='serviceimg' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg'></image>
+      <image class='serviceimg' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/services/servicelogo.jpg'></image>
       <view class='service-text'>
         <text>{{item.classify_name}}</text>
         <text>服务项目</text>
@@ -35,7 +35,7 @@
       <view class='delete spacing' bindtap='ondelete' data-orderid='{{item.id}}' wx:if="{{item.status == 3 || item.status== 4 || item.work_status==4 || item.work_status==6}}">删除</view>
       <view class='delete' bindtap='evaluate' data-orderid='{{item.id}}' wx:if="{{item.work_status==4 && item.status!=3 }}">待评价</view>
       <view class='paystyle spacing' bindtap='payorder' data-orderid='{{item.id}}' wx:if="{{item.status == 0}}" data-price='{{item.price}}' data-classify_name='{{item.classify_name}}' data-orderno='{{item.order_no}}'>去支付</view>
-      <view class='delete spacing' bindtap='cancelorder' data-orderid='{{item.id}}' wx:if="{{item.status == 0 || item.work_status ==0}}">取消订单</view>
+      <view class='delete spacing' bindtap='cancelorder' data-orderid='{{item.id}}' wx:if="{{(item.status == 0 && item.work_status ==0) || (item.status == 0 || item.status == 1 && item.work_status ==0 )}}">取消订单</view>
     </view>
   </view>
 </view>

@@ -16,7 +16,11 @@ Page({
     cancelorder:'',
     serviceitemprice:"0.00",
     market_price:"0.00",
-    allPolicy:[]
+    allPolicy:[],
+    jsonobj:{
+      id:"",
+      mun:''
+    }
   },
 
   /**
@@ -25,7 +29,7 @@ Page({
   onLoad: function (options) {
 
     var that = this;
-    app.globalData.servicedetailindex = 0
+    app.globalData.servicedetailindex = 0;
     app.globalData.distance = options.distance;
 
     that.data.userid = app.globalData.userInfo.id;
@@ -138,13 +142,18 @@ Page({
     that.data.serviceitemprice = e.detail.serviceitemprice
     that.data.serviceitemmarketprice = e.detail.serviceitemmarketprice
 
+    that.data.serviceprojectname = e.detail.serviceprojectname
+
     app.globalData.serviceitemid = that.data.serviceitemid;
     app.globalData.serviceitemclassify = that.data.serviceitemclassify;
     app.globalData.serviceitemprice = that.data.serviceitemprice;
 
+    app.globalData.policyInfo = that.data.detailproject[app.globalData.servicedetailindex].classify_num
+
     that.setData({
       serviceitemprice: that.data.serviceitemprice,
-      market_price: that.data.serviceitemmarketprice
+      market_price: that.data.serviceitemmarketprice,
+      serviceprojectname: that.data.serviceprojectname
     })
 
   },
@@ -250,32 +259,34 @@ Page({
       for (var item in that.data.detailproject){
 
         // for ( var id in res.data[0].project){
-
-        //   if(id == that.data.detailproject[item].classify_id){
-            
+        //   if(id == that.data.detailproject[item].classify_id){       
         //     that.data.detailproject[item].classify_num = res.data[0].project[id];
-
         //   }
-
         // }
 
         for (var item1 in res.data) {
-
-          console.log("item1", res.data[item1])
 
           for (var item2 in res.data[item1].project) {
 
             if (item2 == that.data.detailproject[item].classify_id) {
 
-              console.log("dfff", res.data[item1].project[item2],item);
+              that.data.jsonobj={
+                id: res.data[item1].id,
+                num: res.data[item1].project[item2]
+              }
+             
+              // that.data.allPolicy.push(res.data[item1].project[item2])
 
-              that.data.allPolicy.push(res.data[item1].project[item2])
-
+              that.data.allPolicy.push(that.data.jsonobj)
               that.data.detailproject[item].classify_num = that.data.allPolicy;
+
+  
             }
           }
         }
-        console.log("ggg", that.data.detailproject[item].classify_num);
+
+        that.data.allPolicy = [];
+        
       }
 
       //值为0=false
@@ -410,7 +421,7 @@ Page({
 
           app.globalData.servicedetail = that.data.detailproject
 
-
+          app.globalData.policyInfo = that.data.detailproject[app.globalData.servicedetailindex].classify_num
           // app.globalData.servicedetailindex = 0
 
         }

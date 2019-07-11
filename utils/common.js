@@ -30,7 +30,7 @@ function requestInfor(params){
       method: params.type,
       header:{
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Cookie': 'PHPSESSID=' + app.globalData.userAllInfor.session_id 
+        'Cookie': 'PHPSESSID=' + app.globalData.userInfo.session_id 
       },
       data:params.data,
       success:function(res){

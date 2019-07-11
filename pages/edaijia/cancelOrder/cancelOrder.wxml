@@ -1,0 +1,22 @@
+<view class='tip'>已接单</view>
+<view class='time'>{{countdown}}</view>
+<view class='tip'>司机正在火速赶来,请耐心等待...</view>
+<view class='order-img'>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/pic_kongzhuangtai@2x.png'>
+    </image>
+</view>
+
+<view class='canceled-temporarily' bindtap='canceltemporarily'>暂不取消</view>
+<view class='sure-temporarily'  bindtap='suretemporarily'>确认取消</view>
+
+<view class='cancel-text'>3分钟内取消订单，无需支付消费单赔偿费</view>
+
+<view class='cancel-rule'>
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/icon_fontxiaogantanhao@2x.png"></image>
+    <text>取消规则</text>
+</view>
+
+<!-- <view class='tel'>
+    <text>客服电话:</text>
+    <text class='tel-num'>18686810731</text>
+</view> -->

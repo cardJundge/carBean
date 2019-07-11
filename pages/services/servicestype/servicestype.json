@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "my-service-modal": "/components/servicelist/servicelist"
+    "my-service-modal": "/components/servicelist/servicelist",
+    "my-location-modal": "/components/location/location"
   },
   "navigationBarTitleText": "服务",
   "enablePullDownRefresh": true

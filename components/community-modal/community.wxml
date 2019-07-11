@@ -95,26 +95,26 @@
 
         <view class='zan_rating_share'>
           <button class='zan_cell' catchtap='toThumnUp' id='{{item.id}}' wx:if='{{item.is_zan==0}}' data-item='{{index}}'>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Fabulous_h@2x.png'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_Fabulous_h@2x.png'></image>
             <text>{{item.zan}}</text>
           </button>
 
           <button class='zan_cell' catchtap='toCancelThumnUp' id='{{item.id}}' wx:else data-item='{{index}}'>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_Fabulous_n@2x .png'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_Fabulous_n@2x .png'></image>
             <text>{{item.zan}}</text>
           </button>
           <button class='rating_cell' catchtap='toDetail' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_comment@2x.png'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_comment@2x.png'></image>
             <text>{{item.comment}}</text>
           </button>
 
           <button class='share_cell' id='{{item.id}}' data-index='{{index}}' catchtap='toShare' open-type='share' wx:if="{{islogin}}">
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_share@2x.png'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_share@2x.png'></image>
             <text>{{item.share}}</text>
           </button>
 
           <button class='share_cell' id='{{item.id}}' data-index='{{index}}' catchtap='toShare' wx:else>
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_share@2x.png'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_share@2x.png'></image>
             <text>{{item.share}}</text>
           </button>
         </view>

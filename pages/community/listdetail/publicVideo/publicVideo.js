@@ -117,6 +117,8 @@ Page({
         title: '发布中...',
       })
       that.data.publicContent = e.detail.value.content
+
+      that.data.publicContent = common.utf16toEntities(that.data.publicContent)
       common.uploadDynamic(that).then(common.publicDynamic).then(function () {
         wx.showToast({
           title: '发布成功',
@@ -141,7 +143,7 @@ Page({
           grade: that.data.userInfo.grade[0],
           is_zan: 0,
           share: 0,
-          title: that.data.publicContent,
+          title: common.entitiesToUtf16(that.data.publicContent),
           location: app.globalData.latitude + ',' + app.globalData.longitude,
           address: app.globalData.address,
           user_id: that.data.userId,

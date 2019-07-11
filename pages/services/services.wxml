@@ -30,7 +30,7 @@
 
   <view class='goodlist'>
 
-  <view class="goodimg" style='background: url(https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/services/youhuishangjia1.png?sign=b5452425229201fb0c982d0664a6bbcd&t=1560673615) no-repeat left top; background-size: 100% 100%'  bindtap='goodservice' data-tag ="{{item.tags_id}}" data-title="{{item.title}}">
+  <view class="goodimg" style='background: url(https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/services/youhuishangjia1.png?sign=b5452425229201fb0c982d0664a6bbcd&t=1560673615) no-repeat left top; background-size: 100% 100%'  data-tag ="{{item.tags_id}}" data-title="{{item.title}}">
           <view class='white-mode'>
             <text class='goodtitle'>敬请期待</text>
             <!-- <text class='goodtips'>{{item.tips}}</text> -->
@@ -72,7 +72,7 @@
   </view> -->
 
   <my-service-modal servicelist="{{servicelist}}"  hostName='{{hostName}}' type='tabbar'/>
-  <my-location-modal show="{{locationshow}}" bind:hide="hideLoginModal"/>
+  <my-location-modal show="{{locationshow}}"/>
 
   <view class='noservice' hidden='{{noservice1}}'>
     <view>没有更多服务商了</view>

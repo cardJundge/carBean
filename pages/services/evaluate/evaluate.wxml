@@ -3,27 +3,27 @@
   <form bindsubmit='evaluaterelease'>
 
   <view class='title'>
-    <image class='serviceimg' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg'></image>
+    <image class='serviceimg' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/services/servicelogo.jpg'></image>
     <text>五座轿车标准洗车</text>
-    <image class='serviceimg' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/servicelogo.jpg'></image>
+    <image class='serviceimg' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/services/servicelogo.jpg'></image>
     <text>技师名称</text>
   </view>
 
   <view class='stars'>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='1' wx:if='{{stars1}}'></image>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='1' wx:else></image>
+    <image src='/images/service/full_star.png' class='starsimg' bindtap='addstars' data-startnum='1' wx:if='{{stars1}}'></image>
+    <image src='/images/service/star_o.png' class='starsimg' bindtap='addstars' data-startnum='1' wx:else></image>
 
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='2' wx:if='{{stars2}}'></image>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='2' wx:else></image>
+    <image src='/images/service/full_star.png' class='starsimg' bindtap='addstars' data-startnum='2' wx:if='{{stars2}}'></image>
+    <image src='/images/service/star_o.png' class='starsimg' bindtap='addstars' data-startnum='2' wx:else></image>
 
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='3' wx:if='{{stars3}}'></image>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='3' wx:else></image>
+    <image src='/images/service/full_star.png' class='starsimg' bindtap='addstars' data-startnum='3' wx:if='{{stars3}}'></image>
+    <image src='/images/service/star_o.png' class='starsimg' bindtap='addstars' data-startnum='3' wx:else></image>
 
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='4' wx:if='{{stars4}}'></image>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='4' wx:else></image>
+    <image src='/images/service/full_star.png' class='starsimg' bindtap='addstars' data-startnum='4' wx:if='{{stars4}}'></image>
+    <image src='/images/service/star_o.png' class='starsimg' bindtap='addstars' data-startnum='4' wx:else></image>
 
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/full_star.png' class='starsimg' bindtap='addstars' data-startnum='5' wx:if='{{stars5}}'></image>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/star_o.png' class='starsimg' bindtap='addstars' data-startnum='5' wx:else></image>
+    <image src='/images/service/full_star.png' class='starsimg' bindtap='addstars' data-startnum='5' wx:if='{{stars5}}'></image>
+    <image src='/images/service/star_o.png' class='starsimg' bindtap='addstars' data-startnum='5' wx:else></image>
   </view>
 
   <view class='camerawhole'>
@@ -35,7 +35,7 @@
   </block>
 
   <view class='camera-num' bindtap='addImage'>
-    <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_camera@2x.png' class='cameraimg'></image>
+    <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_camera@2x.png' class='cameraimg'></image>
   </view>
   </view>
   
@@ -43,13 +43,13 @@
   <view class='eva-content'>
     <textarea value='{{rating_contents}}' maxlength='200' name='intro' class='intro' bindfocus='evafocus'></textarea>
     <view class='promptslogans' hidden='{{promptslogans}}' >
-      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/circle.png' class='circleimg'></image>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/circle.png' class='circleimg'></image>
       <text class='promptsloganstext'>我们的服务您还满意么?</text>
     </view>
-    <view class='textwordnumber'>
-      <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/icon/circle.png' class='circle1img'></image>
+    <!-- <view class='textwordnumber'>
+      <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/circle.png' class='circle1img'></image>
       <text class='promptsloganstext'>200</text>
-    </view>
+    </view> -->
   </view>
 
   <button class="release" form-type='submit'>发布</button>
@@ -61,7 +61,7 @@
     <view class='auto-text'>评价成功！</view>
     <view class='auto-back'>{{num}}秒后自动返回...</view>
     <view>
-        <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/services/Bitmap@2x.png' class='cancellogo'></image>
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/cancellogo.png' class='cancellogo'></image>
     </view>
 </view>
 

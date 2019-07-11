@@ -8,7 +8,7 @@
         <view class='rating_content'>
           <view class='input_cell1'>
             <view style='position:relative'>
-              <textarea placeholder='给大家分享一下附近的有趣故事吧' value='{{rating_contents}}' name='intro' show-confirm-bar='{{false}}' bindinput='shareinput'>
+              <textarea placeholder='给大家分享一下附近的有趣故事吧' value='{{rating_contents}}' name='intro' show-confirm-bar='{{false}}' bindinput='shareinput' maxlength="10000">
               </textarea>
               <text class='circle'></text>
               <!-- <text class='circleB'></text>
@@ -29,7 +29,7 @@
         <view class='each_image' bindtap='addImage' style='text-align:center;' wx:if='{{imagecell.length<9}}'>
           <view style='width:90px;background:#fff;padding:13px 0px;'>
 
-            <image src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/icon_camera@2x.png' style='width:50px;height:40px'></image>
+            <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_camera@2x.png' style='width:50px;height:40px'></image>
             <view style='color:#ccc;font-size:12px;line-height:20px'>{{imagecell.length}}/9</view>
           </view>
         </view>

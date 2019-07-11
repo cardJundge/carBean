@@ -4,7 +4,7 @@
   <view class='outMap'>
 
       <view class='section'>
-        <template is='dynamicList' data='{{dynamicArr,hostName}}' />
+        <template is='dynamicList' data='{{dynamicArr,hostName,mine}}' />
         <view class='loading_img_cell' wx:if='{{loadedMore}}'>
           <image src='../../images/community/loading.gif'></image>
         </view>
