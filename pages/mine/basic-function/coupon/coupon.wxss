@@ -1,0 +1,81 @@
+/* 我的优惠券 */
+
+.container {
+}
+
+.coupon-record {
+  color: #a9a9a9;
+  width: 100%;
+  padding: 24rpx 28rpx;
+  text-align: right;
+}
+
+.coupon-list {
+  width: 702rpx;
+  margin: 0 auto;
+}
+
+.coupon-item {
+  width: 100%;
+  height: 180rpx;
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/coupon/yhq_lijishiyong.png?sign=d7f1c6ce7fb3802f3bda69b4d76c1c37&t=1562724535') no-repeat center;
+  background-size: 100% 100%;
+  padding: 32rpx 0 20rpx 76rpx;
+  color: #df4646;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24rpx;
+  position: relative;
+}
+
+.coupon-item-used {
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/coupon/yhq_ysy.png?sign=bd40f0ee62dd6eb843be0fd0063a2e1b&t=1562726407') no-repeat center;
+  background-size: 100% 100%;
+  color: #cbcbcb;
+}
+
+.use-btn {
+  position: absolute;
+  width: 110rpx;
+  height: 110rpx;
+  right: 28rpx;
+  top: 36rpx;
+}
+
+.item-text-top {
+  display: flex;
+  align-items: center;
+}
+
+.item-text-bottom {
+  font-size: 24rpx
+}
+
+.top-left {
+  font-family: PingFangSC-Semibold;
+  font-size: 70rpx;
+  margin-right: 4rpx;
+}
+
+.top-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-right text:first-child {
+  font-size: 34rpx;
+}
+
+.top-right text:last-child {
+  width: 212rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  text-align: center;
+  background-color: #df4646;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.top-right-used text:last-child {
+  background-color: #cbcbcb;
+}

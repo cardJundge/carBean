@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "xiche-qrcode": "/components/xiche-qrcode/xicheqrcode",
+    "null-modal": "/components/null/null"
+  },
+  "navigationBarTitleText": "优惠券"
+}

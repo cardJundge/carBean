@@ -134,6 +134,21 @@ Page({
       }
     })
   },
+  // 我的优惠券
+  onCoupon: function () {
+    var that = this
+    app.getSet((res) => {
+      if (!res) {
+        that.setData({
+          showLoginModal: true
+        })
+      } else {
+        wx.navigateTo({
+          url: './basic-function/coupon/coupon',
+        })
+      }
+    })
+  },
   // 我的保单
   onPolicy: function(e) {
     var that = this

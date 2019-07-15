@@ -1,0 +1,97 @@
+/* 洗车优惠券 */
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.modal-content {
+  padding-top: 28rpx;
+  position: relative;
+}
+
+.cose-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+}
+
+.cose-btn image {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.coupon-content {
+  width: 632rpx;
+  height: 722rpx;
+  background: url(https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/coupon/erweimatankuang.png?sign=acd3cc4598f4de6bce211d1e26da43d6&t=1562727965) no-repeat center;
+  background-size: 100% 100%;
+  position: relative;
+  padding-top: 34rpx;
+}
+
+.qr-code-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #DF4646;
+}
+
+.qr-code-content text:first-child {
+  font-size: 40rpx;
+  margin-bottom: 14rpx;
+}
+
+.qr-code-content view {
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.qr-code-content text:last-child {
+  margin-top: 14rpx;
+}
+
+.remarks {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 42rpx;
+  color: #fff;
+}
+
+.qr-code-img {
+  width: 260rpx;
+  height: 260rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-code-img image{
+  width: 180rpx;
+  height: 180rpx;
+  margin-bottom: 12rpx;
+}
+
+.qr-code-img-02 {
+  width: 260rpx;
+  height: 260rpx;
+}
+
+.qr-code-img-02 image {
+  width: 260rpx;
+  height: 260rpx;
+}

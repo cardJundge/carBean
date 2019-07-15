@@ -4,6 +4,7 @@
     "my-bottom-modal": "/components/bottom-modal/bottom",
     "my-activity-item": "/components/activity-item/activity",
     "my-login-modal": "/components/login/login",
-    "my-location-modal": "/components/show-setting/setting"
+    "my-location-modal": "/components/show-setting/setting",
+    "my-coupon-modal": "/components/coupon/coupon"
   }
 }

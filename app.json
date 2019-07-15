@@ -64,7 +64,9 @@
     "pages/edaijia/driverstate/driverstate",
     "pages/edaijia/epay/epay",
     "pages/edaijia/sureCancel/sureCancel",
-    "pages/edaijia/cancelOrder/cancelOrder"
+    "pages/edaijia/cancelOrder/cancelOrder",
+    "pages/mine/basic-function/coupon/coupon",
+    "pages/mine/basic-function/coupon/coupon-details/details"
 
   ],
   "window": {

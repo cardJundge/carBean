@@ -202,6 +202,7 @@ Page({
           isOver: false,
         })
         if (res.data.status == 1) {
+          app.globalData.coupon = res.data.coupon.id
           that.setData({
             beanLogTit: '评价',
             beanLogBean: '+5',
@@ -717,6 +718,7 @@ function getBean(that) {
       bean: that.data.beanLogBean
     },
     success: function (res) {
+     
       wx.setStorageSync('userBean', wx.getStorageSync('userBean') + 3)
       utils.beanLog(that)
       // var dataType = typeof res.data

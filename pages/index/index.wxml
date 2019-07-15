@@ -139,6 +139,7 @@
   <my-bottom-modal animationData="{{animationData}}" show="{{showBottomModal}}" title="{{title}}" tag="{{tag}}" img="{{imgLogoUrl}}" list="{{modalList}}" hascar="{{hasCar}}"  bind:confirm="confirm"  defaultCar="{{defaultCar}}"/>
   <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>
   <my-location-modal show="{{showLocationModal}}"/>
+  <my-coupon-modal show="{{showCouponModal}}" couponId="{{coupon}}"/>
 </view>
 <view class="container-mask" wx:if="{{!hasUserInfo}}" style="height:{{mainHeight}}px">
   <button class="btn-reward-box" open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>

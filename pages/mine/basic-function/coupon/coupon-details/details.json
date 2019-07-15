@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "null-modal": "/components/null/null"
+  },
+  "navigationBarTitleText": "使用记录"
+}

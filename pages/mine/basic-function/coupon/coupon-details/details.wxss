@@ -1,0 +1,33 @@
+/* 优惠券使用明细 */
+
+.container {
+}
+
+.use-list {
+  width: 702rpx;
+  margin: 0 auto;
+}
+
+.use-item {
+  width: 100%;
+  height: 126rpx;
+  border-bottom: 2rpx solid #c6c6c6;
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx 0 12rpx;
+}
+
+.use-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6rpx;
+}
+
+.use-text text:last-child {
+  color: #989898;
+}
+
+.card-num {
+  color: #989898;
+}

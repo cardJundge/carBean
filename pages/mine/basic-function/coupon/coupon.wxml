@@ -1,0 +1,33 @@
+<!--我的优惠券-->
+<view class="container">
+  <view class="coupon-record" bind:tap="toUseDetail">使用记录</view>
+  <view class="coupon-list" wx:if="{{!noCunqon}}">
+   <!-- 未使用的 -->
+    <view class="coupon-item" wx:for="{{couponArray}}" wx:key="" wx:if="{{item.status == 2}}">
+      <view class="item-text-top">
+        <view class="top-left">洗车</view>
+        <view class="top-right">
+          <text>优惠券</text>
+          <text>{{item.card_no}}</text>
+        </view>
+      </view>
+      <view class="item-text-bottom">有效期：{{item.start_time}}-{{item.end_time}}</view>
+      <view class="use-btn" bind:tap="showQrCode" data-coupon="{{item.id}}"></view>
+    </view>
+    <!-- 已使用的 -->
+    <view class="coupon-item coupon-item-used" wx:for="{{couponArr}}" wx:if="{{item.status == 3}}">
+      <view class="item-text-top">
+        <view class="top-left">洗车</view>
+        <view class="top-right top-right-used">
+          <text>优惠券</text>
+          <text>{{item.card_no}}</text>
+        </view>
+      </view>
+      <view class="item-text-bottom">有效期：{{item.start_time}}-{{item.end_time}}</view>
+    </view>
+  </view>
+  <view class="no-cunpon-img" wx:if="{{noCunqon}}">
+    <null-modal img="{{'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/no_cunqon.png'}}" text01="暂无优惠券" width="306" height="296" btnHidden="true"/>
+  </view>
+  <xiche-qrcode show="{{showCouponModal}}" imgCouponUrl="{{imgUrl}}"/>
+</view>

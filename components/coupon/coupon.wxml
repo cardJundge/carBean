@@ -1,0 +1,14 @@
+<!--弹出领取优惠券-->
+<view class="container" wx:if="{{show}}" catchtouchmove="ture">
+  <view class="modal-content">
+  <view class="close-btn" bind:tap="hideModal">
+    <image src="/images/mine/coupon/guanbi.png" />
+  </view>
+    <view class="coupon-img">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/coupon.png" />
+    </view>
+    <view class="coupon-btn" bind:tap="getCoupon">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/btn_lijilingqu.png" />
+    </view>
+  </view>
+</view>

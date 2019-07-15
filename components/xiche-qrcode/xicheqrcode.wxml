@@ -1,0 +1,22 @@
+<!--洗车优惠券-->
+<view class="container" wx:if="{{show}}" catchtouchmove="ture">
+  <view class="modal-content">
+    <view class="cose-btn">
+      <image src="/images/mine/coupon/guanbi.png" bind:tap="hideModal" />
+    </view>
+    <view class="coupon-content">
+      <view class="qr-code-content">
+        <text>洗车优惠券</text>
+        <view class="qr-code-img" wx:if="{{!imgCouponUrl}}">
+          <image src="/images/code.gif" />
+          <text>二维码生成中...</text>
+        </view>
+        <view class="qr-code-img-02" wx:if="{{imgCouponUrl}}">
+          <image src="data:image/png;base64,{{imgCouponUrl}}" />
+        </view>
+        <text>卡号：384932948</text>
+      </view>
+      <text class="remarks">备注：使用时请给服务商出示二维码</text>
+    </view>
+  </view>
+</view>

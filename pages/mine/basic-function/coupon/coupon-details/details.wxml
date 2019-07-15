@@ -1,0 +1,15 @@
+<!--优惠券使用记录-->
+<view class="container">
+  <view class="use-list" wx:if="{{!noCunqon}}">
+    <view class="use-item" wx:for="{{detailList}}" wx:key="">
+      <view class="use-text">
+        <text>服务商：{{item.service_name}}</text>
+        <text>{{item.use_time}}</text>
+      </view>
+      <view class="card-num">卡号：{{item.card_no}}</view>
+    </view>
+  </view>
+  <view class="no-cunpon-img" wx:if="{{noCunqon}}">
+    <null-modal img="{{'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/no_cunqon.png'}}" text01="暂无优惠券" width="306" height="296" btnHidden="true"/>
+  </view>
+</view>
