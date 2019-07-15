@@ -33,7 +33,7 @@
 
 <form bindsubmit='submitPublic'>
 
-<view class="reply_bg" style="bottom:{{focus?height:0}}px">
+<view class="reply_bg" style="bottom:{{focus?height:6}}px">
   <textarea class="{{detail?'reply_':'reply_1'}}" fixed='true' adjust-position="{{false}}" placeholder='{{logo}}'cursor-spacing='0' bindfocus="textinput" bindblur="distext" name='content' value='{{re_content}}' focus="{{focus}}" show-confirm-bar="{{false}}"  fixed="true"></textarea>
 
 <block wx:if="{{!dianzan}}">

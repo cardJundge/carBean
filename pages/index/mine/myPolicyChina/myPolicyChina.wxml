@@ -12,8 +12,18 @@
 <!-- 绑定的保单的主要内容 -->
   <view class='main_content' animation="{{animationData}}" wx:if='{{hasBinling&&loaded&&showLogo}}'>
     <view class='item_cellc'>
-      <view class='{{activeItem==index?"itemc":""}}' wx:for='{{policyArr}}' wx:for-item='item' wx:key="" id='{{index}}' bindtap='changePolicy'>保单{{chinaNumber[index]}}</view>
-      <text class='fa fa-plus-circle' bindtap='addMore'></text>
+      <!-- <view class='{{activeItem==index?"itemc":""}}' wx:for='{{policyArr}}' wx:for-item='item' wx:key="" id='{{index}}' bindtap='changePolicy'>保单{{chinaNumber[index]}}</view> -->
+    
+    <view class="swiper-tab">
+    <view  wx:key="index"  wx:for='{{policyArr}}' wx:for-item='item' wx:key="" id='{{index}}' bindtap='changePolicy'  class="swiper-tab-list {{activeItem==index ? 'active' : ''}}">
+      <view>保单{{chinaNumber[index]}}</view>
+      <view class="{{activeItem==index ? 'line1' : ''}}"></view>
+    </view>
+     <!-- <text class='fa fa-plus-circle' bindtap='addMore'></text> -->
+     <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/add.png" class="add-img" bindtap='addMore'></image>
+  </view>
+
+     
     </view>
     <view class='all_content'>
       <view class='policy_infor'>

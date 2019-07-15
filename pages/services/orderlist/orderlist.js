@@ -3,6 +3,9 @@
 import { OrderList } from 'orderlistmode.js';
 
 var orderlist = new OrderList();
+
+var app = getApp();
+
 Page({
 
   /**
@@ -28,25 +31,9 @@ Page({
       currentTab: 0
     })
 
-    orderlist.myOrder(that.data.status,that.data.work_status,that.data.page,res=>{
-      if(res.status == 1){
+    app.globalData.currentTab = 0
 
-        if (res.data.length>0){
-          
 
-          that.setData({
-            orderlistitem: res.data,
-            noorder:false
-          })
-        }else{
-          that.setData({
-            orderlistitem: res.data,
-            noorder: true,
-            orderinfor:''
-          })
-        }
-      }
-    })
   },
 
   onsend:function(e){
@@ -55,12 +42,15 @@ Page({
     var status = e.detail.status;
     var work_status = e.detail.work_status 
 
-    console.log("jjj", orderlistitem, status);
+    app.globalData.currentTab = e.detail.currentTab
+
+    console.log("jjj", orderlistitem, status, e.detail.currentTab);
 
     if (e.detail.res.data.length>0){
 
       that.setData({
         orderlistitem: orderlistitem,
+        currentTab: app.globalData.currentTab,
         noorder:false
       })
     }else{
@@ -114,6 +104,43 @@ Page({
    */
   onShow: function () {
 
+    var that = this
+
+
+    if (app.globalData.currentTab == 0) {
+      that.data.status = ''
+      that.data.work_status = ''
+
+    } else if (app.globalData.currentTab == 1) {
+      that.data.work_status = "4"
+      that.data.status = ""
+    } else if (app.globalData.currentTab == 2) {
+      that.data.status = "4"
+      that.data.work_status = ""
+    } else if (app.globalData.currentTab == 3) {
+      that.data.status = "3"
+      that.data.work_status = ""
+    }
+
+    orderlist.myOrder(that.data.status, that.data.work_status, that.data.page, res => {
+      if (res.status == 1) {
+
+        if (res.data.length > 0) {
+
+          that.setData({
+            orderlistitem: res.data,
+            currentTab: app.globalData.currentTab,
+            noorder: false
+          })
+        } else {
+          that.setData({
+            orderlistitem: res.data,
+            noorder: true,
+            orderinfor: ''
+          })
+        }
+      }
+    })
   },
 
   /**

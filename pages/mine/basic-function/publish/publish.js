@@ -129,6 +129,8 @@ Page({
     console.log(JSON.stringify(e));
     let dynamicArr = JSON.stringify(e.currentTarget.dataset.dynamicarr);
 
+    app.globalData.dynamicArr = e.currentTarget.dataset.dynamicarr;
+
     that.data.page = 1;
 
     wx.navigateTo({
@@ -375,14 +377,18 @@ Page({
           } else {
             for (var i in res.data) {
               if (res.data[i].type == 1) {
-                if (res.data[i].content) {
-                  res.data[i].imagecell = res.data[i].content.split(',')
+                
+                if (res.data[i].content) {                 
+                  res.data[i].imagecell = res.data[i].content.split(',');
                 }
+                res.data[i].title = common.entitiesToUtf16(res.data[i].title);
               } else if (res.data[i].type == 2) {
                 if (res.data[i].content) {
                   res.data[i].voiceduration = res.data[i].content.split('?')[1];
                   res.data[i].voiceisplaying = false
                 }
+              } else {
+                res.data[i].title = common.entitiesToUtf16(res.data[i].title);
               }
               that.data.dynamicArr.push(res.data[i])
 
@@ -450,6 +456,8 @@ Page({
           } else {
             for (var i in res.data) {
               if (res.data[i].type == 1) {
+
+                res.data[i].title = common.entitiesToUtf16(res.data[i].title);
                 if (res.data[i].content) {
                   res.data[i].imagecell = res.data[i].content.split(',')
                 }
@@ -458,6 +466,9 @@ Page({
                   res.data[i].voiceduration = res.data[i].content.split('?')[1];
                   res.data[i].voiceisplaying = false
                 }
+              }else{
+
+                res.data[i].title = common.entitiesToUtf16(res.data[i].title);
               }
               that.data.dynamicArr.push(res.data[i])
             }

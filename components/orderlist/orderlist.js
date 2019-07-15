@@ -45,7 +45,8 @@ Component({
         that.triggerEvent('send', {
           res: res,
           status: that.data.status,
-          work_status: that.data.work_status
+          work_status: that.data.work_status,
+          currentTab: that.data.currentTab
         })
 
       })

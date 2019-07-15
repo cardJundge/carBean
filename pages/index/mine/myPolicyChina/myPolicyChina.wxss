@@ -11,30 +11,84 @@ page {
   color: #fff;
 } */
 
+/* .whole{
+  position: relative;
+  display: flex;
+} */
+
+.swiper-tab {
+  /* width: 100%; */
+  text-align: center;
+  line-height: 50rpx;
+  display: flex;
+  flex-wrap: wrap;
+  /* background: #fff; */
+  font-family: PingFangSC-Medium;
+  /* position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000; */
+  padding-bottom: 14rpx;
+  position: relative;
+  top: 10rpx;
+}
+.swiper-tab-list {
+  font-size: 30rpx;
+  color: #777777;
+  padding-left: 30rpx;
+  /* position: relative; */
+  letter-spacing: 2rpx;
+}
+.active {
+  color: #000;
+  /* border-bottom: 5rpx solid #000; */
+  font-weight: 600;
+  font-size: 40rpx;
+}
+
+.line1{
+  width: 36rpx;
+  height: 10rpx;
+  background: #1a84ff;
+  margin: 10rpx auto;
+  border-radius: 30px;
+}
+
+
 .main_content {
   margin-top: 60rpx;
 }
 
 .item_cellc {
   text-align: left;
-  margin: 0 30rpx;
+  /* margin: 0 30rpx; */
 }
 
-.item_cellc view {
+/* .item_cellc view {
   display: inline-block;
   margin-right: 28rpx;
   line-height: 68rpx;
   font-size: 36rpx;
   color: #939393;
-}
+} */
 
 .item_cellc text {
-  float: right;
+  /* float: right; */
   color: #1a84ff;
   border-radius: 50%;
-  box-shadow: 0 0 20rpx #c0c0c0;
-  margin-top: 24rpx;
+  /* box-shadow: 0 0 20rpx #c0c0c0; */
+  /* margin-top: 24rpx; */
   font-size: 60rpx;
+  position: absolute;
+  right: 30rpx;
+}
+
+.add-img{
+  position: absolute;
+  right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .itemc {
@@ -116,7 +170,7 @@ page {
 }
 
 .policy_tit .line {
-  border-left: 2px solid #b70224;
+  /* border-left: 2px solid #b70224; */
 }
 
 .each_service image {

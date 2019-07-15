@@ -22,6 +22,16 @@ Page({
     introArr: []
   },
 
+
+  // switchnav: function (e) {
+  //   var that = this;
+
+  //   that.setData({
+  //     currentTab: e.currentTarget.dataset.index
+  //   })
+
+  // },
+
   toMyOrder: function() {
     this.data.activeId = this.data.activeSertvice.id
     app.globalData.activePolicy = {
@@ -248,6 +258,10 @@ Page({
           that.setData({
             bindings: true
           })
+        } else if (res.data.status == -2){
+          that.setData({
+            bindings: true
+          })
         }
       },
     })
@@ -368,6 +382,8 @@ Page({
 
   },
   changePolicy: function(e) {
+
+    console.log("hhhhhhhhhh", e, this.data.policyArr);
     this.setData({
       activeItem: e.currentTarget.id,
       activeSertvice: this.data.policyArr[e.currentTarget.id]

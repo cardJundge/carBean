@@ -47,16 +47,16 @@ Page({
 
         for (var item in that.data.beanLis){
           
-          that.data.total.push(that.data.beanLis[item])
+          that.data.beanList.push(that.data.beanLis[item])
         }
 
-        console.log("ggg",that.data.total);
+        console.log("ggg", that.data.beanList);
 
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh() //停止下拉刷新
 
         that.setData({
-          beanList: that.data.total,
+          beanList: that.data.beanList,
           showMsgNull: false
         })
       } else {

@@ -1,7 +1,7 @@
 /* pages/index/gonglue/gonglue.wxss */
 .cantainer{
   width: 100%;
-  background: url("https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/home/gongluebg.png?sign=2aaed35714ea754fb768a24788a436f4&t=1560412423") no-repeat left top;
+  background: url("https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/services/gongluebg.png?sign=e13fd8a02b2b6ac3d439f9aa6edf9cd2&t=1562830386") no-repeat left top;
   background-size: 100% 100%;
   position: absolute;
   top: 0;

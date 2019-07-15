@@ -47,10 +47,10 @@
   <canvas canvas-id='handleCanvas' hidden='true' ></canvas>
 
   <!-- 控件 -->
-      <cover-image class='scale_icon_add' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/mapInc.png' bindtap='enlargeMap' hidden='{{setshow}}'></cover-image>
-      <cover-image class='scale_icon_decrease' src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/mapDec.png' bindtap='narrowMap'  hidden='{{setshow}}'></cover-image>
+      <cover-image class='scale_icon_add' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/mapInc.png' bindtap='enlargeMap' hidden='{{setshow}}'></cover-image>
+      <cover-image class='scale_icon_decrease' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/mapDec.png' bindtap='narrowMap'  hidden='{{setshow}}'></cover-image>
 
-      <cover-image  class="setting" src='cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/community/setting.png' bindtap="mylocation"  hidden='{{setshow}}'></cover-image>
+      <cover-image  class="setting" src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/setting.png' bindtap="mylocation"  hidden='{{setshow}}'></cover-image>
 
    
 

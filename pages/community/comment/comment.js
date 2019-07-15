@@ -92,6 +92,7 @@ Page({
     // that.data.dynamicArr = JSON.parse(options.dynamicArr);
 
     console.log("GGGG", that.data.dynamicArr);
+    console.log("hhhhh", app.globalData.userInfo.id)
 
     that.setData({
       dynamicArr: [that.data.dynamicArr],

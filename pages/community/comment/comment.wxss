@@ -52,7 +52,8 @@ height: 2.3em
   /* bottom: 0; */
   z-index: 1000;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  
 }
 
 .reply_{
@@ -60,7 +61,7 @@ height: 2.3em
   border-radius: 5px;
   font-size: 14px;
   /* margin: 4% 0 0 6%; */
-  /* width: 72%; */
+  width: 64%;
   background: #fff;
   /* line-height: 40rpx; */
   /* padding-top: 2%; */
@@ -70,7 +71,7 @@ height: 2.3em
   padding-top: 20rpx;
   height: 70rpx;
   padding-left: 20rpx;
-  
+  margin-left: 22rpx;
 }
 
 .reply_1{
@@ -84,7 +85,8 @@ height: 2.3em
   /* margin-left: 6%; */
   margin-top: 20rpx;
   padding-top: 6rpx;
-
+  width: 64%;
+  margin-left: 22rpx;
 }
 
 .reply_title{
@@ -124,7 +126,8 @@ height: 2.3em
   position: fixed;
   right: 4%;
   bottom: 1rpx   */
-  margin-top: 14rpx;
+  margin-top: 17rpx;
+  margin-right: 22rpx;
 }
 
 .dianzan image{
@@ -157,6 +160,7 @@ height: 2.3em
   padding-right: 14px;
   line-height: 2.5;
   /* text-align: center; */
+  margin-right: 22rpx;
 }
 
 

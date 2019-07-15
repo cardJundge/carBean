@@ -74,13 +74,18 @@
   padding: 20rpx 0;
 }
 
+.close1{
+  width: 60rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 6rpx;
+  top: 24rpx;
+}
+
 .close{
   width: 40rpx;
   height: 14rpx;
   background: white;
-  position: absolute;
-  right: 20rpx;
-  top: 24rpx;
   border-radius: 30rpx; 
 }
 
@@ -88,6 +93,7 @@ li{
   display: flex;
   align-items: center;
   width: 180rpx;
+  height: 70rpx;
 }
 
 .circle{

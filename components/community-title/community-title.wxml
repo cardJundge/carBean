@@ -13,9 +13,13 @@
       <image src="/images/community/sidelabel.png"></image>
     </view>
     <view class='com-style' wx:else animation="{{animationout}}">
-      <view class='close' bindtap='close'></view>
+
+      <view class="close1" bindtap='close'>
+        <view class='close'></view>
+      </view>
+      
       <block wx:for="{{sidelist}}" wx:key="">
-        <ul wx:if="{{index == 0}}" style="margin-top:40rpx" bindtap="selectitem" data-index="{{index}}">
+        <ul wx:if="{{index == 0}}" style="margin-top:50rpx" bindtap="selectitem" data-index="{{index}}">
           <li wx:if="{{index==sidetab}}" style="justify-content:space-between;">
             <view class='circle' wx:if="{{index==sidetab}}"></view>
             <view>{{item}}</view>

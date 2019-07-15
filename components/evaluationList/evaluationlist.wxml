@@ -66,7 +66,7 @@
 
     </view>
 
-    <view class='delete' catchtap='deleteEva' data-evaid = "{{item.id}}"  data-dynamicid="{{item.dynamic_id}}"  wx:if="{{item.to_uid == userid}}">
+    <view class='delete' catchtap='deleteEva' data-evaid = "{{item.id}}"  data-dynamicid="{{item.dynamic_id}}"  wx:if="{{item.from_uid == userid }}">
       <view class='dot'></view>
       <view class='dot'></view>
       <view class='dot'></view>

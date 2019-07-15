@@ -85,3 +85,8 @@
 .spacing{
   margin-right: 8rpx;
 }
+
+.bg{
+  background: rgb(85, 157, 240);
+  color: white;
+}

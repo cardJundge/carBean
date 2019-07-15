@@ -12,8 +12,8 @@
     <view class='stars'>
       <view wx:for='{{starts}}' wx:for-item='item' class='stars-cell' bindtap='ratingStar' id='{{item.id}}'>
         <view>
-          <image src='/images/star_o.png' wx:if='{{item.color=="grey"}}'></image>
-          <image src='/images/full_star.png' wx:if='{{item.color=="yellow"}}'></image>
+          <image src='/images/service/star_o.png' wx:if='{{item.color=="grey"}}'></image>
+          <image src='/images/service/full_star.png' wx:if='{{item.color=="yellow"}}'></image>
         </view>
       </view>
     </view>

@@ -146,9 +146,18 @@ Page({
         } else {
           for (var i in res.data) {
             if (res.data[i].type == 1) {
+
+              res.data[i].title = common.entitiesToUtf16(res.data[i].title);
               if (res.data[i].content) {
                 res.data[i].imagecell = res.data[i].content.split(',')
               }
+            } else if (res.data[i].type == 2) {
+              if (res.data[i].content) {
+                res.data[i].voiceduration = res.data[i].content.split('?')[1];
+                res.data[i].voiceisplaying = false
+              }
+            } else {
+              res.data[i].title = common.entitiesToUtf16(res.data[i].title);
             }
             that.data.dynamicArr.push(res.data[i])
 
@@ -625,9 +634,11 @@ Page({
 
   //地图marker进去详情也
   markerstap: function (e) {
-    console.log("ddd", e);
+    console.log("dddddddddddddd", e);
     var id = e.markerId;
     community.dynamicInfo(id, res => {
+
+      console.log("hhhhhhh",res);
 
       if (res.status == 1) {
 
@@ -635,10 +646,14 @@ Page({
           if (res.data.content) {
             res.data.imagecell = res.data.content.split(',')
           }
+          res.data.title = common.entitiesToUtf16(res.data.title);
         } else if (res.data.type == 2) {
           if (res.data.content) {
             res.data.voiceduration = res.data.content.split('?')[1];
           }
+        } else{
+
+          res.data.title = common.entitiesToUtf16(res.data.title);
         }
 
         app.globalData.dynamicArr = res.data

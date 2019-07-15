@@ -4,7 +4,11 @@
   <view class='serviceitem' bindtap='itemdetail' data-detail='{{item}}'>
     <image class='serviceimg' src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/services/servicelogo.jpg'></image>
     <view class='servicename-price'>
-      <text>{{item.short_name}}</text>
+      <text wx:if="{{item.short_name}}">{{item.short_name}}</text>
+      <text wx:else>
+        <text wx:if="{{item.name.length>10}}">{{item.name.substring(0,10)}}</text>
+        <text>{{item.name}}</text>
+      </text>
       <text>5.00</text>
     </view>
     <view></view>

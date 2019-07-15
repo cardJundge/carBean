@@ -4,7 +4,8 @@ var orderlist = new OrderList();
 //订单列表
 Component({
   properties: {
-    orderlistitem: Array
+    orderlistitem: Array,
+    currentTab: Number
   },
   data: {
 
