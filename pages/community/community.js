@@ -1433,8 +1433,8 @@ function draw(that, item) {
             width: that.remSize(42),
             height: that.remSize(42),
             canvasId: 'handleCanvas',
-            // destWidth: that.remSize(42)*4,
-            // destHeight:that.remSize(42) * 4,
+            // destWidth: that.remSize(42)*2,
+            // destHeight: that.remSize(42) * 2,
             success(res) {
 
               ctx.drawImage(res.tempFilePath, 0, 0, that.remSize(42), that.remSize(42))
