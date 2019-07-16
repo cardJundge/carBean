@@ -48,6 +48,8 @@ Page({
       searchKeys: that.data.searchKeys
     })
 
+    
+    that.data.total = [];
     services.getServiceList(that,res=>{
 
       console.log("res",res);

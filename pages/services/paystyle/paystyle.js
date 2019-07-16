@@ -321,9 +321,16 @@ Page({
             if (res.status == 1) {
 
               if (app.globalData.policyInfo[that.data.arrindex].num !="不限"){
+
+                var temp = 'policyInfo[' + that.data.arrindex + '].num'
+
+
                 that.setData({
-                  policyInfo: that.data.policyInfo[that.data.arrindex].num --
+                  [temp]: --that.data.policyInfo[that.data.arrindex].num,
+                  policyInfo: that.data.policyInfo
                 })
+
+                console.log("$$$", that.data.policyInfo);
               }
 
               wx.redirectTo({
