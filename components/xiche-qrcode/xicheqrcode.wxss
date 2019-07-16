@@ -61,7 +61,7 @@
 }
 
 .qr-code-content text:last-child {
-  margin-top: 14rpx;
+  /* margin-top: 14rpx; */
 }
 
 .remarks {

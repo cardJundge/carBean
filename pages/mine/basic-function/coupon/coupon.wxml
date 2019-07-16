@@ -12,7 +12,7 @@
         </view>
       </view>
       <view class="item-text-bottom">有效期：{{item.start_time}}-{{item.end_time}}</view>
-      <view class="use-btn" bind:tap="showQrCode" data-coupon="{{item.id}}"></view>
+      <view class="use-btn" bind:tap="showQrCode" data-coupon="{{item.id}}" data-num="{{item.card_no}}"></view>
     </view>
     <!-- 已使用的 -->
     <view class="coupon-item coupon-item-used" wx:for="{{couponArr}}" wx:if="{{item.status == 3}}">
@@ -29,5 +29,5 @@
   <view class="no-cunpon-img" wx:if="{{noCunqon}}">
     <null-modal img="{{'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/no_cunqon.png'}}" text01="暂无优惠券" width="306" height="296" btnHidden="true"/>
   </view>
-  <xiche-qrcode show="{{showCouponModal}}" imgCouponUrl="{{imgUrl}}"/>
+  <xiche-qrcode show="{{showCouponModal}}" imgCouponUrl="{{imgUrl}}" couponNum="{{couponNumber}}"/>
 </view>

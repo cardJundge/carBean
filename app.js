@@ -154,8 +154,8 @@ App({
 
   globalData: {
     userInfo: '',
-    hostName:'https://dev.feecgo.com',
-    // hostName: 'http://192.168.1.108',
+    // hostName:'https://dev.feecgo.com',
+    hostName: 'http://192.168.1.108',
     // hostName: 'https://www.chedou123.cn',
     server: null,
     appkey: '61000252',

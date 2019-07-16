@@ -55,7 +55,8 @@ Page({
       responseType: 'arraybuffer',
       success: (res)=> {
         that.setData({
-          imgUrl: wx.arrayBufferToBase64(res.data)
+          imgUrl: wx.arrayBufferToBase64(res.data),
+          couponNumber: e.target.dataset.num
         })
       }
     })

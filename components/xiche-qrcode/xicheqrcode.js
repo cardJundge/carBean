@@ -3,7 +3,8 @@
 Component({
   properties: {
     show: Boolean,
-    imgCouponUrl: String
+    imgCouponUrl: String,
+    couponNum: Number
   },
   data: {
 

@@ -14,7 +14,7 @@
         <view class="qr-code-img-02" wx:if="{{imgCouponUrl}}">
           <image src="data:image/png;base64,{{imgCouponUrl}}" />
         </view>
-        <text>卡号：384932948</text>
+        <text>卡号：{{couponNum}}</text>
       </view>
       <text class="remarks">备注：使用时请给服务商出示二维码</text>
     </view>
