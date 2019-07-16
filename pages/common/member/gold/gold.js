@@ -55,7 +55,7 @@ Page({
     var params = {
       body: '黄金套餐',
       openId: that.data.basicUserInfo.openId_chedou,
-      money: '0.01',
+      money: '368',
       type: '1'
     }
     memberModel.toBuyMember(params, (res) => {

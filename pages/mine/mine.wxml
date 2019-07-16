@@ -82,18 +82,18 @@
             <text>我的订单</text>
           </view>
           
-          <!-- <view class="basic-item" bind:tap="onExchange">
+          <view class="basic-item" bind:tap="onExchange">
             <view class="basic-img">
               <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/mine/icon_jifenduihuan@2x.png" />
             </view>
             <text>兑换礼品</text>
-          </view> -->
-           <view class="basic-item" bind:tap="onCoupon">
+          </view>
+           <!-- <view class="basic-item" bind:tap="onCoupon">
             <view class="basic-img">
               <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/mine/icon_jifenduihuan@2x.png" />
             </view>
             <text>优惠券</text>
-          </view>
+          </view> -->
           <!-- <view class="basic-item" bind:tap="onMember">
             <view class="basic-img">
               <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/icon_wodehuiyuan@2x.png" />

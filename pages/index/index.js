@@ -56,18 +56,18 @@ Page({
   onLoad: function() {
     var that = this
     // console.log('用户是否授权信息', res)
-    var coupon = app.globalData.coupon
+    // var coupon = app.globalData.coupon
     // var coupon = 31
-    if (coupon) {
-      that.setData({
-        showCouponModal: true,
-        coupon: coupon
-      })
-    } else {
-      that.setData({
-        showCouponModal: false
-      })
-    } 
+    // if (coupon) {
+    //   that.setData({
+    //     showCouponModal: true,
+    //     coupon: coupon
+    //   })
+    // } else {
+    //   that.setData({
+    //     showCouponModal: false
+    //   })
+    // } 
     if(!app.globalData.userInfo){
       app.getAuth((data) => {
         that.setData({
