@@ -17,26 +17,36 @@ Page({
   },
   getCouponList: function() {
     couponModel.couponList(res=> {
-      var couponArr = []
-      var couponArray = []
-      res.data.forEach((item)=> {
-        item.start_time = item.start_time.substring(0, 10).split('-').join('/')
-        item.end_time = item.end_time.substring(0, 10).split('-').join('/')
-        if(item.status == 2) {
-          couponArray.push(item)
-          this.setData({
-            couponArray: couponArray
-          })
-          console.log
-        } else {         
-          couponArr.push(item)
-          this.setData({
-            couponArr: couponArr
-          })
-        }
-      })
+      if(res.status == 1) {
+        this.setData({
+          noCunqon: false
+        })
+        var couponArr = []
+        var couponArray = []
+        res.data.forEach((item) => {
+          item.start_time = item.start_time.substring(0, 10).split('-').join('/')
+          item.end_time = item.end_time.substring(0, 10).split('-').join('/')
+          if (item.status == 2) {
+            couponArray.push(item)
+            this.setData({
+              couponArray: couponArray
+            })
+            console.log
+          } else {
+            couponArr.push(item)
+            this.setData({
+              couponArr: couponArr
+            })
+          }
+        })
+
+        console.log(this.data.couponArray)
+      } else {
+        this.setData({
+          noCunqon: true
+        })
+      }
       
-      console.log(this.data.couponArray)
     })
   },
   // 立即使用的二维码
