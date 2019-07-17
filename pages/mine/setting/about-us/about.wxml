@@ -2,9 +2,9 @@
 <view class="container">
   <view class="about">
     <view class="about-img">
-      <image src="cloud://cheguanjia1-beb14e.6368-cheguanjia1-beb14e/home/logo.png" />
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/logo.png" />
     </view>
-    <text class="about-title">114车管家</text>
-    <text>v1.0.0</text>
+    <text class="about-title">车豆</text>
+    <text>v1.14.1</text>
   </view>
 </view>

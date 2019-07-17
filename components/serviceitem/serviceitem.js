@@ -3,7 +3,8 @@ var app = getApp();
 Component({
 
   properties: {
-    serviceitem: Array
+    serviceitem: Array,
+    stores:Array
   },
 
   data: {
@@ -13,6 +14,8 @@ Component({
   methods: {
 
     serviceitemdetail:function(e){
+
+      var that = this
 
       var classify_id = e.currentTarget.dataset.itemdetails.classify_id;
       var projectid = e.currentTarget.dataset.itemdetails.id;
@@ -26,7 +29,7 @@ Component({
       console.log("444", e.currentTarget.dataset);
 
       wx.navigateTo({
-        url: '../itemdetails/itemdetails?classify_id=' + classify_id + '&projectid=' + projectid + '&market_price=' + market_price + '&platform_price=' + platform_price + '&order=' + order,
+        url: '../itemdetails/itemdetails?classify_id=' + classify_id + '&projectid=' + projectid + '&market_price=' + market_price + '&platform_price=' + platform_price + '&order=' + order + '&stores=' + that.properties.stores,
       })
     },
 

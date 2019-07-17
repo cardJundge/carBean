@@ -15,7 +15,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    stores:[]
   },
 
   /**
@@ -36,7 +36,9 @@ Page({
     that.data.serviceitemprice = that.data.platform_price;
     that.data.userid = app.globalData.userInfo.id;
 
-
+    if (options.stores) {
+      that.data.stores = options.stores.split(",")
+    }
     
     itemdetails.getServiceprojectInfo(that,res=>{
 
@@ -47,7 +49,9 @@ Page({
         platform_price: options.platform_price,
         market_price: options.market_price,
         distance:app.globalData.distance,
-        order: options.order
+        order: options.order,
+        stores: that.data.stores,
+        hostName: app.globalData.hostName
       })
 
     })

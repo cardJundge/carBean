@@ -4,7 +4,7 @@
 
   <view>
     <!-- <image src='https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/allImage/moren.jpg'  class='headerimg'></image> -->
-    <swiper indicator-dots="false" autoplay="true" style='height:180px;' interval="5000" indicator-color='rgb(255,255,255)' duration="1000" wx:if='{{stores}}' >
+    <swiper indicator-dots="false" autoplay="true" style='height:180px;' interval="5000" indicator-color='rgb(255,255,255)' duration="1000" wx:if='{{stores.length>0}}' >
           <swiper-item style='height:180px!important' wx:for="{{stores}}" wx:for-item='item1' wx:key="">
             <image src="{{hostName}}/uploads/stores/{{item1}}" class='headerimg'/>
           </swiper-item>
@@ -63,7 +63,7 @@
 
     <view class='section'>
       <view class="service_text">门店服务</view>
-      <my-serviceitem-modal serviceitem="{{serviceitem}}" bind:oncheck='onCheck'/>
+      <my-serviceitem-modal serviceitem="{{serviceitem}}" bind:oncheck='onCheck' stores="{{stores}}"/>
     </view>  
   </view>
 

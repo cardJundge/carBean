@@ -20,7 +20,8 @@ Page({
     jsonobj:{
       id:"",
       mun:''
-    }
+    },
+    stores:[]
   },
 
   /**
@@ -51,7 +52,8 @@ Page({
         type: options.type,
         distance: options.distance,
         address: options.address,
-        lng: JSON.parse(options.lng)
+        lng: JSON.parse(options.lng),
+        hostName: app.globalData.hostName
       })
 
   },
@@ -363,7 +365,10 @@ Page({
 
       that.data.task_count = res.data.task_count
 
-      that.data.stores = res.data.service.stores.split(",")
+      if (res.data.service.stores){
+        that.data.stores = res.data.service.stores.split(",")
+      }
+
       that.setData({
         stores: that.data.stores
       })
