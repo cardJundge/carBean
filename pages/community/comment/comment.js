@@ -221,6 +221,20 @@ Page({
     }
   },
 
+  //复制文本
+  copytitle:function(e){
+
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.dynamicarr.title,
+      success: function (res) {
+        // self.setData({copyTip:true}),
+        wx.showToast({
+          title: '复制成功',
+        })
+      }
+    });
+  },
+
   //分享
   toShare: function (e) {
 

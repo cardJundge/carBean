@@ -32,9 +32,12 @@
 
         <!-- 删除动态 -->
         <view class='deletedynamic'  catchtap='deletedynamic' data-dynamicid="{{item.id}}" wx:if="{{mine}}">
+
+          <view class="dotarea">
           <view class='dot'></view>
           <view class='dot'></view>
           <view class='dot'></view>
+          </view>
         </view>
 
 
@@ -42,7 +45,7 @@
       </view>
       <view id='{{item.id}}'>
         <!-- catchtap='toDetail1' -->
-        <view class='article' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}'>{{item.title}}</view>
+        <view class='article' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}' ><text selectable='true'>{{item.title}}</text></view>
 
 
         <!-- <view class='public_time' id='{{item.id}}'>{{item.add_time}}</view> -->

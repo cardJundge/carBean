@@ -86,7 +86,7 @@
             <view class="basic-img">
               <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/mine/icon_jifenduihuan@2x.png" />
             </view>
-            <text>兑换礼品</text>
+            <text>优惠券</text>
           </view>
            <!-- <view class="basic-item" bind:tap="onCoupon">
             <view class="basic-img">
