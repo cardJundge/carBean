@@ -21,6 +21,7 @@ Component({
     getCoupon: function(e) {
       coupon.getCoupon(this.data.couponId, res => {
         console.log(res)
+        app.globalData.coupon = ''
         if (res.status == 1) {
           wx.showToast({
             title: '领取成功，快去个人中心查看并使用吧...',
