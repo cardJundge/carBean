@@ -279,8 +279,8 @@ Page({
     var that = this
     this.data.ifonshow = false
 
-    var menu = 1
-    if (menu == 1) {
+    // var menu = 1
+    if (options.menu == 1) {
       this.setData({
         menu: 1
       })
