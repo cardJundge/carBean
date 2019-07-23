@@ -380,6 +380,10 @@ Page({
 
 
           that.myCode(0, that.data.mapdynamicArr)
+        }else{
+          that.setData({
+            markers: that.data.markers
+          })
         }
 
       })
