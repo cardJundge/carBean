@@ -131,8 +131,8 @@
 }
 
 .each_image image {
-  width: 110px;
-  height: 110px;
+  width: 210rpx;
+  height: 210rpx;
 }
 /* .rating_cell text{
   display: inline-block;

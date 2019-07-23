@@ -9,6 +9,36 @@ App({
       env: 'a-data-1a3ebf'
     })
 
+    // 新建个云函数文件, 例如我将其命名为 msgSecCheck
+    // const cloud = require('wx-server-sdk')
+    // const got = require('got') // 引入 got 库
+
+    // cloud.init()
+
+    // var appid = 'wxba95d2f261aa2ad6';
+    // var appsecret = '你的 APPSECRET';
+
+    // // 获取 access_token 值
+    // let tokenUrl = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=' + appid + '&secret=' + appsecret
+    // // 文本内容检测接口
+    // let checkUrl = 'https://api.weixin.qq.com/wxa/msg_sec_check?access_token='
+
+    // // 云函数入口函数
+    // exports.main = async (event, context) => {
+    //   let tokenResponse = await got(tokenUrl); // 通过 got 请求 api
+    //   let token = JSON.parse(tokenResponse.body).access_token; // JSON.parse 将数据转换成对象获取到具体 access_token 值
+    //   // 文本内容检测接口拼接 access_token 值, JSON.stringIfy 将值转换成 JSON 字符串
+    //   let checkResponse = await got(checkUrl + token, {
+    //     body: JSON.stringify({
+    //       content: event.text
+    //     })
+    //   });
+    //   return checkResponse.body
+
+    // }
+
+
+
     if (wx.canIUse("getUpdateManager")) {
       const updateManager = wx.getUpdateManager()
 
@@ -144,6 +174,29 @@ App({
             console.log('系统登录', res1)
             getApp().globalData.userInfo = res1.data.data
             sCallback(res1)
+
+            wx.request({
+              url: getApp().globalData.hostName + '/user/user/visit_count',
+              method: 'POST',
+              header: {
+                'content-type': 'application/json', // 默认值
+                'Cookie': 'PHPSESSID=' + res1.data.data.session_id
+              },
+              data: {
+                user_id: res1.data.data.id,
+                type: '2'
+              },
+              success: function (visitres) {
+                if (visitres.data.status == 1) {
+                  console.log('访问成功');
+                } else {
+                  console.log('访问失败');
+                }
+              },
+              fail: function (visitres) {
+                console.log('fail', visitres);
+              }
+            })
 
           }
         })

@@ -118,7 +118,10 @@ Page({
       if (that.data.publicContent) {
 
         console.log("llll" + e.detail.value.intro)
+        // openapi.security.msgSecCheck(that.data.publicContent,res=>{
 
+        //   console.log("dddd",res);
+        // })
 
         that.data.publicContent = common.utf16toEntities(that.data.publicContent)
 

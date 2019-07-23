@@ -220,7 +220,7 @@ function publicDynamic(that) {
        }else{
          wx.hideLoading()
          wx.showModal({
-           title: '操作超时',
+           title: res.data.msg,
            content: '',
          })
        }
