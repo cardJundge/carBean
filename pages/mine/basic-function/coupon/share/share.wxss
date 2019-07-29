@@ -91,6 +91,18 @@
   color: #b1b1b1;
 }
 
+.receive-btn {
+  width: 666rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #2d69f3;
+  color: #fff;
+  font-size: 34rpx;
+  margin: 10rpx auto;
+  border-radius: 10rpx;
+}
+
 /* 自己打开页面 */
 
 .myself-container {

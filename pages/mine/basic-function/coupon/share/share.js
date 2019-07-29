@@ -104,7 +104,7 @@ Page({
           // 已经被领取
         } else if (res.status == -1) {
           // 已经被领取后，是其他小伙伴打开还是领取的小伙伴打开
-          if (app.globalData.userInfo.id == res.data.get_uid) {
+          if (app.globalData.userInfo.id == res.data.get.id) {
             this.setData({
               status: -1
             })
