@@ -208,7 +208,7 @@ Page({
             beanLogBean: '+5',
             ratingOk: true
           })
-          getBean(that)
+          // getBean(that)
           wx.showToast({
             title: '评价成功',
           })
@@ -674,7 +674,7 @@ Page({
                 sessionId: response.data.data.session_id,
                 isOver: false
               })
-              getBean(that)
+              // getBean(that)
               common.userInfor(that).then(function (res) {
                 if (res.data.survey) {
                   that.submitRatings()

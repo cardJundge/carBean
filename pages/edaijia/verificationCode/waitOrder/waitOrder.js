@@ -45,14 +45,20 @@ Page({
       timeout:app.globalData.timeout
     })
 
-    var time = setInterval(function () {
+    that.data.time = setInterval(function () {
       that.data.timeout--
       that.setData({
         timeout: that.data.timeout
       })
 
       if (that.data.timeout <= 0) {
-        clearInterval(time)
+        clearInterval(that.data.time);
+
+        var page = getCurrentPages();
+
+        wx.navigateBack({
+          delta: page.length - 2
+        })
       }
     }, 1000);
 
@@ -97,6 +103,8 @@ Page({
           wx.setStorageSync('eordertime', app.globalData.eordertime);
 
           app.globalData.num --;
+
+          clearInterval(that.data.time)
 
           getInfo(data=>{
             console.log(JSON.stringify(data));
@@ -261,7 +269,7 @@ Page({
               that.drivers();
             })
 
-            clearInterval();
+            clearInterval(that.data.time);
 
             // wx.navigateTo({
             //   url: '../../driverstate/driverstate',
