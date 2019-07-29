@@ -13,7 +13,9 @@ Page({
    */
   data: {
     telphone:'',
-    editMobile:false
+    editMobile:false,
+    isShow:true,
+    showLoginModal:false
   },
 
   /**
@@ -22,36 +24,80 @@ Page({
   onLoad: function (options) {
     var that = this;
 
-    var ordertime = options.add_time;
-    var orderno = options.order_no;
 
-    that.data.serviceitem = app.globalData.servicedetail[app.globalData.servicedetailindex];
+    // 服务商接单后推送的订单详情
+    if (options.formId == 1){
 
-    console.log("333", that.data.serviceitem)
+      that.setData({
+        isShow: false
+      })
+      
+      app.getAuth(res=>{
+        if (res){
+          app.getUserLogin(res, response => {
 
-    app.globalData.serviceitem = that.data.serviceitem;
-    
-    if (app.globalData.userInfo.mobile){
-      that.data.telphone = app.globalData.userInfo.mobile
+            console.log(response.data.nickname);
+            payment.orderInfo(options.order_id, res => {
+
+              that.setData({
+                nickname: response.data.data.nickname,
+                telphone: response.data.data.mobile,
+                shopname: res.data.service.short_name ? res.data.service.short_name : res.data.service.name,
+                shopaddress: res.data.service.address,
+                serviceface: res.data.service.face,
+                platform_price: res.data.order.price,
+                classify: res.data.project_name,
+                hostName: Config.restUrl,
+                ordertime: res.data.order.add_time,
+                orderno: res.data.order.order_no,
+                
+              })
+            })
+          })
+        }else{
+          that.setData({
+            showLoginModal:true
+          })
+        }  
+      })
+
     }else{
-      that.data.telphone = options.telphone
-    }
-    that.setData({
-      nickname: app.globalData.userInfo.nickname,
-      telphone: that.data.telphone,
-      shopname: app.globalData.service.short_name ? app.globalData.service.short_name : app.globalData.service.name,
-      shopaddress: app.globalData.service.address,
-      serviceface: app.globalData.serviceface,
-      platform_price: that.data.serviceitem.platform_price,
-      classify: that.data.serviceitem.classify,
-      hostName: Config.restUrl,
-      ordertime: ordertime,
-      orderno: orderno
-    })
 
-    app.globalData.seviceorderno = orderno;
-    app.globalData.serviceplatform_price = that.data.platform_price;
-    app.globalData.serviceclassify = that.data.classify;
+      var ordertime = options.add_time;
+      var orderno = options.order_no;
+
+      that.data.serviceitem = app.globalData.servicedetail[app.globalData.servicedetailindex];
+
+      console.log("333", that.data.serviceitem)
+
+      app.globalData.serviceitem = that.data.serviceitem;
+
+      if (app.globalData.userInfo.mobile) {
+        that.data.telphone = app.globalData.userInfo.mobile
+      } else {
+        that.data.telphone = options.telphone
+      }
+      that.setData({
+        nickname: app.globalData.userInfo.nickname,
+        telphone: that.data.telphone,
+        shopname: app.globalData.service.short_name ? app.globalData.service.short_name : app.globalData.service.name,
+        shopaddress: app.globalData.service.address,
+        serviceface: app.globalData.serviceface,
+        platform_price: that.data.serviceitem.platform_price,
+        classify: that.data.serviceitem.classify,
+        hostName: Config.restUrl,
+        ordertime: ordertime,
+        orderno: orderno,
+        isShow:true
+      })
+
+      app.globalData.seviceorderno = orderno;
+      app.globalData.serviceplatform_price = that.data.platform_price;
+      app.globalData.serviceclassify = that.data.classify;
+
+    }
+
+
     
   },
 
@@ -72,9 +118,13 @@ Page({
 
     var detail = app.globalData.servicelistitem;
 
-    wx.navigateTo({
-      url: '../servicesdetails/servicesdetails?detail=' + detail.id + "&shopname=" + detail.short_name + '&order=' + detail.order + '&comment=' + detail.comment + '&distance=' + detail.distance + '&name=' + detail.name + '&type=' + detail.type + '&address=' + detail.address + '&lng=' + JSON.stringify(detail.location)
-    })
+    if (detail){
+      wx.navigateTo({
+        url: '../servicesdetails/servicesdetails?detail=' + detail.id + "&shopname=" + detail.short_name + '&order=' + detail.order + '&comment=' + detail.comment + '&distance=' + detail.distance + '&name=' + detail.name + '&type=' + detail.type + '&address=' + detail.address + '&lng=' + JSON.stringify(detail.location)
+      })
+    }
+
+    
 
   },
 
@@ -122,6 +172,14 @@ Page({
         })
       }
     });
+  },
+
+  //返回首页
+  backhome:function(){
+
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   },
 
   //修改电话号码弹框
@@ -186,6 +244,41 @@ Page({
             title: '操作超时',
           })
         }
+      }
+    })
+  },
+
+  //授权登录
+  hideLoginModal:function(){
+
+    var that = this
+
+    app.getAuth(res => {
+      if (res) {
+        app.getUserLogin(res, response => {
+
+          console.log(response.data.nickname);
+          payment.orderInfo("451", res => {
+
+            that.setData({
+              nickname: response.data.data.nickname,
+              telphone: response.data.data.mobile,
+              shopname: res.data.service.short_name ? res.data.service.short_name : res.data.service.name,
+              shopaddress: res.data.service.address,
+              serviceface: res.data.service.face,
+              platform_price: res.data.order.price,
+              classify: res.data.project_name,
+              hostName: Config.restUrl,
+              ordertime: res.data.order.add_time,
+              orderno: res.data.order.order_no,
+
+            })
+          })
+        })
+      } else {
+        that.setData({
+          showLoginModal: true
+        })
       }
     })
   },

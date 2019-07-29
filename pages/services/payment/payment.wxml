@@ -1,7 +1,8 @@
 <!--pages/services/payment/payment.wxml-->
 <view class='container'>
   
-  <view class='fontstyle'>等待您支付</view>
+  <view class='fontstyle' wx:if="{{isShow}}">等待您支付</view>
+  <view class='fontstyle' wx:else></view>
   <!-- <view class='fontstyle size'>还剩26分自动取消</view> -->
   <view class='userinfo'>
     <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/serviceDetail/icon-name@2x.png' class='userimg'></image>
@@ -47,24 +48,29 @@
     <view class='order-infor'>支付方式:线上支付</view>
   </view>
 
+  <view wx:if="{{!isShow}}" bindtap="backhome" class="home">返回首页</view>
+
 </view>
+
+
 
 <view class='bottom'>
    <view>
     <text>合计:</text>
     <text class='value'>{{platform_price}}</text>
    </view>
-   <view class='order-pay'>
+   <view class='order-pay' wx:if="{{isShow}}">
       <text class='cancel' bindtap='cancelorder'>取消订单</text>
       <text class='confirm' bindtap='pay'>立即支付</text>
    </view>
+  
 </view>
 
 <view class='modal' wx:if='{{editMobile}}'>
   <form bindsubmit='updateMobile'>
     <view class='modal_content'>
       <view class='modal_input'>
-        <input type='number' bindfocus='cancelRed' name='mobile' placeholder='请输入联系电话' />
+        <input type='number' name='mobile' placeholder='请输入联系电话' />
       </view>
       <view class='redInfor' wx:if='{{mobileError}}'>请输入正确的手机号码！</view>
       <view class='modal_bottom1'>
@@ -78,3 +84,5 @@
     </view>
   </form>
 </view>
+
+<my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>

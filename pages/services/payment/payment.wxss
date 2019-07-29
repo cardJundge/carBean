@@ -222,3 +222,11 @@
 .edit_cell button {
   color: #ff9800;
 }
+
+.home{
+  color: #8E8E93;
+  font-size: 22rpx;
+  display: flex;
+  flex-direction:row-reverse;
+  margin: 0 5%;
+}

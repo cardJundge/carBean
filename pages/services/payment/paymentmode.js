@@ -20,6 +20,21 @@ class Payment extends Base{
 
     this.request(params);
   }
+
+  //订单详情
+  orderInfo(orderid,callback){
+
+    var params = {
+      url: '/user/server/orderInfo',
+      type: 'GET',
+      data: {
+        order_id: orderid
+      },
+      sCallback: callback
+    }
+
+    this.request(params);
+  }
 }
 
 export {Payment}
