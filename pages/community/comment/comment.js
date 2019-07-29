@@ -37,7 +37,8 @@ Page({
     showLoginModal:false,
     showVoiceModal:false,
     isvoiceplay: true, //暂停/播放(评论)
-    isvoiceplay1:true   //(详情页)
+    isvoiceplay1:true,   //(详情页)
+    back: false
   },
 
   /**
@@ -91,16 +92,60 @@ Page({
     that.data.dynamicArr = app.globalData.dynamicArr;
     // that.data.dynamicArr = JSON.parse(options.dynamicArr);
 
-    console.log("GGGG", that.data.dynamicArr);
-    console.log("hhhhh", app.globalData.userInfo.id)
+  
+    if (options.dynamic_id) {
 
-    that.setData({
-      dynamicArr: [that.data.dynamicArr],
-      moreShow: true,
-      hostName: Config.restUrl,
-      touid: that.data.dynamicArr.user_id,
-      userid: app.globalData.userInfo.id
-    })
+      that.data.id = options.dynamic_id
+
+      that.setData({
+        back: true
+      })
+
+      community.dynamicInfo(options.dynamic_id, res => {
+
+        console.log("log", res)
+
+        if (res.status == 1) {
+
+          if (res.data.type == 1) {
+            if (res.data.content) {
+              res.data.imagecell = res.data.content.split(',')
+            }
+
+            res.data.title = common.entitiesToUtf16(res.data.title);
+          } else if (res.data.type == 2) {
+            if (res.data.content) {
+              res.data.voiceduration = res.data.content.split('?')[1];
+            }
+          } else {
+            res.data.title = common.entitiesToUtf16(res.data.title);
+          }
+
+          app.globalData.dynamicArr = res.data
+
+          // wx.navigateTo({
+          //   url: 'comment/comment?id=' + id + '&dynamicArr=' + res.data,
+          // })
+
+          that.setData({
+            dynamicArr: [res.data]
+          })
+        }
+
+      })
+
+    } else {
+
+      console.log("GGGG", that.data.dynamicArr);
+
+      that.setData({
+        dynamicArr: [that.data.dynamicArr],
+        moreShow: true,
+        hostName: Config.restUrl,
+        touid: that.data.dynamicArr.user_id,
+        userid: app.globalData.userInfo.id
+      })
+    }
 
     getDynamicevaluationlist(that);
 
@@ -238,6 +283,52 @@ Page({
   //分享
   toShare: function (e) {
 
+    // console.log("ddd" + JSON.stringify(e), app.globalData.userInfo);
+
+    // if (app.globalData.userInfo) {
+
+    //   console.log("ddd", this.data.dynamicArr);
+
+    //   this.data.dynamic_id = e.target.id;
+    //   var temp = "dynamicArr[" + e.target.dataset.index + "].share"
+
+    //   var share = this.data.dynamicArr[e.target.dataset.index].share
+    //   var sharevalue = parseInt(share) + 1
+
+    //   this.setData({
+    //     [temp]: sharevalue
+    //   })
+    //   common.shareDynamic(this)
+
+    // } else {
+     
+    //  that.setData({
+    //    showLoginModal:true
+    //  })
+    // }
+
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (e) {
+
+      // console.log(JSON.stringify(e));
+
+      // this.data.dynamic_id = e.target.id;
+      // var temp = "dynamicArr[" + e.target.dataset.index + "].share"
+
+      // var share = this.data.dynamicArr[e.target.dataset.index].share
+      // var sharevalue = parseInt(share) + 1
+
+      // this.setData({
+      //   [temp]: sharevalue
+      // })
+      // common.shareDynamic(this)
+
+
     console.log("ddd" + JSON.stringify(e), app.globalData.userInfo);
 
     if (app.globalData.userInfo) {
@@ -256,32 +347,16 @@ Page({
       common.shareDynamic(this)
 
     } else {
-     
-     that.setData({
-       showLoginModal:true
-     })
+
+      that.setData({
+        showLoginModal: true
+      })
     }
 
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function (e) {
-
-      console.log(JSON.stringify(e));
-
-      this.data.dynamic_id = e.target.id;
-      var temp = "dynamicArr[" + e.target.dataset.index + "].share"
-
-      var share = this.data.dynamicArr[e.target.dataset.index].share
-      var sharevalue = parseInt(share) + 1
-
-      this.setData({
-        [temp]: sharevalue
-      })
-      common.shareDynamic(this)
+    return {
+      title: '社区分享',
+      path: 'pages/community/comment/comment?dynamic_id=' + this.data.dynamic_id,
+    }
     
   },
 
