@@ -4,6 +4,8 @@
 <import src="../../../components/replytemplate/replytemplate.wxml" />
 <template is='dynamicList' data='{{dynamicArr,hostName,islogin}}' />
 
+<view class="back" wx:if="{{back}}" bindtap="back">返回</view>
+
 <view class='reply_title'>
   <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/fire.png'></image>
   <text>评论</text>
