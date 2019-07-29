@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "my-login-modal": "/components/login/login"
+  },
   "navigationBarTitleText":"订单详情"
 }
