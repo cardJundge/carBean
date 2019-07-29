@@ -9,7 +9,8 @@ var app = getApp()
 Page({
   data: {
     noCunqon: false,
-    couponarray: []
+    couponarray: [],
+    showModal: false
   },
   onLoad: function (options) {
     this.data.userId = app.globalData.userInfo.id
@@ -91,13 +92,33 @@ Page({
   toShareCoupon: function () {
 
   },
+
+  // 
+  showGiveCoupon: function (e) {
+    console.log(e.target.dataset.coupon)
+    this.data.couponId = e.target.dataset.coupon
+    this.setData({
+      showModal: true
+    })
+  },
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    })
+  },
   // 赠送给好友
   onShareAppMessage: function (res) {
-    this.data.couponId = res.target.dataset.coupon
+
     if (res.from === 'button') {
       // 来自页面内转发按钮
       couponModel.shareCoupon(this.data.couponId, response => {
         console.log(response)
+        if (response.status == 1) {
+          this.setData({
+            showModal: false
+          })
+          this.getCouponList()
+        }
       })
     } else { }
     console.log('couponId', this.data.couponId)

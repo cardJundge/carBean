@@ -20,8 +20,9 @@
         </view>
       </view>
       <view class="rule">
-        <image src="/images/mine/coupon/rule.png" />
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/rule.png" />
       </view>
+      <view class="receive-btn" bind:tap="toIndex">返回首页</view>
     </view>
   </view>
   <!-- 小伙伴已经领取 -->

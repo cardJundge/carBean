@@ -15,7 +15,7 @@
         <view class="item-text-bottom">有效期：{{item.start_date}}-{{item.end_date}}</view>
       </view>
       <view class="item-btn">
-        <button class="btn-give" open-type='share' data-coupon="{{item.id}}" wx:if="{{item.type == 1}}">赠送好友</button>
+        <button class="btn-give" bind:tap="showGiveCoupon" data-coupon="{{item.id}}">赠送好友</button>
         <view class="btn-use" bind:tap="showQrCode" data-coupon="{{item.id}}" data-num="{{item.card_no}}">立即使用</view>
       </view>
     </view>
@@ -36,4 +36,19 @@
     <null-modal img="{{'cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/no_cunqon.png'}}" text01="暂无优惠券" width="306" height="296" btnHidden="true" />
   </view>
   <xiche-qrcode show="{{showCouponModal}}" imgCouponUrl="{{imgUrl}}" couponNum="{{couponNumber}}" />
+</view>
+<view class="give-tips" wx:if="{{showModal}}" >
+  <view class="modal-content">
+    <view class="title">提示</view>
+    <view class="msg">确定要转赠洗车券吗？</view>
+    <view class="btn-bar">
+      <view bind:tap="hideModal" class="btn">取消</view>
+      <button class="btn" open-type='share'>
+        确定
+      </button>
+    </view>
+    <view class="del-icon" bind:tap="hideModal">
+      <image src="/images/icon/icon_del_01.png" />
+    </view>
+  </view>
 </view>
