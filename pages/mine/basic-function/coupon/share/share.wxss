@@ -1,0 +1,300 @@
+/* 优惠券分享页面 */
+
+.other-container {
+  width: 100%;
+}
+
+.top-bg {
+  width: 100%;
+  height: 540rpx;
+}
+
+.top-bg image {
+  width: 100%;
+  height: 540rpx;
+}
+
+.content {
+}
+
+.receive {
+  width: 666rpx;
+  height: 280rpx;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20rpx;
+  margin: 0 auto 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.receive-bg {
+  width: 590rpx;
+  height: 194rpx;
+  background: url('https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/mine/coupon/lingqu_bg.png?sign=7b2b592f0be8b827cece9195409be7a2&t=1564043678');
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48rpx;
+}
+
+.receive-bg image {
+  width: 590rpx;
+  height: 194rpx;
+}
+
+.left-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.right-btn {
+  width: 170rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  background: #2d69f3;
+  color: #fff;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.rule {
+  width: 666rpx;
+  height: 340rpx;
+  margin: 0 auto;
+}
+
+.rule image {
+  width: 666rpx;
+  height: 340rpx;
+}
+
+.text-01 {
+  font-size: 36rpx;
+  color: #2d69f3;
+}
+
+.text-02 {
+  font-size: 26rpx;
+  color: #b1b1b1;
+}
+
+.text-03 {
+  font-size: 26rpx;
+  color: #b1b1b1;
+}
+
+/* 自己打开页面 */
+
+.myself-container {
+}
+
+/* 状态为未领取 */
+
+.overtime {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overtime-img {
+  width: 238rpx;
+  height: 238rpx;
+  margin: 106rpx 0 46rpx;
+}
+
+.overtime-img image {
+  width: 238rpx;
+  height: 238rpx;
+}
+
+.overtime-text {
+}
+
+.overtime-btn {
+  width: 702rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: #2d69f3;
+  color: #fff;
+  font-size: 34rpx;
+  margin-top: 154rpx;
+  border-radius: 10rpx;
+}
+
+/* 已领取 */
+
+.lingqu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lingqu-avatar {
+  width: 142rpx;
+  height: 142rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 6rpx 0 rgba(45, 105, 243, 0.5);
+  margin-top: 210rpx;
+}
+
+.lingqu-avatar image {
+  width: 142rpx;
+  height: 142rpx;
+  border-radius: 50%;
+}
+
+.lingqu-text {
+  color: #36363c;
+  margin-top: 38rpx;
+}
+
+.lingqu-time {
+  color: #909090;
+  margin-top: 18rpx;
+}
+
+.lingqu-coupon-other {
+  width: 702rpx;
+  height: 180rpx;
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/coupon/wlq_bg.png?sign=a319a6f47f7abf659083b6b7d1827f31&t=1563865955') no-repeat center;
+  background-size: 100% 100%;
+  margin-top: 112rpx;
+  color: #df4646;
+  padding: 32rpx 0 20rpx 76rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.lingqu-coupon {
+  width: 702rpx;
+  height: 180rpx;
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/coupon/pic_yzs.png?sign=27c81a98a0ff5e43ebb98b0105c1b925&t=1563864884') no-repeat center;
+  background-size: 100% 100%;
+  margin-top: 112rpx;
+  color: #cbcbcb;
+  padding: 32rpx 0 20rpx 76rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.lingqu-btn {
+  width: 702rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  background: #2d69f3;
+  margin-top: 38rpx;
+}
+
+.item-text-top {
+  display: flex;
+  align-items: center;
+}
+
+.item-text-bottom {
+  font-size: 24rpx;
+}
+
+.top-left {
+  font-family: PingFangSC-Semibold;
+  font-size: 70rpx;
+  margin-right: 4rpx;
+}
+
+.top-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-right text:first-child {
+  font-size: 34rpx;
+}
+
+.top-right text:last-child {
+  width: 212rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  text-align: center;
+  background-color: #df4646;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.top-right-used text:last-child {
+  background-color: #cbcbcb;
+}
+
+/* 等待被领取 */
+
+.waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.waiting-img {
+  width: 238rpx;
+  height: 238rpx;
+  margin: 106rpx 0 46rpx;
+}
+
+.waiting-img image {
+  width: 238rpx;
+  height: 238rpx;
+}
+
+.waiting-text {
+  margin-top: 46rpx;
+}
+
+.waiting-time {
+  color: #909090;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18rpx;
+  line-height: 42rpx;
+}
+
+.waiting-time text:last-child {
+  margin-top: 8rpx;
+}
+
+.waiting-coupon {
+  width: 702rpx;
+  height: 180rpx;
+  background: url('https://6368-cheguanjia1-beb14e-1259199411.tcb.qcloud.la/mine/coupon/wlq_bg.png?sign=a319a6f47f7abf659083b6b7d1827f31&t=1563865955') no-repeat center;
+  background-size: 100% 100%;
+  margin-top: 64rpx;
+  color: #df4646;
+  padding: 32rpx 0 20rpx 76rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.waiting-btn {
+  width: 702rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  background: #2d69f3;
+  margin-top: 38rpx;
+}

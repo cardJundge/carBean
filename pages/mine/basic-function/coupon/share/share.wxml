@@ -1,0 +1,109 @@
+<!--优惠券分享页面其他用户端-->
+<view class="other-container" wx:if="{{ifOther}}">
+  <!-- 等待被领取 -->
+  <view class="not-receive" wx:if="{{status == 0}}">
+    <view class="top-bg">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/share_bg.png" />
+    </view>
+    <view style="width: 100%;height: {{windowHeight*2-540}}rpx;background: #80C1D1;padding-top: 4rpx;">
+      <view class="receive">
+        <view class="receive-bg">
+          <view class="left-text" wx:if="{{!isLogin}}">
+            <text class="text-01">免费洗车券</text>
+          </view>
+          <view class="left-text" wx:if="{{isLogin}}">
+            <text class="text-01">免费洗车券</text>
+            <text class="text-02">卡号：{{receiveUser.card_no}}</text>
+            <text class="text-03">{{receiveUser.start_date}}-{{receiveUser.end_date}}</text>
+          </view>
+          <button class="right-btn" bind:tap="toReceive">立即领取</button>
+        </view>
+      </view>
+      <view class="rule">
+        <image src="/images/mine/coupon/rule.png" />
+      </view>
+    </view>
+  </view>
+  <!-- 小伙伴已经领取 -->
+  <view class="lingqu" wx:if="{{status == -1}}">
+    <view class="lingqu-avatar">
+      <image src="{{receiveUser.out.face}}" />
+    </view>
+    <view class="lingqu-text">您已经领取了“{{receiveUser.out.nickname}}”的免费洗车券</view>
+    <!-- <view class="lingqu-time">领取时间:{{receiveUser.date}}</view> -->
+    <view class="lingqu-coupon-other">
+      <view class="item-text-top">
+        <view class="top-left">洗车</view>
+        <view class="top-right">
+          <text>免费券</text>
+          <text>{{receiveUser.card_no}}</text>
+        </view>
+      </view>
+      <view class="item-text-bottom">有效期：{{receiveUser.start_date}}-{{receiveUser.end_date}}</view>
+    </view>
+    <view class="lingqu-btn" bind:tap="toIndex">返回首页</view>
+  </view>
+  <!-- 优惠券超时未领取 || 来晚小伙伴看到优惠券被人领走啦 -->
+  <view class="overtime" wx:if="{{status == -2}}">
+    <view class="overtime-img">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/pic_yhq_kzt.png" />
+    </view>
+    <view class="overtime-text">{{isBuddy}}</view>
+    <view class="overtime-btn" bind:tap="toIndex">返回首页</view>
+  </view>
+</view>
+
+
+<!-- 优惠券分享页面自己打开 -->
+<view class="myself-container" wx:if="{{!ifOther}}">
+  <!-- 超时未领取 -->
+  <view class="overtime" wx:if="{{status == -2}}">
+    <view class="overtime-img">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/pic_yhq_kzt.png" />
+    </view>
+    <view class="overtime-text">领取免费洗车券已超时</view>
+    <view class="overtime-btn" bind:tap="toIndex">返回首页</view>
+  </view>
+  <!-- 已领取 -->
+  <view class="lingqu" wx:if="{{status == -1}}">
+    <view class="lingqu-avatar">
+      <image src="{{receiveMy.get.face}}" />
+    </view>
+    <view class="lingqu-text">“{{receiveMy.get.nickname}}”领取了您的免费洗车券</view>
+    <!-- <view class="lingqu-time">领取时间:{{receiveMy.date}}</view> -->
+    <view class="lingqu-coupon">
+      <view class="item-text-top">
+        <view class="top-left">洗车</view>
+        <view class="top-right top-right-used">
+          <text>免费券</text>
+          <text>{{receiveMy.card_no}}</text>
+        </view>
+      </view>
+      <view class="item-text-bottom">有效期：{{receiveMy.start_date}}-{{receiveMy.end_date}}</view>
+    </view>
+    <view class="lingqu-btn" bind:tap="toIndex">返回首页</view>
+  </view>
+  <!-- 等待领取 -->
+  <view class="waiting" wx:if="{{status == 0}}">
+    <view class="waiting-img">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/coupon/pic_yhq_kzt.png" />
+    </view>
+    <view class="waiting-text">洗车券等待领取中</view>
+    <view class="waiting-time">
+      <text>24小时内未被领取将自动退回到您的优惠券</text>
+      <text>退回时间：{{receiveMy.back_date}}</text>
+    </view>
+    <view class="waiting-coupon">
+      <view class="item-text-top">
+        <view class="top-left">洗车</view>
+        <view class="top-right">
+          <text>免费券</text>
+          <text>{{receiveMy.card_no}}</text>
+        </view>
+      </view>
+      <view class="item-text-bottom">有效期：{{receiveMy.start_date}}-{{receiveMy.end_date}}</view>
+    </view>
+    <view class="waiting-btn" bind:tap="toIndex">返回首页</view>
+  </view>
+</view>
+ <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>

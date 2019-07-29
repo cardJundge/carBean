@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "my-login-modal": "/components/login/login"
+  },
+  "navigationBarTitleText": "分享"
+}

@@ -4,7 +4,7 @@
     <view class="use-item" wx:for="{{detailList}}" wx:key="">
       <view class="use-text">
         <text>服务商：{{item.service_name}}</text>
-        <text>{{item.use_time}}</text>
+        <text>{{item.use_date}}</text>
       </view>
       <view class="card-num">卡号：{{item.card_no}}</view>
     </view>

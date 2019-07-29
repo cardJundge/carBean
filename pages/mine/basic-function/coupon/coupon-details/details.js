@@ -8,21 +8,23 @@ Page({
   data: {
     noCunqon: false
   },
-  onLoad: function(options) {
-   this.getCouponRecord()
+  onLoad: function (options) {
+    this.getCouponRecord()
   },
-  getCouponRecord: function() {
+  getCouponRecord: function () {
     couponModel.couponRecord(res => {
       console.log(res)
-      if(res.status == 1) {
-        res.data.forEach((item) => {
-          item.use_time = item.use_time.substring(0, 16)
-        })
+      if (res.status == 1) {
         this.setData({
           detailList: res.data,
           noCunqon: false
         })
       } else {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000,
+        })
         this.setData({
           noCunqon: true
         })

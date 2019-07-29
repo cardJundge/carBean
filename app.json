@@ -1,6 +1,5 @@
 {
   "pages": [
-  
     "pages/index/index",
     "pages/mine/mine",
     "pages/services/services",
@@ -66,8 +65,8 @@
     "pages/edaijia/sureCancel/sureCancel",
     "pages/edaijia/cancelOrder/cancelOrder",
     "pages/mine/basic-function/coupon/coupon",
-    "pages/mine/basic-function/coupon/coupon-details/details"
-
+    "pages/mine/basic-function/coupon/coupon-details/details",
+    "pages/mine/basic-function/coupon/share/share"
   ],
   "window": {
     "backgroundTextStyle": "light",

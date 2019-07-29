@@ -33,8 +33,8 @@ Component({
           })
         } else {
           wx.showToast({
-            title: '您已经领过优惠券了',
-            duration: 2000,
+            title: res.msg,
+            duration: 3000,
             icon: 'none'
           })
           this.setData({
