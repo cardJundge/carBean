@@ -278,56 +278,34 @@ Page({
   onLoad: function(options) {
     var that = this
     this.data.ifonshow = false
-
-    // var menu = 1
-    if (options.menu == 1) {
-      this.setData({
-        menu: 1
-      })
-      if (!app.globalData.userInfo) {
-        app.getAuth((res) => {
-          if (!res) {
-            that.setData({
-              hasUserInfo: false
-            })
-          } else {
-            app.getUserLogin(res,(response)=> {
-              app.globalData.userInfo = response.data.data
-              if (response.data.status == 1) {
-                that.setData({
-                  userId: response.data.data.id,
-                  userInfo: response.data.data,
-                  hasUserInfo: true,
-                  sessionId: response.data.data.session_id
-                })
-                if (response.data.data.is_policy == 1) {
-                  checkPolicy(that)
-                } else {
-                  that.setData({
-                    loaded: true,
-                    hasBinling: false
-                  })
-                }
-              }
-            })
-          }
-        })
-      } else {
-        that.setData({
-          userId: app.globalData.userInfo.id,
-          userInfo: app.globalData.userInfo,
-          hasUserInfo: true,
-          sessionId: app.globalData.userInfo.session_id
-        })
-        if (app.globalData.userInfo.is_policy == 1) {
-          checkPolicy(that)
-        } else {
+    if (!app.globalData.userInfo) {
+      app.getAuth((res) => {
+        if (!res) {
           that.setData({
-            loaded: true,
-            hasBinling: false
+            hasUserInfo: false
+          })
+        } else {
+          app.getUserLogin(res, (response) => {
+            app.globalData.userInfo = response.data.data
+            if (response.data.status == 1) {
+              that.setData({
+                userId: response.data.data.id,
+                userInfo: response.data.data,
+                hasUserInfo: true,
+                sessionId: response.data.data.session_id
+              })
+              if (response.data.data.is_policy == 1) {
+                checkPolicy(that)
+              } else {
+                that.setData({
+                  loaded: true,
+                  hasBinling: false
+                })
+              }
+            }
           })
         }
-      }
+      })
     } else {
       that.setData({
         userId: app.globalData.userInfo.id,
@@ -344,6 +322,29 @@ Page({
         })
       }
     }
+    // var menu = 1
+    // if (options.menu == 1) {
+    //   this.setData({
+    //     menu: 1
+    //   })
+     
+    // }
+    //  else {
+    //   that.setData({
+    //     userId: app.globalData.userInfo.id,
+    //     userInfo: app.globalData.userInfo,
+    //     hasUserInfo: true,
+    //     sessionId: app.globalData.userInfo.session_id
+    //   })
+    //   if (app.globalData.userInfo.is_policy == 1) {
+    //     checkPolicy(that)
+    //   } else {
+    //     that.setData({
+    //       loaded: true,
+    //       hasBinling: false
+    //     })
+    //   }
+    // }
     // that.setData({
     //   hasUserInfo: true
     // })
