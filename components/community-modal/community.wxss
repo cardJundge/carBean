@@ -69,11 +69,33 @@
 
 .article {
   text-align: left;
-  padding: 0px 0px 6px 0px;
   line-height: 20px;
   font-size: 16px;
   color: #3f3f3f;
-  margin: 0px 12px;
+  margin: 2px 12px;
+
+  display: -webkit-box;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  word-wrap: break-word;
+
+  white-space: normal !important;
+
+  -webkit-line-clamp: 2;
+
+  -webkit-box-orient: vertical;
+
+}
+
+.article1{
+  text-align: left;
+  line-height: 20px;
+  font-size: 16px;
+  color: #3f3f3f;
+  margin: 2px 12px;
 }
 
 .image_cell {

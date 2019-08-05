@@ -49,7 +49,8 @@ Page({
     showlocation: true,
     markers:[],
     mapscale:16,
-    setshow:true
+    setshow:true,
+    details:false
   },
 
   /**

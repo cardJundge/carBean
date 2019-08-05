@@ -6,22 +6,83 @@
 
       <view class='reply'  catchtap='keyboard' hidden="{{index >= 3 && !moreShow ?true:false}}"
       data-nickname='{{item.from_user_info.nickname}}' data-fromid='{{item.from_uid}}' 
-        data-index='{{Arrindex}}' data-level='{{level}}'>
+        data-index='{{Arrindex}}' data-level='{{level}}' data-type="{{item.type}}">
         <view class='replyfromuser'>{{item.from_user_info.nickname}}:</view>
-        <!-- <view class='replycontent'>{{item.content}}</view> -->
-        <text class='replycontent'>{{item.content}}</text>
+       
+        
+        <view>{{item.voiceisplaying}}</view>
+
+        <block wx:if="{{item.type == 2}}">
+          <view class='voicestyle' bindtap='playvoice'  data-index="{{index}}" data-voicesrc="{{item.content}}">
+
+
+            <block wx:if="{{item.voiceisplaying}}">
+              <image src="/images/community/suspend.png" class='triangle'></image>
+            </block>
+
+            <block wx:else>
+              <image src="/images/community/triangle.png" class='triangle'></image>
+            </block>
+            
+            <image src="/images/community/wave.png" class='wave'></image>
+            <text>{{item.voiceduration}}s</text>
+          </view>
+        </block>
+
+        <block wx:else>
+            <!-- <view class='evacontent' catchtap='keyboard' 
+        data-nickname='{{item.user_info.nickname}}' data-fromid='{{item.from_uid}}' 
+        data-level='{{item.id}}' data-index='{{index}}'>{{item.content}}</view> -->
+
+          <text class='replycontent'>{{item.content}}</text>
+        </block>
+
+
+
+
+
+
+
+
       </view>
 
     </view>
 
     <view wx:else>
       <view class='reply' hidden="{{index >= 3 && !moreShow?true:false}}"  catchtap='keyboard' data-nickname='{{item.from_user_info.nickname}}' data-fromid='{{item.from_uid}}' 
-        data-index='{{Arrindex}}' data-level='{{level}}'>
+        data-index='{{Arrindex}}' data-level='{{level}}' data-type="{{item.type}}">
         <view class='replyfromuser'>{{item.from_user_info.nickname}}</view>
         <text class='huifu_text'>回复</text>
         <view class='replytouser'>{{item.to_user_info.nickname}}:</view>
         <!-- <view class='replycontent'>{{item.content}}</view> -->
-        <text class='replycontent'>{{item.content}}</text>
+        <!-- <text class='replycontent'>{{item.content}}</text> -->
+
+        <block wx:if="{{item.type == 2}}">
+          <view class='voicestyle' bindtap='playvoice'  data-index="{{index}}" data-voicesrc="{{item.content}}" data-reply="reply"  data-evaluationindex="{{Arrindex}}">
+
+
+            <block wx:if="{{item.voiceisplaying}}">
+              <image src="/images/community/suspend.png" class='triangle'></image>
+            </block>
+
+            <block wx:else>
+              <image src="/images/community/triangle.png" class='triangle'></image>
+            </block>
+            
+            <image src="/images/community/wave.png" class='wave'></image>
+            <text>{{item.voiceduration}}s</text>
+          </view>
+        </block>
+
+        <block wx:else>
+            <!-- <view class='evacontent' catchtap='keyboard' 
+        data-nickname='{{item.user_info.nickname}}' data-fromid='{{item.from_uid}}' 
+        data-level='{{item.id}}' data-index='{{index}}'>{{item.content}}</view> -->
+
+          <text class='replycontent'>{{item.content}}</text>
+        </block>
+
+
       </view>
     </view>
 

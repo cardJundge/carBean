@@ -1,6 +1,6 @@
 <view class="searching-result" wx:for="{{searchlist}}" wx:key="">
   <view class="result-item">
-  <text bind:tap="onService" wx:if="{{searchlist.length>0}}"  data-item="{{item}}">{{item.name}}</text>
+  <text bind:tap="onService" wx:if="{{searchlist.length>0}}"  data-item="{{item}}">{{item.short_name}}</text>
   <text bind:tap="onService" wx:else>没有服务商</text>
   <view></view>
   </view>

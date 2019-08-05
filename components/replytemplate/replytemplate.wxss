@@ -36,3 +36,23 @@
   margin-right: 6px;
   font-size: 14px;
 }
+
+.voicestyle{
+  display: flex;
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+  align-items: center;
+  width: 220rpx;
+  border-radius: 30rpx;
+  padding: 7rpx 16rpx;
+}
+
+.triangle{
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.wave{
+  width: 60rpx;
+  height: 40rpx;
+  margin: 0 30rpx 0 12rpx;
+}

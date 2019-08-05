@@ -45,7 +45,14 @@
       </view>
       <view id='{{item.id}}'>
         <!-- catchtap='toDetail1' -->
-        <view class='article' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}' ><text selectable='true'>{{item.title}}</text></view>
+        <block wx:if="{{details}}">
+          <view class='article1' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}' ><text selectable='true'>{{item.title}}</text></view>
+        </block>
+
+        <block wx:else>
+          <view class='article' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}' ><text selectable='true'>{{item.title}}</text></view>
+        </block>
+        
 
 
         <!-- <view class='public_time' id='{{item.id}}'>{{item.add_time}}</view> -->

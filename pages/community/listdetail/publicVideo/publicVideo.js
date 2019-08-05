@@ -41,7 +41,7 @@ Page({
     })
     wx.chooseVideo({
       sourceType: ['album', 'camera'],
-      maxDuration:15,
+      maxDuration:60,
       camera: 'back',
       compressed: true,
       success(res) {
@@ -50,7 +50,8 @@ Page({
        
         that.setData({
           mediaSrc: res.tempFilePath,
-          duration: res.duration
+          duration: res.duration,
+          mediaSize: res.size
         })
       },
       fail: function(res) {
@@ -97,10 +98,23 @@ Page({
         })
         return
 
-      } else if (that.data.duration > 15) {
+      } else if (that.data.duration > 60) {
 
         wx.showToast({
-          title: '时长超过15s'
+          title: '时长超过60s'
+        })
+
+        that.setData({
+          isOver: false,
+          mediaSrc: "",
+          rating_contents: ""
+        })
+
+        return
+      } else if (that.data.mediaSize > 52000000){
+
+        wx.showToast({
+          title: '视频内存超过50MB'
         })
 
         that.setData({

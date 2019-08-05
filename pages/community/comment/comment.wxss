@@ -2,6 +2,13 @@
 @import '../../../components/community-modal/community.wxss';
 @import '../../../components/evaluationList/evaluationlist.wxss';
 
+.back{
+  margin-left: 12px;
+  color: #1a84ff;
+  font-size: 32rpx;
+}
+
+
 .model {
 position: fixed;
 width: 100vw;

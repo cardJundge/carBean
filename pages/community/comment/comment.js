@@ -38,7 +38,8 @@ Page({
     showVoiceModal:false,
     isvoiceplay: true, //暂停/播放(评论)
     isvoiceplay1:true,   //(详情页)
-    back: false
+    back: false,
+    details:true
   },
 
   /**
@@ -165,6 +166,14 @@ Page({
 
   },
 
+  //返回首页
+  back: function () {
+
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -229,6 +238,8 @@ Page({
     var that = this;
 
     var index = e.currentTarget.dataset.index;
+
+
     if (that.data.isvoiceplay1) {
       myAudio.src = Config.restUrl + "/uploads/community/voice/" + e.currentTarget.dataset.voicesrc;
       myAudio.play();
@@ -261,9 +272,9 @@ Page({
         [temp]: false,
         dynamicArr: that.data.dynamicArr
       })
-
-      
     }
+
+
   },
 
   //复制文本
@@ -284,24 +295,17 @@ Page({
   toShare: function (e) {
 
     // console.log("ddd" + JSON.stringify(e), app.globalData.userInfo);
-
     // if (app.globalData.userInfo) {
-
     //   console.log("ddd", this.data.dynamicArr);
-
     //   this.data.dynamic_id = e.target.id;
     //   var temp = "dynamicArr[" + e.target.dataset.index + "].share"
-
     //   var share = this.data.dynamicArr[e.target.dataset.index].share
     //   var sharevalue = parseInt(share) + 1
-
     //   this.setData({
     //     [temp]: sharevalue
     //   })
     //   common.shareDynamic(this)
-
-    // } else {
-     
+    // } else {   
     //  that.setData({
     //    showLoginModal:true
     //  })
@@ -485,18 +489,31 @@ Page({
 
     this.data.itusername = nickname;
 
-    nickname = "回复"+nickname+":";
+    nickname = "回复" + nickname + ":";
 
     console.log(nickname.length)
 
     this.data.touid = e.currentTarget.dataset.fromid;
     this.data.level = e.currentTarget.dataset.level
 
-    this.setData({
-      focus:true,
-      dianzan: true,
-      logo: nickname
-    })
+    if (e.currentTarget.dataset.type == 2){
+
+      this.setData({
+        dianzan: false
+      })
+
+    }else{
+
+      this.setData({
+        focus: true,
+        dianzan: true,
+        logo: nickname
+      })
+      
+    }
+
+    
+
   },
 
   reply:function(e){
@@ -657,40 +674,91 @@ Page({
 
     var that = this;
 
-    var index = e.currentTarget.dataset.index;
-    if (that.data.isvoiceplay) {
-      myAudio.src = Config.restUrl + "/uploads/community/voice/" + e.currentTarget.dataset.voicesrc;
-      myAudio.play();
+    console.log("that.data.isvoiceplay",e);
+
+    if (e.currentTarget.dataset.reply == "reply"){
+
+      var evaluationindex = e.currentTarget.dataset.evaluationindex;
+      var index = e.currentTarget.dataset.index;
+
+      if (that.data.isvoiceplay) {
+
+        myAudio.src = Config.restUrl + "/uploads/community/voice/" + e.currentTarget.dataset.voicesrc;
+        myAudio.play();
 
 
-      var temp = 'evaluationArr[' + index + '].voiceisplaying'
+        // var temp = 'evaluationArr[' + evaluationindex + '].reply[' + index + '].revoiceisplaying'voiceisplaying
+        var temp = 'evaluationArr[' + evaluationindex + '].reply[' + index + '].voiceisplaying'
 
-      that.setData({
-        [temp]: true,
-        isvoiceplay: false,
-        evaluationArr: that.data.evaluationArr
-      })
+        that.setData({
+          [temp]: true,
+          isvoiceplay: false,
+          evaluationArr: that.data.evaluationArr
+        })
 
-      myAudio.onEnded(res => {
-        var temp = 'evaluationArr[' + index + '].voiceisplaying';
-        myAudio.stop();
+        myAudio.onEnded(res => {
+          var temp = 'evaluationArr[' + evaluationindex + '].reply[' + index + '].voiceisplaying'
+          myAudio.stop();
+          that.setData({
+            isvoiceplay: true,
+            [temp]: false,
+            evaluationArr: that.data.evaluationArr
+          })
+        })
+
+
+      } else {
+        var temp = 'evaluationArr[' + evaluationindex + '].reply[' + index + '].voiceisplaying'
+        myAudio.pause();
         that.setData({
           isvoiceplay: true,
           [temp]: false,
           evaluationArr: that.data.evaluationArr
         })
-      })
+      }
+
+    }else{
+
+      var index = e.currentTarget.dataset.index;
+
+      if (that.data.isvoiceplay) {
+        myAudio.src = Config.restUrl + "/uploads/community/voice/" + e.currentTarget.dataset.voicesrc;
+        myAudio.play();
 
 
-    } else {
-      var temp = 'evaluationArr[' + index + '].voiceisplaying'
-      myAudio.pause();
-      that.setData({
-        isvoiceplay: true,
-        [temp]: false,
-        evaluationArr: that.data.evaluationArr
-      })
+        var temp = 'evaluationArr[' + index + '].voiceisplaying'
+
+        that.setData({
+          [temp]: true,
+          isvoiceplay: false,
+          evaluationArr: that.data.evaluationArr
+        })
+
+        myAudio.onEnded(res => {
+          var temp = 'evaluationArr[' + index + '].voiceisplaying';
+          myAudio.stop();
+          that.setData({
+            isvoiceplay: true,
+            [temp]: false,
+            evaluationArr: that.data.evaluationArr
+          })
+        })
+
+
+      } else {
+        var temp = 'evaluationArr[' + index + '].voiceisplaying'
+        myAudio.pause();
+        that.setData({
+          isvoiceplay: true,
+          [temp]: false,
+          evaluationArr: that.data.evaluationArr
+        })
+      }
+
     }
+
+    console.log("$$$$$$$$", that.data.evaluationArr);
+
   },
 
   deleteEva:function(e){
@@ -866,9 +934,16 @@ function getDynamicevaluationlist(that){
                     for (var k in (res.data.data[i])[j]){
                       console.log("eeeee", ((res.data.data[i])[j])[k].content);
                       ((res.data.data[i])[j])[k].content = common.entitiesToUtf16(((res.data.data[i])[j])[k].content);
+
+                      if (((res.data.data[i])[j])[k].type == 2) {
+
+                        if (((res.data.data[i])[j])[k].content) {
+                          ((res.data.data[i])[j])[k].voiceduration = ((res.data.data[i])[j])[k].content.split('?')[1];
+                          ((res.data.data[i])[j])[k].voiceisplaying = false
+                        }
+                      }
                     } 
-                    
-                    
+                      
                   // }
                 
                 }else{
@@ -1097,6 +1172,7 @@ function releaseevaluation(that){
             
 
             that.data.evaluationArr[that.data.i].reply.push(that.data.reply1);
+
 
           }
           
