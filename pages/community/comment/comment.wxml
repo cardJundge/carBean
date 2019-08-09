@@ -2,7 +2,7 @@
 <import src="../../../components/community-modal/community.wxml" />
 <import src="../../../components/evaluationList/evaluationlist.wxml" />
 <import src="../../../components/replytemplate/replytemplate.wxml" />
-<template is='dynamicList' data='{{dynamicArr,hostName,islogin,details}}' />
+<template is='dynamicList' data='{{dynamicArr,hostName,islogin,details,dylogo}}' />
 
 <view class="back" wx:if="{{back}}" bindtap="back">返回</view>
 

@@ -1,9 +1,9 @@
 <!--components/community-modal/community.wxml-->
 <template name='dynamicList'>
   <view>
-    <view class='each_dynamic' wx:for='{{dynamicArr}}' wx:for-item='item'  wx:for-index='index' wx:key=''>
+    <view class='each_dynamic' wx:for='{{dynamicArr}}' wx:for-item='item' wx:for-index='index' wx:key=''>
       <view class='title' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>
-        <view class='avatar' catchtap='toViewUserInfor' data-userid='{{item.user_id}}'  catchtap='toDetail' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>
+        <view class='avatar' catchtap='toViewUserInfor' data-userid='{{item.user_id}}' catchtap='toDetail' id='{{item.id}}' data-item='{{index}}' data-dynamicArr='{{item}}'>
           <!-- <image src='{{item.user_info.face}}' wx:if='{{item.grade}}'></image>
           <image src='{{userInfo.avatarUrl}}' wx:else></image> -->
           <image src='{{item.user_info.face}}' wx:if='{{item.user_info}}'></image>
@@ -31,12 +31,12 @@
         </view>
 
         <!-- 删除动态 -->
-        <view class='deletedynamic'  catchtap='deletedynamic' data-dynamicid="{{item.id}}" wx:if="{{mine}}">
+        <view class='deletedynamic' catchtap='deletedynamic' data-dynamicid="{{item.id}}" wx:if="{{mine}}">
 
           <view class="dotarea">
-          <view class='dot'></view>
-          <view class='dot'></view>
-          <view class='dot'></view>
+            <view class='dot'></view>
+            <view class='dot'></view>
+            <view class='dot'></view>
           </view>
         </view>
 
@@ -46,56 +46,117 @@
       <view id='{{item.id}}'>
         <!-- catchtap='toDetail1' -->
         <block wx:if="{{details}}">
-          <view class='article1' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}' ><text selectable='true'>{{item.title}}</text></view>
+          <view class='article1' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}'>
+            <text selectable='true'>{{item.title}}</text>
+          </view>
         </block>
 
         <block wx:else>
-          <view class='article' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}' ><text selectable='true'>{{item.title}}</text></view>
+          <view class='article' id='{{item.id}}' catchtap='toDetail' data-item='{{index}}' data-dynamicArr='{{item}}'>
+            <text selectable='true'>{{item.title}}</text>
+          </view>
         </block>
-        
+
 
 
         <!-- <view class='public_time' id='{{item.id}}'>{{item.add_time}}</view> -->
 
         <!-- 处理图文 -->
-        <view class='image_cell' wx:if='{{item.imagecell}}' id='{{item.id}}'>
-          <view class='each_image' wx:for='{{item.imagecell}}' wx:for-item='item1' wx:for-index='index1' wx:key='item1'>
-            <view wx:if='{{index%3==1||index%3==2}}' style='text-align:{{index%3==1?"center":"right"}}'>
+        <block wx:if="{{dylogo == 1}}">
 
-              <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+          <view class='image_cell' wx:if='{{item.imagecell}}' id='{{item.id}}'>
 
-            </view>
-            <view wx:if='{{index%3==0}}' style='text-align:left'>
-              <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+            <block wx:if="{{item.imagecell.length >3}}">
+              <view class='each_image'>
 
-            </view>
-          </view>
-          <!-- <view class='each_image' wx:else style='text-align:right'>
+                <view style='text-align:left'>
+
+                  <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item.imagecell[0]}}' catchtap='previewImage' id="{{item.imagecell[0]}}" data-index='{{index}}' data-imgindex="0"></image>
+
+                </view>
+              </view>
+
+              <view class="each_image">
+                <view style='text-align:left'>
+
+                  <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item.imagecell[1]}}' catchtap='previewImage' id="{{item.imagecell[1]}}" data-index='{{index}}' data-imgindex="1"></image>
+
+                </view>
+              </view>
+
+              <view class="each_image">
+                <view style='text-align:left'>
+
+                  <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item.imagecell[2]}}' catchtap='previewImage' id="{{item.imagecell[2]}}" data-index='{{index}}' data-imgindex="2"></image>
+
+                </view>
+              </view>
+            </block>
+
+            <block wx:else>
+              <view wx:if='{{item.imagecell}}' id='{{item.id}}'>
+                <view class='each_image' wx:for='{{item.imagecell}}' wx:for-item='item1' wx:for-index='index1' wx:key='item1'>
+                  <view wx:if='{{index%3==1||index%3==2}}' style='text-align:{{index%3==1?"center":"right"}}'>
+
+                    <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+
+                  </view>
+                  <view wx:if='{{index%3==0}}' style='text-align:left'>
+                    <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+
+                  </view>
+                </view>
+                <!-- <view class='each_image' wx:else style='text-align:right'>
             <image bindtap='previewImage' id='{{item1}}' src='{{hostName}}/uploads/community/img/{{item1}}'></image>
           </view> -->
 
-        </view>
+              </view>
+            </block>
+          </view>
 
+        </block>
+
+        <block wx:else>
+
+          <view class='image_cell' wx:if='{{item.imagecell}}' id='{{item.id}}'>
+            <view class='each_image' wx:for='{{item.imagecell}}' wx:for-item='item1' wx:for-index='index1' wx:key='item1'>
+              <view wx:if='{{index%3==1||index%3==2}}' style='text-align:{{index%3==1?"center":"right"}}'>
+
+                <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+
+              </view>
+              <view wx:if='{{index%3==0}}' style='text-align:left'>
+                <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+
+              </view>
+            </view>
+            <!-- <view class='each_image' wx:else style='text-align:right'>
+            <image bindtap='previewImage' id='{{item1}}' src='{{hostName}}/uploads/community/img/{{item1}}'></image>
+          </view> -->
+
+          </view>
+
+        </block>
 
         <view class='video_cell' wx:if='{{item.type==3}}'>
           <view class='each_video'>
             <!-- poster="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/mengban.png" -->
-            <video id="myVideo" show-center-play-btn src="{{hostName}}/uploads/community/video/{{item.content}}" page-gesture='false' controls='true' object-fit="cover" bindfullscreenchange="bindfullscreenchange" ></video>
+            <video id="myVideo" show-center-play-btn src="{{hostName}}/uploads/community/video/{{item.content}}" page-gesture='false' controls='true' object-fit="cover" bindfullscreenchange="bindfullscreenchange"></video>
 
           </view>
         </view>
 
-        <view class='voice' wx:if='{{item.type==2}}' bindtap='playingvoice' data-voicesrc="{{item.content}}" data-index = "{{index}}">
-          
+        <view class='voice' wx:if='{{item.type==2}}' bindtap='playingvoice' data-voicesrc="{{item.content}}" data-index="{{index}}">
+
           <block wx:if="{{item.voiceisplaying}}">
-          <image src="/images/community/suspend.png" class='triangle'></image>
+            <image src="/images/community/suspend.png" class='triangle'></image>
           </block>
 
           <block wx:else>
-          <image src="/images/community/triangle.png" class='triangle'></image>
-          
+            <image src="/images/community/triangle.png" class='triangle'></image>
+
           </block>
-          
+
           <image src="/images/community/wave.png" class='wave'></image>
           <text>{{item.voiceduration}}s</text>
 

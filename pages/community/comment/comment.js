@@ -39,7 +39,8 @@ Page({
     isvoiceplay: true, //暂停/播放(评论)
     isvoiceplay1:true,   //(详情页)
     back: false,
-    details:true
+    details:true,
+    dylogo:2
   },
 
   /**

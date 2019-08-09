@@ -210,6 +210,7 @@ Page({
       type: "gcj02",
       altitude: true,
       success(res) {
+
         base.reverseGeocoder(demo, res.latitude, res.longitude, res => {
 
           var region = [];
@@ -228,6 +229,8 @@ Page({
 
       },
       fail:function(res){
+
+        console.log("res",res);
         that.setData({
           locationshow: true
         })

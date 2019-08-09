@@ -50,7 +50,8 @@ Page({
     markers:[],
     mapscale:16,
     setshow:true,
-    details:false
+    details:false,
+    dylogo:1 //1代表 社区  2代表 详情
   },
 
   /**
@@ -812,6 +813,8 @@ Page({
     this.setData({
       flag: true
     })
+
+    console.log("111",e);
 
     var imgArr = [];
     var index = e.currentTarget.dataset.index;

@@ -152,6 +152,11 @@
         <view class='modal_text'>
           <input type='number' name='code' bindfocus='cancelRed' placeholder='请输入验证码' />
         </view>
+
+        <view class='red_infor' wx:if='{{no_policy}}'>未查询到保单</view>
+        <view class='red_infor' wx:if='{{inforOk}}'>请输入正确的车牌号或发动机后六位</view>
+        <view class='red_infor' wx:if='{{bindings}}'>该保单已绑定</view>
+        
         <view class='modal_btn'>
           <button form-type='submit'>确 定
             <text style='font-size:12px'>({{timer}}s后重发)</text>

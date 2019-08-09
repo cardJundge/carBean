@@ -9,11 +9,8 @@
         data-index='{{Arrindex}}' data-level='{{level}}' data-type="{{item.type}}">
         <view class='replyfromuser'>{{item.from_user_info.nickname}}:</view>
        
-        
-        <view>{{item.voiceisplaying}}</view>
-
         <block wx:if="{{item.type == 2}}">
-          <view class='voicestyle' bindtap='playvoice'  data-index="{{index}}" data-voicesrc="{{item.content}}">
+          <view class='voicestyle' bindtap='playvoice'  data-index="{{index}}" data-voicesrc="{{item.content}}" data-reply="reply"  data-evaluationindex="{{Arrindex}}">
 
 
             <block wx:if="{{item.voiceisplaying}}">

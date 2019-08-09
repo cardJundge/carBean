@@ -10,7 +10,7 @@
   <view class='outMap' wx:if="{{communitymodeshow}}">
 
     <view class='section'>
-      <template is='dynamicList' data='{{dynamicArr,hostName,islogin,isvoiceplay}}' />
+      <template is='dynamicList' data='{{dynamicArr,hostName,islogin,isvoiceplay,dylogo}}' />
       <view class='loading_img_cell' wx:if='{{loadedMore}}'>
         <image src='../../images/community/loading.gif'></image>
       </view>

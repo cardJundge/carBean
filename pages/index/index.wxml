@@ -49,6 +49,7 @@
       <image  bindtouchstart="containerTap" src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/home/pic_che.png" bind:tap="weatherTip"/> 
       <view class="carid" wx:if="{{carNum == 0}}" style="left:147rpx">{{carid}}</view>
       <view class="carid" wx:else style="left:130rpx">{{carid}}</view>
+
     </view>
     <!-- 新手奖励或者签到奖励的豆子 -->
     <view class="games-bottom">

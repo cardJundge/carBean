@@ -11,7 +11,7 @@ Page({
   data: {
     chinaNumber: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'],
     timer: 300,
-    mobile: 18392390727,
+    mobile: "",
     // container: 'container',
     // back_cell: 'back_cell',
     // title_cell: 'title_cell',
@@ -143,6 +143,7 @@ Page({
             res.data = temp;
           }
         }
+
         if (res.data.status == 1) {
           checkPolicy(that)
           that.setData({
@@ -174,6 +175,8 @@ Page({
           wx.hideLoading()
 
         } else if (res.data.status == -1) {
+
+          console.log("ddd");
           wx.hideLoading()
           that.setData({
             bindings: true
