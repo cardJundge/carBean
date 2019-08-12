@@ -1,8 +1,13 @@
 // 中银保险
 // pages/index/mine/myPolicy/myPolicy.js
 import common from '../../../../utils/common.js'
+import {
+  Member
+} from '../../../common/models/member.js'
+var memberModel = new Member()
 var test1 = getApp().globalData.hostName;
 const app = getApp()
+
 Page({
 
   /**
@@ -63,6 +68,7 @@ Page({
         openItem: true,
       })
       return
+      
     }
     app.globalData.activePolicy = {
       id: this.data.activeSertvice.id
@@ -79,16 +85,36 @@ Page({
     this.setData({
       openItem: false
     })
-    console.log(this.data.activeSertvice)
-    app.globalData.activePolicy = {
-      id: this.data.activeSertvice.id
-    }
-
-    this.data.activeId = this.data.activeSertvice.id
-    wx.navigateTo({
-      url: '../../../services/servicestype/servicestype?server=代为送检(年审,不含上线)',
+    memberModel.agentOrderDetail(app.globalData.userInfo.id, 2, res => {
+      console.log(res)
+      if (res.status == 1) {
+        if (res.data.status < 2) {
+          wx.setStorageSync("agentType", res.data.type)
+          wx.navigateTo({
+            url: '../../../common/member/agent/order/order',
+          })
+        } else {
+          wx.navigateTo({
+            url: '../../../common/member/agent/agent?content=' + '年审代办',
+          })
+        }
+      } else {
+        wx.navigateTo({
+          url: '../../../common/member/agent/agent?content=' + '年审代办',
+        })
+      }
     })
-    app.globalData.ifPolicy = true
+    return
+    // console.log(this.data.activeSertvice)
+    // app.globalData.activePolicy = {
+    //   id: this.data.activeSertvice.id
+    // }
+
+    // this.data.activeId = this.data.activeSertvice.id
+    // wx.navigateTo({
+    //   url: '../../../services/servicestype/servicestype?server=代为送检(年审,不含上线)',
+    // })
+    // app.globalData.ifPolicy = true
   },
 
   closeItem: function() {

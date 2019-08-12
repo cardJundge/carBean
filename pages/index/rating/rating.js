@@ -205,10 +205,10 @@ Page({
           app.globalData.coupon = res.data.coupon.id
           that.setData({
             beanLogTit: '评价',
-            beanLogBean: '+5',
+            beanLogBean: '+0',
             ratingOk: true
           })
-          // getBean(that)
+          getBean(that)
           wx.showToast({
             title: '评价成功',
           })
@@ -218,7 +218,6 @@ Page({
             content: res.data.result,
             success(res) {
               if (res.confirm) {
-
                 that.setData({
 
                   medaReason: [{
@@ -306,6 +305,9 @@ Page({
                     color: 'grey'
                   }],
                   ratingOk: false
+                })
+                wx.switchTab({
+                  url: '../index',
                 })
 
               } else if (res.cancel) {
@@ -495,7 +497,6 @@ Page({
                   }],
                   ratingOk: false
                 })
-
               } else if (res.cancel) {
                 that.setData({
 
@@ -669,12 +670,12 @@ Page({
                 userInfo: response.data.data,
                 hasUserInfo: true,
                 beanLogTit: '登录',
-                beanLogBean: '+3',
+                beanLogBean: '+0',
                 ratingOk: true,
                 sessionId: response.data.data.session_id,
                 isOver: false
               })
-              // getBean(that)
+              getBean(that)
               common.userInfor(that).then(function (res) {
                 if (res.data.survey) {
                   that.submitRatings()
