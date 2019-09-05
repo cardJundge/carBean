@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "edaijiaorder":"/components/edaijiaorder/edaijiaorder"
+  },
+  "navigationBarTitleText": "我的订单",
+  "navigationBarBackgroundColor": "#1a84ff",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh":true
+}

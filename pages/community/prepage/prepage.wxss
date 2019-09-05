@@ -1,0 +1,121 @@
+.container{
+  width: 96%;
+  margin: 0 2%;
+  font-size: 34rpx;
+}
+
+.lipei{
+  font-weight: 550;
+  margin: 2% 0;
+  font-size: 40rpx;
+  letter-spacing: 2rpx;
+}
+
+.lipeipic{
+  background: url(https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/community/mengban.png?sign=2ae8f4b9d52537c3f2b238738c6efd1f&t=1567391117) no-repeat left top;
+  width: 100%;
+  height: 430rpx;
+  display: flex;
+  flex-direction: column-reverse;
+  background-size: 100% 100%;
+  margin-bottom: 30rpx;
+}
+
+.lipeititle{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  color: white;
+  background: rgba(25, 25, 25, 0.5);
+  font-size: 36rpx;
+  padding-left: 20rpx;
+  letter-spacing: 1rpx;
+  font-family: PingFangSC-Medium;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+
+.accidentsort{
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+  width: 100%;
+  border-radius: 20rpx;
+  padding: 20rpx 20rpx;
+  margin: 30rpx 0;
+}
+
+.accidentitem{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 160rpx;
+}
+
+.accidentitemcontent{
+  height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1rpx solid #e8e8e8;
+  width: 70%;
+}
+
+.accidentitemcontentstyle{
+  color: rgba(25, 25, 25, 0.5);
+  font-size: 26rpx;
+}
+
+.accidentitemimg image{
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.bor{
+  border-bottom: 0rpx !important;
+}
+
+.bg1{
+  background: url(https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/community/pic_baoan%402x.png?sign=10a79b33653fb0fee7eb9308a726ca5b&t=1567156814) no-repeat left top !important;
+  background-size: 100% 100% !important;
+}
+
+.bg2{
+  background: url(https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/community/pic_hezuoxieyi%402x.png?sign=22269a9c60f1ce0ba1544ce515011aea&t=1567157380) no-repeat left top !important;
+  background-size: 100% 100% !important;
+}
+
+.bg3{
+  background: url(https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/community/pic_peikuanshenqing%402x.png?sign=dc6ad9d617c8311115c9a6707190f62e&t=1567157412) no-repeat left top !important;
+  background-size: 100% 100% !important;
+}
+
+.bg4{
+  background: url(https://612d-a-data-1a3ebf-1257782233.tcb.qcloud.la/community/pic_zuiweihuafen%402x.png?sign=3680b297f1cbdb9bb9c894e4bdaa37f9&t=1567159583) no-repeat left top !important;
+  background-size: 100% 100% !important;
+}
+
+.baoan{
+  display: flex;
+  color: white;
+  letter-spacing: 1rpx;
+  height: 410rpx;
+  margin-left: 20rpx;
+  font-family: PingFangSC-Medium;
+}
+
+.bottom{
+  box-shadow: 0 0 4rpx 2rpx rgba(216, 216, 216, 0.50);
+  border-radius: 20rpx;
+}
+
+.zhuiwei{
+  width: 100%;
+  height: 90rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding-left: 20rpx;
+}
+

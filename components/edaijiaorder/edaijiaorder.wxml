@@ -1,0 +1,20 @@
+<view wx:for="{{eorder}}"  wx:key="" bindtap="todetail" data-detail="{{item}}">
+  <view class="eorder">
+    <view class="etitle-estate">
+      <view>日常代驾</view>
+      <view class="estate">
+        <view>{{item.state}}</view>
+        <image src="/images/icon/right_arrow.png"></image>
+      </view>
+    </view>
+    <view>{{item.desc}}</view>
+    <view class="e-startaddress">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/driving/elocation-gray.png"></image>
+      <view>{{item.locationStart}}</view>
+    </view>
+    <view class="e-startaddress" wx:if="{{item.locationEnd}}">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/driving/elocation-light.png"></image>
+      <view>{{item.locationEnd}}</view>
+    </view>
+  </view>
+</view>

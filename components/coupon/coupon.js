@@ -4,6 +4,8 @@ import {
 } from '../../pages/mine/models/couponmodel.js'
 var coupon = new Coupon()
 
+var app = getApp()
+
 Component({
   properties: {
     show: Boolean,

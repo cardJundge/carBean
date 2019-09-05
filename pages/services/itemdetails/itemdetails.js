@@ -35,6 +35,8 @@ Page({
     that.data.serviceitemclassify = that.data.classify_id;
     that.data.serviceitemprice = that.data.platform_price;
     that.data.userid = app.globalData.userInfo.id;
+    
+    
 
     if (options.stores) {
       that.data.stores = options.stores.split(",")
@@ -51,7 +53,8 @@ Page({
         distance:app.globalData.distance,
         order: options.order,
         stores: that.data.stores,
-        hostName: app.globalData.hostName
+        hostName: app.globalData.hostName,
+        classify: options.classify
       })
 
     })

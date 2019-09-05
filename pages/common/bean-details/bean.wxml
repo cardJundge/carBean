@@ -5,7 +5,7 @@
       <text>最近</text>
       <view class="nodata" wx:if="{{nodata}}">暂无最新数据</view>
       <block wx:for="{{beanList}}" wx:key="">
-        <view class="bean-item">
+        <view class="bean-item"  wx:if="{{item.title !='评价' && item.title != '抽奖'}}">
           <view class="bean-left">
             <view class="bean-img">
               <view class='dot' wx:if='{{index==0}}'></view>
@@ -13,7 +13,8 @@
               <image src="/images/mine/icon_qindao.png" wx:if="{{item.title=='签到'}}"/>
               <image src="/images/mine/icon_canyuhuodong.png" wx:if="{{item.title=='参与活动'}}"/>
               <image src="/images/mine/icon_fabudongtai.png" wx:if="{{item.title=='发布动态'}}"/>
-              <image src="/images/mine/icon_evaluate.png" wx:if="{{item.title=='评价回复'}}"/>
+              <image src="/images/mine/icon_evaluate.png" wx:if="{{item.title=='评论/回复'}}"/>
+              <image src="/images/mine/icon_evaluate.png" wx:if="{{item.title=='回复评论'}}"/>
               <view class="line"></view>
             </view>
             <view class="bean-content">

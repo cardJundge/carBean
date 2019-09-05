@@ -1,4 +1,4 @@
-<view class='tip'>已接单</view>
+<view class='tip'>{{ordertip}}</view>
 <view class='time'>{{countdown}}</view>
 <view class='tip'>司机正在火速赶来,请耐心等待...</view>
 <view class='order-img'>

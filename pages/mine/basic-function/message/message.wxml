@@ -93,7 +93,7 @@
     </block>
     <!-- 没有更多数据了... -->
     <view class="no-more-data" wx:if="{{bottomShow}}">
-      <image src="/images/loading.gif" wx:if="{{!noMoreData}}" />
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/loading.gif" wx:if="{{!noMoreData}}" />
       <text wx:if="{{noMoreData}}">没有更多数据了...</text>
     </view>
     <view wx:if="{{showDynamicNull}}" class="msg-null">

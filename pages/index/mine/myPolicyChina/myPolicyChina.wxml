@@ -99,7 +99,7 @@
                 <text class='fa fa-angle-right'></text>
               </view>
             </view>
-            <view wx:else bindtap='toDriving' class='service_content' id='{{item.num}}'>
+            <view wx:else bindtap='toDriving' class='service_content' id='{{item.num}}' >
               <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/icon_driving@2x.png'></image>
               <text>{{item.name}}</text>
               <text class='fa fa-info-circle' catchtap='openIntro' id='{{index}}'></text>

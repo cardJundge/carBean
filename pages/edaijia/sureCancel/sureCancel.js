@@ -19,8 +19,9 @@ Page({
       { name: '5', value: '暂时不需要代驾' }
     ],
     auto:true,
-    num:5,
-    cancelreason:[]
+    num:3,
+    cancelreason:[],
+    itreasontext:'其他原因...'
   },
 
   /**
@@ -50,6 +51,10 @@ Page({
 
     var that = this;
 
+    that.setData({
+      itreasontext:''
+    })
+
     that._orderCancel();
 
     getInfo(data => {
@@ -74,13 +79,15 @@ Page({
         let pages = getCurrentPages();    //获取当前页面信息栈
         let prevPage = pages[pages.length - 2]     //获取上一个页面信息栈
 
+        console.log("ddd",pages);
+
         wx.navigateBack({
           delta: pages.length - 3
         })
 
         that.setData({
           auto: true,
-          num:5
+          num:3
         })
       }
 
@@ -180,11 +187,14 @@ Page({
 
 function getInfo(callback) {
   var param = {
-    url: '/user/user/driving_cancel',
+    url: '/user/user/orderUpdate',
     data: {
-      order_id: app.globalData.orderId
+      // order_id: app.globalData.orderId
+      // bookingId: app.globalData.bookingId,
+      id:app.globalData.eid,
+      status:2
     },
-    type: 'GET',
+    type: 'POST',
     sCallback: function (data) {
       callback && callback(data);
     }

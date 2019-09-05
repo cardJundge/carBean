@@ -35,8 +35,6 @@ Page({
   },
   onLoad: function (options) {
 
-    console.log("eeee");
-
     var that = this;
 
     that.data.total = [];

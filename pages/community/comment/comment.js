@@ -40,7 +40,11 @@ Page({
     isvoiceplay1:true,   //(详情页)
     back: false,
     details:true,
-    dylogo:2
+    dylogo:2,
+    gesture: false, //禁止非全屏模式下滑动调亮，音量大小
+    centerplay: true, //显示播放按钮
+    videohiddle:false,  //视频隐藏/显示
+    formhiddle:false  //评论框隐藏/显示
   },
 
   /**
@@ -83,6 +87,14 @@ Page({
   
     that.data.userimg = app.globalData.userInfo.face;
     that.data.username = app.globalData.userInfo.nickname
+
+    if (options.pre) {
+    
+      that.setData({
+        back: true
+      })
+      
+    }
 
     if (options.item){
       that.data.item = options.item;
@@ -171,7 +183,7 @@ Page({
   back: function () {
 
     wx.switchTab({
-      url: '/pages/index/index',
+      url: '/pages/community/community',
     })
   },
 
@@ -214,7 +226,8 @@ Page({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
           that.setData({
-            showLoginModal: true
+            showLoginModal: true,
+            videohiddle:true
           })
         } else if (!res.authSetting['scope.userLocation']) {
           that.setData({
@@ -233,13 +246,61 @@ Page({
     
   },
 
+
+  //当开始/继续播放时触发play事件
+  bindplay: function (e) {
+
+    console.log("eeee11111",e);
+
+    var videoId = e.currentTarget.id
+
+    var that = this;
+
+    that.data.videocontext = wx.createVideoContext(videoId, that)
+    that.data.videocontext.requestFullScreen();
+
+    that.setData({
+      formhiddle:true
+    })
+  },
+
+  //隐藏/显示视频
+  videohiddle: function () {
+    this.setData({
+      videohiddle: false
+    })
+  },
+
+  //视频进入和退出全屏时触发
+  bindfullscreenchange: function (e) {
+
+    var that = this;
+    console.log("eeee", e);
+    if (e.detail.fullScreen) {
+
+      that.setData({
+        videostyle: "none"
+      })
+
+    } else {
+
+      that.data.videocontext.stop();
+
+      that.setData({
+        videostyle: "block",
+        formhiddle: false,
+        logo: "写评论"
+      })
+    }
+
+  },
+
   //播放详情页面的语音
   playingvoice: function (e) {
 
     var that = this;
 
     var index = e.currentTarget.dataset.index;
-
 
     if (that.data.isvoiceplay1) {
       myAudio.src = Config.restUrl + "/uploads/community/voice/" + e.currentTarget.dataset.voicesrc;
@@ -354,7 +415,8 @@ Page({
     } else {
 
       that.setData({
-        showLoginModal: true
+        showLoginModal: true,
+        videohiddle: true
       })
     }
 
@@ -439,7 +501,8 @@ Page({
     }else{
 
       that.setData({
-        showLoginModal:true
+        showLoginModal:true,
+        videohiddle: true
       })
     }
 
@@ -470,6 +533,8 @@ Page({
         app.getUserLogin(data, response => {
 
           app.globalData.userInfo = response.data.data
+          that.data.sessionId = app.globalData.userInfo.session_id
+          that.data.userId = app.globalData.userInfo.id
           wx.setStorageSync("hasUserInfo", true)
 
         })
@@ -617,7 +682,8 @@ Page({
     }else{
 
       that.setData({
-        showLoginModal:true
+        showLoginModal:true,
+        videohiddle: true
       })
 
     }
@@ -653,7 +719,8 @@ Page({
     }else{
 
       wx.setData({
-        showLoginModal:true
+        showLoginModal:true,
+        videohiddle: true
       })
     }
   },
@@ -1198,3 +1265,5 @@ function releaseevaluation(that){
     })
   })
 }
+
+

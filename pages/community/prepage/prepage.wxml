@@ -1,0 +1,78 @@
+<view class="container">
+  <view class="lipei">理赔</view>
+  <view class="lipeipic" bindtap="lipei" data-id="782">
+    <view class="lipeititle">发生事故应该怎么做?</view>
+  </view>
+
+  <view class="accidentsort">
+    <view class="lipei">事故分类</view>
+    <view class="accidentitem" bindtap="lipei" data-id="783">
+      <view class="accidentitemcontent">
+        <view>车辆轻微剐蹭如何理赔？</view>
+        <view class="accidentitemcontentstyle">两车剐蹭属于双方事故，需报警处理</view>
+      </view>
+      <view class="accidentitemimg">
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/weitu.png"></image>
+      </view>
+    </view>
+
+    <view class="accidentitem" bindtap="lipei" data-id="784">
+      <view class="accidentitemcontent">
+        <view>单方事故如何理赔？</view>
+        <view class="accidentitemcontentstyle">报案、定损、索赔</view>
+      </view>
+      <view class="accidentitemimg">
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/pic_danfangshigu@2x.png"></image>
+      </view>
+    </view>
+
+    <view class="accidentitem" bindtap="lipei" data-id="785">
+      <view class="accidentitemcontent">
+        <view>追尾如何理赔？</view>
+        <view class="accidentitemcontentstyle">公安机关确定机动车承担的责任</view>
+      </view>
+      <view class="accidentitemimg">
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/pic_zhuiwei@2x.png"></image>
+      </view>
+    </view>
+
+    <view class="accidentitem" bindtap="lipei" data-id="786">
+      <view class="accidentitemcontent">
+        <view>小额人伤如何理赔？</view>
+        <view class="accidentitemcontentstyle">向保险人提供相关资料</view>
+      </view>
+      <view class="accidentitemimg">
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/pic_xiaoerenshang@2x.png"></image>
+      </view>
+    </view>
+
+    <view class="accidentitem" bindtap="lipei" data-id="787">
+      <view class="accidentitemcontent bor">
+        <view>重大事故如何理赔？</view>
+        <view class="accidentitemcontentstyle">向保险人提供相关资料</view>
+      </view>
+      <view class="accidentitemimg">
+        <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf-1257782233/community/pic_zhongdashigu@2x.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="lipeipic bg1" bindtap="lipei" data-id="789">
+    <view class="baoan">报案后应该怎么做?</view>
+  </view>
+
+  <view class="lipeipic bg2" bindtap="lipei" data-id="790">
+    <view class="baoan">如何进行索赔申请?</view>
+  </view>
+
+  <view class="lipeipic bg3" bindtap="lipei" data-id="791">
+    <view class="baoan">赔款领取如何申请?</view>
+  </view>
+
+  <view class="bottom" bindtap="lipei" data-id="788">
+    <view class="zhuiwei">追尾责任如何划分?</view>
+    <view class="lipeipic bg4"></view>
+  </view>
+</view>
+
+

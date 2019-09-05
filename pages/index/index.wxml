@@ -138,7 +138,7 @@
   </view>
   <my-sign-modal bind:hide="toHide" show="{{showSignModal}}" list="{{statusList}}" count="{{statusCount}}" time="{{time}}" />
   <my-bottom-modal animationData="{{animationData}}" show="{{showBottomModal}}" title="{{title}}" tag="{{tag}}" img="{{imgLogoUrl}}" list="{{modalList}}" hascar="{{hasCar}}"  bind:confirm="confirm"  defaultCar="{{defaultCar}}"/>
-  <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"/>
+  <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal"  />
   <my-location-modal show="{{showLocationModal}}"/>
   <my-coupon-modal show="{{showCouponModal}}" couponId="{{coupon}}"/>
 </view>

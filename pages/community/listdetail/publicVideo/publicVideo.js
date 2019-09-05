@@ -1,6 +1,7 @@
 // pages/index/mine/myOrder/serviceRatings/serviceRatings.js
 const app = getApp()
 import common from '../../../../utils/common.js'
+import utils from '../../../../utils/util.js';
 Page({
 
   /**
@@ -9,15 +10,15 @@ Page({
   data: {
     fileTypePublic: 3,
     fileName: '',
-    mediaSrc:'',
+    mediaSrc: '',
     container: 'container',
     back_cell: 'back_cell',
     title_cell: 'title_cell',
-    videoSrc:'',
-    duration:0,
-    mess:200,
+    videoSrc: '',
+    duration: 0,
+    mess: 200,
     type: ["全部", "保险", "理赔", "维修"],
-    locationshow:false
+    locationshow: false
 
   },
   backPage: function() {
@@ -27,27 +28,28 @@ Page({
   },
 
   //回传发布类型的值
-  onchecktype: function (e) {
+  onchecktype: function(e) {
 
     var that = this;
     app.globalData.event_type = e.detail.typeindex
   },
-  
+
   addVideo: function() {
     var that = this
 
     that.setData({
       isOver: false
     })
+    console.log("1111")
     wx.chooseVideo({
       sourceType: ['album', 'camera'],
-      maxDuration:60,
+      maxDuration: 60,
       camera: 'back',
-      compressed: true,
+      compressed: true, 
       success(res) {
         console.log(res)
         that.data.fileType = 'video';
-       
+
         that.setData({
           mediaSrc: res.tempFilePath,
           duration: res.duration,
@@ -63,7 +65,7 @@ Page({
     })
   },
 
-  sharecontent:function(e){
+  sharecontent: function(e) {
     var that = this
 
     var mess = e.detail.value.length;
@@ -78,119 +80,153 @@ Page({
   submitPublic: function(e) {
     var that = this
 
-    console.log("HHHHH" + that.data.mediaSrc);
+    if (app.globalData.userInfo) {
 
-    var fileType = that.data.mediaSrc.substr().toLowerCase();
+      console.log("HHHHH" + that.data.mediaSrc);
 
-    console.log("UUUUU"+JSON.stringify(fileType)+fileType)
+      var fileType = that.data.mediaSrc.substr().toLowerCase();
 
-    console.log("%%%%%%%" + e.detail.value.content + that.data.videoSrc);
+      console.log("UUUUU" + JSON.stringify(fileType) + fileType)
 
-    if(app.globalData.latitude){
+      console.log("%%%%%%%" + e.detail.value.content + that.data.videoSrc);
 
-      if (e.detail.value.content == '' && that.data.videoSrc == '') {
-        wx.showToast({
-          title: '内容不能为空',
+      if (app.globalData.latitude) {
+
+        if (e.detail.value.content == '' && that.data.videoSrc == '') {
+          wx.showToast({
+            title: '内容不能为空',
+          })
+
+          that.setData({
+            isOver: false
+          })
+          return
+
+        } else if (that.data.duration > 60) {
+
+          wx.showToast({
+            title: '时长超过60s'
+          })
+
+          that.setData({
+            isOver: false,
+            mediaSrc: "",
+            rating_contents: ""
+          })
+
+          return
+        } else if (that.data.mediaSize > 20*1024*1024) {
+
+          wx.showToast({
+            title: '视频内存超过20MB'
+          })
+
+          that.setData({
+            isOver: false,
+            mediaSrc: "",
+            rating_contents: ""
+          })
+
+          return
+        }
+
+
+        wx.showLoading({
+          title: '发布中...',
         })
 
         that.setData({
           isOver: true
         })
-        return
 
-      } else if (that.data.duration > 60) {
+        that.data.publicContent = e.detail.value.content
 
-        wx.showToast({
-          title: '时长超过60s'
+        that.data.publicContent = common.utf16toEntities(that.data.publicContent)
+        common.uploadDynamic(that).then(common.publicDynamic).then(function() {
+          wx.showToast({
+            title: '发布成功',
+          })
+          console.log(that.data.fileName)
+          console.log(JSON.stringify(that.data))
+          //处理上个页面
+          var tempType = 3
+          if (!that.data.mediaSrc) {
+
+            tempType = 1
+            that.data.fileName = ''
+          }
+          var pages = getCurrentPages();
+          var prevPage = pages[pages.length - 2];
+          prevPage.data.dynamicArr.unshift({
+            id: that.data.tempUploadId,
+            add_time: '刚刚',
+            comment: 0,
+            content: that.data.fileName,
+            //grade: app.globalData.userAllInfor.grade[0],
+            grade: that.data.userInfo.grade[0],
+            is_zan: 0,
+            share: 0,
+            title: common.entitiesToUtf16(that.data.publicContent),
+            location: app.globalData.latitude + ',' + app.globalData.longitude,
+            address: app.globalData.address,
+            user_id: that.data.userId,
+            user_info: {
+              nickname: that.data.userInfo.nickName,
+              face: that.data.userInfo.avatarUrl
+            },
+            zan: 0,
+            type: tempType
+          })
+          prevPage.setData({
+            dynamicArr: prevPage.data.dynamicArr
+          })
+
+          setTimeout(function() {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1000)
+
         })
+      } else {
 
         that.setData({
-          isOver: false,
-          mediaSrc: "",
-          rating_contents: ""
+          locationshow: true
         })
-
-        return
-      } else if (that.data.mediaSize > 52000000){
-
-        wx.showToast({
-          title: '视频内存超过50MB'
-        })
-
-        that.setData({
-          isOver: false,
-          mediaSrc: "",
-          rating_contents: ""
-        })
-
-        return
       }
 
 
-      wx.showLoading({
-        title: '发布中...',
-      })
-      that.data.publicContent = e.detail.value.content
-
-      that.data.publicContent = common.utf16toEntities(that.data.publicContent)
-      common.uploadDynamic(that).then(common.publicDynamic).then(function () {
-        wx.showToast({
-          title: '发布成功',
-        })
-        console.log(that.data.fileName)
-        console.log(JSON.stringify(that.data))
-        //处理上个页面
-        var tempType = 3
-        if (!that.data.mediaSrc) {
-
-          tempType = 1
-          that.data.fileName = ''
-        }
-        var pages = getCurrentPages();
-        var prevPage = pages[pages.length - 2];
-        prevPage.data.dynamicArr.unshift({
-          id: that.data.tempUploadId,
-          add_time: '刚刚',
-          comment: 0,
-          content: that.data.fileName,
-          //grade: app.globalData.userAllInfor.grade[0],
-          grade: that.data.userInfo.grade[0],
-          is_zan: 0,
-          share: 0,
-          title: common.entitiesToUtf16(that.data.publicContent),
-          location: app.globalData.latitude + ',' + app.globalData.longitude,
-          address: app.globalData.address,
-          user_id: that.data.userId,
-          user_info: { nickname: that.data.userInfo.nickName, face: that.data.userInfo.avatarUrl },
-          zan: 0,
-          type: tempType
-        })
-        prevPage.setData({
-          dynamicArr: prevPage.data.dynamicArr
-        })
-
-        setTimeout(function () {
-          wx.navigateBack({
-            delta: 1
-          })
-        }, 1000)
-
-      })
-    }else{
+    } else {
 
       that.setData({
-        locationshow:true
+        showLoginModal: true
       })
     }
 
 
+
   },
+
+  hideLoginModal: function() {
+
+    var that = this;
+    app.getAuth(data => {
+      app.getUserLogin(data, response => {
+        console.log("hh", response);
+        app.globalData.userInfo = response.data.data
+        that.data.userInfo = app.globalData.userInfo
+        that.data.sessionId = app.globalData.userInfo.session_id
+        that.data.userId = app.globalData.userInfo.id
+      })
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
 
-    console.log("UUUUUUOOOO");
     var that = this
     common.pageCss(this)
 
@@ -209,6 +245,9 @@ Page({
     }
     that.data.userInfo = app.globalData.userInfo
     console.log("ddd", that.data.userInfo);
+
+
+
   },
 
   /**
@@ -222,7 +261,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    
+    if (!app.globalData.longitude) {
+      utils.getlocation().then(function (res) {
 
+        app.globalData.latitude = res.latitude;
+        app.globalData.longitude = res.longitude;
+
+        that.data.latitude = res.latitude;
+        that.data.longitude = res.longitude;
+
+        // that.data.circles = [{
+        //   latitude: res.latitude,
+        //   longitude: res.longitude,
+        //   fillColor: '#d1edff88',
+        //   radius: 600,
+        //   //定位点半径
+        //   strokeWidth: 1
+        // }]
+
+        that.setData({
+          latitude: that.data.latitude,
+          longitude: that.data.longitude
+        })
+
+        console.log(res.latitude + "***" + res.longitude);
+
+      });
+    }
   },
 
   /**
@@ -247,7 +313,7 @@ Page({
   },
 
   //关闭授权地址的模化框
-  hideLocationModal: function () {
+  hideLocationModal: function() {
     var that = this;
     that.setData({
       locationshow: false

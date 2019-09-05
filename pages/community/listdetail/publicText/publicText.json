@@ -2,6 +2,7 @@
   "navigationBarTitleText": "发布图文",
   "usingComponents": {
     "my-fabutype-modal": "/components/fabutype/fabutype",
-    "my-location-modal": "/components/location/location"
+    "my-location-modal": "/components/location/location",
+    "my-login-modal": "/components/login/login"
   }
 }

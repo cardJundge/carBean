@@ -139,3 +139,15 @@
 .tel-num{
   color: #1a84ff
 }
+
+.orderlist{
+  display: flex;
+  height: 80rpx;
+  width: 90%;
+  margin: 10% 5% 0 5%;
+  align-items: center;
+  border: 1rpx solid #1a84ff;
+  border-radius: 10rpx;
+  justify-content: center;
+  color: #1a84ff;
+}

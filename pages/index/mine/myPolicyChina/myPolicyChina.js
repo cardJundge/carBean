@@ -1,8 +1,21 @@
 // 中银保险
 // pages/index/mine/myPolicy/myPolicy.js
 import common from '../../../../utils/common.js'
+
+var md5 = require('../../../../utils/md5.js');
+var util = require('../../../../utils/eutil.js');
+var redis = require('../../../../utils/redis.js');
+var CryptoJS = require('../../../../utils/aes.js')
+
 var test1 = getApp().globalData.hostName;
 const app = getApp()
+
+import {
+  Member
+} from '../../../common/models/member.js'
+var memberModel = new Member()
+
+
 Page({
 
   /**
@@ -79,16 +92,37 @@ Page({
     this.setData({
       openItem: false
     })
-    console.log(this.data.activeSertvice)
-    app.globalData.activePolicy = {
-      id: this.data.activeSertvice.id
-    }
 
-    this.data.activeId = this.data.activeSertvice.id
-    wx.navigateTo({
-      url: '../../../services/servicestype/servicestype?server=代为送检(年审,不含上线)',
+    memberModel.agentOrderDetail(app.globalData.userInfo.id, 2, res => {
+      console.log(res)
+      if (res.status == 1) {
+        if (res.data.status < 2) {
+          wx.setStorageSync("agentType", res.data.type)
+          wx.navigateTo({
+            url: '../../../common/member/agent/order/order',
+          })
+        } else {
+          wx.navigateTo({
+            url: '../../../common/member/agent/agent?content=' + '年审代办',
+          })
+        }
+      } else {
+        wx.navigateTo({
+          url: '../../../common/member/agent/agent?content=' + '年审代办',
+        })
+      }
     })
-    app.globalData.ifPolicy = true
+
+    // console.log(this.data.activeSertvice)
+    // app.globalData.activePolicy = {
+    //   id: this.data.activeSertvice.id
+    // }
+
+    // this.data.activeId = this.data.activeSertvice.id
+    // wx.navigateTo({
+    //   url: '../../../services/servicestype/servicestype?server=代为送检(年审,不含上线)',
+    // })
+    // app.globalData.ifPolicy = true
   },
 
   closeItem: function() {
@@ -436,15 +470,94 @@ Page({
 
   toDriving: function(e) {
 
+    var that = this;
+
     this.data.ifonshow = true
     console.log(JSON.stringify(this.data.activeSertvice) + "kk" + e.currentTarget.id)
 
+    console.log("gggggg", that.data.policyArr)
+
 
     wx.navigateTo({
-      url: '../../../edaijia/driving_/driving_?card_length=' + e.currentTarget.id + '&policyId=' + this.data.activeSertvice.policy_no + '&policy=' + this.data.activeSertvice.id + '&title=',
+      url: '../../../edaijia/driving_/driving_?card_length=' + e.currentTarget.id + '&policyId=' + this.data.activeSertvice.policy_no + '&policy=' + this.data.activeSertvice.id + '&policyphone=' + that.data.activeSertvice.mobile + '&title=',
     })
     this.data.activeId = this.data.activeSertvice.id
+
+
+    // if (parseInt(e.currentTarget.id)> 0){
+
+    //   if (redis.getkey("token")) {
+    //     that.data.token = redis.getkey('token');
+    //     wx.navigateTo({
+    //       url: '../../../edaijia/webview/webview',
+    //     })
+
+    //     // that.getHistorylist();
+    //   } else {
+    //     that.orderlist();
+    //   }
+    // }
+  
   },
+
+  //h5免登获取token
+  orderlist: function () {
+    var that = this;
+    var currenttime = util.formatTime(new Date());
+
+    md5(app.globalData.secret + 'appkey' + app.globalData.appkey + 'from' + app.globalData.efrom + 'phone' + that.data.activeSertvice.mobile + 'strategyId1000123strategyServiceSign38aca56816beb721907etimestamp' + currenttime + 'ver3.4.2' + app.globalData.secret);
+    var hash = md5.create();
+    hash.update(app.globalData.secret + 'appkey' + app.globalData.appkey + 'from' + app.globalData.efrom + 'phone' + that.data.activeSertvice.mobile + 'strategyId1000123strategyServiceSign38aca56816beb721907etimestamp' + currenttime + 'ver3.4.2' + app.globalData.secret);
+    hash = hash.hex().substring(0, 30);
+
+    wx.request({
+      url: app.globalData.httpurl + '/customer/authorizeToken',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        appkey: app.globalData.appkey,
+        from: app.globalData.efrom,
+        phone: that.data.activeSertvice.mobile,
+        strategyId: "1000123",
+        strategyServiceSign: '38aca56816beb721907e',
+        sig: hash,
+        timestamp: currenttime,
+        ver: '3.4.2'
+      },
+      success: function (res) {
+        console.log('成功' + JSON.stringify(res));
+
+
+    wx.navigateTo({
+      url: '../../../edaijia/webview/webview?strategyToken=' + res.data.data + '&from=' + app.globalData.efrom,
+    })
+
+        // var key = CryptoJS.enc.Utf8.parse("ABCDEFG123456789");
+        // var decryptData = CryptoJS.AES.decrypt(res.data.data, key, {
+        //   mode: CryptoJS.mode.ECB,
+        //   padding: CryptoJS.pad.Pkcs7
+        // });
+        // //对数据进行Utf-8设置,便成功解密了数据,生成result
+        // var result = decryptData.toString(CryptoJS.enc.Utf8);
+
+        // console.log("解密" + result);
+        // that.data.token = result.substring(6);
+
+        // redis.put("token", that.data.token, 2 * 60 * 60)
+
+        // that.getHistorylist();
+
+      },
+      fail: function (res) {
+        console.log('失败' + JSON.stringify(res));
+      }
+    })
+
+  },
+
+
   cancelModal: function() {
     this.setData({
       showLogo: true,

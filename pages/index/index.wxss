@@ -165,11 +165,11 @@ button::after {
 
 .bubble::before {
   position: absolute;
-  left: -4rpx;
-  top: 10rpx;
+  left: -8rpx;
+  top: 14rpx;
   content: '';
-  width: 30rpx;
-  height: 30rpx;
+  width: 20rpx;
+  height: 20rpx;
   border-style: solid;
   border-width: 2rpx;
   border-color: #fff;
@@ -235,6 +235,7 @@ button::after {
 .reward-box>text {
   height: 30rpx;
   line-height: 30rpx;
+  font-size: 26rpx;
 }
 
 .reward-cell {

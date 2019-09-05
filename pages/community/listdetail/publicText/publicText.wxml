@@ -34,17 +34,18 @@
           </view>
         </view>
       </view>
-      <view style='margin:5% 5%'>
+      <!-- <view style='margin:5% 5%'>
         <my-fabutype-modal type="{{type}}" bind:onchecktype="onchecktype"/>
-      </view>
+      </view> -->
       
       <view style='margin:0px 12px'>
         <button form-type='submit' class='button_active' wx:if='{{!isOver}}'>发布</button>
-        <button class='button_active' wx:if='{{isOver}}'>正在发布...</button>
+        <button class='button_active1' wx:if='{{isOver}}'>正在发布...</button>
       </view>
     </form>
   </view>
 
   <my-location-modal show="{{locationshow}}" bind:hide="hideLocationModal" />
+  <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal" />
 </view>
 

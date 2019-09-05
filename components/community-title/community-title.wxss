@@ -3,40 +3,47 @@
   display: flex;
 }
 
+.logo_img image{
+  width: 20rpx;
+  height: 40rpx;
+}
+
 .swiper-tab {
-  width: 100%;
+  width: 90%;
   text-align: center;
   line-height: 50rpx;
   display: flex;
   flex-wrap: wrap;
   background: #fff;
   font-family: PingFangSC-Medium;
-  position: fixed;
+  /* position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 1000;
-  padding-bottom: 14rpx;
+  padding-bottom: 14rpx; */
 }
 .swiper-tab-list {
   font-size: 30rpx;
   color: #777777;
-  padding-left: 40rpx;
+  padding-left: 30rpx;
   position: relative;
   letter-spacing: 2rpx;
 }
+
 .active {
   color: #000;
   /* border-bottom: 5rpx solid #000; */
   font-weight: 600;
-  font-size: 40rpx;
+  font-size: 38rpx;
+  padding-left: 10rpx !important;
 }
 
 .line{
-  width: 36rpx;
-  height: 10rpx;
+  width: 42rpx;
+  height: 8rpx;
   background: #1a84ff;
-  margin: 10rpx auto;
+  margin: 4rpx auto;
   border-radius: 30px;
 }
 

@@ -118,7 +118,7 @@ page{
   display: flex;
   justify-content:space-around;
   border-top: 1px solid #eee;
-  padding: 14rpx 0;
+  padding: 14rpx 5%;
 }
 
 .bottom-left{

@@ -52,10 +52,10 @@
   <view class='bottom'>
     <view class='bottom-left'>
       <view>
-        <text class='serviceprice'>¥100.00</text>
-        <text class='serviceinvalid'>150.00</text>
+        <text class='serviceprice'>¥{{platform_price}}</text>
+        <text class='serviceinvalid'>{{market_price}}</text>
       </view>
-      <view>代为送检(年审,不含上线)</view>
+      <view>{{classify}}</view>
     </view>
     <view class='bottom-right'>
       <view class='customer' bindtap='callphone'>

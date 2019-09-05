@@ -1,0 +1,48 @@
+<!--pages/edaijia/eorderdetail/eorderdetail.wxml-->
+<view class="container">
+  <view class="driver-info">
+    <view wx:if="{{orderdetails.driver.pictureSmall}}">
+      <image src="{{orderdetails.driver.pictureSmall}}"></image>
+    </view>
+    <view wx:elif="{{orderdetails.driver.pictureMiddle}}">
+      <image src="{{orderdetails.driver.pictureMiddle}}"></image>
+    </view>
+    <view wx:else>
+      <image src="{{orderdetails.driver.pictureLarge}}"></image>
+    </view>
+    <view class="driver-name">
+      <view wx:if="{{orderdetails.driver.name}}">{{orderdetails.driver.name}}</view>
+      <view wx:else>e代驾</view>
+      <view>{{orderdetails.driver.bookingTime}}</view>
+    </view>
+  </view>
+
+  <view class="order-location">
+    <view class="order-startlocation">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/driving/elocation-gray.png"></image>
+      <text class="text">从</text>
+      <text>{{orderdetails.locationStart}}</text>
+    </view>
+    <view class="order-startlocation">
+      <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/driving/elocation-light.png"></image>
+      <text class="text">到</text>
+      <text>{{orderdetails.locationEnd}}</text>
+    </view>
+    <image src="/images/icon/right_arrow.png" class="arrow"></image>
+  </view>
+
+  <view class="order-price">
+    <view>{{orderdetails.collectionFeeParse.totalMileageFee.amount}}元</view>
+    <view class="order-distance" >{{orderdetails.distance}}公里</view>
+  </view>
+
+  <view class="order-fee" bindtap="detailsofcharges" wx:if="{{orderdetails.payDetail.payStatus == 0}}" data-orderdetails="{{orderdetails}}">
+    <text>查看费用明细</text>
+    <image src="/images/icon/right_arrow.png"></image>
+  </view>
+
+  <!-- <view class="ehome">
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/driving/ehome.png"></image>
+    <text>回首页</text>
+  </view> -->
+</view>

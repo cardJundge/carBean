@@ -1,0 +1,5 @@
+<!--pages/edaijia/orderlist/orderlist.wxml-->
+<view class="container">
+  <edaijiaorder eorder="{{eorder}}" />
+</view>
+

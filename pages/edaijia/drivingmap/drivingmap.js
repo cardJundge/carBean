@@ -125,7 +125,7 @@ Page({
     }
 
     wx.redirectTo({
-      url: '../driving_/driving_?title=' + title + '&phone=' + this.data.phone + 
+      url: '../driving_/driving_?title=' + title + '&policyphone=' + this.data.phone + 
         '&card_length=' + this.data.projectName.num + "&address=" + address,
     })
   },

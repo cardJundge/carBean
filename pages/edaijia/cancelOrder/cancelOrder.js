@@ -41,6 +41,20 @@ Page({
       })
 
     },1000)
+
+    if (options.cancelOrder == "waitOrder"){
+
+      that.setData({
+        ordertip:'接单中'
+      })
+    }else{
+
+      that.setData({
+        ordertip:'已接单'
+      })
+
+    }
+    
   },
 
   /**

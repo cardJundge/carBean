@@ -1,0 +1,4 @@
+<!--pages/community/baoxian/baoxian.wxml-->
+<import src="../../../components/community-modal/community.wxml" />
+
+<template is='dynamicList' data='{{dynamicArr,hostName,islogin,isvoiceplay,dylogo,gesture,centerplay,videohiddle,model}}' />

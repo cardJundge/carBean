@@ -118,3 +118,20 @@
   font-size: 14px;
   color: #6b6b6b;
 }
+
+.ehome{
+  position: fixed;
+  bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  font-size: 26rpx;
+}
+
+.ehome image{
+  width: 90rpx;
+  height: 90rpx;
+  margin-bottom: 10rpx;
+}

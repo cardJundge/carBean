@@ -1,0 +1,2 @@
+<!--pages/edaijia/webview/webview.wxml-->
+<web-view src="https://h5.d.edaijia.cn/app/index.html"></web-view>

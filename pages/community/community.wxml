@@ -7,12 +7,65 @@
 
   <my-tab-modal tablist="{{tablist}}" currentTab='{{currentTab}}' sidelist='{{sidelist}}' animation="{{animation}}" bind:send='onSend' bind:select='onSelect' />
 
+  <!-- <swiper  class="swiper" current="{{current}}"  bindchange="bindswiperchange" autoplay="{{autoplay}}" circular="{{circular}}"
+  duration="{{duration}}" interval="{{interval}}" easing-function="easeInOutCubic">
+    <block wx:for="{{imgUrls}}" wx:key="" wx:for-index="index">
+      <swiper-item class="swiper-item" wx:if="{{index == current}}">
+        <image src="{{item}}" class="slide-image"></image>
+      </swiper-item>
+      <swiper-item class="swiper-item" wx:else>
+        <image src="{{item}}" class="slide-image1"></image>
+      </swiper-item>
+    </block>
+  </swiper> -->
+
+<!-- <view class='swipermode'>
+    <swiper  display-multiple-items='1' circular previous-margin='30px' next-margin='30px' bindchange='bindswiperchange' current='{{current}}' autoplay="{{autoplay}}" interval="{{interval}}">
+      <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
+        <swiper-item>
+          <view class="box" data-index='{{index}}' animation="{{index == current?animationData:animationData2}}">
+            <image src='{{item}}'></image>
+            <view class='content'>
+              <text>如何正确理赔?</text>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+</view> -->
+
+<!-- <view class="category">
+  <view class="baoxian" bindtap="onbaoxian">
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_baoxian@2x1.png"></image>
+    <text>保险专区</text>
+  </view>
+
+  <view class="baoxian">
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_diaocha1.png"></image>
+    <text>调查专区</text>
+  </view>
+
+  <view class="baoxian">
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_lipei1.png"></image>
+    <text>理赔专区</text>
+  </view>
+
+  <view class="baoxian">
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_renshang1.png"></image>
+    <text>人伤专区</text>
+  </view>
+</view> -->
+
+
+  <!-- <my-tab-modal tablist="{{tablist}}" currentTab='{{currentTab}}' sidelist='{{sidelist}}' animation="{{animation}}" bind:send='onSend' bind:select='onSelect' /> -->
+
+
   <view class='outMap' wx:if="{{communitymodeshow}}">
 
     <view class='section'>
-      <template is='dynamicList' data='{{dynamicArr,hostName,islogin,isvoiceplay,dylogo}}' />
+      <template is='dynamicList' data='{{dynamicArr,hostName,islogin,isvoiceplay,dylogo,gesture,centerplay,videohiddle,model}}' />
       <view class='loading_img_cell' wx:if='{{loadedMore}}'>
-        <image src='../../images/community/loading.gif'></image>
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/loading.gif'></image>
       </view>
       <!-- <view class='noData' wx:if='{{dynamicNull}}'>该地区还没有动态哦，快来发布第一条数据吧~</view> -->
       <view class='noData' wx:if='{{dynamicNull}}'>
@@ -72,29 +125,73 @@
     <cover-view class='pmodal_content'>
       <cover-view class='icons'>
         <cover-view class='icon_cell' bindtap='toPublicText'>
-          <cover-image src='/images/community/tt.png'></cover-image>
-          <!-- <cover-view>图文</cover-view> -->
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/tt.png'></cover-image>
         </cover-view>
         <cover-view class='icon_cell' bindtap='topublicVideo'>
-          <!-- <cover-image src='../../../images/icon_video@2x.png'></cover-image> -->
-          <cover-image src='/images/community/tt1.png'></cover-image>
-          <!-- <cover-view>视频</cover-view> -->
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/tt1.png'></cover-image>
         </cover-view>
 
         <cover-view class='icon_cell' bindtap='topublicVoice'>
 
-          <cover-image src='/images/community/tt2.png'></cover-image>
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/tt2.png'></cover-image>
 
         </cover-view>
       </cover-view>
       <cover-view class='close' catchtap='closePublic'>
-        <cover-image src='/images/community/close.png'></cover-image>
-        <!-- <cover-view>关闭</cover-view> -->
+        <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/close.png'></cover-image>
       </cover-view>
     </cover-view>
   </cover-view>
 
-  <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal" />
+  <!-- <cover-view class='public_modal' wx:if='{{ifPublic}}' catchtap='closePublic'>
+
+    <cover-view class="public_content1">
+      <cover-view class="fabu_whole">
+        <cover-view class="fabu_style">
+        <cover-view class="fabu_item">
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_baoxian.png'></cover-image>
+          <cover-view>保险</cover-view>
+        </cover-view>
+
+        <cover-view class="fabu_item">
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_diaocha.png'></cover-image>
+          <cover-view>调查</cover-view>
+        </cover-view>
+
+        <cover-view class="fabu_item">
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_lipei.png'></cover-image>
+          <cover-view>理赔</cover-view>
+        </cover-view>
+      </cover-view>
+
+      <cover-view class="fabu_style">
+        <cover-view class="fabu_item">
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_renshang.png'></cover-image>
+          <cover-view>人伤</cover-view>
+        </cover-view>
+
+        <cover-view class="fabu_item">
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/icon_qita.png'></cover-image>
+          <cover-view>其他</cover-view>
+        </cover-view>
+
+        <cover-view class="fabu_item">
+          <cover-image src=''></cover-image>
+          <cover-view></cover-view>
+          
+        </cover-view>
+
+      </cover-view>
+      </cover-view>
+
+      <cover-image src="/images/icon/icon_del_01.png" class="fabu_close"></cover-image>
+    </cover-view>
+  
+  </cover-view> -->
+
+  
+  <my-login-modal show="{{showLoginModal}}" bind:hide="hideLoginModal" bind:btnhidden="videohiddle"/>
+  
   <!-- <my-location-modal show="{{locationshow}}" bind:hide="hideLoginModal"/> -->
   
   <my-voice-modal show="{{showVoiceModal}}" bind:refresh="refresh" bind:location="getLocation" mode="动态"/>

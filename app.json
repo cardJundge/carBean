@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/community/prepage/prepage",
     "pages/mine/mine",
     "pages/services/services",
     "pages/community/community",
@@ -66,7 +67,12 @@
     "pages/edaijia/cancelOrder/cancelOrder",
     "pages/mine/basic-function/coupon/coupon",
     "pages/mine/basic-function/coupon/coupon-details/details",
-    "pages/mine/basic-function/coupon/share/share"
+    "pages/mine/basic-function/coupon/share/share",
+    "pages/edaijia/orderlist/orderlist",
+    "pages/edaijia/eorderdetail/eorderdetail",
+    "pages/edaijia/webview/webview",
+    "pages/edaijia/fee/fee",
+    "pages/community/baoxian/baoxian"
   ],
   "window": {
     "backgroundTextStyle": "light",

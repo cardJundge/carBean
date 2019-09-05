@@ -11,6 +11,8 @@ Component({
       this.setData({
         show: false,
       })
+
+      this.triggerEvent('btnhidden', {})
       
     },
 

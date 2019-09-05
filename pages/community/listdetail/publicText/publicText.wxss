@@ -12,10 +12,17 @@
   margin-top: 0px;
   line-height: 40px;
   color: white;
-  background: #1a84ff !important;
+  background:#1a84ff;
   border-radius: 27px;
-  width: 100% !important;
+  width: 100%;
 }
+
+.button_active1{
+
+   background: #c1c1c1 !important;
+}
+
+
 .relative_cell{
   display: inline-block;
   position: relative;

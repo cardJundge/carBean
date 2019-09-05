@@ -10,7 +10,7 @@
     </label>
   </checkbox-group>
 
-  <textarea class='itreason' name="itreason" placeholder='其他原因...' placeholder-style='color:#b2b2b2;font-size:14px'></textarea>
+  <textarea class='itreason' name="itreason" placeholder='{{itreasontext}}' placeholder-style='color:#b2b2b2;font-size:14px'></textarea>
   <view class='focus'>与司机私下交易将无法享受高额代驾保险</view>
   <button class='submit' form-type="submit">提交</button>
 </form>

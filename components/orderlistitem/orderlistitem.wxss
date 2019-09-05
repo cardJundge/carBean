@@ -1,4 +1,7 @@
-
+.dingdanlogo{
+  width: 40rpx;
+  height: 40rpx;
+}
 
 .orderlistitem{
   width: 90%;

@@ -4,7 +4,7 @@
         <view class='pois'>
             <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/mine/myPolicy/location.png' class='location-img'></image>
             <view class='location-infor' catchtap='confirmateAddress' 
-            data-title='{{item.title}}' data-location='{{item.location}}'>
+            data-title='{{item.title}}' data-location='{{item.location}}' data-address='{{item.address}}'>
               <text >{{item.title}}</text>
               <text class='pois-address'>{{item.address}}</text>
             </view>

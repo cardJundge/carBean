@@ -22,7 +22,8 @@ Page({
     imgNameArr: [],
     mess:200,
     type:["全部","保险","理赔","维修"],
-    locationshow:false
+    locationshow:false,
+    isOver:false
 
   },
   backPage: function() {
@@ -107,106 +108,133 @@ Page({
     })
   },
 
+  hideLoginModal: function () {
+
+    var that = this;
+    app.getAuth(data => {
+      app.getUserLogin(data, response => {
+        console.log("hh", response);
+        app.globalData.userInfo = response.data.data
+        that.data.userInfo = app.globalData.userInfo
+        that.data.sessionId = app.globalData.userInfo.session_id
+        that.data.userId = app.globalData.userInfo.id
+      })
+    })
+  },
+
   submitRatings: function(e) {
 
     console.log("^^^^^"+JSON.stringify(e));
     var that = this
-    that.data.publicContent = e.detail.value.intro
 
-    if (app.globalData.latitude){
+    if(app.globalData.userInfo){
+      that.data.publicContent = e.detail.value.intro
 
-      if (that.data.publicContent) {
+      if (app.globalData.latitude) {
 
-        console.log("llll" + e.detail.value.intro)
-        // openapi.security.msgSecCheck(that.data.publicContent,res=>{
+        if (that.data.publicContent) {
 
-        //   console.log("dddd",res);
-        // })
+          console.log("llll" + e.detail.value.intro)
+          // openapi.security.msgSecCheck(that.data.publicContent,res=>{
 
-        that.data.publicContent = common.utf16toEntities(that.data.publicContent)
+          //   console.log("dddd",res);
+          // })
 
-        
-        wx.showLoading({
-          title: '上传中...',
-        })
+          that.data.publicContent = common.utf16toEntities(that.data.publicContent)
 
 
-        that.uploadimg(0,that)
+          wx.showLoading({
+            title: '上传中...',
+          })
 
-        // Promise.all(that.data.imagecell.map((item, index) => {
-        //   return new Promise(function (resolve, reject) {
-        //     console.log("@@@@@" + item)
-        //     that.data.mediaSrc = item.path
-        //     common.uploadDynamic(that).then(function () {
-        //       console.log('上传' + index)
-        //       console.log(that.data.fileName)
-        //       console.log(JSON.stringify(that.data))
-        //       that.data.fileNameTemp = that.data.fileName + ',' + that.data.fileNameTemp
-        //       resolve(that)
-        //     })
-        //   }).then(function () { })
-        // })).then(function (resolve, reject) {
-        //   console.log('上传惋惜和')
-        //   that.data.fileName = that.data.fileNameTemp.substr(0, that.data.fileNameTemp.length - 1);
-        //   common.publicDynamic(that).then(function () {
-        //     wx.hideLoading(that.data.fileName)
-        //     wx.showToast({
-        //       title: '发布成功',
-        //     })
-        //     console.log(that.data.fileName)
-        //     //处理上个页面
-        //     var tempFile = []
-        //     if (that.data.fileName) {
-        //       tempFile = that.data.fileName.split(',')
-        //       console.log(tempFile)
-        //     }
-        //     var pages = getCurrentPages();
-        //     var prevPage = pages[pages.length - 2];
+          that.setData({
+            isOver: true
+          })
 
-        //     prevPage.data.dynamicArr.unshift({
-        //       id: that.data.tempUploadId,
-        //       add_time: '刚刚',
-        //       comment: 0,
-        //       content: that.data.fileName,
-        //       grade: that.data.userInfo.grade[0],
-        //       //grade:7,
-        //       imagecell: tempFile,
-        //       is_zan: 0,
-        //       share: 0,
-        //       title: common.entitiesToUtf16(that.data.publicContent),
-        //       location: app.globalData.latitude + ',' + app.globalData.longitude,
-        //       address: app.globalData.address,
-        //       user_id: that.data.userId,
-        //       user_info: { nickname: that.data.userInfo.nickname, face: that.data.userInfo.face },
-        //       zan: 0,
-        //       type: 1
-        //     })
-        //     prevPage.setData({
-        //       dynamicArr: prevPage.data.dynamicArr
-        //     })
 
-        //     setTimeout(function () {
-        //       wx.navigateBack({
-        //         delta: 1
-        //       })
-        //     }, 1000)
+          that.uploadimg(0, that)
 
-        //   })
-        // })
+          // Promise.all(that.data.imagecell.map((item, index) => {
+          //   return new Promise(function (resolve, reject) {
+          //     console.log("@@@@@" + item)
+          //     that.data.mediaSrc = item.path
+          //     common.uploadDynamic(that).then(function () {
+          //       console.log('上传' + index)
+          //       console.log(that.data.fileName)
+          //       console.log(JSON.stringify(that.data))
+          //       that.data.fileNameTemp = that.data.fileName + ',' + that.data.fileNameTemp
+          //       resolve(that)
+          //     })
+          //   }).then(function () { })
+          // })).then(function (resolve, reject) {
+          //   console.log('上传惋惜和')
+          //   that.data.fileName = that.data.fileNameTemp.substr(0, that.data.fileNameTemp.length - 1);
+          //   common.publicDynamic(that).then(function () {
+          //     wx.hideLoading(that.data.fileName)
+          //     wx.showToast({
+          //       title: '发布成功',
+          //     })
+          //     console.log(that.data.fileName)
+          //     //处理上个页面
+          //     var tempFile = []
+          //     if (that.data.fileName) {
+          //       tempFile = that.data.fileName.split(',')
+          //       console.log(tempFile)
+          //     }
+          //     var pages = getCurrentPages();
+          //     var prevPage = pages[pages.length - 2];
+
+          //     prevPage.data.dynamicArr.unshift({
+          //       id: that.data.tempUploadId,
+          //       add_time: '刚刚',
+          //       comment: 0,
+          //       content: that.data.fileName,
+          //       grade: that.data.userInfo.grade[0],
+          //       //grade:7,
+          //       imagecell: tempFile,
+          //       is_zan: 0,
+          //       share: 0,
+          //       title: common.entitiesToUtf16(that.data.publicContent),
+          //       location: app.globalData.latitude + ',' + app.globalData.longitude,
+          //       address: app.globalData.address,
+          //       user_id: that.data.userId,
+          //       user_info: { nickname: that.data.userInfo.nickname, face: that.data.userInfo.face },
+          //       zan: 0,
+          //       type: 1
+          //     })
+          //     prevPage.setData({
+          //       dynamicArr: prevPage.data.dynamicArr
+          //     })
+
+          //     setTimeout(function () {
+          //       wx.navigateBack({
+          //         delta: 1
+          //       })
+          //     }, 1000)
+
+          //   })
+          // })
+
+        } else {
+
+          wx.showToast({
+            title: '内容不能为空!',
+          })
+        }
 
       } else {
 
-        wx.showToast({
-          title: '内容不能为空!',
+        that.setData({
+          locationshow: true
         })
       }
-
     }else{
-
       that.setData({
-        locationshow: true
+        showLoginModal: true
       })
     }
+
+    
 
   },
 
@@ -223,16 +251,19 @@ Page({
   onShow: function() {
     
     var that = this;
-    utils.getlocation().then(function (res) {
 
-      app.globalData.latitude = res.latitude;
-      app.globalData.longitude = res.longitude;
+    if(!app.globalData.latitude){
+      utils.getlocation().then(function (res) {
 
-      // that.data.latitude = res.latitude;
-      // that.data.longitude = res.longitude;
+        app.globalData.latitude = res.latitude;
+        app.globalData.longitude = res.longitude;
 
+        // that.data.latitude = res.latitude;
+        // that.data.longitude = res.longitude;
 
-    })
+      })
+    }
+    
   },
 
 

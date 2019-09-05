@@ -123,7 +123,7 @@ Page({
 
   cancelorder:function(){
     wx.navigateTo({
-      url: '../cancelOrder/cancelOrder',
+      url: '../cancelOrder/cancelOrder?cancelOrder=driverstate',
     })
   },
 
@@ -132,6 +132,12 @@ Page({
    */
   onPullDownRefresh: function () {
 
+  },
+
+  onUnload: function () {
+    // 页面销毁时执行
+    var that = this;
+    clearTimeout(that.data.time)
   },
 
   /**
@@ -192,6 +198,7 @@ Page({
         //已接单
         if (res.data.data.driver.orderStateCode == '301'){
 
+          
           // for (var item of orderAllStates){
           //   that.data.driverposition = item;
           //   var timestamps = item.orderStateTimestamp;
@@ -466,13 +473,14 @@ Page({
 
 function getInfo(callback) {
   var param = {
-    url: '/user/user/order_repair',
+    url: '/user/user/orderUpdate',
     data: {
       token: app.globalData.etoken,
       bookingId: app.globalData.bookingId,
       driverId: app.globalData.driverId,
       order_id: app.globalData.orderId,
-      driver_phone: app.globalData.etel
+      driver_phone: app.globalData.etel,
+      id:app.globalData.eid
     },
     type: 'POST',
     sCallback: function (data) {

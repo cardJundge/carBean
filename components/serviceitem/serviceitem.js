@@ -22,14 +22,21 @@ Component({
       var market_price = e.currentTarget.dataset.itemdetails.market_price;
       var platform_price = e.currentTarget.dataset.itemdetails.platform_price;
       var order = e.currentTarget.dataset.itemdetails.order;
+      var classify = e.currentTarget.dataset.itemdetails.classify;
 
 
       app.globalData.servicedetailindex = e.currentTarget.dataset.index
 
       console.log("444", e.currentTarget.dataset);
 
+      that.setData({
+        serviceid: e.currentTarget.dataset.itemdetails.id,
+        ischecked: true
+      })
+       
+
       wx.navigateTo({
-        url: '../itemdetails/itemdetails?classify_id=' + classify_id + '&projectid=' + projectid + '&market_price=' + market_price + '&platform_price=' + platform_price + '&order=' + order + '&stores=' + that.properties.stores,
+        url: '../itemdetails/itemdetails?classify_id=' + classify_id + '&projectid=' + projectid + '&market_price=' + market_price + '&platform_price=' + platform_price + '&order=' + order + '&stores=' + that.properties.stores + '&classify=' + classify,
       })
     },
 

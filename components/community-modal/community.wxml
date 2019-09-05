@@ -64,13 +64,11 @@
         <!-- 处理图文 -->
         <block wx:if="{{dylogo == 1}}">
 
-          <view class='image_cell' wx:if='{{item.imagecell}}' id='{{item.id}}'>
+          <view class='image_cell' wx:if='{{item.imagecell}}' id='{{item.id}}' style="margin: 14px 26rpx 6rpx 26rpx;">
 
             <block wx:if="{{item.imagecell.length >3}}">
               <view class='each_image'>
-
                 <view style='text-align:left'>
-
                   <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item.imagecell[0]}}' catchtap='previewImage' id="{{item.imagecell[0]}}" data-index='{{index}}' data-imgindex="0"></image>
 
                 </view>
@@ -91,12 +89,26 @@
 
                 </view>
               </view>
+
+              <!-- <view class="imgdot">
+                <view class="dot"></view>
+                <view class="dot"></view>
+                <view class="dot"></view>
+              </view> -->
+            </block>
+
+            <block wx:elif="{{item.imagecell.length == 1}}">
+              <view class='each_image' wx:for='{{item.imagecell}}' wx:for-item='item1' wx:for-index='index1' wx:key='item1'>
+                <view>
+                  <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}" class="firstimg" style="width:700rpx;height:450rpx"></image>
+                </view>
+              </view>
             </block>
 
             <block wx:else>
               <view wx:if='{{item.imagecell}}' id='{{item.id}}'>
                 <view class='each_image' wx:for='{{item.imagecell}}' wx:for-item='item1' wx:for-index='index1' wx:key='item1'>
-                  <view wx:if='{{index%3==1||index%3==2}}' style='text-align:{{index%3==1?"center":"right"}}'>
+                  <view wx:if='{{index%3==1||index%3==2}}' style='text-align:{{index%3==1?"center":"right"}};'>
 
                     <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
 
@@ -118,18 +130,32 @@
 
         <block wx:else>
 
-          <view class='image_cell' wx:if='{{item.imagecell}}' id='{{item.id}}'>
-            <view class='each_image' wx:for='{{item.imagecell}}' wx:for-item='item1' wx:for-index='index1' wx:key='item1'>
-              <view wx:if='{{index%3==1||index%3==2}}' style='text-align:{{index%3==1?"center":"right"}}'>
+          <view class='image_cell' wx:if='{{item.imagecell}}' id='{{item.id}}' style="margin: 14px 26rpx 6rpx 26rpx;">
 
-                <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
-
+            <!-- <block wx:if="{{item.imagecell.length == 1}}"> -->
+              <view class='each_image' wx:for='{{item.imagecell}}' wx:for-item='item1' wx:for-index='index1' wx:key='item1'>
+                <view>
+                  <image mode='widthFix' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}" class="firstimg" style="width:700rpx;height:450rpx"></image>
+                </view>
               </view>
-              <view wx:if='{{index%3==0}}' style='text-align:left'>
-                <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+            <!-- </block> -->
 
+            <!-- <block wx:else>
+              <view class='each_image' wx:for='{{item.imagecell}}' wx:for-item='item1' wx:for-index='index1' wx:key='item1'>
+                <view wx:if='{{index%3==1||index%3==2}}' style='text-align:{{index%3==1?"center":"right"}}'>
+
+                  <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+
+                </view>
+                <view wx:if='{{index%3==0}}' style='text-align:left'>
+                  <image mode='aspectFill' lazy-load src='{{hostName}}/uploads/community/img/{{item1}}' catchtap='previewImage' id='{{item1}}' data-index='{{index}}' data-imgindex="{{index1}}"></image>
+
+                </view>
               </view>
-            </view>
+
+            </block> -->
+
+
             <!-- <view class='each_image' wx:else style='text-align:right'>
             <image bindtap='previewImage' id='{{item1}}' src='{{hostName}}/uploads/community/img/{{item1}}'></image>
           </view> -->
@@ -138,11 +164,11 @@
 
         </block>
 
-        <view class='video_cell' wx:if='{{item.type==3}}'>
+        <view class='video_cell' wx:if='{{item.type==3}}' hidden="{{videohiddle}}">
           <view class='each_video'>
             <!-- poster="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/local/mengban.png" -->
-            <video id="myVideo" show-center-play-btn src="{{hostName}}/uploads/community/video/{{item.content}}" page-gesture='false' controls='true' object-fit="cover" bindfullscreenchange="bindfullscreenchange"></video>
-
+            <video  wx:if="{{model=='Android'}}"   id="myVideo{{index}}" show-center-play-btn="{{centerplay}}" src="{{hostName}}/uploads/community/video/{{item.content}}" controls='true' object-fit="cover"  bindplay="bindplay"  bindfullscreenchange='bindfullscreenchange'  vslide-gesture="{{gesture}}"></video>
+            <video wx:else id="myVideo{{index}}" show-center-play-btn="{{centerplay}}" src="{{hostName}}/uploads/community/video/{{item.content}}" controls='true' object-fit="cover"  bindplay="bindplay"  bindfullscreenchange='bindfullscreenchange'  vslide-gesture="{{gesture}}"></video>
           </view>
         </view>
 

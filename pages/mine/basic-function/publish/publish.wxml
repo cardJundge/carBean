@@ -6,7 +6,7 @@
       <view class='section'>
         <template is='dynamicList' data='{{dynamicArr,hostName,mine}}' />
         <view class='loading_img_cell' wx:if='{{loadedMore}}'>
-          <image src='../../images/community/loading.gif'></image>
+          <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/loading.gif'></image>
         </view>
         <!-- <view class='noData' wx:if='{{dynamicNull}}'>该地区还没有动态哦，快来发布第一条数据吧~</view> -->
         <view class='noData' wx:if='{{dynamicNull}}'>
@@ -37,7 +37,7 @@
           </cover-view>
         </cover-view>
         <cover-view class='close' catchtap='closePublic'>
-          <cover-image src='/images/community/close.png'></cover-image>
+          <cover-image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/close.png'></cover-image>
           <!-- <cover-view>关闭</cover-view> -->
         </cover-view>
       </cover-view>

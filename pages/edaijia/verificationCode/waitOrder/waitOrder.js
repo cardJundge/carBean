@@ -31,11 +31,21 @@ Page({
     //订单请求的时间
     that.data.pollingStart = util.formatTime(new Date(orderTime));
 
+    // if (that.data.time){
+    //   clearInterval(that.data.time)
+    // }
+
+    getInfo(res=>{
+      
+      console.log("www",res);
+      app.globalData.eid = res.id
+    })
+
 
     var address = app.globalData.add;
 
     console.log("FFFFFFF", address);
-    var phone = app.globalData.ephone;
+    var phone = options.phone;
 
 
     that.setData({
@@ -81,6 +91,7 @@ Page({
 
           that.time(parseInt(res.data.data.next));
           // app.globalData.orderId = res.data.data.orderId;
+
           // app.globalData.pollingCount = res.data.data.pollingCount;
           // wx.navigateTo({
           //   url: '../../driverstate/driverstate',
@@ -106,7 +117,7 @@ Page({
 
           clearInterval(that.data.time)
 
-          getInfo(data=>{
+          getInfo1(data=>{
             console.log(JSON.stringify(data));
             that.drivers();
 
@@ -176,9 +187,9 @@ Page({
       fail: function (res) {
         console.log("失败" + res)
 
-        wx.navigateTo({
-          url: '../../driverstate/driverstate',
-        })
+        // wx.navigateTo({
+        //   url: '../../driverstate/driverstate',
+        // })
       }
 
     })
@@ -193,8 +204,13 @@ Page({
   },
 
   cancelorder:function(){
+
+    var that = this;
+
+    clearTimeout(that.data.timee)
+    
     wx.navigateTo({
-      url: '../../cancelOrder/cancelOrder',
+      url: '../../cancelOrder/cancelOrder?cancelOrder=waitOrder',
     })
 
   },
@@ -219,6 +235,11 @@ Page({
 
   },
 
+  onUnload:function(){
+
+    
+  },
+
   /**
    * 用户点击右上角分享
    */
@@ -230,7 +251,7 @@ Page({
 
     var that = this;
 
-    var time = setTimeout(function(){
+    that.data.timee = setTimeout(function(){
 
       polling(that).then(function(res){
 
@@ -249,6 +270,13 @@ Page({
 
             that.time(parseInt(res.data.data.next));
 
+            app.globalData.orderId = res.data.data.orderId;
+
+            getInfo2(res => {
+
+              console.log("更新orderid", res);
+            })
+
             //派单失败
           } else if (res.data.data.pollingState == '1') {
 
@@ -264,7 +292,7 @@ Page({
             //下单时间
             app.globalData.eordertime = util.formatTime(new Date());
 
-            getInfo(data => {
+            getInfo1(data => {
               console.log(JSON.stringify(data))
               that.drivers();
             })
@@ -286,17 +314,18 @@ Page({
 4008103939
 //代驾下单
 function getInfo(callback){
+
   var param = {
     url: '/user/user/placeOrder',
     data:{
       user_id: app.globalData.userInfo.id,
-      order_id: app.globalData.orderId,
+      // order_id: app.globalData.orderId,
+      bookingId: app.globalData.bookingId,
       status:0,
       service_id: app.globalData.service_no,
       start_address: app.globalData.add,
-      start_time: app.globalData.eordertime,
-      policy_no: app.globalData.policyId,
-      phone: app.globalData.ephone
+      policy_no: app.globalData.policyId, 
+      phone: app.globalData.phonenumber
     },
     type:'POST',
     sCallback: function (data) {
@@ -306,6 +335,43 @@ function getInfo(callback){
 
   commond.requestInfor(param);
 }
+
+//代驾下单
+function getInfo1(callback) {
+  var param = {
+    url: '/user/user/orderUpdate',
+    data: {
+      order_id: app.globalData.orderId,
+      start_time: app.globalData.eordertime,
+      id: app.globalData.eid
+    },
+    type: 'POST',
+    sCallback: function (data) {
+      callback && callback(data);
+    }
+  };
+
+  commond.requestInfor(param);
+}
+
+function getInfo2(callback) {
+  var param = {
+    url: '/user/user/orderUpdate',
+    data: {
+      order_id: app.globalData.orderId,
+      id: app.globalData.eid
+    },
+    type: 'POST',
+    sCallback: function (data) {
+      callback && callback(data);
+    }
+  };
+
+  commond.requestInfor(param);
+}
+
+
+
 
 function polling(that){
   return new Promise(function (resolve, reject){

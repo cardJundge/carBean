@@ -71,7 +71,10 @@
   position: absolute;
   right: 5%;
   padding: 10rpx;
-  box-shadow:0 0 4rpx 2rpx #eee;
+  /* box-shadow:0 0 4rpx 2rpx #eee; */
+  background: #1a84ff;
+  color: white;
+  border-radius: 10rpx;
 }
 
 .tel{

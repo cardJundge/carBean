@@ -208,12 +208,16 @@ App({
   globalData: {
     userInfo: '',
     // hostName:'https://dev.feecgo.com',
-    // hostName: 'http://192.168.1.108',
-    hostName: 'https://www.chedou123.cn',
+    hostName: 'http://192.168.1.108',
+    // hostName: 'https://www.chedou123.cn',
     server: null,
     appkey: '61000252',
     secret: '1d27224d-e6de-4a93-8cd4-c90084c94a7c',
     efrom: "01051718",
     httpurl: 'https://open.api.edaijia.cn',
+    // httpurl:'https://open.d.api.edaijia.cn',
+    // secret:'0031186e-5cc6-45a6-a090-3e88ec220452',
+    // efrom: '01051718', 
+    // appkey:'61000158'
   }
 })

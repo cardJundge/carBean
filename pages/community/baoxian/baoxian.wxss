@@ -1,0 +1,3 @@
+/* pages/community/baoxian/baoxian.wxss */
+
+@import '../../../components/community-modal/community.wxss';

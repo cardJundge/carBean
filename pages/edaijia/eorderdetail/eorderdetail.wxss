@@ -1,0 +1,107 @@
+/* pages/edaijia/eorderdetail/eorderdetail.wxss */
+.container{
+  width: 96%;
+  margin: 0 2%;
+}
+
+.driver-info{
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(241, 241, 241);
+  height: 130rpx;
+}
+
+.driver-info image{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 2rpx 4rpx rgba(216, 216, 216, 0.5);
+  margin-right: 16rpx;
+}
+
+.driver-name{
+  display: flex;
+  flex-direction: column;
+}
+
+.order-location{
+ border-bottom: 1rpx solid rgb(241, 241, 241);
+ position: relative;
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+}
+
+.order-startlocation{
+  display: flex;
+  align-items: center;
+  margin: 14rpx 0;
+  width: 92%;
+}
+
+.order-startlocation image{
+  width: 20rpx;
+  height: 26rpx;
+  margin-right: 14rpx;
+}
+
+.order-startlocation text{
+  margin-right: 14rpx;
+}
+
+.text{
+  color: #b9b9b9;
+}
+
+.arrow{
+  position: absolute;
+  top: 46rpx;
+  right: 20rpx;
+  width: 26rpx;
+  height: 22rpx;
+}
+
+.order-price{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 190rpx;
+  font-size: 52rpx;
+}
+
+.order-distance{
+  font-size: 30rpx;
+}
+
+.order-fee{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+
+.order-fee image{
+  width: 26rpx;
+  height: 22rpx;
+  margin-left: 14rpx;
+}
+
+.ehome{
+  position: fixed;
+  bottom: 30rpx;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  font-size: 26rpx;
+}
+
+.ehome image{
+  width: 90rpx;
+  height: 90rpx;
+  margin-bottom: 10rpx;
+}

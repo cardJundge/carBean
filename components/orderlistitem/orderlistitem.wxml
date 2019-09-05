@@ -2,8 +2,9 @@
 
   <view class='orderlistitem'>
     <view class='ordername-state'>
-      <view class='ordername'>
-        <icon type='success' size='20'></icon>
+      <view class='ordername' bindtap="todetail" data-serviceid ='{{item.service_id}}'>
+        <!-- <icon type='success' size='20'></icon> -->
+        <image src='cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/dingdanlogo.png' class="dingdanlogo"></image>
         <view class='serivername'wx:if="{{item.service_name.short_name}}">{{item.service_name.short_name}}</view>
         <view class='serivername' wx:else>{{item.service_name.name}}</view>
         <image src='/images/icon/right_arrow.png' class='arrow'></image>

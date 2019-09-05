@@ -73,23 +73,32 @@ Page({
         that.setData({
           openId: app.globalData.openId
         })
+
+
         // 没有授权
         if (!data) {
-          // 判断是否是新手
-          beanModel.isNew(that.data.openId,"chedou",(res) => {
-            if (res.status == 0) {
-              that.setData({
-                hasUser: false,  //不显示个人信息
-                showLoginModal: true  //弹出登录授权框
-              })
-            } else {
-              that.setData({
-                hasUserInfo: false,  //弹出新手奖励遮罩层
-                hasUser: false  //不显示个人信息
-              })
-              that.calculateScrollViewHeight();
-            }
+
+          that.setData({
+            // hasUserInfo: false,  //弹出新手奖励遮罩层
+            hasUser: false  //不显示个人信息
           })
+          that.calculateScrollViewHeight();
+
+          // 判断是否是新手
+          // beanModel.isNew(that.data.openId,"chedou",(res) => {
+          //   if (res.status == 0) {
+          //     that.setData({
+          //       hasUser: false,  //不显示个人信息
+          //       showLoginModal: true  //弹出登录授权框
+          //     })
+          //   } else {
+          //     that.setData({
+          //       hasUserInfo: false,  //弹出新手奖励遮罩层
+          //       hasUser: false  //不显示个人信息
+          //     })
+          //     that.calculateScrollViewHeight();
+          //   }
+          // })
           // 已经授权
         } else {
 
@@ -101,6 +110,7 @@ Page({
               hasUser: true,
               basicUserInfo: response.data.data
             })
+
             wx.setStorageSync("hasUserInfo", true)
             that.memberLevel(response.data.data.vip_lv)
             // that.getSignStatus(response.data.data.id)
@@ -142,7 +152,9 @@ Page({
       console.log('基本信息',this.data.basicUserInfo)
       wx.setStorageSync("hasUserInfo", true)
       // this.getSignStatus(this.data.basicUserInfo.id)
-      this.noReceive(this.data.basicUserInfo.id)
+
+      this.randData(this.data.basicUserInfo.id)
+      // this.noReceive(this.data.basicUserInfo.id)
       this.getBeanNum(this.data.basicUserInfo.id)
       // this.carListNum(this.data.basicUserInfo.id)
       this.carList()
@@ -757,72 +769,92 @@ Page({
     var beanData = []
     var that = this
     var randDigits = that.data.randDigits
+
     beanModel.getNoRecive(params, (res) => {
 
       var i = 0;
       //console.log(res.data.new)
       if (res.status == 1) {
         var tipList = []
-        if (res.data.sign) {
-          var beanS = res.data.sign.bean;
-          var sign = {
-            id: res.data.sign.id,
-            bean: beanS,
-            text: "签到"
-          }
-          tipList[randDigits[i]] = sign
-          i++
-        }
-        if (res.data.new) {
-          var beanS = res.data.new.bean;
-          var newhand = {
-            id: res.data.new.id,
-            bean: beanS,
-            text: "新手奖励"
+
+        for (var item in res.data) {
+
+          var release = {
+            id: res.data[item].id,
+            bean: res.data[item].bean,
+            text: res.data[item].title
           }
 
-          tipList[randDigits[i]] = newhand
-          i++
-
-          // 领取新手奖励
-          // beanModel.getRecive(params, 100, res.data.new.id, (res) => {
-          //   console.log(res)
-          //   if (res.status == 1) {
-          //     that.getBeanNum(app.globalData.userInfo.id)
-          //   }
-          // })
+          tipList[randDigits[i]] = release
+          i++;
         }
 
-        if (res.data.release) {
 
-          for (var item in res.data.release) {
+        // if (res.data.sign) {
+        //   var beanS = res.data.sign.bean;
+        //   var sign = {
+        //     id: res.data.sign.id,
+        //     bean: beanS,
+        //     text: "签到"
+        //   }
+        //   tipList[randDigits[i]] = sign
+        //   i++
+        // }
+        // if (res.data.new) {
+        //   var beanS = res.data.new.bean;
+        //   var newhand = {
+        //     id: res.data.new.id,
+        //     bean: beanS,
+        //     text: "新手奖励"
+        //   }
 
-            var release = {
-              id: res.data.release[item].id,
-              bean: res.data.release[item].bean,
-              text: "动态发布"
-            }
+        //   tipList[randDigits[i]] = newhand
+        //   i++
 
-            tipList[randDigits[i]] = release
-            i++;
-          }
+        //   // 领取新手奖励
+        //   // beanModel.getRecive(params, 100, res.data.new.id, (res) => {
+        //   //   console.log(res)
+        //   //   if (res.status == 1) {
+        //   //     that.getBeanNum(app.globalData.userInfo.id)
+        //   //   }
+        //   // })
+        // }
 
-        }
+        // if (res.data.release) {
 
-        if (res.data.eva) {
-          for (var item in res.data.eva) {
-            var eva = {
-              id: res.data.eva[item].id,
-              bean: res.data.eva[item].bean,
-              text: "评论"
-            }
-            tipList[randDigits[i]] = eva
-            i++;
-          }
-        }
+        //   for (var item in res.data.release) {
+
+        //     var release = {
+        //       id: res.data.release[item].id,
+        //       bean: res.data.release[item].bean,
+        //       text: "动态发布"
+        //     }
+
+        //     tipList[randDigits[i]] = release
+        //     i++;
+        //   }
+
+        // }
+
+        // if (res.data.eva) {
+        //   for (var item in res.data.eva) {
+        //     var eva = {
+        //       id: res.data.eva[item].id,
+        //       bean: res.data.eva[item].bean,
+        //       text: "评论"
+        //     }
+        //     tipList[randDigits[i]] = eva
+        //     i++;
+        //   }
+        // }
 
         that.setData({
           tipList: tipList
+        })
+      }else{
+
+        that.setData({
+          tipList: []
         })
       }
     })
@@ -836,6 +868,7 @@ Page({
       if (res.status == 1) {
         that.noReceive(app.globalData.userInfo.id)
         that.getBeanNum(app.globalData.userInfo.id)
+
       }
     })
   },
@@ -873,10 +906,15 @@ Page({
         app.getUserLogin(data, response => {
 
           if (app.globalData.userInfo) {
+
             beanModel.getNoRecive(app.globalData.userInfo.id, res => {
-              var newid = res.data.new.id;
-              var newbean = res.data.new.bean;
+
+              console.log("HHHHHHHHHHHHHHHH", res.data[0].id);
+              var newid = res.data[0].id;
+              var newbean = res.data[0].bean;
               beanModel.getRecive(app.globalData.userInfo.id, newbean, newid, res => {
+
+                console.log("hhhhhhhh");
                 if (res.status == 1) {
                   that.noReceive(that.data.basicUserInfo.id)
                   that.getBeanNum(app.globalData.userInfo.id)

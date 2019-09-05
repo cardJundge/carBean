@@ -30,7 +30,7 @@
 
 <view class='send-tip' bindtap='driverstate'>如果派单成功,司机会电话联系你</view>
 
-<!-- <view class='canceltext' catchtap='cancelorder'>取消订单</view> -->
+<view class='canceltext' catchtap='cancelorder'>取消订单</view>
 
 <!-- <view class='tel'>
     <text>客服电话:</text>

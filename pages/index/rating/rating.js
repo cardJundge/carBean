@@ -204,14 +204,23 @@ Page({
         if (res.data.status == 1) {
           app.globalData.coupon = res.data.coupon.id
           that.setData({
-            beanLogTit: '评价',
-            beanLogBean: '+5',
+            // beanLogTit: '评价',
+            // beanLogBean: '+0',
             ratingOk: true
           })
-          // getBean(that)
+          getBean(that)
           wx.showToast({
             title: '评价成功',
           })
+
+          setTimeout(function(){
+
+            wx.navigateTo({
+              url: '../../community/prepage/prepage',
+            })
+
+          },2000)
+
         } else if (res.data.status == -2) {
           wx.showModal({
             title: "消息通知",
@@ -668,13 +677,13 @@ Page({
               that.setData({
                 userInfo: response.data.data,
                 hasUserInfo: true,
-                beanLogTit: '登录',
-                beanLogBean: '+3',
+                // beanLogTit: '登录',
+                // beanLogBean: '+0',
                 ratingOk: true,
                 sessionId: response.data.data.session_id,
                 isOver: false
               })
-              // getBean(that)
+              getBean(that)
               common.userInfor(that).then(function (res) {
                 if (res.data.survey) {
                   that.submitRatings()

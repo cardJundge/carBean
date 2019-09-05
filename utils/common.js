@@ -134,14 +134,14 @@ function uploadDynamic(that) {
     console.log("###",that.data.mediaSrc);
     console.log("%%%%" + that.data.fileType);
     
-    if (that.data.mediaSrc == '') {
+    // if (that.data.mediaSrc == '') {
 
-      console.log("()()()()()(");
-      that.data.fileTypePublic = 1
-      that.data.fileName = ''
-      resolve(that)
-      return
-    }
+    //   console.log("()()()()()(");
+    //   that.data.fileTypePublic = 1
+    //   that.data.fileName = ''
+    //   resolve(that)
+    //   return
+    // }
 
     wx.uploadFile({
       url: test + '/user/community/upload',
@@ -210,7 +210,7 @@ function publicDynamic(that) {
         // location: app.globalData.location.latLong.lat + ',' + app.globalData.location.latLong.long,
         location: app.globalData.latitude + ',' + app.globalData.longitude,
         address: app.globalData.address,
-        event_type: app.globalData.event_type //事件类型(1:保险，2:理赔，3:维修/保养)
+        event_type: app.globalData.event_type //事件类型(1:保险，2:调查，3:理赔，4：人伤，5：其他)
       },
       success: function(res) {
        console.log(res)

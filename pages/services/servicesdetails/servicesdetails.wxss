@@ -137,9 +137,9 @@ page{
   background: white;
   width: 100%;
   display: flex;
-  justify-content:space-around;
+  justify-content:space-between;
   border-top: 1px solid #eee;
-  padding: 14rpx 0;
+  padding: 14rpx 5%;
 }
 
 .bottom-left{

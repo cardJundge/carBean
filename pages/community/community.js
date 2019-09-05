@@ -36,6 +36,7 @@ Page({
     dynamicArr: [],
     mapdynamicArr:[],
     tablist: ['列表模式', '地图模式'],
+    // tablist:['最新','最热'],
     sidelist: ['全部', '保险', '理赔', '维修/保养'],
     page: 1,
     event_type: 0,
@@ -51,7 +52,22 @@ Page({
     mapscale:16,
     setshow:true,
     details:false,
-    dylogo:1 //1代表 社区  2代表 详情
+    dylogo: 1, //1代表 社区  2代表 详情
+    gesture: false, //禁止非全屏模式下滑动调亮，音量大小
+    centerplay: true, //显示播放按钮
+    videohiddle:false,
+    imgUrls: [
+      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+    ],
+    autoplay: true,
+    interval: 3000,
+    duration: 50000,
+    current:0,
+    circular:true,
+    animationData: {},
+    animationData2: {}
   },
 
   /**
@@ -62,11 +78,26 @@ Page({
     console.log("初始化加载");
     var that = this;
 
+    that.stretch(200);
+    that.shrink(160);
+
     console.log("ddd", app.globalData.userInfo);
 
     wx.getSystemInfo({
       success(res){
         console.log(res);
+
+        if ((res.system).substring(0, 3) == 'iOS') {
+
+          that.setData({
+            model:"ios"
+          })
+        } else {
+
+          that.setData({
+            model: "Android"
+          })
+        }
         // that.data.scale = res.windowWidth / 375 / res.pixelRatio*1.8
         that.data.scale = res.windowWidth / 375 / res.pixelRatio *1.2
         }
@@ -774,7 +805,8 @@ Page({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
           that.setData({
-            showLoginModal: true
+            showLoginModal: true,
+            videohiddle:true
           })
         } else if (!res.authSetting['scope.userLocation']) {
           that.setData({
@@ -849,9 +881,13 @@ Page({
       ifPublic: false
     })
   },
-  toPublicText: function() {
+  toPublicText: function(e) {
+
+    var eventtype = e.currentTarget.dataset.eventtype
+
+    console.log(e)
     wx.navigateTo({
-      url: 'listdetail/publicText/publicText',
+      url: 'listdetail/publicText/publicText?eventtype=' + eventtype,
     })
     this.setData({
       ifPublic: false
@@ -874,7 +910,8 @@ Page({
 
       console.log("&&&&" + JSON.stringify(e));
       that.data.dynamic_id = e.currentTarget.id;
-      that.data.userId = app.globalData.userInfo.id
+      that.data.userId = app.globalData.userInfo.id;
+      that.data.sessionId = app.globalData.userInfo.session_id;
 
       common.giveThumnUp(that).then(function(res) {
 
@@ -899,11 +936,19 @@ Page({
       // })
 
       that.setData({
-        showLoginModal: true
+        showLoginModal: true,
+        videohiddle: true
       })
 
     }
 
+  },
+
+  //隐藏/显示视频
+  videohiddle:function(){
+    this.setData({
+      videohiddle:false
+    })
   },
 
   //登录返回
@@ -937,7 +982,8 @@ Page({
       } else {
         app.getUserLogin(data, response => {
 
-          app.globalData.userInfo = response.data.data
+          app.globalData.userInfo = response.data.data;
+          that.data.sessionId = app.globalData.userInfo.session_id
           wx.setStorageSync("hasUserInfo", true)
 
         })
@@ -954,7 +1000,9 @@ Page({
     if (app.globalData.userInfo) {
 
       that.data.dynamic_id = e.currentTarget.id;
-      that.data.userId = app.globalData.userInfo.id
+      that.data.userId = app.globalData.userInfo.id;
+      that.data.sessionId = app.globalData.userInfo.session_id;
+
       common.cancelThumnUp(that).then(function(res) {
 
         if (res == 1) {
@@ -977,7 +1025,8 @@ Page({
     } else {
 
       that.setData({
-        showLoginModal: true
+        showLoginModal: true,
+        videohiddle: true
       })
     }
 
@@ -1008,7 +1057,8 @@ Page({
       //   title: '请先登录...',
       // })
       that.setData({
-        showLoginModal: true
+        showLoginModal: true,
+        videohiddle: true
       })
     }
 
@@ -1058,7 +1108,6 @@ Page({
       })
     }
 
-    console.log();
     if (that.data.flag) {
 
       
@@ -1179,7 +1228,6 @@ Page({
 
     var that = this;
 
-    console.log("hhhhhhh");
     // that.data.page = 1;
     // that.data.isReachBottom=false
   },
@@ -1201,6 +1249,17 @@ Page({
 
   },
 
+  //当开始/继续播放时触发play事件
+  bindplay:function(e){
+
+    var videoId = e.currentTarget.id
+
+    var that = this;
+    
+    that.data.videocontext = wx.createVideoContext(videoId, that)
+    that.data.videocontext.requestFullScreen();
+  },
+
   //视频进入和退出全屏时触发
   bindfullscreenchange:function(e){
 
@@ -1213,6 +1272,8 @@ Page({
       })
 
     }else{
+
+      that.data.videocontext.stop();
 
       that.setData({
         videostyle: "block"
@@ -1410,7 +1471,54 @@ Page({
 
     var that = this;
     return num * that.data.scale
+  },
+
+  //swiper滑动
+  bindswiperchange:function(e){
+    
+    var that = this;
+    that.setData({
+      current: e.detail.current
+    });
+
+    that.stretch(200)
+
+    that.shrink(160)
+  },
+
+  // 收缩
+  stretch(h) {
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+    this.animation = animation
+    animation.height(h).step()   //表示一组动画完成
+    this.setData({
+      animationData: animation.export(),
+    })
+  },
+
+  // 展开
+  shrink(h) {
+    var animation2 = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'ease',
+    })
+    this.animation2 = animation2
+    animation2.height(h).step()
+    this.setData({
+      animationData2: animation2.export()
+    })
+  },
+
+  
+  onbaoxian:function(){
+    wx.navigateTo({
+      url: './baoxian/baoxian',
+    })
   }
+  
   
 })
 
@@ -1419,12 +1527,16 @@ Page({
 function draw(that, item) {
   return new Promise(function (resolve, reject) {
 
+    console.log("fffffff");
+
     const ctx = wx.createCanvasContext('handleCanvas');
     wx.downloadFile({
       // url: that.data.voiceArr[voiceId].user_info.face, // 仅为示例，并非真实的资源
       // url: Config.restUrl + '/uploads/community/voice/' + that.data.dynamicArr[item].content,
       url: that.data.mapdynamicArr[item].user_info.face,
       success(res) {
+
+        console.log("fffffff1111",res);
 
         ctx.save()
         ctx.beginPath()
@@ -1435,98 +1547,109 @@ function draw(that, item) {
         ctx.drawImage(res.tempFilePath, 0, 0, that.remSize(40), that.remSize(40))
         // ctx.drawImage("../../images/unlogin.png", 0, 0, 100, 100)
         ctx.draw(false, function () {
-          wx.canvasToTempFilePath({
-            x: 0,
-            y: 0,
-            width: that.remSize(42),
-            height: that.remSize(42),
-            canvasId: 'handleCanvas',
-            // destWidth: that.remSize(42)*2,
-            // destHeight: that.remSize(42) * 2,
-            success(res) {
 
-              ctx.drawImage(res.tempFilePath, 0, 0, that.remSize(42), that.remSize(42))
+          setTimeout(function(){
 
-              ctx.restore()
+            wx.canvasToTempFilePath({
+              x: 0,
+              y: 0,
+              width: that.remSize(42),
+              height: that.remSize(42),
+              canvasId: 'handleCanvas',
+              // destWidth: that.remSize(42)*2,
+              // destHeight: that.remSize(42) * 2,
+              success(res) {
 
-              console.log("www", that.data.mapdynamicArr, "ppp", item);
+                console.log("fffffff2222", res);
 
-              if (that.data.mapdynamicArr[item].type == 2) {
-                ctx.drawImage('../../images/audioBac.png', that.remSize(42), 0, that.remSize(97), that.remSize(42))
-                ctx.drawImage('../../images/community/triangle.png', that.remSize(50), that.remSize(15), that.remSize(12), that.remSize(12))
-                ctx.drawImage('../../images/community/wave.png', that.remSize(70), that.remSize(6), that.remSize(42), that.remSize(30))
-                // ctx.drawImage('../../../images/position.png', 20, 50, 40, 40)
-                ctx.setFontSize(that.remSize(15))
-                // ctx.setStrokeStyle('red')
-                ctx.fillText(that.data.mapdynamicArr[item].voiceduration + '″', that.remSize(122), that.remSize(28))
+                ctx.drawImage(res.tempFilePath, 0, 0, that.remSize(42), that.remSize(42))
+
+                ctx.restore()
+
+                console.log("www", that.data.mapdynamicArr, "ppp", item);
+
+                if (that.data.mapdynamicArr[item].type == 2) {
+                  ctx.drawImage('../../images/audioBac.png', that.remSize(42), 0, that.remSize(97), that.remSize(42))
+                  ctx.drawImage('../../images/community/triangle.png', that.remSize(50), that.remSize(15), that.remSize(12), that.remSize(12))
+                  ctx.drawImage('../../images/community/wave.png', that.remSize(70), that.remSize(6), that.remSize(42), that.remSize(30))
+                  // ctx.drawImage('../../../images/position.png', 20, 50, 40, 40)
+                  ctx.setFontSize(that.remSize(15))
+                  // ctx.setStrokeStyle('red')
+                  ctx.fillText(that.data.mapdynamicArr[item].voiceduration + '″', that.remSize(122), that.remSize(28))
 
 
-              } else {
+                } else {
 
-                ctx.drawImage('../../images/audioBac.png', that.remSize(42), 0, that.remSize(97), that.remSize(42))
+                  ctx.drawImage('../../images/audioBac.png', that.remSize(42), 0, that.remSize(97), that.remSize(42))
 
-                ctx.setFontSize(that.remSize(15))
-                // ctx.setTextAlign('left')
-                ctx.fillText(that.data.mapdynamicArr[item].title.substring(0, 4)+"...", that.remSize(50), that.remSize(28))
+                  ctx.setFontSize(that.remSize(15))
+                  // ctx.setTextAlign('left')
+                  ctx.fillText(that.data.mapdynamicArr[item].title.substring(0, 4) + "...", that.remSize(50), that.remSize(28))
 
-                
-                // ctx.setStrokeStyle('red')
-              }
 
-              ctx.draw(false, function () {
-                wx.canvasToTempFilePath({
-                  x: 0,
-                  y: 0,
-                  width: that.remSize(152),
-                  height: that.remSize(42),
-                  canvasId: 'handleCanvas',
-                  success(res) {
+                  // ctx.setStrokeStyle('red')
+                }
 
-                    ctx.restore()
-                    that.setData({
-                      aa1: res.tempFilePath
-                    })
+                ctx.draw(false, function () {
+                  wx.canvasToTempFilePath({
+                    x: 0,
+                    y: 0,
+                    width: that.remSize(152),
+                    height: that.remSize(42),
+                    canvasId: 'handleCanvas',
+                    success(res) {
 
-                    console.log("aa1", that.data.aa1);
+                      ctx.restore()
+                      that.setData({
+                        aa1: res.tempFilePath
+                      })
 
-                    that.data.markers.push({
-                      id: that.data.mapdynamicArr[item].id,
-                      latitude: that.data.mapdynamicArr[item].location.split(",")[0],
-                      longitude: that.data.mapdynamicArr[item].location.split(",")[1],
-                      iconPath: that.data.aa1,
-                      // callout: {
-                      //   content: ' 正在播放... ',
-                      //   color: '#ffffff',
-                      //   fontSize: 10,
-                      //   borderRadius: 20,
-                      //   bgColor: '#000',
-                      //   padding: '4',
-                      //   display: 'BYCLICK',
-                      //   textAlign: 'center'
-                      // },
-                      // width: 200,
-                      // height: 100,
-                    })
+                      console.log("aa1", that.data.aa1);
 
-                    
-                    that.setData({
-                      markers: that.data.markers
-                    })
+                      that.data.markers.push({
+                        id: that.data.mapdynamicArr[item].id,
+                        latitude: that.data.mapdynamicArr[item].location.split(",")[0],
+                        longitude: that.data.mapdynamicArr[item].location.split(",")[1],
+                        iconPath: that.data.aa1,
+                        // callout: {
+                        //   content: ' 正在播放... ',
+                        //   color: '#ffffff',
+                        //   fontSize: 10,
+                        //   borderRadius: 20,
+                        //   bgColor: '#000',
+                        //   padding: '4',
+                        //   display: 'BYCLICK',
+                        //   textAlign: 'center'
+                        // },
+                        // width: 200,
+                        // height: 100,
+                      })
 
-                    resolve(that)
 
-                  },
-                  fail(res) {
-                    console.log("147852");
-                  }
-                  
+                      that.setData({
+                        markers: that.data.markers
+                      })
+
+                      resolve(that)
+
+                    },
+                    fail(res) {
+                      console.log("147852", res);
+                    },
+                    complete(res) {
+                      console.log("gggg", res);
+                    }
+
+                  })
                 })
-              })
-            },
-            fail(res) {
-              console.log("00000");
-            }         
-          })
+              },
+              fail(res) {
+                console.log("00000");
+              }
+            })
+
+          },600)
+          
 
         })
       },

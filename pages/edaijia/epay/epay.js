@@ -66,11 +66,19 @@ Page({
         app.globalData.totalDistance = res.data.data.totalDistance;
 
         var getofftime = app.globalData.getofftime;
-        var address = app.globalData.add;
+        // var address = app.globalData.add;
 
-        getInfo(data => {
-          console.log("ddd" + JSON.stringify(data))
-        })
+        if (options.orderfee){
+
+
+        }else{
+
+          getInfo(data => {
+            console.log("ddd" + JSON.stringify(data))
+          })
+        }
+
+        
 
         if (parseInt(income)>60){
           var value = parseInt(income) - 60 
@@ -82,7 +90,7 @@ Page({
         that.setData({
           income: income,
           getofftime: getofftime,
-          address:address,
+          address: res.data.data.destination,
           pictureSmall: app.globalData.pictureSmall,
           drivername: app.globalData.drivername,
           driverId: app.globalData.driverId,
@@ -147,7 +155,7 @@ function orderpay(that){
       method: 'GET',
       data: {
         appkey: app.globalData.appkey,
-        from: '01012345',
+        from: app.globalData.efrom,
         orderId:app.globalData.orderId,
         timestamp: currenttime,
         token: app.globalData.etoken,
@@ -168,14 +176,15 @@ function orderpay(that){
 
 function getInfo(callback) {
   var param = {
-    url: '/user/user/driving_complete',
+    url: '/user/user/orderUpdate',
     data: {
       order_id: app.globalData.orderId,
       status:1,
       price: app.globalData.income,
       end_time: util.formatTime(new Date()),
       mileage: app.globalData.totalDistance,
-      end_address: app.globalData.end_address
+      end_address: app.globalData.end_address,
+      id:app.globalData.eid
     },
     type: 'POST',
     sCallback: function (data) {

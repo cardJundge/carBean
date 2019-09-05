@@ -54,8 +54,18 @@
 
 <view class='tips'>超出60元的费用请直接支付给e代驾司机</view>
 
-<view class='tips' bindtap='back'>返回首页</view>
+
+<view class="ehome" bindtap='back'>
+    <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/service/driving/ehome.png"></image>
+    <text>回首页</text>
+</view>
+
+<!-- <view class='tips'  >返回首页</view> -->
 
 <!-- <view>
     <button class='wechatpay' bindtap='wechatpay'>微信支付 0元</button>
 </view> -->
+
+
+
+

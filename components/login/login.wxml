@@ -17,7 +17,10 @@
           <text>成为会员后还可以参与活动</text>
         </view>
       </view>
-      <button class="login-btn"  open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>微信登录</button>
+      <view class="btn-bottom">
+        <button class="login-btn zanbu"  bind:tap="hideModal">暂不登录</button>
+        <button class="login-btn"  open-type='getUserInfo' bindgetuserinfo='bindGetUserInfo'>微信登录</button>
+      </view>
     </view>
   </view>
 </view>
