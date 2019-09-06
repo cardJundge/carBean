@@ -40,7 +40,7 @@
       
       <view style='margin:0px 12px'>
         <button form-type='submit' class='button_active' wx:if='{{!isOver}}'>发布</button>
-        <button class='button_active1' wx:if='{{isOver}}'>正在发布...</button>
+        <button class='button_active button_active1' wx:if='{{isOver}}'>正在发布...</button>
       </view>
     </form>
   </view>

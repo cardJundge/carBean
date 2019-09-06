@@ -1,8 +1,8 @@
 <view class="whole">
 
-  <view class="logo_img">
+  <!-- <view class="logo_img">
     <image src="cloud://a-data-1a3ebf.612d-a-data-1a3ebf/community/shequ_logo_img.png"></image>
-  </view>
+  </view> -->
 
   <view class="swiper-tab">
     <view wx:for="{{tablist}}" wx:key="index" class="swiper-tab-list {{currentTab==index ? 'active' : ''}}" bindtap='switchnav' data-index='{{index}}'>

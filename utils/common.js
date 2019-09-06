@@ -134,14 +134,14 @@ function uploadDynamic(that) {
     console.log("###",that.data.mediaSrc);
     console.log("%%%%" + that.data.fileType);
     
-    // if (that.data.mediaSrc == '') {
+    if (that.data.mediaSrc == '') {
 
-    //   console.log("()()()()()(");
-    //   that.data.fileTypePublic = 1
-    //   that.data.fileName = ''
-    //   resolve(that)
-    //   return
-    // }
+      console.log("()()()()()(");
+      that.data.fileTypePublic = 1
+      that.data.fileName = ''
+      resolve(that)
+      return
+    }
 
     wx.uploadFile({
       url: test + '/user/community/upload',

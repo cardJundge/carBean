@@ -80,6 +80,8 @@ Page({
   submitPublic: function(e) {
     var that = this
 
+    console.log("ppp",e);
+
     if (app.globalData.userInfo) {
 
       console.log("HHHHH" + that.data.mediaSrc);

@@ -26,7 +26,8 @@ Page({
     dynamicArr: [],
     page: 1,
     event_type: 0,
-    mine:"mine"
+    mine:"mine",
+    dylogo:1
   },
 
   /**
